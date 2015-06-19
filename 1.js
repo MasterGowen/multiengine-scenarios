@@ -1,2 +1,4 @@
 //Сценарий
-фывыфвыфв
+var scenarioRun = function() {
+	alert('Hello frim GitHub! Лёша Жопа')
+}
