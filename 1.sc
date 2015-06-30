@@ -42,11 +42,7 @@ css::
 asdasdasd
 
 javascript::
-
 x={};
-x.student = function(element){Y('student');
-$(element).find('textarea[name=answer]').val("попа");};
-x.studio = function(element){
-Y('studio');
-$(element).find('textarea[name=answer]').val("жопа");};
+x.student = function(element){$(element).find('textarea[name=answer]').val("попа");};
+x.studio = function(element){$(element).find('textarea[name=answer]').val("жопа");};
 return x;
