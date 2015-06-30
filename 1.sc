@@ -42,7 +42,7 @@ css::
 asdasdasd
 
 javascriptStudent::
-werere('ок');
+alert('javascriptStudent');
 
 javascriptStudio::
-alert('ok');
+alert('javascriptStudio');
