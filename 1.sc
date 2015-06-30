@@ -41,5 +41,8 @@ html::
 css::
 asdasdasd
 
-javascript::
+javascriptStudent::
 werere('ок');
+
+javascriptStudio::
+alert('ok');
