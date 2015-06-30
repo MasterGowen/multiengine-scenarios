@@ -43,4 +43,4 @@ asdasdasd
 
 javascript::
 function X(element){$(element).find('textarea[name=answer]').val("жопа");};
-return X()
+return X(element)
