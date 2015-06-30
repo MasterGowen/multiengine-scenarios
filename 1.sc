@@ -42,4 +42,4 @@ css::
 asdasdasd
 
 javascript::
-alert("Жопа!");
+ $(element).find('textarea[name=answer]').val("жопа");
