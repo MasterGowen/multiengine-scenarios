@@ -43,7 +43,6 @@ asdasdasd
 
 javascript::
 x={};
-x.werere = werere('ок');
-x.student = function(element){$(element).find('textarea[name=answer]').val("попа");};
+x.student = function(element){$(element).find('textarea[name=answer]').val("попа");werere('ок');};
 x.studio = function(element){$(element).find('textarea[name=answer]').val("жопа");};
 return x;
