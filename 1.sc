@@ -44,5 +44,5 @@ asdasdasd
 javascript::
 x={};
 x.student = (function(element){$(element).find('textarea[name=answer]').val("попа");};);
-x.studio = (function(element){$(element).find('textarea[name=answer]').val("жопа");};)
+x.studio = (function(element){$(element).find('textarea[name=answer]').val("жопа");};);
 return x;
