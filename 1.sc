@@ -42,4 +42,5 @@ css::
 asdasdasd
 
 javascript::
- $(element).find('textarea[name=answer]').val("жопа");
+function X(element){$(element).find('textarea[name=answer]').val("жопа");};
+return X()
