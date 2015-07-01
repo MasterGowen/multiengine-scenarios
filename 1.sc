@@ -42,7 +42,7 @@ css::
 asdasdasd
 
 javascriptStudent::
-alert('javascriptStudent');
+$('#testdiv').html('Opapapapapap!')
 
 javascriptStudio::
 alert('javascriptStudio');
