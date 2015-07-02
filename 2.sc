@@ -18,7 +18,9 @@ asdasdasd
 
 javascriptStudent::
 alert('javascriptStudent');
+alert('javascriptStudent test');
 //$('#testdiv').html('Opapapapapap!')
 
 javascriptStudio::
 alert('javascriptStudio');
+alert('javascriptStudent tets');
