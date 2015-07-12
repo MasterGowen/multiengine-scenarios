@@ -24,4 +24,4 @@ elementDOM.querySelector('.windowRaw').innerHTML = '<h1>windowRaw</h1><textarea 
 elementDOM.querySelector('.windowView').innerHTML = '<h1>windowView</h1><div id="view"></div>';
 elementDOM.querySelector('.windowView').innerHTML = '<a id="conraw">CON</a>';
 function CONRaw(){ getValueFild('raw')};
-elementDOM.querySelector('#conraw').onclick = CONRaw;setBlockHtml('view',
+elementDOM.querySelector('#conraw').onclick = CONRaw;
