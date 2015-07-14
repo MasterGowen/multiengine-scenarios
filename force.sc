@@ -7,10 +7,9 @@ description::
 Выбор действующий сил и моментов на объект или обекты
 
 html::
+    <div id="windowRaw"></div>
+    <div id="windowView"></div>
 
-    <div class="container">
-    <div>Test</div>
-    </div>
 
 
 css::
@@ -23,5 +22,5 @@ javascriptStudio::
 elementDOM.querySelector('.windowRaw').innerHTML = '<h1>windowRaw</h1><textarea id="raw"></textarea><a id="conraw">CON</a>';
 elementDOM.querySelector('.windowView').innerHTML = '<h1>windowView</h1><div id="view"></div>';
 
-function CONRaw(){setBlockHtml('view',getValueFild('raw').body.innerHTML)};
+function CONRaw(){setBlockHtml('view', getValueFild('raw').body.innerHTML)};
 elementDOM.querySelector('#conraw').onclick = CONRaw;
