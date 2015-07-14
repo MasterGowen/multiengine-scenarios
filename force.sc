@@ -13,10 +13,10 @@ html::
 
 
 css::
-asdasdasd
+body{background:red};
 
 javascriptStudent::
-
+console.log("student");
 
 javascriptStudio::
 setBlockHtml('windowRaw','<h1>windowRaw</h1><textarea id="raw"></textarea><a id="conraw">CON</a>');
