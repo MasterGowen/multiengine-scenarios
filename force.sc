@@ -19,8 +19,8 @@ javascriptStudent::
 
 
 javascriptStudio::
-elementDOM.querySelector('.windowRaw').innerHTML = '<h1>windowRaw</h1><textarea id="raw"></textarea><a id="conraw">CON</a>';
-elementDOM.querySelector('.windowView').innerHTML = '<h1>windowView</h1><div id="view"></div>';
+setBlockHtml('windowRaw','<h1>windowRaw</h1><textarea id="raw"></textarea><a id="conraw">CON</a>');
+setBlockHtml('windowView','<h1>windowView</h1><div id="view"></div>');
 
 function CONRaw(){setBlockHtml('view', getValueFild('raw').body.innerHTML)};
 elementDOM.querySelector('#conraw').onclick = CONRaw;
