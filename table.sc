@@ -100,10 +100,17 @@ console.log(table);
 setBlockHtml('view', table);
 };
 
-$('#dragAnswers').sortable({ placeholder:".block", items:".answer", connectWith:'.answerPlace .cell, .answerPlace', revert: '100', tolerance:"pointer"}).disableSelection();
 
+function drag(){
+    $('#dragAnswers').sortable({ placeholder:".block", items:".answer", connectWith:'.answerPlace .cell, .answerPlace', revert: '100', tolerance:"pointer"}).disableSelection();
+}
 
-elementDOM.querySelector('#conraw').onclick = SetDragAttr;
+function Convertation(){
+    SetDragAttr();
+    drag();
+}
+
+elementDOM.querySelector('#conraw').onclick = Convertation;
 elementDOM.querySelector('#scButtonView').onclick = function(){
     elementDOM.querySelector('#scButtonRaw').setAttribute('scMenuActive', 'false');
     elementDOM.querySelector('#scButtonView').setAttribute('scMenuActive', 'true');
