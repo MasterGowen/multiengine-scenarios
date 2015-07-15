@@ -8,8 +8,8 @@ description::
 
 html::
 	<ul id="scMenu">
-		<li id="scMenuRaw" scMenuActive="true">Исходный код</li>
-		<li id="scMenuView" scMenuActive="false">Просмотр</li>
+		<li id="scButtonRaw" scMenuActive="true">Исходный код</li>
+		<li id="scButtonView" scMenuActive="false">Просмотр</li>
 	</ul>
     <div id="scWindowRaw">
     	<textarea id="raw"></textarea><a id="conraw">Преобразовать SVG</a>
@@ -59,3 +59,5 @@ javascriptStudio::
 
 function CONRaw(){setBlockHtml('view', getValueFild('raw').body.innerHTML)};
 elementDOM.querySelector('#conraw').onclick = CONRaw;
+elementDOM.querySelector('#scButtonRaw').onclick = function(){elementDOM.querySelector('#scWindowsRaw').style.display = "block"; elementDOM.querySelector('#scWindowsView').style.display = "none";}
+elementDOM.querySelector('#scButtonRaw').onclick = function(){elementDOM.querySelector('#scWindowsRaw').style.display = "none"; elementDOM.querySelector('#scWindowsView').style.display = "block";}
