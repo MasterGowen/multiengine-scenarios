@@ -9,10 +9,11 @@ description::
 html::
 	<ul id="scMenu">
 		<li id="scButtonRaw" scMenuActive="true">Исходный код</li>
+        <li id="conraw">Преобразовать SVG</li>
 		<li id="scButtonView" scMenuActive="false">Просмотр</li>
 	</ul>
     <div id="scWindowRaw">
-    	<textarea id="raw"></textarea><a id="conraw">Преобразовать SVG</a>
+    	<textarea id="raw"></textarea>
     </div>
     <div id="scWindowView"><div id="view"></div></div>
 
