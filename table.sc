@@ -8,7 +8,7 @@ description::
 
 html::
     <script type="text/javascript" src="http://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
-    
+
     <ul id="scMenu">
         <li id="scButtonRaw" scMenuActive="true">Исходный код</li>
         <li id="conraw">Преобразовать SVG</li>
@@ -19,7 +19,6 @@ html::
     </div>
     <div id="scWindowView" hidden='true'><div id="view">
 
-<!--
     <div class="answerPlace" id="dragAnswers">
             <div class="answer" id="v1">Вариант 1 </div>
             <div class="answer" id="v2">Вариант 2</div>
@@ -29,7 +28,6 @@ html::
             <div class="answer" id="v6">Вариант 6</div>
             <div class="answer" id="v7">Вариант 87</div>
     </div>
--->
     </div></div>
 
 
