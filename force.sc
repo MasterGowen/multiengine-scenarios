@@ -17,6 +17,20 @@ html::
 
 
 css::
+#scMenu{
+	margin: 0 auto;
+    display: block;
+    width: 350px;
+}
+
+#scMenu li {
+    border: 1px solid #e6e6e6;
+    padding: 10px;
+    display: inline-block;
+    width: 43%;
+    text-align: center;
+    margin: 0px;
+}
 
 
 
