@@ -105,7 +105,21 @@ setBlockHtml('view', table);
 
 
 function drag(){
-    $('#dragAnswers').sortable({ placeholder:".block", items:".answer", connectWith:'.answerPlace .cell, .answerPlace', revert: '100', tolerance:"pointer"}).disableSelection();
+    
+        $('#dragAnswers').sortable({
+        items: ".answer",
+        connectWith: '.answerPlace .cell, .answerPlace',
+        revert: '100',
+        tolerance: "pointer"
+    }).disableSelection();
+
+    $('.answerPlace .cell').sortable({
+        items: ".answer",
+        connectWith: '.answerPlace .cell, .answerPlace',
+        revert: '100',
+        tolerance: "pointer"
+    }).disableSelection();
+
 }
 
 function Convertation(){
