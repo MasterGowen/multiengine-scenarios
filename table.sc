@@ -7,6 +7,8 @@ description::
 Табличный тест
 
 html::
+    <script type="text/javascript" src="http://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
+    
     <ul id="scMenu">
         <li id="scButtonRaw" scMenuActive="true">Исходный код</li>
         <li id="conraw">Преобразовать SVG</li>
@@ -62,7 +64,7 @@ console.log("student");
 
 javascriptStudio::
 
-   // <script type="text/javascript" src="http://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
+
 
 function SetDragAttr(){
 
