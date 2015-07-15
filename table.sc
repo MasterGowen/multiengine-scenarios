@@ -17,17 +17,6 @@ html::
     </div>
     <div id="scWindowView" hidden='true'><div id="view">
 
-<!--
-    <div class="answerPlace" id="dragAnswers">
-            <div class="answer" id="v1">Вариант 1 </div>
-            <div class="answer" id="v2">Вариант 2</div>
-            <div class="answer" id="v3">Вариант 3</div>
-            <div class="answer" id="v4">Вариант 4</div>
-            <div class="answer" id="v5">Вариант 5</div>
-            <div class="answer" id="v6">Вариант 6</div>
-            <div class="answer" id="v7">Вариант 87</div>
-    </div>
--->
     </div></div>
 
 
@@ -76,7 +65,7 @@ javascriptStudio::
     <script type="text/javascript" src="http://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
 
 function SetDragAttr(){
-/*
+
 var table = ''
 var items= ''
 table+='<table class="dragAnswer" id="dragTable"> <tbody>';
@@ -93,14 +82,14 @@ table+='<table class="dragAnswer" id="dragTable"> <tbody>';
         table+= '</tr>'
     });
 
-table+='</tbody></table>';
+//table+='</tbody></table>';
 
 console.log(table);
 setBlockHtml('view', table);
-*/
+
 };
 
-$('#dragAnswers').sortable({ placeholder:".block", items:".answer", connectWith:'.answerPlace .cell, .answerPlace', revert: '100', tolerance:"pointer"}).disableSelection();
+//$('#dragAnswers').sortable({ placeholder:".block", items:".answer", connectWith:'.answerPlace .cell, .answerPlace', revert: '100', tolerance:"pointer"}).disableSelection();
 
 
 elementDOM.querySelector('#conraw').onclick = SetDragAttr;
