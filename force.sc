@@ -20,7 +20,7 @@ html::
 
 css::
 #scMenu{
-	margin: 0 auto;
+	margin: 10px auto;
     display: block;
     width: 350px;
 }
@@ -35,8 +35,9 @@ css::
 }
 
 #raw, #view{
+	border: 1px solid #e6e6e6;
     width: 100%;
-    height: 300px;
+    min-height: 300px;
 }
 
 
