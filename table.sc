@@ -61,10 +61,17 @@ console.log("student");
 javascriptStudio::
 
 
-function SetDragAttr(){  var documentTable =  getValueFild('raw').body;
-
-forEachInCollection(childList(documentTable.getElementByTagName('table')[0]), function(value){ alert(value)}; );
-
+function SetDragAttr(){ 
+    var documentTable =  getValueFild('raw').body;
+/*
+forEachInCollection(
+    (childList(
+        documentTable.getElementByTagName('table')[0]
+    )), function(value){
+                         alert(value);
+                     }; 
+);
+*/
 
 };
 
