@@ -27,7 +27,7 @@ css::
   height: 549px;
 }
  /*конец*/ 
-}
+
 
 #scMenu{
 	margin: 10px auto;
