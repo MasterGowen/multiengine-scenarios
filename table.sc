@@ -83,6 +83,8 @@ table+='<table class="dragAnswer" id="dragTable"> <tbody>';
 table+='<tbody><table>';
 
 console.log(table);
+setBlockHtml(table, getValueFild('raw').body.innerHTML)
+
 };
 
 
