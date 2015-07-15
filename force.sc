@@ -20,6 +20,14 @@ html::
 
 
 css::
+/*костыл*/
+[class*="view-"] .modal-lg.modal-editor .modal-content {
+  height: 609px;}
+[class*="view-"] .modal-window .editor-with-buttons.wrapper-comp-settings .list-input.settings-list {
+  height: 549px;
+}
+ /*конец*/ 
+
 #scMenu{
 	margin: 10px auto;
     display: block;
