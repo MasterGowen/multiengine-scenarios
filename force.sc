@@ -59,5 +59,5 @@ javascriptStudio::
 
 function CONRaw(){setBlockHtml('view', getValueFild('raw').body.innerHTML)};
 elementDOM.querySelector('#conraw').onclick = CONRaw;
-elementDOM.querySelector('scButtonRaw').onclick = function(){elementDOM.querySelector('scWindowRaw').setAttribute('display', 'block'); elementDOM.querySelector('scWindowView').setAttribute('display', 'none');};
-elementDOM.querySelector('scButtonRaw').onclick = function(){elementDOM.querySelector('scWindowRaw').setAttribute('display', 'none'); elementDOM.querySelector('scWindowView').setAttribute('display', 'block');};
+elementDOM.querySelector('#scButtonRaw').onclick = function(){elementDOM.querySelector('#scWindowRaw').setAttribute('display', 'block'); elementDOM.querySelector('#scWindowView').setAttribute('display', 'none');};
+elementDOM.querySelector('#scButtonRaw').onclick = function(){elementDOM.querySelector('#scWindowRaw').setAttribute('display', 'none'); elementDOM.querySelector('#scWindowView').setAttribute('display', 'block');};
