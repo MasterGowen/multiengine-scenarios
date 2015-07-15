@@ -61,8 +61,16 @@ console.log("student");
 javascriptStudio::
 
 
-function CONRaw(){setBlockHtml('view', getValueFild('raw').body.innerHTML)};
-elementDOM.querySelector('#conraw').onclick = CONRaw;
+function SetDragAttr(){  var documentTable =  getValueFild('raw').body;
+
+forEachInCollection(childList(documentTable.getElementByTagName('table')[0]), function(value){ alert(value)}; );
+
+
+};
+
+
+
+elementDOM.querySelector('#conraw').onclick = SetDragAttr;
 elementDOM.querySelector('#scButtonView').onclick = function(){
     elementDOM.querySelector('#scButtonRaw').setAttribute('scMenuActive', 'false');
     elementDOM.querySelector('#scButtonView').setAttribute('scMenuActive', 'true');
