@@ -26,7 +26,6 @@ css::
 [class*="view-"] .modal-window .editor-with-buttons.wrapper-comp-settings .list-input.settings-list {
   height: 549px;
 }
-.wrapper-comp-setting{display:none}
  /*конец*/ 
 }
 
