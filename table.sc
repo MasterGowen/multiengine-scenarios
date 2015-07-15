@@ -65,7 +65,9 @@ function SetDragAttr(){
     var documentTable =  getValueFild('raw').body;
     forEachInCollection(childList(documentTable.getElementsByTagName('tbody')[0]), function(value){
         forEachInCollection(childList(value), function(value){
-            console.log(value);
+            forEachInCollection(childList(value), function(value){
+                console.log(value);
+            });
         });
     });
 
