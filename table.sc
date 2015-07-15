@@ -8,8 +8,7 @@ description::
 
 html::
     <script type="text/javascript" src="http://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
-    
-    <a id="viewSettings">Показать основные настройки</a>
+
     <ul id="scMenu">
         <li id="scButtonRaw" scMenuActive="true">Исходный код</li>
         <li id="conraw">Преобразовать SVG</li>
@@ -92,7 +91,6 @@ console.log(table);
 setBlockHtml('view', table);
 };
 
-elementDOM.querySelector('#viewSettings').onclick = function(){elementDOM.getElementsByClassName('step-one')[0].style.display = 'block';}
 
 function drag(){
 
