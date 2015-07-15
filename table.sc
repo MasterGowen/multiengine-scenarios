@@ -17,7 +17,8 @@ html::
     </div>
     <div id="scWindowView" hidden='true'><div id="view">
 
-    <div class="answerPlace" id="dragAnswers" >
+<!--
+    <div class="answerPlace" id="dragAnswers">
             <div class="answer" id="v1">Вариант 1 </div>
             <div class="answer" id="v2">Вариант 2</div>
             <div class="answer" id="v3">Вариант 3</div>
@@ -26,7 +27,7 @@ html::
             <div class="answer" id="v6">Вариант 6</div>
             <div class="answer" id="v7">Вариант 87</div>
     </div>
-
+-->
     </div></div>
 
 
