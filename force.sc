@@ -8,7 +8,7 @@ description::
 
 html::
 	<ul id="scMenu">
-		<li id="scMenuRaw">Исходный код</li>
+		<li id="scMenuRaw" class="scActive">Исходный код</li>
 		<li id="scMenuView">Просмотр</li>
 	</ul>
     <div id="scWindowRaw">
@@ -38,6 +38,14 @@ css::
 	border: 1px solid #e6e6e6;
     width: 100%;
     min-height: 300px;
+}
+#scMenuRaw .scActive #scWindowRaw,
+#scMenuView .scActive #scWindowView{
+	display:block;
+}
+#scMenuRaw #scWindowRaw,
+#scMenuView #scWindowView{
+	display:none;
 }
 
 
