@@ -27,7 +27,7 @@ css::
   height: 549px;
 }
  /*конец*/ 
-
+.step-one{display:none}
 
 #scMenu{
 	margin: 10px auto;
