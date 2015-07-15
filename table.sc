@@ -8,7 +8,8 @@ description::
 
 html::
     <script type="text/javascript" src="http://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
-
+    
+    <a id="viewSettings">Показать основные настройки</a>
     <ul id="scMenu">
         <li id="scButtonRaw" scMenuActive="true">Исходный код</li>
         <li id="conraw">Преобразовать SVG</li>
@@ -66,7 +67,7 @@ css::
     min-height: 300px;
 }
 .cell {
-    border: 1 px solid black;
+    border: 1px solid black;
 }
 
 
@@ -105,7 +106,7 @@ setBlockHtml('view', table);
 
 
 function drag(){
-    
+
         $('#dragAnswers').sortable({
         items: ".answer",
         connectWith: '.answerPlace .cell, .answerPlace',
@@ -140,3 +141,5 @@ elementDOM.querySelector('#scButtonRaw').onclick = function(){
     elementDOM.querySelector('#scWindowRaw').removeAttribute('hidden');
     elementDOM.querySelector('#scWindowView').setAttribute('hidden', 'true');
 };
+
+elementDOM.querySelector('#viewSettings').onclick = function(){elementDOM.getElementsByClassName('step-one')[0].style.display = 'block';}
