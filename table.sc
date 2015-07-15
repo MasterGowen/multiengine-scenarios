@@ -63,7 +63,9 @@ javascriptStudio::
 
 function SetDragAttr(){ 
     var documentTable =  getValueFild('raw').body;
-    console.log(childList(documentTable.getElementsByTagName('tbody')[0]));
+    var tbody = documentTable.getElementsByTagName('tbody')[0];
+    console.log(tbody);
+    console.log(childList(tbody));
 /*
 forEachInCollection(
     (childList(
