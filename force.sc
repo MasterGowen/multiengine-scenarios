@@ -39,12 +39,12 @@ css::
     width: 100%;
     min-height: 300px;
 }
-#scMenuRaw[scMenuActive=true] #scWindowRaw,
-#scMenuView[scMenuActive=true] #scWindowView{
+#scMenuRaw[scMenuActive=true] > ul + #scWindowRaw,
+#scMenuView[scMenuActive=true] > ul + #scWindowView{
 	display:block;
 }
-#scMenuRaw[scMenuActive=false] #scWindowRaw,
-#scMenuView[scMenuActive=false] #scWindowView{
+#scMenuRaw[scMenuActive=false] > ul + #scWindowRaw,
+#scMenuView[scMenuActive=false] > ul + #scWindowView{
 	display:none;
 }
 
