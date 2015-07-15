@@ -63,12 +63,13 @@ javascriptStudio::
 
 function SetDragAttr(){ 
     var documentTable =  getValueFild('raw').body;
+    console.log(documentTable.getElementByTagName('table')[0]);
 /*
 forEachInCollection(
     (childList(
         documentTable.getElementByTagName('table')[0]
     )), function(value){
-                         alert(value);
+                         console.log(value);
                      }; 
 );
 */
