@@ -11,8 +11,10 @@ html::
 		<li id="scMenuRaw">Исходный код</li>
 		<li id="scMenuView">Просмотр</li>
 	</ul>
-    <div id="scWindowRaw"></div>
-    <div id="scWindowView"></div>
+    <div id="scWindowRaw">
+    	<textarea id="raw"></textarea><a id="conraw">Преобразовать SVG</a>
+    </div>
+    <div id="scWindowView"><div id="view"></div></div>
 
 
 
@@ -32,14 +34,19 @@ css::
     margin: 0px;
 }
 
+#raw, #view{
+    width: 100%;
+    height: 300px;
+}
+
+
 
 
 javascriptStudent::
 console.log("student");
 
 javascriptStudio::
-setBlockHtml('scWindowRaw','<h1>windowRaw</h1><textarea id="raw"></textarea><a id="conraw">CON</a>');
-setBlockHtml('scWindowView','<h1>windowView</h1><div id="view"></div>');
+
 
 function CONRaw(){setBlockHtml('view', getValueFild('raw').body.innerHTML)};
 elementDOM.querySelector('#conraw').onclick = CONRaw;
