@@ -7,6 +7,7 @@ description::
 Выбор действующий сил и моментов на объект или обекты
 
 html::
+	<a id=viewSettings>Показать основные настройки</a>
 	<ul id="scMenu">
 		<li id="scButtonRaw" scMenuActive="true">Исходный код</li>
         <li id="conraw">Преобразовать SVG</li>
@@ -60,7 +61,7 @@ javascriptStudent::
 console.log("student");
 
 javascriptStudio::
-
+elementDOM.querySelector('#viewSettings').onclick = function(){elementDOM.getElementsClassName('step-one')[0].style.dysplay = 'block';}
 
 function CONRaw(){setBlockHtml('view', getValueFild('raw').body.innerHTML)};
 elementDOM.querySelector('#conraw').onclick = CONRaw;
