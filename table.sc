@@ -18,19 +18,7 @@ html::
     <div id="scWindowRaw">
         <textarea id="raw"></textarea>
     </div>
-    <div id="scWindowView" hidden='true'><div id="view">
-<!--
-    <div class="answerPlace" id="dragAnswers">
-            <div class="answer" id="v1">Вариант 1 </div>
-            <div class="answer" id="v2">Вариант 2</div>
-            <div class="answer" id="v3">Вариант 3</div>
-            <div class="answer" id="v4">Вариант 4</div>
-            <div class="answer" id="v5">Вариант 5</div>
-            <div class="answer" id="v6">Вариант 6</div>
-            <div class="answer" id="v7">Вариант 87</div>
-    </div>
-    -->
-    </div></div>
+    <div id="scWindowView" hidden='true'><div id="view"></div></div>
 
 
 
@@ -104,6 +92,7 @@ console.log(table);
 setBlockHtml('view', table);
 };
 
+elementDOM.querySelector('#viewSettings').onclick = function(){elementDOM.getElementsByClassName('step-one')[0].style.display = 'block';}
 
 function drag(){
 
@@ -142,4 +131,3 @@ elementDOM.querySelector('#scButtonRaw').onclick = function(){
     elementDOM.querySelector('#scWindowView').setAttribute('hidden', 'true');
 };
 
-elementDOM.querySelector('#viewSettings').onclick = function(){elementDOM.getElementsByClassName('step-one')[0].style.display = 'block';}
