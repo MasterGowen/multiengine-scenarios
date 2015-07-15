@@ -65,6 +65,9 @@ css::
     width: 100%;
     min-height: 300px;
 }
+.cell {
+    border: 1 px solid black;
+}
 
 
 
@@ -85,7 +88,7 @@ table+='<table class="answerPlace" id="dragAnswers"> <tbody>';
     forEachInCollection(childList(documentTable.getElementsByTagName('tbody')[0]), function(value){
         table+= '<tr>'
         forEachInCollection(childList(value), function(value){
-            table += '<td>'
+            table += '<td class="cell">'
             forEachInCollection(childList(value), function(value){
                 table+='<div class="answer">'+ value.innerHTML +'</div>';
             });
