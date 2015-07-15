@@ -61,17 +61,28 @@ console.log("student");
 javascriptStudio::
 
 
-function SetDragAttr(){ 
+function SetDragAttr(){
+
+var table = ''
+var items= ''
+table+='<table class="dragAnswer" id="dragTable"> <tbody>';
+
     var documentTable =  getValueFild('raw').body;
     forEachInCollection(childList(documentTable.getElementsByTagName('tbody')[0]), function(value){
+        table+= '<tr>'
         forEachInCollection(childList(value), function(value){
+            table += '<td>'
             forEachInCollection(childList(value), function(value){
-                console.log(value.innerHTML);
+                table+='<div>'+ value.innerHTML +'</div>';
             });
+            table += '</td>'
         });
+        table+= '</tr>'
     });
 
+table+='<tbody><table>';
 
+console.log(table);
 };
 
 
