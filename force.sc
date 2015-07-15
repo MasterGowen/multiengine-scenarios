@@ -9,7 +9,7 @@ description::
 html::
 	<ul id="scMenu">
 		<li id="scMenuRaw" scMenuActive="true">Исходный код</li>
-		<li id="scMenuView"scMenuActive="false">Просмотр</li>
+		<li id="scMenuView" scMenuActive="false">Просмотр</li>
 	</ul>
     <div id="scWindowRaw">
     	<textarea id="raw"></textarea><a id="conraw">Преобразовать SVG</a>
@@ -39,7 +39,7 @@ css::
     width: 100%;
     min-height: 300px;
 }
-#scMenuRaw[scMenuActive=true] > ul + #scWindowRaw,
+#scMenuRaw[scMenuActive=true] > ul +#scWindowRaw,
 #scMenuView[scMenuActive=true] > ul + #scWindowView{
 	display:block;
 }
