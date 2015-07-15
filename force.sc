@@ -23,7 +23,7 @@ css::
 #scMenu{
 	margin: 10px auto;
     display: block;
-    width: 350px;
+    width: 570px;
 }
 
 #scMenu li {
@@ -41,7 +41,7 @@ css::
 #raw, #view{
 	border: 1px solid #e6e6e6;
     width: 100%;
-    min-height: 570px;
+    min-height: 300px;
 }
 
 
@@ -55,5 +55,15 @@ javascriptStudio::
 
 function CONRaw(){setBlockHtml('view', getValueFild('raw').body.innerHTML)};
 elementDOM.querySelector('#conraw').onclick = CONRaw;
-elementDOM.querySelector('#scButtonView').onclick = function(){elementDOM.querySelector('#scWindowRaw').setAttribute('hidden', 'true'); elementDOM.querySelector('#scWindowView').removeAttribute('hidden');};
-elementDOM.querySelector('#scButtonRaw').onclick = function(){elementDOM.querySelector('#scWindowRaw').removeAttribute('hidden'); elementDOM.querySelector('#scWindowView').setAttribute('hidden', 'true');};
+elementDOM.querySelector('#scButtonView').onclick = function(){
+    elementDOM.querySelector('#scButtonRaw').setAttribute('scMenuActive', 'false');
+    elementDOM.querySelector('#scButtonView').setAttribute('scMenuActive', 'true');
+    elementDOM.querySelector('#scWindowRaw').setAttribute('hidden', 'true'); 
+    elementDOM.querySelector('#scWindowView').removeAttribute('hidden');
+};
+elementDOM.querySelector('#scButtonRaw').onclick = function(){
+    elementDOM.querySelector('#scButtonRaw').setAttribute('scMenuActive', 'true');
+    elementDOM.querySelector('#scButtonView').setAttribute('scMenuActive', 'false');
+    elementDOM.querySelector('#scWindowRaw').removeAttribute('hidden');
+    elementDOM.querySelector('#scWindowView').setAttribute('hidden', 'true');
+};
