@@ -60,13 +60,13 @@ console.log("student");
 
 javascriptStudio::
 
+<script src="https://code.jquery.com/ui/1.11.3/jquery-ui.min.js"></script>
 
 function SetDragAttr(){
 
 var table = ''
 var items= ''
 table+='<table class="dragAnswer" id="dragTable"> <tbody>';
-
     var documentTable =  getValueFild('raw').body;
     forEachInCollection(childList(documentTable.getElementsByTagName('tbody')[0]), function(value){
         table+= '<tr>'
@@ -80,7 +80,7 @@ table+='<table class="dragAnswer" id="dragTable"> <tbody>';
         table+= '</tr>'
     });
 
-table+='<tbody><table>';
+table+='</tbody></table>';
 
 console.log(table);
 setBlockHtml('view', table);
