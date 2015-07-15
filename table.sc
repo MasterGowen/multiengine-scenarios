@@ -18,7 +18,7 @@ html::
         <textarea id="raw"></textarea>
     </div>
     <div id="scWindowView" hidden='true'><div id="view">
-
+<!--
     <div class="answerPlace" id="dragAnswers">
             <div class="answer" id="v1">Вариант 1 </div>
             <div class="answer" id="v2">Вариант 2</div>
@@ -28,6 +28,7 @@ html::
             <div class="answer" id="v6">Вариант 6</div>
             <div class="answer" id="v7">Вариант 87</div>
     </div>
+    -->
     </div></div>
 
 
@@ -79,14 +80,14 @@ function SetDragAttr(){
 
 var table = ''
 var items= ''
-table+='<table class="dragAnswer" id="dragTable"> <tbody>';
+table+='<table class="answerPlace" id="dragAnswers"> <tbody>';
     var documentTable =  getValueFild('raw').body;
     forEachInCollection(childList(documentTable.getElementsByTagName('tbody')[0]), function(value){
         table+= '<tr>'
         forEachInCollection(childList(value), function(value){
             table += '<td>'
             forEachInCollection(childList(value), function(value){
-                table+='<div>'+ value.innerHTML +'</div>';
+                table+='<div class="answer">'+ value.innerHTML +'</div>';
             });
             table += '</td>'
         });
