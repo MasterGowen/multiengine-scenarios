@@ -62,7 +62,7 @@ console.log("student");
 
 javascriptStudio::
 
-    <script type="text/javascript" src="http://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
+   // <script type="text/javascript" src="http://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
 
 function SetDragAttr(){
 
@@ -82,7 +82,7 @@ table+='<table class="dragAnswer" id="dragTable"> <tbody>';
         table+= '</tr>'
     });
 
-//table+='</tbody></table>';
+//stable+='</tbody></table>';
 
 console.log(table);
 setBlockHtml('view', table);
