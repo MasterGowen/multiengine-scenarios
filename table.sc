@@ -88,8 +88,6 @@ javascriptStudio::
 
 function SetDragAttr(){
 
-//var table = ''
-var items= ''
 //table+='<table class="answerPlace" id="dragAnswers"> <tbody>';
     var documentTable =  getValueFild('raw').body;
     forEachInCollection(childList(documentTable.getElementsByTagName('tbody')[0]), function(value){
@@ -108,19 +106,22 @@ var items= ''
         });
     });
 
-//table+='</tbody></table>';
 
-//console.log(documentTable);
-
+/*удаляет ВСЕ атрибуты первой строки (ключая 1 уровень детей (td))*/
 forEachInCollection(childList(documentTable.getElementsByTagName('tr')[0]), function(value){
+    deleteAllAttributes(value);
+    forEachInCollection(childList(value), function(value){
+        deleteAllAttributes(value);
+    });
+});
 
-deleteAllAttributes(value);
-
-forEachInCollection(childList(value), function(value){
-
-deleteAllAttributes(value);
+forEachInCollection(documentTable.getElementsByTagName('tr'), function(value){
+    
+    forEachInCollection(childList(documentTable.getElementsByTagName('td')[0]), function(value){
+            console.log(value);
 });
 });
+
 
 editor.setValue(documentTable.innerHTML);
 
