@@ -78,7 +78,9 @@ var items= ''
         forEachInCollection(childList(value), function(value){
           //  table += '<td class="cell">'
             forEachInCollection(childList(value), function(value){
-                value.replaceChild("<div>" + value.innerHTML + "</div>",value);
+                var div = document.createElement('div');
+                div.innerHTML = value.innerHTML;
+                value.replaceChild(div ,value);
                 console.log(value);
                 //table+='<div class="answer">'+ value.innerHTML +'</div>';
             });
