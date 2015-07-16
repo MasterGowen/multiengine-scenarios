@@ -80,7 +80,7 @@ elementDOM.querySelector('#scButtonRaw').onclick = function(){
 };
 
 function scSave(){
-    setValueFild('student_view_template', getValueFild('view'));
+    setValueFild('student_view_template', getValueFild('view').body.innerHTML);
 }
 
 elementDOM.querySelector('#scSave').onclick = scSave;
