@@ -115,12 +115,11 @@ forEachInCollection(childList(documentTable.getElementsByTagName('tr')[0]), func
     });
 });
 
-forEachInCollection(childList(documentTable.getElementsByTagName('tr')), function(value){
-    console.log(value);
-    forEachInCollection(childList(value), function(value){
-        console.log(value);
+forEachInCollection(document.getElementById('lol').getElementsByTagName('tr'), function(value){
+    deleteAllAttributes(childList(value)[0]);
     });
-});
+
+
 editor.setValue(documentTable.innerHTML);
 
 
