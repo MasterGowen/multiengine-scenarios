@@ -114,7 +114,7 @@ var items= ''
 
 
 editor.setValue(documentTable.innerHTML);
-
+forEachInCollection(childList(documentTable.getElementsByTagName('tr')[0]), dragAnswers(value));
 
 //setBlockHtml('view', table);
 };
