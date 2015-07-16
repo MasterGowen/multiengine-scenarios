@@ -179,7 +179,7 @@ function drag(){
 
 function Convertation(){
     //console.log(table);
-    editor.setValue(SetDragAttr().innerHTML);
+   // editor.setValue(SetDragAttr().innerHTML);
     setBlockHtml('view', SetDragAttr().innerHTML);
    // SetDragAttr();
     drag();
