@@ -112,8 +112,14 @@ var items= ''
 
 //console.log(documentTable);
 
-forEachInCollection(childList(documentTable.getElementsByTagName('tr')[0]), function(value){deleteAllAttributes(value)});
+forEachInCollection(childList(documentTable.getElementsByTagName('tr')[0]), function(value){
 
+deleteAllAttributes(value);
+forEachInCollection(childList(documentTable.getElementsByTagName('tr')[0]), function(value){
+
+deleteAllAttributes(value);
+});
+});
 
 editor.setValue(documentTable.innerHTML);
 
