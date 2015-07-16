@@ -11,7 +11,7 @@ html::
 
     <ul id="scMenu">
         <li id="scButtonRaw" scMenuActive="true">Исходный код</li>
-        <li id="conraw">Преобразовать SVG</li>
+        <li id="conraw">Преобразовать HTML</li>
         <li id="scButtonView" scMenuActive="false">Просмотр</li>
     </ul>
     <div id="scWindowRaw">
@@ -84,7 +84,7 @@ drag();
 
 javascriptStudio::
 
-
+var table;
 
 function SetDragAttr(){
 
@@ -106,8 +106,9 @@ function SetDragAttr(){
         });
     });
 
+table = documentTable;
 
-/*удаляет ВСЕ атрибуты первой строки (ключая 1 уровень детей (td))*/
+/*удаляет ВСЕ атрибуты первой строки (включая 1 уровень детей (td))*/
 forEachInCollection(childList(documentTable.getElementsByTagName('tr')[0]), function(value){
     deleteAllAttributes(value);
     forEachInCollection(childList(value), function(value){
@@ -115,6 +116,7 @@ forEachInCollection(childList(documentTable.getElementsByTagName('tr')[0]), func
     });
 });
 
+/*удаляет ВСЕ атрибуты первого столбца (включая 1 уровень детей (td))*/
 forEachInCollection(documentTable.getElementsByTagName('tr'), function(value){
     deleteAllAttributes(childList(value)[0]);
     forEachInCollection(childList(childList(value)[0]), function(value){
@@ -123,7 +125,7 @@ forEachInCollection(documentTable.getElementsByTagName('tr'), function(value){
     });
 
 
-editor.setValue(documentTable.innerHTML);
+//editor.setValue(documentTable.innerHTML);
 
 
 //setBlockHtml('view', table);
@@ -155,6 +157,8 @@ function drag(){
 }
 
 function Convertation(){
+
+    setBlockHtml('view', table);
     SetDragAttr();
     drag();
 }
