@@ -18,9 +18,11 @@ html::
         <textarea id="raw"></textarea>
     </div>
 
-    <div id="scWindowView" hidden='true'><div id="view">
-        <button id="fixLine">Зафиксировать строку</button>
+    <div id="scWindowView" hidden='true'>
+    <button id="fixLine">Зафиксировать строку</button>
     <button id="fixColumn">Зафиксировать столбец</button>
+
+    <div id="view">
     </div></div>
 
 
