@@ -101,7 +101,7 @@ var items= ''
                 var div = document.createElement('div');
                 div.innerHTML = value.innerHTML;
                 div.classList.add("answer");
-                div.id = generationID;
+                div.id = generationID();
                 value.parentNode.replaceChild(div ,value);
             });
         });
