@@ -79,7 +79,7 @@ var items= ''
           //  table += '<td class="cell">'
 
             while(value.attributes.length>0) {
-                value.removeAttribute(value.attributes[i].name)
+                value.removeAttribute(value.attributes[0].name)
             };
           value.classList.add("cell");
             forEachInCollection(childList(value), function(value){
