@@ -115,13 +115,15 @@ forEachInCollection(childList(documentTable.getElementsByTagName('tr')[0]), func
     });
 });
 
-forEachInCollection(childList(documentTable.getElementsByTagName('tr')), function(value){
+forEachInCollection(childList(documentTable.getElementsByTagName('tbody')[0]), function(value){
     
     forEachInCollection(childList(value), function(value){
+
+        forEachInCollection(childList(value), function(value){
             console.log(value);
 });
 });
-
+});
 
 editor.setValue(documentTable.innerHTML);
 
