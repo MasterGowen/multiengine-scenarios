@@ -124,7 +124,7 @@ return documentTable;
 //setBlockHtml('view', table);
 };
 
-
+// !!! ИМЕНИТЬ ФУНКЦИИ !!! ОНИ НЕ РАБОТАЮТ !!!
 function fixLine(){
     alert("fix2");
     var documentTable =  getValueFild('view').body;
