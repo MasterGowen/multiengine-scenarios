@@ -8,6 +8,7 @@ description::
 
 html::
 	<a id=viewSettings>Показать основные настройки</a>
+    <a id=scSave>Сохранить результат</a>
 	<ul id="scMenu">
 		<li id="scButtonRaw" scMenuActive="true">Исходный код</li>
         <li id="conraw">Преобразовать SVG</li>
@@ -77,3 +78,9 @@ elementDOM.querySelector('#scButtonRaw').onclick = function(){
     elementDOM.querySelector('#scWindowRaw').removeAttribute('hidden');
     elementDOM.querySelector('#scWindowView').setAttribute('hidden', 'true');
 };
+
+function scSave(){
+    setValueFild('student_view_template', getValueFild('view'));
+}
+
+elementDOM.querySelector('#scSave').onclick = scSave;
