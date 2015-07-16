@@ -117,7 +117,7 @@ forEachInCollection(childList(documentTable.getElementsByTagName('tr')[0]), func
 
 forEachInCollection(documentTable.getElementsByTagName('tr'), function(value){
     
-    forEachInCollection(childList(documentTable.getElementsByTagName('td')[0]), function(value){
+    forEachInCollection(childList(documentTable.getElementsByTagName('td')), function(value){
             console.log(value);
 });
 });
