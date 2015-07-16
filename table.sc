@@ -84,12 +84,16 @@ drag();
 
 javascriptStudio::
 
-var table;
+//var table;
 
 function SetDragAttr(){
 
 //table+='<table class="answerPlace" id="dragAnswers"> <tbody>';
     var documentTable =  getValueFild('raw').body;
+
+    documentTable.getElementsByTagName('table')[0].id = "dragAnswers"
+    documentTable.getElementsByTagName('table')[0].classList.add("answerPlace");
+    
     forEachInCollection(childList(documentTable.getElementsByTagName('tbody')[0]), function(value){
         deleteAllAttributes(value);
         forEachInCollection(childList(value), function(value){
@@ -106,10 +110,7 @@ function SetDragAttr(){
         });
     });
 
-//table = documentTable;
-//console.log(documentTable);
-//console.log("------------------------------------------------------------------");
-//console.log(table);
+
 /*удаляет ВСЕ атрибуты первой строки (включая 1 уровень детей (td))*/
 forEachInCollection(childList(documentTable.getElementsByTagName('tr')[0]), function(value){
     deleteAllAttributes(value);
