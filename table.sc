@@ -61,11 +61,13 @@ css::
     border: 1px solid black;
 }
 
-
+.first{
+	background: black;
+}
 
 
 javascriptStudent::
-/*
+
 function drag(){
 
         $('#dragAnswers').sortable({
@@ -85,7 +87,7 @@ function drag(){
 }
 
 drag();
-*/
+
 javascriptStudio::
 
 //var table;
@@ -133,12 +135,14 @@ function fixLine(){
 /*удаляет ВСЕ атрибуты первой строки (включая 1 уровень детей (td))*/
 	forEachInCollection(childList(documentTableView.getElementsByTagName('tr')[0]), function(value){
     	deleteAllAttributes(value);
+    	value.classList.add("first");
     	forEachInCollection(childList(value), function(value){
         	deleteAllAttributes(value);
     	});
 	});
 
 	setBlockHtml('view',  elementDOM.querySelector('#view').innerHTML);
+	editor.setValue(elementDOM.querySelector('#view').innerHTML);
     drag();
 }
 
@@ -150,13 +154,14 @@ function fixColumn(){
 	/*удаляет ВСЕ атрибуты первого столбца (включая 1 уровень детей (td))*/
 	forEachInCollection(documentTableView.getElementsByTagName('tr'), function(value){
     	deleteAllAttributes(childList(value)[0]);
+    	childList(value)[0].classList.add("first");
     	forEachInCollection(childList(childList(value)[0]), function(value){
     		deleteAllAttributes(value);
     	});
     });
-    
-	setBlockHtml('view',  elementDOM.querySelector('#view').innerHTML);
 
+	setBlockHtml('view',  elementDOM.querySelector('#view').innerHTML);
+	 editor.setValue(elementDOM.querySelector('#view').innerHTML);
     drag();
 }
 
