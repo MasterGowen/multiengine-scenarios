@@ -126,6 +126,7 @@ return documentTable;
 
 
 function fixLine(){
+    alert("fix2");
     var documentTable =  getValueFild('view').body;
 /*удаляет ВСЕ атрибуты первой строки (включая 1 уровень детей (td))*/
 forEachInCollection(childList(documentTable.getElementsByTagName('tr')[0]), function(value){
@@ -138,6 +139,7 @@ forEachInCollection(childList(documentTable.getElementsByTagName('tr')[0]), func
 }
 
 function fixColumn(){
+    alert("fix1");
     var documentTable =  getValueFild('view').body;
 /*удаляет ВСЕ атрибуты первого столбца (включая 1 уровень детей (td))*/
 forEachInCollection(documentTable.getElementsByTagName('tr'), function(value){
