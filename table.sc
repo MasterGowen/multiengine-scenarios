@@ -17,7 +17,10 @@ html::
     <div id="scWindowRaw">
         <textarea id="raw"></textarea>
     </div>
-    <div id="scWindowView" hidden='true'><div id="view"></div></div>
+    <div id="scWindowView" hidden='true'><div id="view">
+    <button id="fixLine">Зафиксировать строку</button>
+    <button id="fixColumn">Зафиксировать столбец</button>
+    </div></div>
 
 
 
@@ -93,7 +96,7 @@ function SetDragAttr(){
 
     documentTable.getElementsByTagName('table')[0].id = "dragAnswers"
     documentTable.getElementsByTagName('table')[0].classList.add("answerPlace");
-    
+
     forEachInCollection(childList(documentTable.getElementsByTagName('tbody')[0]), function(value){
         deleteAllAttributes(value);
         forEachInCollection(childList(value), function(value){
@@ -111,21 +114,7 @@ function SetDragAttr(){
     });
 
 
-/*удаляет ВСЕ атрибуты первой строки (включая 1 уровень детей (td))*/
-forEachInCollection(childList(documentTable.getElementsByTagName('tr')[0]), function(value){
-    deleteAllAttributes(value);
-    forEachInCollection(childList(value), function(value){
-        deleteAllAttributes(value);
-    });
-});
 
-/*удаляет ВСЕ атрибуты первого столбца (включая 1 уровень детей (td))*/
-forEachInCollection(documentTable.getElementsByTagName('tr'), function(value){
-    deleteAllAttributes(childList(value)[0]);
-    forEachInCollection(childList(childList(value)[0]), function(value){
-    deleteAllAttributes(value);
-    });
-    });
 
 
 //editor.setValue(documentTable.innerHTML);
@@ -133,6 +122,32 @@ forEachInCollection(documentTable.getElementsByTagName('tr'), function(value){
 return documentTable;
 //setBlockHtml('view', table);
 };
+
+
+function fixLine(){
+    var documentTable =  getValueFild('view').body;
+/*удаляет ВСЕ атрибуты первой строки (включая 1 уровень детей (td))*/
+forEachInCollection(childList(documentTable.getElementsByTagName('tr')[0]), function(value){
+    deleteAllAttributes(value);
+    forEachInCollection(childList(value), function(value){
+        deleteAllAttributes(value);
+    });
+});
+    drag();
+}
+
+function fixColumn(){
+    var documentTable =  getValueFild('view').body;
+/*удаляет ВСЕ атрибуты первого столбца (включая 1 уровень детей (td))*/
+forEachInCollection(documentTable.getElementsByTagName('tr'), function(value){
+    deleteAllAttributes(childList(value)[0]);
+    forEachInCollection(childList(childList(value)[0]), function(value){
+    deleteAllAttributes(value);
+    });
+    });
+    drag();
+}
+
 
 function deleteAllAttributes(value)
 {
@@ -162,12 +177,16 @@ function drag(){
 function Convertation(){
     //console.log(table);
     editor.setValue(SetDragAttr().innerHTML);
-   setBlockHtml('view', SetDragAttr().innerHTML);
+    setBlockHtml('view', SetDragAttr().innerHTML);
    // SetDragAttr();
     drag();
 }
 
 elementDOM.querySelector('#conraw').onclick = Convertation;
+elementDOM.querySelector('#fixLine').onclick = fixLine;
+elementDOM.querySelector('#fixColumn').onclick = fixColumn;
+
+
 elementDOM.querySelector('#scButtonView').onclick = function(){
     elementDOM.querySelector('#scButtonRaw').setAttribute('scMenuActive', 'false');
     elementDOM.querySelector('#scButtonView').setAttribute('scMenuActive', 'true');
