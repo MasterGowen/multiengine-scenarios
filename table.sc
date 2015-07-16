@@ -97,6 +97,7 @@ var items= ''
         forEachInCollection(childList(value), function(value){
             deleteAttributes(value);
             value.classList.add("cell");
+            value.id = generationID();
             forEachInCollection(childList(value), function(value){
                 var div = document.createElement('div');
                 div.innerHTML = value.innerHTML;
