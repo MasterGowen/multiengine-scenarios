@@ -115,7 +115,8 @@ var items= ''
 forEachInCollection(childList(documentTable.getElementsByTagName('tr')[0]), function(value){
 
 deleteAllAttributes(value);
-forEachInCollection(childList(documentTable.getElementsByTagName('tr')[0]), function(value){
+
+forEachInCollection(childList(value), function(value){
 
 deleteAllAttributes(value);
 });
