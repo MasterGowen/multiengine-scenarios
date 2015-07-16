@@ -114,12 +114,12 @@ var items= ''
 
 
 editor.setValue(documentTable.innerHTML);
-forEachInCollection(childList(documentTable.getElementsByTagName('tr')[0]), dragAnswers(value));
+forEachInCollection(childList(documentTable.getElementsByTagName('tr')[0]), deleteAllAttributes(value));
 
 //setBlockHtml('view', table);
 };
 
-function deleteAttributes(value)
+function deleteAllAttributes(value)
 {
     while(value.attributes.length>0) {
         value.removeAttribute(value.attributes[0].name)
