@@ -115,7 +115,7 @@ forEachInCollection(childList(documentTable.getElementsByTagName('tr')[0]), func
     });
 });
 
-forEachInCollection(document.getElementById('lol').getElementsByTagName('tr'), function(value){
+forEachInCollection(documentTable.getElementsByTagName('tr'), function(value){
     deleteAllAttributes(childList(value)[0]);
     });
 
