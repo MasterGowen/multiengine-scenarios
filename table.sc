@@ -77,11 +77,13 @@ var items= ''
       //  table+= '<tr>'
         forEachInCollection(childList(value), function(value){
           //  table += '<td class="cell">'
+          value.classList.add("cell");
             forEachInCollection(childList(value), function(value){
                 var div = document.createElement('div');
                 div.innerHTML = value.innerHTML;
+                div.classList.add("cell");
                 value.parentNode.replaceChild(div ,value);
-                console.log(value);
+               //console.log(value);
                 //table+='<div class="answer">'+ value.innerHTML +'</div>';
             });
           //  table += '</td>'
