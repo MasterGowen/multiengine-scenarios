@@ -116,10 +116,10 @@ forEachInCollection(childList(documentTable.getElementsByTagName('tr')[0]), func
 });
 
 forEachInCollection(childList(documentTable.getElementsByTagName('tbody')[0]), function(value){
-    console.log(value.firstChild);
-    /*forEachInCollection(childList(value), function(value){
+  //  console.log(value.firstChild);
+    forEachInCollection(value, function(value[0]){
             console.log(value);
-});*/
+});
 });
 
 editor.setValue(documentTable.innerHTML);
