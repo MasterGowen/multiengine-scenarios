@@ -92,7 +92,7 @@ var items= ''
 //console.log(documentTable);
 
 
-editor.setValue(documentTable);
+editor.setValue(documentTable.outerHTML);
 
 
 //setBlockHtml('view', table);
