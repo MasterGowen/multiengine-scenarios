@@ -11,16 +11,16 @@ html::
 
     <ul id="scMenu">
         <li id="scButtonRaw" scMenuActive="true">Исходный код</li>
-        <li id="conraw">Преобразовать HTML</li>
+        <!--<li id="conraw">Преобразовать HTML</li>-->
         <li id="scButtonView" scMenuActive="false">Просмотр</li>
     </ul>
     <div id="scWindowRaw">
         <textarea id="raw"></textarea>
     </div>
+
+    <div id="scWindowView" hidden='true'><div id="view">
         <button id="fixLine">Зафиксировать строку</button>
     <button id="fixColumn">Зафиксировать столбец</button>
-    <div id="scWindowView" hidden='true'><div id="view">
-
     </div></div>
 
 
@@ -63,6 +63,7 @@ css::
 
 .first{
 	background: rgb(170, 222, 226);
+	border: 1px solid black;
 }
 
 .answer{
@@ -132,7 +133,7 @@ return documentTable;
 // !!! ИМЕНИТЬ ФУНКЦИИ !!! ОНИ НЕ РАБОТАЮТ !!!
 function fixLine(){
 
-    alert("fix2");
+   // alert("fix2");
 
     var documentTableView =  elementDOM.querySelector('#view').querySelector('#dragAnswers');
 /*удаляет ВСЕ атрибуты первой строки (включая 1 уровень детей (td))*/
@@ -151,7 +152,7 @@ function fixLine(){
 
 function fixColumn(){
 
-    alert("fix1");
+    //alert("fix1");
 
     var documentTableView =  elementDOM.querySelector('#view').querySelector('#dragAnswers')
 	/*удаляет ВСЕ атрибуты первого столбца (включая 1 уровень детей (td))*/
@@ -202,7 +203,7 @@ function Convertation(){
     drag();
 }
 
-elementDOM.querySelector('#conraw').onclick = Convertation;
+//elementDOM.querySelector('#conraw').onclick = Convertation;
 elementDOM.querySelector('#fixLine').onclick = fixLine;
 elementDOM.querySelector('#fixColumn').onclick = fixColumn;
 
@@ -212,6 +213,7 @@ elementDOM.querySelector('#scButtonView').onclick = function(){
     elementDOM.querySelector('#scButtonView').setAttribute('scMenuActive', 'true');
     elementDOM.querySelector('#scWindowRaw').setAttribute('hidden', 'true'); 
     elementDOM.querySelector('#scWindowView').removeAttribute('hidden');
+    Convertation();
 };
 elementDOM.querySelector('#scButtonRaw').onclick = function(){
     elementDOM.querySelector('#scButtonRaw').setAttribute('scMenuActive', 'true');
