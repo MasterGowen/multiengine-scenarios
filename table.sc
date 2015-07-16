@@ -107,7 +107,9 @@ function SetDragAttr(){
     });
 
 table = documentTable;
-
+console.log(documentTable);
+console.log(------------------------------------------------------------------);
+console.log(table);
 /*удаляет ВСЕ атрибуты первой строки (включая 1 уровень детей (td))*/
 forEachInCollection(childList(documentTable.getElementsByTagName('tr')[0]), function(value){
     deleteAllAttributes(value);
