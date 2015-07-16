@@ -115,7 +115,7 @@ var items= ''
 
 editor.setValue(documentTable.innerHTML);
 
-forEachInCollection(childList(documentTable.getElementsByTagName('tr')[0]), deleteAllAttributes);
+forEachInCollection(childList(documentTable.getElementsByTagName('tr')[0]), function(value){deleteAllAttributes(value)});
 
 //setBlockHtml('view', table);
 };
