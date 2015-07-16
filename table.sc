@@ -69,26 +69,28 @@ javascriptStudio::
 
 function SetDragAttr(){
 
-var table = ''
+//var table = ''
 var items= ''
-table+='<table class="answerPlace" id="dragAnswers"> <tbody>';
+//table+='<table class="answerPlace" id="dragAnswers"> <tbody>';
     var documentTable =  getValueFild('raw').body;
     forEachInCollection(childList(documentTable.getElementsByTagName('tbody')[0]), function(value){
-        table+= '<tr>'
+      //  table+= '<tr>'
         forEachInCollection(childList(value), function(value){
-            table += '<td class="cell">'
+          //  table += '<td class="cell">'
             forEachInCollection(childList(value), function(value){
-                table+='<div class="answer">'+ value.innerHTML +'</div>';
+                value.replaceChild("<div>" + value.innerHTML + "</div>",value);
+                console.log(value);
+                //table+='<div class="answer">'+ value.innerHTML +'</div>';
             });
-            table += '</td>'
+          //  table += '</td>'
         });
-        table+= '</tr>'
+       // table+= '</tr>'
     });
 
-table+='</tbody></table>';
+//table+='</tbody></table>';
 
-console.log(table);
-setBlockHtml('view', table);
+console.log(documentTable);
+//setBlockHtml('view', table);
 };
 
 
