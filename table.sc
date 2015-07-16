@@ -65,7 +65,7 @@ css::
 
 
 javascriptStudent::
-
+/*
 function drag(){
 
         $('#dragAnswers').sortable({
@@ -85,7 +85,7 @@ function drag(){
 }
 
 drag();
-
+*/
 javascriptStudio::
 
 //var table;
@@ -126,27 +126,31 @@ return documentTable;
 
 // !!! ИМЕНИТЬ ФУНКЦИИ !!! ОНИ НЕ РАБОТАЮТ !!!
 function fixLine(){
+
     alert("fix2");
-    var documentTable =  elementDOM.querySelector('#view').querySelector('#dragAnswers');
+
+    var documentTableView =  elementDOM.querySelector('#view').querySelector('#dragAnswers');
 /*удаляет ВСЕ атрибуты первой строки (включая 1 уровень детей (td))*/
-forEachInCollection(childList(documentTable.getElementsByTagName('tr')[0]), function(value){
-    deleteAllAttributes(value);
-    forEachInCollection(childList(value), function(value){
-        deleteAllAttributes(value);
-    });
-});
+	forEachInCollection(childList(documentTableView.getElementsByTagName('tr')[0]), function(value){
+    	deleteAllAttributes(value);
+    	forEachInCollection(childList(value), function(value){
+        	deleteAllAttributes(value);
+    	});
+	});
     drag();
 }
 
 function fixColumn(){
+
     alert("fix1");
-    var documentTable =  elementDOM.querySelector('#view').querySelector('#dragAnswers')
-/*удаляет ВСЕ атрибуты первого столбца (включая 1 уровень детей (td))*/
-forEachInCollection(documentTable.getElementsByTagName('tr'), function(value){
-    deleteAllAttributes(childList(value)[0]);
-    forEachInCollection(childList(childList(value)[0]), function(value){
-    deleteAllAttributes(value);
-    });
+
+    var documentTableView =  elementDOM.querySelector('#view').querySelector('#dragAnswers')
+	/*удаляет ВСЕ атрибуты первого столбца (включая 1 уровень детей (td))*/
+	forEachInCollection(documentTableView.getElementsByTagName('tr'), function(value){
+    	deleteAllAttributes(childList(value)[0]);
+    	forEachInCollection(childList(childList(value)[0]), function(value){
+    		deleteAllAttributes(value);
+    	});
     });
     drag();
 }
@@ -161,7 +165,7 @@ function deleteAllAttributes(value)
 
 function drag(){
 
-        $('#view #dragAnswers').sortable({
+    $('#view #dragAnswers').sortable({
         items: ".answer",
         connectWith: '.answerPlace .cell, .answerPlace',
         revert: '100',
