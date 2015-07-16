@@ -62,9 +62,12 @@ css::
 }
 
 .first{
-	background: black;
+	background: rgb(170, 222, 226);
 }
 
+.answer{
+	border: 1px dashed rgb(163, 55, 55);
+}
 
 javascriptStudent::
 
