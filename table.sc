@@ -74,31 +74,27 @@ var items= ''
 //table+='<table class="answerPlace" id="dragAnswers"> <tbody>';
     var documentTable =  getValueFild('raw').body;
     forEachInCollection(childList(documentTable.getElementsByTagName('tbody')[0]), function(value){
-      //  table+= '<tr>'
-       deleteAttributes(value);
-        
-        forEachInCollection(childList(value), function(value){
-          //  table += '<td class="cell">'
-        
         deleteAttributes(value);
-
-          value.classList.add("cell");
+        forEachInCollection(childList(value), function(value){
+            deleteAttributes(value);
+            value.classList.add("cell");
             forEachInCollection(childList(value), function(value){
                 var div = document.createElement('div');
                 div.innerHTML = value.innerHTML;
                 div.classList.add("answer");
                 value.parentNode.replaceChild(div ,value);
-               //console.log(value);
-                //table+='<div class="answer">'+ value.innerHTML +'</div>';
             });
-          //  table += '</td>'
         });
-       // table+= '</tr>'
     });
 
 //table+='</tbody></table>';
 
-console.log(documentTable);
+//console.log(documentTable);
+
+
+editor.setValue(documentTable);
+
+
 //setBlockHtml('view', table);
 };
 
