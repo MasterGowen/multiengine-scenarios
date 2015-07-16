@@ -33,7 +33,7 @@ css::
 #scMenu{
     margin: 10px auto;
     display: block;
-    width: 570px;
+    width: 620px;
 }
 
 #scMenu li {
@@ -158,7 +158,8 @@ function drag(){
 
 function Convertation(){
 
-    setBlockHtml('view', table);
+    editor.setValue(table.innerHTML);
+    setBlockHtml('view', table.innerHTML);
     SetDragAttr();
     drag();
 }
