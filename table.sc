@@ -80,7 +80,7 @@ var items= ''
             forEachInCollection(childList(value), function(value){
                 var div = document.createElement('div');
                 div.innerHTML = value.innerHTML;
-                value.replaceChild(div ,value);
+                value.parentNode.replaceChild(div ,value);
                 console.log(value);
                 //table+='<div class="answer">'+ value.innerHTML +'</div>';
             });
