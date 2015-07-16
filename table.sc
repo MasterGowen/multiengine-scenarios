@@ -93,9 +93,9 @@ var items= ''
 //table+='<table class="answerPlace" id="dragAnswers"> <tbody>';
     var documentTable =  getValueFild('raw').body;
     forEachInCollection(childList(documentTable.getElementsByTagName('tbody')[0]), function(value){
-        deleteAttributes(value);
+        deleteAllAttributes(value);
         forEachInCollection(childList(value), function(value){
-            deleteAttributes(value);
+            deleteAllAttributes(value);
             value.classList.add("cell");
             value.id = generationID();
             forEachInCollection(childList(value), function(value){
