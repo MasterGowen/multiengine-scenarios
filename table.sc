@@ -109,7 +109,7 @@ function SetDragAttr(){
                 div.innerHTML = value.innerHTML;
                 div.classList.add("answer");
                 div.id = generationID();
-                value.parentNode.replaceChild(div ,value);
+                value.parentNode.replaceChild(div, value);
             });
         });
     });
@@ -127,7 +127,7 @@ return documentTable;
 // !!! ИМЕНИТЬ ФУНКЦИИ !!! ОНИ НЕ РАБОТАЮТ !!!
 function fixLine(){
     alert("fix2");
-    var documentTable =  elementDOM.querySelector('#dragAnswers');
+    var documentTable =  elementDOM.querySelector('#view').querySelector('#dragAnswers');
 /*удаляет ВСЕ атрибуты первой строки (включая 1 уровень детей (td))*/
 forEachInCollection(childList(documentTable.getElementsByTagName('tr')[0]), function(value){
     deleteAllAttributes(value);
@@ -140,7 +140,7 @@ forEachInCollection(childList(documentTable.getElementsByTagName('tr')[0]), func
 
 function fixColumn(){
     alert("fix1");
-    var documentTable =  elementDOM.querySelector('#dragAnswers')
+    var documentTable =  elementDOM.querySelector('#view').querySelector('#dragAnswers')
 /*удаляет ВСЕ атрибуты первого столбца (включая 1 уровень детей (td))*/
 forEachInCollection(documentTable.getElementsByTagName('tr'), function(value){
     deleteAllAttributes(childList(value)[0]);
@@ -161,14 +161,14 @@ function deleteAllAttributes(value)
 
 function drag(){
 
-        $('#dragAnswers').sortable({
+        $('#view #dragAnswers').sortable({
         items: ".answer",
         connectWith: '.answerPlace .cell, .answerPlace',
         revert: '100',
         tolerance: "pointer"
     }).disableSelection();
 
-    $('.answerPlace .cell').sortable({
+    $('#view .answerPlace .cell').sortable({
         items: ".answer",
         connectWith: '.answerPlace .cell, .answerPlace',
         revert: '100',
