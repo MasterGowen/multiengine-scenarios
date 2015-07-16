@@ -106,7 +106,7 @@ function SetDragAttr(){
         });
     });
 
-table = documentTable;
+//table = documentTable;
 //console.log(documentTable);
 //console.log("------------------------------------------------------------------");
 //console.log(table);
@@ -129,7 +129,7 @@ forEachInCollection(documentTable.getElementsByTagName('tr'), function(value){
 
 //editor.setValue(documentTable.innerHTML);
 
-
+return documentTable;
 //setBlockHtml('view', table);
 };
 
@@ -159,10 +159,10 @@ function drag(){
 }
 
 function Convertation(){
-    console.log(table);
-    editor.setValue(table.innerHTML);
-  //  setBlockHtml('view', table.innerHTML);
-    SetDragAttr();
+    //console.log(table);
+    editor.setValue(SetDragAttr().innerHTML);
+   setBlockHtml('view', SetDragAttr().innerHTML);
+   // SetDragAttr();
     drag();
 }
 
