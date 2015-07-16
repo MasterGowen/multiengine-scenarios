@@ -61,7 +61,26 @@ css::
 
 
 javascriptStudent::
-console.log("student");
+
+function drag(){
+
+        $('#dragAnswers').sortable({
+        items: ".answer",
+        connectWith: '.answerPlace .cell, .answerPlace',
+        revert: '100',
+        tolerance: "pointer"
+    }).disableSelection();
+
+    $('.answerPlace .cell').sortable({
+        items: ".answer",
+        connectWith: '.answerPlace .cell, .answerPlace',
+        revert: '100',
+        tolerance: "pointer"
+    }).disableSelection();
+
+}
+
+drag();
 
 javascriptStudio::
 
@@ -92,7 +111,7 @@ var items= ''
 //console.log(documentTable);
 
 
-editor.setValue(documentTable.outerHTML);
+editor.setValue(documentTable.innerHTML);
 
 
 //setBlockHtml('view', table);
