@@ -137,6 +137,8 @@ function fixLine(){
         	deleteAllAttributes(value);
     	});
 	});
+
+	setBlockHtml('view',  elementDOM.querySelector('#view').innerHTML);
     drag();
 }
 
@@ -152,6 +154,9 @@ function fixColumn(){
     		deleteAllAttributes(value);
     	});
     });
+    
+	setBlockHtml('view',  elementDOM.querySelector('#view').innerHTML);
+
     drag();
 }
 
