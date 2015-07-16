@@ -75,12 +75,13 @@ var items= ''
     var documentTable =  getValueFild('raw').body;
     forEachInCollection(childList(documentTable.getElementsByTagName('tbody')[0]), function(value){
       //  table+= '<tr>'
+       deleteAttributes(value);
+        
         forEachInCollection(childList(value), function(value){
           //  table += '<td class="cell">'
+        
+        deleteAttributes(value);
 
-            while(value.attributes.length>0) {
-                value.removeAttribute(value.attributes[0].name)
-            };
           value.classList.add("cell");
             forEachInCollection(childList(value), function(value){
                 var div = document.createElement('div');
@@ -101,6 +102,12 @@ console.log(documentTable);
 //setBlockHtml('view', table);
 };
 
+function deleteAttributes(value)
+{
+    while(value.attributes.length>0) {
+        value.removeAttribute(value.attributes[0].name)
+    };
+}
 
 function drag(){
 
