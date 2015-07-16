@@ -205,6 +205,11 @@ function Convertation(){
     drag();
 }
 
+function generateJSON(){
+
+
+}
+
 //elementDOM.querySelector('#conraw').onclick = Convertation;
 elementDOM.querySelector('#fixLine').onclick = fixLine;
 elementDOM.querySelector('#fixColumn').onclick = fixColumn;
@@ -223,4 +228,36 @@ elementDOM.querySelector('#scButtonRaw').onclick = function(){
     elementDOM.querySelector('#scWindowRaw').removeAttribute('hidden');
     elementDOM.querySelector('#scWindowView').setAttribute('hidden', 'true');
 };
+
+/*
+// функция генерирует JSON-объект из клеток у которых есть атрибут "id"
+  forEachInCollection(childList(document.getElementsByTagName('tbody')[0]), function(value){
+        forEachInCollection(childList(value), function(value){
+        	if(value.id!=""){
+            	var cellId = value.id;
+        		var vals = [];
+          		forEachInCollection(childList(value), function(value){ 
+          			vals.push(value.id); 
+         		 });
+				j[cellId]=vals;
+            }
+        });
+    });
+*/
+
+/*<style>
+  .cell {
+    border: 1px solid black;
+}
+
+.first{
+	background: rgb(170, 222, 226);
+	border: 1px solid black;
+}
+
+.answer{
+	border: 1px dashed rgb(163, 55, 55);
+}
+
+  </style>*/
 
