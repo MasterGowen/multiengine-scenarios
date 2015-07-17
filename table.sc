@@ -186,7 +186,7 @@ function drag(){
         revert: '100',
         tolerance: "pointer",
         stop: function() {  console.log(documentTable);
-                            documentTable.innerHTML = elementDOM.querySelector("#view").getElementsByTagName("table").outerHTML;
+                            documentTable.innerHTML = elementDOM.querySelector("#view").getElementsByTagName("table")[0].outerHTML;
                             console.log(documentTable); 
                          }
     }).disableSelection();
