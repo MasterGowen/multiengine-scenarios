@@ -208,6 +208,9 @@ elementDOM.querySelector('#conraw').onclick = function(){
 
 elementDOM.querySelector('#fixLine').onclick = function(){
     console.log('start_event: нажатие кнопки "Зафиксировать строку"');
+
+    SetDragAttr(documentTable);
+
     fixLine(documentTable);
     //TODO: вынести в отдельную функцию
     setBlockHtml('view', documentTable.innerHTML);
@@ -217,6 +220,9 @@ elementDOM.querySelector('#fixLine').onclick = function(){
 };
 elementDOM.querySelector('#fixColumn').onclick = function(){
     console.log('start_event: нажатие кнопки "Зафиксировать столбец"');
+
+    SetDragAttr(documentTable);
+
     fixColumn(documentTable);
     //TODO: вынести в отдельную функцию
     setBlockHtml('view', documentTable.innerHTML);
