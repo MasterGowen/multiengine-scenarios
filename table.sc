@@ -106,18 +106,25 @@ function SetDragAttr(value){
     forEachInCollection(childList(value.getElementsByTagName('tbody')[0]), function(value){
         deleteAllAttributes(value);
         forEachInCollection(childList(value), function(value){
-            console.log(value.childNodes);
             deleteAllAttributes(value);
             value.classList.add("cell");
             value.id = generationID();
-            forEachInCollection(childList(value), function(value){
-                console.log(value);
+            if (value.childNodes.nodeType = 3){
                 var div = document.createElement('div');
                 div.innerHTML = value.innerHTML;
                 div.classList.add("answer");
                 div.id = generationID();
-                value.parentNode.replaceChild(div, value);
-            });
+            }
+            else {
+                forEachInCollection(childList(value), function(value){
+                    console.log(value);
+                    var div = document.createElement('div');
+                    div.innerHTML = value.innerHTML;
+                    div.classList.add("answer");
+                    div.id = generationID();
+                    value.parentNode.replaceChild(div, value);
+                });
+            }
         });
     });
 };
