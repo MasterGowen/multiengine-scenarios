@@ -252,9 +252,10 @@ elementDOM.querySelector("#addRow").onclick = function(){
     });
 
     if(firstColumnIsBlocked){
+        row.firstChild.classList.add("first");
         deleteAllAttributes(row.firstChild);
     }
-    
+
     documentTable.getElementsByTagName('tbody')[0].appendChild(row);
     setBlockHtml('view', documentTable.innerHTML); // надо ли?!
     drag();
