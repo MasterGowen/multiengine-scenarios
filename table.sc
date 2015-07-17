@@ -156,19 +156,20 @@ function fixLine(value){
     drag();
 }
 
-function fixColumn(){
+function fixColumn(value){
 
-    //alert("fix1");
+    console.log('start_event: Фиксация первой столбца');
 
-    var documentTableView =  elementDOM.querySelector('#view').querySelector('#dragAnswers')
+    
 	/*удаляет ВСЕ атрибуты первого столбца (включая 1 уровень детей (td))*/
-	forEachInCollection(documentTableView.getElementsByTagName('tr'), function(value){
+	forEachInCollection(value.getElementsByTagName('tr'), function(value){
     	deleteAllAttributes(childList(value)[0]);
     	childList(value)[0].classList.add("first");
     	forEachInCollection(childList(childList(value)[0]), function(value){
     		deleteAllAttributes(value);
     	});
     });
+    console.log('ebd_event: Фиксация первой столбца');
 
 	setBlockHtml('view',  elementDOM.querySelector('#view').innerHTML);
 	 editor.setValue(elementDOM.querySelector('#view').innerHTML);
@@ -206,12 +207,23 @@ elementDOM.querySelector('#conraw').onclick = function(){
 };
 
 elementDOM.querySelector('#fixLine').onclick = function(){
+    console.log('start_event: нажатие кнопки "Зафиксировать строку"');
     fixLine(documentTable);
+    //TODO: вынести в отдельную функцию
     setBlockHtml('view', documentTable.innerHTML);
     editor.setValue(documentTable.innerHTML);
     drag();
+    console.log('end_event: нажатие кнопки "Зафиксировать строку"');
 };
-elementDOM.querySelector('#fixColumn').onclick = fixColumn;
+elementDOM.querySelector('#fixColumn').onclick = function(){
+    console.log('start_event: нажатие кнопки "Зафиксировать столбец"');
+    fixColumn(documentTable);
+    //TODO: вынести в отдельную функцию
+    setBlockHtml('view', documentTable.innerHTML);
+    editor.setValue(documentTable.innerHTML);
+    drag();
+    console.log('end_event: нажатие кнопки "Зафиксировать столбец"');
+};
 
 
 elementDOM.querySelector('#scButtonView').onclick = function(){
