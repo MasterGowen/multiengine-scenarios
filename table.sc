@@ -235,7 +235,7 @@ elementDOM.querySelector("#view").onclick = function(event){
 elementDOM.querySelector("#addRow").onclick = function(){
     alert("#addRow");
 
-   // documentTable.innerHTML = elementDOM.querySelector("#view").getElementsByTagName("table")[0].outerHTML;
+    documentTable.innerHTML = elementDOM.querySelector("#view").getElementsByTagName("table")[0].outerHTML;
 
     var row = document.createElement('tr');
     forEachInCollection(childList(documentTable.getElementsByTagName('tr')[0]), function(value){
