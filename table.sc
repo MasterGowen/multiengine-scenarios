@@ -96,17 +96,14 @@ drag();
 
 javascriptStudio::
 
-//var table;
+//Переменая хранящая таблицу documentTable.innerHTML
+var documentTable =  getValueFild('raw').body;
+//Установка всех всех атрибутов необхадимых для работы перетаскивания
+function SetDragAttr(value){
+    value.getElementsByTagName('table')[0].id = "dragAnswers"
+    value.getElementsByTagName('table')[0].classList.add("answerPlace");
 
-function SetDragAttr(){
-
-//table+='<table class="answerPlace" id="dragAnswers"> <tbody>';
-    var documentTable =  getValueFild('raw').body;
-
-    documentTable.getElementsByTagName('table')[0].id = "dragAnswers"
-    documentTable.getElementsByTagName('table')[0].classList.add("answerPlace");
-
-    forEachInCollection(childList(documentTable.getElementsByTagName('tbody')[0]), function(value){
+    forEachInCollection(childList(value.getElementsByTagName('tbody')[0]), function(value){
         deleteAllAttributes(value);
         forEachInCollection(childList(value), function(value){
             deleteAllAttributes(value);
@@ -121,16 +118,17 @@ function SetDragAttr(){
             });
         });
     });
-
-
-
-
-
-//editor.setValue(documentTable.innerHTML);
-
-return documentTable;
-//setBlockHtml('view', table);
 };
+
+//Удаление всех имеющихся атрибутов
+//TODO: Сделать дополнительную переменную которая будет хранить те атрибуты которые не нужно удалять
+function deleteAllAttributes(value){
+    while(value.attributes.length>0) {
+        value.removeAttribute(value.attributes[0].name)
+    };
+}
+
+
 
 // !!! ИМЕНИТЬ ФУНКЦИИ !!! ОНИ НЕ РАБОТАЮТ !!!
 function fixLine(){
@@ -172,12 +170,7 @@ function fixColumn(){
 }
 
 
-function deleteAllAttributes(value)
-{
-    while(value.attributes.length>0) {
-        value.removeAttribute(value.attributes[0].name)
-    };
-}
+
 
 function drag(){
 
@@ -198,19 +191,14 @@ function drag(){
 }
 
 function Convertation(){
-    //console.log(table);
-   // editor.setValue(SetDragAttr().innerHTML);
-    setBlockHtml('view', SetDragAttr().innerHTML);
-   // SetDragAttr();
-    drag();
+   SetDragAttr(documentTable);
+   setBlockHtml('view', documentTable.innerHTML);
+   drag();
 }
 
-function generateJSON(){
 
 
-}
-
-//elementDOM.querySelector('#conraw').onclick = Convertation;
+elementDOM.querySelector('#conraw').onclick = Convertation;
 elementDOM.querySelector('#fixLine').onclick = fixLine;
 elementDOM.querySelector('#fixColumn').onclick = fixColumn;
 
@@ -245,19 +233,5 @@ elementDOM.querySelector('#scButtonRaw').onclick = function(){
     });
 */
 
-/*<style>
-  .cell {
-    border: 1px solid black;
-}
 
-.first{
-	background: rgb(170, 222, 226);
-	border: 1px solid black;
-}
-
-.answer{
-	border: 1px dashed rgb(163, 55, 55);
-}
-
-  </style>*/
 
