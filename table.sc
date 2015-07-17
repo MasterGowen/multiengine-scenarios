@@ -192,18 +192,16 @@ function drag(){
 
 
 
-function updateTable() { console.log(documentTable);
-                           // documentTable.innerHTML = elementDOM.querySelector("#view").getElementsByTagName("table")[0].outerHTML;
-                           // console.log(documentTable); 
+function updateTable() {  console.log(documentTable);
+                            documentTable.innerHTML = elementDOM.querySelector("#view").getElementsByTagName("table")[0].outerHTML;
+                            console.log(documentTable); 
                          }
 
 elementDOM.querySelector('#conraw').onclick = function(){
     documentTable =  getValueFild('raw').body;
     SetDragAttr(documentTable);
-
-    elementDOM.querySelector("#view").appendChild(documentTable.getElementsByTagName("table")[0]);
-
-  //  setBlockHtml('view', documentTable.innerHTML);
+    // TODO: elementDOM.querySelector("#view").appendChild(documentTable);
+    setBlockHtml('view', documentTable.innerHTML);
     drag();
 };
 
