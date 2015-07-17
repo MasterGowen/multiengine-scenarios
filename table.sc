@@ -180,19 +180,14 @@ function fixColumn(value){
 
 
 function drag(){
-    $('#dragAnswers').sortable({
+    $('#dragAnswers .answerPlace .cell').sortable({
         items: ".answer",
         connectWith: '.answerPlace .cell, .answerPlace',
         revert: '100',
-        tolerance: "pointer"
+        tolerance: "pointer",
+        sort: function() { console.log("перетащи лося");}
     }).disableSelection();
 
-    $('.answerPlace .cell').sortable({
-        items: ".answer",
-        connectWith: '.answerPlace .cell, .answerPlace',
-        revert: '100',
-        tolerance: "pointer"
-    }).disableSelection();
 }
 
 
