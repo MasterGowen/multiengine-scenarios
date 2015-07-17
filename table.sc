@@ -112,9 +112,11 @@ function SetDragAttr(value){
             if (value.childNodes[0].nodeType = 3){
                 var div = document.createElement('div');
                 div.innerHTML = value.innerHTML;
+//TODO: Костыль
+                value.innerHTML="";
                 div.classList.add("answer");
                 div.id = generationID();
-                value.parentNode.replaceChild(div, value.childNodes[0]);
+                value.appendChild(div);
             }
             else {
                 forEachInCollection(childList(value), function(value){
