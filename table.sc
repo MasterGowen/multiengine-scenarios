@@ -248,6 +248,7 @@ elementDOM.querySelector("#addRow").onclick = function(){
     });
      console.log(row);
      documentTable.appendChild(row);
+     setBlockHtml('view', documentTable.innerHTML);
 };
 
 elementDOM.querySelector('#conraw').onclick = function(){
