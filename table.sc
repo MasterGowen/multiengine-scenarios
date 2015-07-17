@@ -238,7 +238,7 @@ elementDOM.querySelector("#addRow").onclick = function(){
      var row = document.createElement('tr');
      console.log(row);
      documentTable.appendChild(row);
-}
+};
 
 elementDOM.querySelector('#conraw').onclick = function(){
     documentTable =  getValueFild('raw').body;
