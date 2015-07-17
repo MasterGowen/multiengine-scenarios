@@ -129,15 +129,18 @@ function deleteAllAttributes(value){
     };
 }
 
-
+function Convertation(){
+    documentTable =  getValueFild('raw').body;
+    SetDragAttr(documentTable);
+    setBlockHtml('view', documentTable.innerHTML);
+    drag();
+}
 
 // !!! ИМЕНИТЬ ФУНКЦИИ !!! ОНИ НЕ РАБОТАЮТ !!!
 function fixLine(){
-
-   // alert("fix2");
-
+    console.log('start_event: Фиксация первой строки');
     var documentTableView =  elementDOM.querySelector('#view').querySelector('#dragAnswers');
-/*удаляет ВСЕ атрибуты первой строки (включая 1 уровень детей (td))*/
+    /*удаляет ВСЕ атрибуты первой строки (включая 1 уровень детей (td))*/
 	forEachInCollection(childList(documentTableView.getElementsByTagName('tr')[0]), function(value){
     	deleteAllAttributes(value);
     	value.classList.add("first");
@@ -145,6 +148,9 @@ function fixLine(){
         	deleteAllAttributes(value);
     	});
 	});
+    console.log('end_event: Фиксация первой строки');
+
+
 
 	setBlockHtml('view',  elementDOM.querySelector('#view').innerHTML);
 	editor.setValue(elementDOM.querySelector('#view').innerHTML);
@@ -191,16 +197,17 @@ function drag(){
 
 }
 
-function Convertation(){
+
+
+
+
+elementDOM.querySelector('#conraw').onclick = function(){
     documentTable =  getValueFild('raw').body;
     SetDragAttr(documentTable);
     setBlockHtml('view', documentTable.innerHTML);
     drag();
-}
+};
 
-
-
-elementDOM.querySelector('#conraw').onclick = Convertation;
 elementDOM.querySelector('#fixLine').onclick = fixLine;
 elementDOM.querySelector('#fixColumn').onclick = fixColumn;
 
