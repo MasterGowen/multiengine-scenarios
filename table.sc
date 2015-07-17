@@ -108,7 +108,10 @@ javascriptStudio::
 //Переменная хранящая таблицу documentTable.innerHTML
 var documentTable;
 
+// заблокирована ли первая строка (true/false)
 var firstRowIsBlocked;
+
+// заблокирован ли первый столбец (true/false)
 var firstColumnIsBlocked;
 
 //Установка всех всех атрибутов необходимых для работы перетаскивания
@@ -162,19 +165,10 @@ function Convertation(){
     drag();
 }
 
-/*
-function activateAddItems(value){
-    value.getElementsByTagName('table')[0].onclick = function(event) {
-        var target = event.target; // где был клик?
-        if (target.tagName != 'TD') return; // не на TD? тогда не интересует
-        alert(target.id); // подсветить TD
-    };
-}
-*/
 
+/*удаляет ВСЕ атрибуты первой строки (включая 1 уровень детей (td))*/
 function fixLine(value){
     console.log('start_event: Фиксация первой строки');
-    /*удаляет ВСЕ атрибуты первой строки (включая 1 уровень детей (td))*/
 	forEachInCollection(childList(value.getElementsByTagName('tr')[0]), function(value){
     	deleteAllAttributes(value);
     	value.classList.add("first");
@@ -182,23 +176,22 @@ function fixLine(value){
         	deleteAllAttributes(value);
     	});
 	});
+    firstRowIsBlocked = true;
     console.log('end_event: Фиксация первой строки');
 }
 
+
+
+/*удаляет ВСЕ атрибуты первого столбца (включая 1 уровень детей (td))*/
 function fixColumn(value){
-
     console.log('start_event: Фиксация первой столбца');
-
-    
-	/*удаляет ВСЕ атрибуты первого столбца (включая 1 уровень детей (td))*/
-	forEachInCollection(value.getElementsByTagName('tr'), function(value){
+    forEachInCollection(value.getElementsByTagName('tr'), function(value){
     	deleteAllAttributes(childList(value)[0]);
     	childList(value)[0].classList.add("first");
     	forEachInCollection(childList(childList(value)[0]), function(value){
     		deleteAllAttributes(value);
     	});
     });
-
     firstColumnIsBlocked = true;
     console.log('end_event: Фиксация первой столбца');
 }
@@ -225,6 +218,12 @@ function updateTable() {
 }
 
 
+/*вынести сюда добавление строки*/
+function addRow(){
+
+}
+
+
 /*добавлялка перетаскивающихся штучек*/
 elementDOM.querySelector("#view").onclick = function(event){
    documentTable.innerHTML = elementDOM.querySelector("#view").getElementsByTagName("table")[0].outerHTML;
@@ -237,32 +236,35 @@ elementDOM.querySelector("#view").onclick = function(event){
             div.classList.add("answer");
             div.id = generationID();
         }
-        //div.setAttribute("contenteditable", 'true');
         target.appendChild(div);
 };
+
 
 /* добавление строки к таблице*/
 elementDOM.querySelector("#addRow").onclick = function(){
     documentTable.innerHTML = elementDOM.querySelector("#view").getElementsByTagName("table")[0].outerHTML;
-    var row = document.createElement('tr');
+    
+    var newRow = document.createElement('tr');
     forEachInCollection(childList(documentTable.getElementsByTagName('tr')[0]), function(value){
         forEachInCollection(childList(value), function(value){
-            var cell = document.createElement('td');
-            cell.classList.add("cell");
-            cell.id = generationID();
-            row.appendChild(cell);
+            var newCell = document.createElement('td');
+            newCell.classList.add("cell");
+            newCell.id = generationID();
+            newRow.appendChild(newCell);
         });
     });
 
     if(firstColumnIsBlocked){
-        deleteAllAttributes(row.firstChild);
-        row.firstChild.classList.add("first");
+        deleteAllAttributes(newRow.firstChild);
+        newRow.firstChild.classList.add("first");
     }
 
-    documentTable.getElementsByTagName('tbody')[0].appendChild(row);
-    setBlockHtml('view', documentTable.innerHTML); // надо ли?!
+    documentTable.getElementsByTagName('tbody')[0].appendChild(newRow);
+
+    setBlockHtml('view', documentTable.innerHTML); // надо ли?! наверно надо
     drag();
 };
+
 
 
 elementDOM.querySelector('#conraw').onclick = function(){
