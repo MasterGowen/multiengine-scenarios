@@ -73,6 +73,13 @@ css::
 	border: 1px dashed rgb(163, 55, 55);
 }
 
+.cell:before {
+  content: "+";
+  margin: 0 auto;
+  display: block;
+  width: 9px;
+  color: gray;
+
 javascriptStudent::
 
 function drag(){
@@ -147,6 +154,15 @@ function Convertation(){
     drag();
 }
 
+
+documentTable.onclick = function(event) {
+  var target = event.target; // где был клик?
+
+  if (target.tagName != 'TD') return; // не на TD? тогда не интересует
+
+  alert(target.id); // подсветить TD
+};
+
 function fixLine(value){
     console.log('start_event: Фиксация первой строки');
     /*удаляет ВСЕ атрибуты первой строки (включая 1 уровень детей (td))*/
@@ -192,10 +208,10 @@ function drag(){
 
 
 
-function updateTable() {  console.log(documentTable);
-                            documentTable.innerHTML = elementDOM.querySelector("#view").getElementsByTagName("table")[0].outerHTML;
-                            console.log(documentTable); 
-                         }
+function updateTable() { 
+    //TODO: разобраться как это делать
+    documentTable.innerHTML = elementDOM.querySelector("#view").getElementsByTagName("table")[0].outerHTML;
+}
 
 elementDOM.querySelector('#conraw').onclick = function(){
     documentTable =  getValueFild('raw').body;
@@ -226,6 +242,8 @@ elementDOM.querySelector('#fixColumn').onclick = function(){
     drag();
     console.log('end_event: нажатие кнопки "Зафиксировать столбец"');
 };
+
+
 
 
 elementDOM.querySelector('#scButtonView').onclick = function(){
