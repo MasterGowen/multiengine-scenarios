@@ -98,13 +98,13 @@ drag();
 javascriptStudio::
 
 //Переменая хранящая таблицу documentTable.innerHTML
-var documentTable =  getValueFild('raw').body;
+var documentTable;
 //Установка всех всех атрибутов необхадимых для работы перетаскивания
-function SetDragAttr(){
-    documentTable.getElementsByTagName('table')[0].id = "dragAnswers"
-    documentTable.getElementsByTagName('table')[0].classList.add("answerPlace");
+function SetDragAttr(value){
+    value.getElementsByTagName('table')[0].id = "dragAnswers"
+    value.getElementsByTagName('table')[0].classList.add("answerPlace");
 
-    forEachInCollection(childList(documentTable.getElementsByTagName('tbody')[0]), function(value){
+    forEachInCollection(childList(value.getElementsByTagName('tbody')[0]), function(value){
         deleteAllAttributes(value);
         forEachInCollection(childList(value), function(value){
             deleteAllAttributes(value);
@@ -192,9 +192,10 @@ function drag(){
 }
 
 function Convertation(){
-   SetDragAttr();
-   setBlockHtml('view', documentTable.innerHTML);
-   drag();
+    documentTable =  getValueFild('raw').body;
+    SetDragAttr(documentTable);
+    setBlockHtml('view', documentTable.innerHTML);
+    drag();
 }
 
 
