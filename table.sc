@@ -148,12 +148,6 @@ function fixLine(value){
     	});
 	});
     console.log('end_event: Фиксация первой строки');
-
-
-
-	setBlockHtml('view',  elementDOM.querySelector('#view').innerHTML);
-	editor.setValue(elementDOM.querySelector('#view').innerHTML);
-    drag();
 }
 
 function fixColumn(value){
@@ -170,10 +164,6 @@ function fixColumn(value){
     	});
     });
     console.log('ebd_event: Фиксация первой столбца');
-
-	setBlockHtml('view',  elementDOM.querySelector('#view').innerHTML);
-	 editor.setValue(elementDOM.querySelector('#view').innerHTML);
-    drag();
 }
 
 
