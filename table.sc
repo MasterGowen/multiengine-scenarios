@@ -185,23 +185,25 @@ function drag(){
         connectWith: '.answerPlace .cell, .answerPlace',
         revert: '100',
         tolerance: "pointer",
-        stop: function() {  console.log(documentTable);
-                            documentTable.innerHTML = elementDOM.querySelector("#view").getElementsByTagName("table")[0].outerHTML;
-                            console.log(documentTable); 
-                         }
+        stop: updateTable
     }).disableSelection();
 
 }
 
 
 
-
+function updateTable() { console.log(documentTable);
+                           // documentTable.innerHTML = elementDOM.querySelector("#view").getElementsByTagName("table")[0].outerHTML;
+                           // console.log(documentTable); 
+                         }
 
 elementDOM.querySelector('#conraw').onclick = function(){
     documentTable =  getValueFild('raw').body;
     SetDragAttr(documentTable);
-    // TODO: elementDOM.querySelector("#view").appendChild(documentTable);
-    setBlockHtml('view', documentTable.innerHTML);
+
+    elementDOM.querySelector("#view").appendChild(documentTable.getElementsByTagName("table")[0]);
+
+  //  setBlockHtml('view', documentTable.innerHTML);
     drag();
 };
 
