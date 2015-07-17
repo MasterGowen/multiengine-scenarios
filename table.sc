@@ -95,9 +95,9 @@ drag();
 
 javascriptStudio::
 
-//Переменая хранящая таблицу documentTable.innerHTML
+//Переменная хранящая таблицу documentTable.innerHTML
 var documentTable;
-//Установка всех всех атрибутов необхадимых для работы перетаскивания
+//Установка всех всех атрибутов необходимых для работы перетаскивания
 function SetDragAttr(value){
     deleteAllAttributes(value.getElementsByTagName('table')[0]);
     value.getElementsByTagName('table')[0].id = "dragAnswers"
@@ -202,17 +202,17 @@ function drag(){
 elementDOM.querySelector('#conraw').onclick = function(){
     documentTable =  getValueFild('raw').body;
     SetDragAttr(documentTable);
-    setBlockHtml('view', documentTable.innerHTML);
+    elementDOM.querySelector("#view").appendChild(documentTable);
+    //setBlockHtml('view', documentTable.innerHTML);
     drag();
 };
 
 elementDOM.querySelector('#fixLine').onclick = function(){
     console.log('start_event: нажатие кнопки "Зафиксировать строку"');
 
-    SetDragAttr(documentTable);
-
     fixLine(documentTable);
     //TODO: вынести в отдельную функцию
+
     setBlockHtml('view', documentTable.innerHTML);
     editor.setValue(documentTable.innerHTML);
     drag();
@@ -220,8 +220,6 @@ elementDOM.querySelector('#fixLine').onclick = function(){
 };
 elementDOM.querySelector('#fixColumn').onclick = function(){
     console.log('start_event: нажатие кнопки "Зафиксировать столбец"');
-
-    SetDragAttr(documentTable);
 
     fixColumn(documentTable);
     //TODO: вынести в отдельную функцию
