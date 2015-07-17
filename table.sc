@@ -173,19 +173,22 @@ function fixColumn(value){
     		deleteAllAttributes(value);
     	});
     });
-    console.log('ebd_event: Фиксация первой столбца');
+    console.log('end_event: Фиксация первой столбца');
 }
 
 
 
 
 function drag(){
-    $('#dragAnswers .answerPlace .cell').sortable({
+    $('#dragAnswers, .answerPlace .cell').sortable({
         items: ".answer",
         connectWith: '.answerPlace .cell, .answerPlace',
         revert: '100',
         tolerance: "pointer",
-        sort: function() { console.log("перетащи лося");}
+        sort: function() {  console.log(documentTable);
+                            documentTable.innerHTML = elementDOM.querySelector("#view").innerHTML;
+                            console.log(documentTable); 
+                         }
     }).disableSelection();
 
 }
