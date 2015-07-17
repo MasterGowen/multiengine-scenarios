@@ -110,6 +110,7 @@ function SetDragAttr(value){
             value.classList.add("cell");
             value.id = generationID();
             forEachInCollection(childList(value), function(value){
+                console.log(value);
                 var div = document.createElement('div');
                 div.innerHTML = value.innerHTML;
                 div.classList.add("answer");
@@ -135,7 +136,6 @@ function Convertation(){
     drag();
 }
 
-// !!! ИМЕНИТЬ ФУНКЦИИ !!! ОНИ НЕ РАБОТАЮТ !!!
 function fixLine(value){
     console.log('start_event: Фиксация первой строки');
     /*удаляет ВСЕ атрибуты первой строки (включая 1 уровень детей (td))*/
