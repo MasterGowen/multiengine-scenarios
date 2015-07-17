@@ -76,7 +76,6 @@ css::
 javascriptStudent::
 
 function drag(){
-
         $('#dragAnswers').sortable({
         items: ".answer",
         connectWith: '.answerPlace .cell, .answerPlace',
@@ -92,7 +91,6 @@ function drag(){
     }).disableSelection();
 
 }
-
 drag();
 
 javascriptStudio::
@@ -171,14 +169,14 @@ function fixColumn(value){
 
 
 function drag(){
-    $('#view #dragAnswers').sortable({
+    $('#dragAnswers').sortable({
         items: ".answer",
         connectWith: '.answerPlace .cell, .answerPlace',
         revert: '100',
         tolerance: "pointer"
     }).disableSelection();
 
-    $('#view .answerPlace .cell').sortable({
+    $('.answerPlace .cell').sortable({
         items: ".answer",
         connectWith: '.answerPlace .cell, .answerPlace',
         revert: '100',
