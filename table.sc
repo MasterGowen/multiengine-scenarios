@@ -218,9 +218,14 @@ function updateTable() {
 
 elementDOM.querySelector("#view").onclick = function(event){
    documentTable.innerHTML = elementDOM.querySelector("#view").getElementsByTagName("table")[0].outerHTML;
-   var target = event.target; // где был клик?
-        if (target.tagName != 'TD') return; // не на TD? тогда не интересует
-        alert(target.id); // подсветить TD
+   var target = event.target; 
+        if (target.tagName != 'TD') return; 
+        //alert(target.id); 
+        var div = document.createElement('div');
+        div.innerHTML = "answer";
+        div.classList.add("answer");
+        div.id = generationID();
+        target.appendChild(div);
 };
 
 elementDOM.querySelector('#conraw').onclick = function(){
