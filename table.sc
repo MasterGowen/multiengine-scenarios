@@ -107,6 +107,10 @@ javascriptStudio::
 
 //Переменная хранящая таблицу documentTable.innerHTML
 var documentTable;
+
+var firstRowIsBlocked;
+var firstColumnIsBlocked;
+
 //Установка всех всех атрибутов необходимых для работы перетаскивания
 function SetDragAttr(value){
     deleteAllAttributes(value.getElementsByTagName('table')[0]);
@@ -194,6 +198,8 @@ function fixColumn(value){
     		deleteAllAttributes(value);
     	});
     });
+
+    firstColumnIsBlocked = true;
     console.log('end_event: Фиксация первой столбца');
 }
 
@@ -232,11 +238,9 @@ elementDOM.querySelector("#view").onclick = function(event){
         target.appendChild(div);
 };
 
+/* добавление строки к таблице*/
 elementDOM.querySelector("#addRow").onclick = function(){
-    alert("#addRow");
-
     documentTable.innerHTML = elementDOM.querySelector("#view").getElementsByTagName("table")[0].outerHTML;
-
     var row = document.createElement('tr');
     forEachInCollection(childList(documentTable.getElementsByTagName('tr')[0]), function(value){
         forEachInCollection(childList(value), function(value){
@@ -246,13 +250,16 @@ elementDOM.querySelector("#addRow").onclick = function(){
             row.appendChild(cell);
         });
     });
-     //console.log(row);
-     //console.log(documentTable);
-     documentTable.getElementsByTagName('tbody')[0].appendChild(row);
-    // console.log(documentTable);
-     setBlockHtml('view', documentTable.innerHTML);
-     drag();
+
+    if(firstColumnIsBlocked){
+        deleteAllAttributes(row.firstChild);
+    }
+    
+    documentTable.getElementsByTagName('tbody')[0].appendChild(row);
+    setBlockHtml('view', documentTable.innerHTML); // надо ли?!
+    drag();
 };
+
 
 elementDOM.querySelector('#conraw').onclick = function(){
     documentTable =  getValueFild('raw').body;
