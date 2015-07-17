@@ -215,8 +215,10 @@ function updateTable() {
     documentTable.innerHTML = elementDOM.querySelector("#view").getElementsByTagName("table")[0].outerHTML;
 }
 
-elementDOM.querySelector("#view").getElementsByTagName("table")[0].onclick = function(event){
- var target = event.target; // где был клик?
+
+elementDOM.querySelector("#view").onclick = function(event){
+   documentTable.innerHTML = elementDOM.querySelector("#view").getElementsByTagName("table")[0].outerHTML;
+   var target = event.target; // где был клик?
         if (target.tagName != 'TD') return; // не на TD? тогда не интересует
         alert(target.id); // подсветить TD
 };
