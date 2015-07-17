@@ -232,8 +232,11 @@ elementDOM.querySelector("#view").onclick = function(event){
         if (target.tagName != 'TD') return; 
         var div = document.createElement('div');
         div.innerHTML = "answer";
-        div.classList.add("answer");
-        div.id = generationID();
+
+        if(target.classList.contains('cell')){
+            div.classList.add("answer");
+            div.id = generationID();
+        }
         //div.setAttribute("contenteditable", 'true');
         target.appendChild(div);
 };
