@@ -185,7 +185,7 @@ function drag(){
         connectWith: '.answerPlace .cell, .answerPlace',
         revert: '100',
         tolerance: "pointer",
-        sort: function() {  console.log(documentTable);
+        stop: function() {  console.log(documentTable);
                             documentTable.innerHTML = elementDOM.querySelector("#view").innerHTML;
                             console.log(documentTable); 
                          }
