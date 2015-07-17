@@ -187,7 +187,7 @@ function drag(){
         tolerance: "pointer",
         stop: function() {  console.log(documentTable);
                             documentTable.innerHTML = elementDOM.querySelector("#view").getElementsByTagName("table")[0].outerHTML;
-                            console.log(documentTable.getElementsByTagName("tr")); 
+                            console.log(documentTable); 
                          }
     }).disableSelection();
 
