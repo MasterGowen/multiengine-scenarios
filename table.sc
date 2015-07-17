@@ -101,6 +101,7 @@ javascriptStudio::
 var documentTable;
 //Установка всех всех атрибутов необхадимых для работы перетаскивания
 function SetDragAttr(value){
+    deleteAllAttributes(value.getElementsByTagName('table')[0]);
     value.getElementsByTagName('table')[0].id = "dragAnswers"
     value.getElementsByTagName('table')[0].classList.add("answerPlace");
 
