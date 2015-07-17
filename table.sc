@@ -151,11 +151,11 @@ function Convertation(){
     documentTable =  getValueFild('raw').body;
     SetDragAttr(documentTable);
     setBlockHtml('view', documentTable.innerHTML);
-    activateAddItems(documentTable);
+    //activateAddItems(documentTable);
     drag();
 }
 
-
+/*
 function activateAddItems(value){
     value.getElementsByTagName('table')[0].onclick = function(event) {
         var target = event.target; // где был клик?
@@ -163,7 +163,7 @@ function activateAddItems(value){
         alert(target.id); // подсветить TD
     };
 }
-
+*/
 
 function fixLine(value){
     console.log('start_event: Фиксация первой строки');
@@ -214,6 +214,12 @@ function updateTable() {
     //TODO: разобраться как это делать
     documentTable.innerHTML = elementDOM.querySelector("#view").getElementsByTagName("table")[0].outerHTML;
 }
+
+elementDOM.querySelector("#view").getElementsByTagName("table")[0].onclick = function(event){
+ var target = event.target; // где был клик?
+        if (target.tagName != 'TD') return; // не на TD? тогда не интересует
+        alert(target.id); // подсветить TD
+};
 
 elementDOM.querySelector('#conraw').onclick = function(){
     documentTable =  getValueFild('raw').body;
