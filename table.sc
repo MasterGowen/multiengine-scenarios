@@ -151,17 +151,19 @@ function Convertation(){
     documentTable =  getValueFild('raw').body;
     SetDragAttr(documentTable);
     setBlockHtml('view', documentTable.innerHTML);
+    activateAddItems(documentTable);
     drag();
 }
 
 
-documentTable.getElementsByTagName('table')[0].onclick = function(event) {
-  var target = event.target; // где был клик?
+function activateAddItems(value){
+    value.getElementsByTagName('table')[0].onclick = function(event) {
+        var target = event.target; // где был клик?
+        if (target.tagName != 'TD') return; // не на TD? тогда не интересует
+        alert(target.id); // подсветить TD
+    };
+}
 
-  if (target.tagName != 'TD') return; // не на TD? тогда не интересует
-
-  alert(target.id); // подсветить TD
-};
 
 function fixLine(value){
     console.log('start_event: Фиксация первой строки');
