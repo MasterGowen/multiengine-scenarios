@@ -137,11 +137,10 @@ function Convertation(){
 }
 
 // !!! ИМЕНИТЬ ФУНКЦИИ !!! ОНИ НЕ РАБОТАЮТ !!!
-function fixLine(){
+function fixLine(value){
     console.log('start_event: Фиксация первой строки');
-    var documentTableView =  elementDOM.querySelector('#view').querySelector('#dragAnswers');
     /*удаляет ВСЕ атрибуты первой строки (включая 1 уровень детей (td))*/
-	forEachInCollection(childList(documentTableView.getElementsByTagName('tr')[0]), function(value){
+	forEachInCollection(childList(value.getElementsByTagName('tr')[0]), function(value){
     	deleteAllAttributes(value);
     	value.classList.add("first");
     	forEachInCollection(childList(value), function(value){
@@ -180,7 +179,6 @@ function fixColumn(){
 
 
 function drag(){
-
     $('#view #dragAnswers').sortable({
         items: ".answer",
         connectWith: '.answerPlace .cell, .answerPlace',
@@ -194,7 +192,6 @@ function drag(){
         revert: '100',
         tolerance: "pointer"
     }).disableSelection();
-
 }
 
 
@@ -208,7 +205,12 @@ elementDOM.querySelector('#conraw').onclick = function(){
     drag();
 };
 
-elementDOM.querySelector('#fixLine').onclick = fixLine;
+elementDOM.querySelector('#fixLine').onclick = function(){
+    fixLine(documentTable);
+    setBlockHtml('view', documentTable.innerHTML);
+    editor.setValue(documentTable.innerHTML);
+    drag();
+};
 elementDOM.querySelector('#fixColumn').onclick = fixColumn;
 
 
