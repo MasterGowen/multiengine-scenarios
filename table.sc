@@ -241,16 +241,17 @@ elementDOM.querySelector("#addRow").onclick = function(){
     forEachInCollection(childList(documentTable.getElementsByTagName('tr')[0]), function(value){
         forEachInCollection(childList(value), function(value){
             var cell = document.createElement('td');
-            cell.classList.add("answer");
+            cell.classList.add("cell");
             cell.id = generationID();
             row.appendChild(cell);
         });
     });
-     console.log(row);
-     console.log(documentTable);
+     //console.log(row);
+     //console.log(documentTable);
      documentTable.getElementsByTagName('tbody')[0].appendChild(row);
-     console.log(documentTable);
+    // console.log(documentTable);
      setBlockHtml('view', documentTable.innerHTML);
+     drag();
 };
 
 elementDOM.querySelector('#conraw').onclick = function(){
