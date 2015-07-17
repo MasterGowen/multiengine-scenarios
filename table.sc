@@ -114,7 +114,7 @@ function SetDragAttr(value){
                 div.innerHTML = value.innerHTML;
                 div.classList.add("answer");
                 div.id = generationID();
-                value.appendChild(div);
+                value.parentNode.replaceChild(div, value.childNodes[0]);
             }
             else {
                 forEachInCollection(childList(value), function(value){
