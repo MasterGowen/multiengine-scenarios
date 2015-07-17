@@ -216,6 +216,7 @@ function updateTable() {
 }
 
 
+/*добавлялка перетаскивающихся штучек*/
 elementDOM.querySelector("#view").onclick = function(event){
    documentTable.innerHTML = elementDOM.querySelector("#view").getElementsByTagName("table")[0].outerHTML;
    var target = event.target; 
@@ -225,8 +226,11 @@ elementDOM.querySelector("#view").onclick = function(event){
         div.innerHTML = "answer";
         div.classList.add("answer");
         div.id = generationID();
+        div.setAttribute("contenteditable", 'true');
         target.appendChild(div);
 };
+
+
 
 elementDOM.querySelector('#conraw').onclick = function(){
     documentTable =  getValueFild('raw').body;
