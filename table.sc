@@ -213,7 +213,7 @@ elementDOM.querySelector('#fixLine').onclick = function(){
     fixLine(documentTable);
     //TODO: вынести в отдельную функцию
 
-    setBlockHtml('view', documentTable.innerHTML);
+    //setBlockHtml('view', documentTable.innerHTML);
     editor.setValue(documentTable.innerHTML);
     drag();
     console.log('end_event: нажатие кнопки "Зафиксировать строку"');
@@ -223,7 +223,7 @@ elementDOM.querySelector('#fixColumn').onclick = function(){
 
     fixColumn(documentTable);
     //TODO: вынести в отдельную функцию
-    setBlockHtml('view', documentTable.innerHTML);
+  //setBlockHtml('view', documentTable.innerHTML);
     editor.setValue(documentTable.innerHTML);
     drag();
     console.log('end_event: нажатие кнопки "Зафиксировать столбец"');
