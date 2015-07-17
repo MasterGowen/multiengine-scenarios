@@ -234,8 +234,18 @@ elementDOM.querySelector("#view").onclick = function(event){
 
 elementDOM.querySelector("#addRow").onclick = function(){
     alert("#addRow");
+
     documentTable.innerHTML = elementDOM.querySelector("#view").getElementsByTagName("table")[0].outerHTML;
-     var row = document.createElement('tr');
+
+    var row = document.createElement('tr');
+    forEachInCollection(childList(documentTable.getElementsByTagName('tr')[0]), function(value){
+        forEachInCollection(childList(value), function(value){
+            var cell = document.createElement('td');
+            cell.classList.add("answer");
+            cell.id = generationID();
+            row.appendChild(cell);
+        });
+    });
      console.log(row);
      documentTable.appendChild(row);
 };
