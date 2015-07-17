@@ -100,11 +100,11 @@ javascriptStudio::
 //Переменая хранящая таблицу documentTable.innerHTML
 var documentTable =  getValueFild('raw').body;
 //Установка всех всех атрибутов необхадимых для работы перетаскивания
-function SetDragAttr(value){
-    value.getElementsByTagName('table')[0].id = "dragAnswers"
-    value.getElementsByTagName('table')[0].classList.add("answerPlace");
+function SetDragAttr(){
+    documentTable.getElementsByTagName('table')[0].id = "dragAnswers"
+    documentTable.getElementsByTagName('table')[0].classList.add("answerPlace");
 
-    forEachInCollection(childList(value.getElementsByTagName('tbody')[0]), function(value){
+    forEachInCollection(childList(documentTable.getElementsByTagName('tbody')[0]), function(value){
         deleteAllAttributes(value);
         forEachInCollection(childList(value), function(value){
             deleteAllAttributes(value);
@@ -192,7 +192,7 @@ function drag(){
 }
 
 function Convertation(){
-   SetDragAttr(documentTable);
+   SetDragAttr();
    setBlockHtml('view', documentTable.innerHTML);
    drag();
 }
