@@ -273,8 +273,9 @@ elementDOM.querySelector('#conraw').onclick = function(){
     // TODO: elementDOM.querySelector("#view").appendChild(documentTable);
     setBlockHtml('view', documentTable.innerHTML);
 
-    var firstRowIsBlocked = false;
-    var firstColumnIsBlocked = false;
+    firstRowIsBlocked = false;
+    firstColumnIsBlocked = false;
+
     drag();
 };
 
