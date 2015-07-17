@@ -109,12 +109,12 @@ function SetDragAttr(value){
             deleteAllAttributes(value);
             value.classList.add("cell");
             value.id = generationID();
-            console.log(value.childNodes[0].nodeType)
-            if (value.childNodes[0].nodeType != 1){
+            if (value.childNodes[0].nodeType = 3){
                 var div = document.createElement('div');
                 div.innerHTML = value.innerHTML;
                 div.classList.add("answer");
                 div.id = generationID();
+                value.appendChild(div);
             }
             else {
                 forEachInCollection(childList(value), function(value){
