@@ -22,6 +22,9 @@ html::
     <button id="fixLine">Зафиксировать строку</button>
     <button id="fixColumn">Зафиксировать столбец</button>
 
+    <button id="addRow">Добавить строку</button>
+    <button id="addColumn">Добавить столбец</button>
+
     <div id="view">
     </div></div>
 
@@ -221,16 +224,19 @@ elementDOM.querySelector("#view").onclick = function(event){
    documentTable.innerHTML = elementDOM.querySelector("#view").getElementsByTagName("table")[0].outerHTML;
    var target = event.target; 
         if (target.tagName != 'TD') return; 
-        //alert(target.id); 
         var div = document.createElement('div');
         div.innerHTML = "answer";
         div.classList.add("answer");
         div.id = generationID();
-        div.setAttribute("contenteditable", 'true');
+        //div.setAttribute("contenteditable", 'true');
         target.appendChild(div);
 };
 
-
+elementDOM.querySelector("#addRow").onclick = function(){
+    documentTable.innerHTML = elementDOM.querySelector("#view").getElementsByTagName("table")[0].outerHTML;
+     var row = document.createElement('tr');
+     documentTable.appendChild(row);
+}
 
 elementDOM.querySelector('#conraw').onclick = function(){
     documentTable =  getValueFild('raw').body;
@@ -251,6 +257,7 @@ elementDOM.querySelector('#fixLine').onclick = function(){
     drag();
     console.log('end_event: нажатие кнопки "Зафиксировать строку"');
 };
+
 elementDOM.querySelector('#fixColumn').onclick = function(){
     console.log('start_event: нажатие кнопки "Зафиксировать столбец"');
 
