@@ -233,8 +233,10 @@ elementDOM.querySelector("#view").onclick = function(event){
 };
 
 elementDOM.querySelector("#addRow").onclick = function(){
+    alert("#addRow");
     documentTable.innerHTML = elementDOM.querySelector("#view").getElementsByTagName("table")[0].outerHTML;
      var row = document.createElement('tr');
+     console.log(row);
      documentTable.appendChild(row);
 }
 
