@@ -106,7 +106,7 @@ function SetDragAttr(value){
     forEachInCollection(childList(value.getElementsByTagName('tbody')[0]), function(value){
         deleteAllAttributes(value);
         forEachInCollection(childList(value), function(value){
-            console.log(value);
+            console.log(value.childNodes);
             deleteAllAttributes(value);
             value.classList.add("cell");
             value.id = generationID();
