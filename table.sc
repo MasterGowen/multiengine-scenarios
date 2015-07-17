@@ -11,7 +11,7 @@ html::
 
     <ul id="scMenu">
         <li id="scButtonRaw" scMenuActive="true">Исходный код</li>
-        <!--<li id="conraw">Преобразовать HTML</li>-->
+        <li id="conraw">Преобразовать HTML</li>
         <li id="scButtonView" scMenuActive="false">Просмотр</li>
     </ul>
     <div id="scWindowRaw">
@@ -208,7 +208,6 @@ elementDOM.querySelector('#scButtonView').onclick = function(){
     elementDOM.querySelector('#scButtonView').setAttribute('scMenuActive', 'true');
     elementDOM.querySelector('#scWindowRaw').setAttribute('hidden', 'true'); 
     elementDOM.querySelector('#scWindowView').removeAttribute('hidden');
-    Convertation();
 };
 elementDOM.querySelector('#scButtonRaw').onclick = function(){
     elementDOM.querySelector('#scButtonRaw').setAttribute('scMenuActive', 'true');
