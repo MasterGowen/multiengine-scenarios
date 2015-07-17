@@ -155,7 +155,7 @@ function Convertation(){
 }
 
 
-documentTable.onclick = function(event) {
+documentTable.getElementsByTagName('table')[0].onclick = function(event) {
   var target = event.target; // где был клик?
 
   if (target.tagName != 'TD') return; // не на TD? тогда не интересует
