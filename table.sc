@@ -278,9 +278,7 @@ elementDOM.querySelector("#addRow").onclick = function(){
 elementDOM.querySelector("#addColumn").onclick = function(){
     documentTable.innerHTML = elementDOM.querySelector("#view").getElementsByTagName("table")[0].outerHTML;
     forEachInCollection(childList(documentTable.getElementsByTagName('tr')[0]), function(value){
-        forEachInCollection(childList(value), function(value){
             console.log(value);
-        });
     });
 
 };
