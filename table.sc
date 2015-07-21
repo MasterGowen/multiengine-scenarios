@@ -277,8 +277,14 @@ elementDOM.querySelector("#addRow").onclick = function(){
 /*добавление столбца к таблице*/
 elementDOM.querySelector("#addColumn").onclick = function(){
     documentTable.innerHTML = elementDOM.querySelector("#view").getElementsByTagName("table")[0].outerHTML;
-    forEachInCollection(childList(documentTable.getElementsByTagName('tr')[0]), function(value){
-            console.log(value);
+
+    forEachInCollection(documentTable.getElementsByTagName('tr'), function(value){
+        console.log(value);
+        /*deleteAllAttributes(childList(value)[0]);
+        childList(value)[0].classList.add("first");
+        forEachInCollection(childList(childList(value)[0]), function(value){
+            deleteAllAttributes(value);
+        });*/
     });
 
 };
