@@ -65,7 +65,7 @@ css::
 }
 .cell {
     border: 1px solid white;
-    min-width: 50px;
+    min-width: 100px;
     cursor: pointer;
     background: #D8E6F3;
 }
@@ -246,7 +246,6 @@ elementDOM.querySelector("#view").onclick = function(event){
         if (target.tagName != 'TD') return; 
         var div = document.createElement('div');
         div.innerHTML = "answer";
-
         if(target.classList.contains('cell')){
             div.classList.add("answer");
             div.id = generationID();
@@ -257,9 +256,7 @@ elementDOM.querySelector("#view").onclick = function(event){
 
 /* добавление строки к таблице*/
 elementDOM.querySelector("#addRow").onclick = function(){
-
     documentTable.innerHTML = elementDOM.querySelector("#view").getElementsByTagName("table")[0].outerHTML;
-    
     var newRow = document.createElement('tr');
     forEachInCollection(childList(documentTable.getElementsByTagName('tr')[0]), function(value){
             var newCell = document.createElement('td');
@@ -271,7 +268,6 @@ elementDOM.querySelector("#addRow").onclick = function(){
         deleteAllAttributes(newRow.firstChild);
         newRow.firstChild.classList.add("first");
     }
-
     documentTable.getElementsByTagName('tbody')[0].appendChild(newRow);
     setBlockHtml('view', documentTable.innerHTML); // надо ли?! наверно надо
     drag();
@@ -281,7 +277,6 @@ elementDOM.querySelector("#addRow").onclick = function(){
 /*добавление столбца к таблице*/
 elementDOM.querySelector("#addColumn").onclick = function(){
     documentTable.innerHTML = elementDOM.querySelector("#view").getElementsByTagName("table")[0].outerHTML;
-
     forEachInCollection(documentTable.getElementsByTagName('tr'), function(value){
         var newCell = document.createElement('td');
         newCell.classList.add("cell");
@@ -309,23 +304,16 @@ elementDOM.querySelector('#conraw').onclick = function(){
 };
 
 
-elementDOM.querySelectorAll('.answer').ondblclick = function(event){
-
-    //documentTable.innerHTML = elementDOM.querySelector("#view").getElementsByTagName("table")[0].outerHTML;
-    var target = event.target; 
-    
-    console.log(target.id);
-    /*if (target.tagName != 'TD') return; 
-        var div = document.createElement('div');
-        div.innerHTML = "answer";
-
-    if(target.classList.contains('cell')){
-        div.classList.add("answer");
-        div.id = generationID();
-        }
-    target.appendChild(div);
-*/
+elementDOM.querySelector("#view").ondblclick = function(event){
+   documentTable.innerHTML = elementDOM.querySelector("#view").getElementsByTagName("table")[0].outerHTML;
+   var target = event.target; 
+        if (target.classList.contains('cell')){
+            console.log(target.id);
+        } 
+        else return; 
 };
+
+
 
 elementDOM.querySelector('#fixLine').onclick = function(){
     console.log('start_event: нажатие кнопки "Зафиксировать строку"');
