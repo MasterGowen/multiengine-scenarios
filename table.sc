@@ -280,6 +280,17 @@ elementDOM.querySelector("#addColumn").onclick = function(){
 
     forEachInCollection(documentTable.getElementsByTagName('tr'), function(value){
         console.log(value);
+        var newCell = document.createElement('td');
+        newCell.classList.add("cell");
+        newCell.id = generationID();
+        value.appendChild(newCell)
+        /*
+        forEachInCollection(childList(value), function(value){
+            var newCell = document.createElement('td');
+            newCell.classList.add("cell");
+            newCell.id = generationID();
+            newRow.appendChild(newCell);
+        });
         /*deleteAllAttributes(childList(value)[0]);
         childList(value)[0].classList.add("first");
         forEachInCollection(childList(childList(value)[0]), function(value){
