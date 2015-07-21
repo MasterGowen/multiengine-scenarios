@@ -305,17 +305,19 @@ elementDOM.querySelector('#conraw').onclick = function(){
     drag();
 };
 
-//редактирование по двойному клику
-/*
+//редактирование по двойному клику 
+// TODO: НЕ РАБОТАЕТ С <P></P>
+
 elementDOM.querySelector("#view").ondblclick = function(event){
    documentTable.innerHTML = elementDOM.querySelector("#view").getElementsByTagName("table")[0].outerHTML;
    var target = event.target; 
         if (target.classList.contains('answer')){
             console.log(target.id);
+            elementDOM.querySelector('#' + target.id ).setAttribute('contenteditable', 'ture');
         } 
         else return; 
 };
-*/
+
 
 
 elementDOM.querySelector('#fixLine').onclick = function(){
