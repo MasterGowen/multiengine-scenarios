@@ -65,6 +65,7 @@ css::
 }
 .cell {
     border: 1px solid black;
+    min-width: 50px;
 }
 
 .first{
