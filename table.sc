@@ -303,7 +303,8 @@ elementDOM.querySelector('#conraw').onclick = function(){
     drag();
 };
 
-elementDOM.querySelectorAll('.anwer').ondblclick = function(){
+
+elementDOM.querySelectorAll('.answer').ondblclick = function(event){
 
     //documentTable.innerHTML = elementDOM.querySelector("#view").getElementsByTagName("table")[0].outerHTML;
     var target = event.target; 
