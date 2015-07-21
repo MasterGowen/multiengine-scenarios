@@ -320,15 +320,21 @@ elementDOM.querySelector("#view").ondblclick = function(event){
 
 
 elementDOM.querySelector('#fixLine').onclick = function(){
-    console.log('start_event: нажатие кнопки "Зафиксировать строку"');
 
-    fixLine(documentTable);
+    if (!firstRowIsBlocked){
+        fixLine(documentTable);
+    }
+    else {
+        SetDragAttr(documentTable);
+    }
+
+    
     //TODO: вынести в отдельную функцию
 
     setBlockHtml('view', documentTable.innerHTML);
     editor.setValue(documentTable.innerHTML);
     drag();
-    console.log('end_event: нажатие кнопки "Зафиксировать строку"');
+   // console.log('end_event: нажатие кнопки "Зафиксировать строку"');
 };
 
 elementDOM.querySelector('#fixColumn').onclick = function(){
