@@ -323,9 +323,14 @@ elementDOM.querySelector('#fixLine').onclick = function(){
 
     if (!firstRowIsBlocked){
         fixLine(documentTable);
+        firstRowIsBlocked=true;
     }
     else {
         SetDragAttr(documentTable);
+        if(firstColumnIsBlocked){
+            fixColumn(documentTable);
+        }
+        firstRowIsBlocked=false;
     }
 
     
