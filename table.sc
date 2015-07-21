@@ -278,16 +278,14 @@ elementDOM.querySelector("#addRow").onclick = function(){
 
 /*добавление столбца к таблице*/
 elementDOM.querySelector("#addColumn").onclick = function(){
-
     documentTable.innerHTML = elementDOM.querySelector("#view").getElementsByTagName("table")[0].outerHTML;
-
     forEachInCollection(documentTable.getElementsByTagName('tr'), function(value){
-        console.log(value);
+        //console.log(value);
         var newCell = document.createElement('td');
         newCell.classList.add("cell");
         newCell.id = generationID();
         value.appendChild(newCell);
-        setBlockHtml('view', documentTable.innerHTML); // надо ли?! наверно надо
+        setBlockHtml('view', documentTable.innerHTML); 
         drag();
     });
 
