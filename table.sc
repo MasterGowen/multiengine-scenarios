@@ -157,6 +157,7 @@ function SetDragAttr(value){
     });
 };
 
+
 //Удаление всех имеющихся атрибутов
 //TODO: Сделать дополнительную переменную которая будет хранить те атрибуты которые не нужно удалять
 function deleteAllAttributes(value){
@@ -273,6 +274,16 @@ elementDOM.querySelector("#addRow").onclick = function(){
     drag();
 };
 
+/*добавление столбца к таблице*/
+elementDOM.querySelector("#addColumn").onclick = function(){
+
+    forEachInCollection(childList(documentTable.getElementsByTagName('tr')[0]), function(value){
+        forEachInCollection(childList(value), function(value){
+            console.log(value);
+        });
+    });
+
+};
 
 
 elementDOM.querySelector('#conraw').onclick = function(){
