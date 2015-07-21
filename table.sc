@@ -303,12 +303,12 @@ elementDOM.querySelector('#conraw').onclick = function(){
     drag();
 };
 
-elementDOM.querySelector('.answer').ondblclick = function(event){
+elementDOM.querySelector('#conraw').ondblclick = function(){
 
     //documentTable.innerHTML = elementDOM.querySelector("#view").getElementsByTagName("table")[0].outerHTML;
-    var target = event.target; 
+    //var target = event.target; 
     
-    console.log(target.id);
+    console.log(/*target.id*/"work!");
     /*if (target.tagName != 'TD') return; 
         var div = document.createElement('div');
         div.innerHTML = "answer";
