@@ -251,16 +251,17 @@ elementDOM.querySelector("#view").onclick = function(event){
 
 /* добавление строки к таблице*/
 elementDOM.querySelector("#addRow").onclick = function(){
+
     documentTable.innerHTML = elementDOM.querySelector("#view").getElementsByTagName("table")[0].outerHTML;
     
     var newRow = document.createElement('tr');
     forEachInCollection(childList(documentTable.getElementsByTagName('tr')[0]), function(value){
-        forEachInCollection(childList(value), function(value){
+        //forEachInCollection(childList(value), function(value){
             var newCell = document.createElement('td');
             newCell.classList.add("cell");
             newCell.id = generationID();
             newRow.appendChild(newCell);
-        });
+        //});
     });
 
     if(firstColumnIsBlocked){
@@ -276,6 +277,7 @@ elementDOM.querySelector("#addRow").onclick = function(){
 
 /*добавление столбца к таблице*/
 elementDOM.querySelector("#addColumn").onclick = function(){
+
     documentTable.innerHTML = elementDOM.querySelector("#view").getElementsByTagName("table")[0].outerHTML;
 
     forEachInCollection(documentTable.getElementsByTagName('tr'), function(value){
@@ -286,18 +288,6 @@ elementDOM.querySelector("#addColumn").onclick = function(){
         value.appendChild(newCell);
         setBlockHtml('view', documentTable.innerHTML); // надо ли?! наверно надо
         drag();
-        /*
-        forEachInCollection(childList(value), function(value){
-            var newCell = document.createElement('td');
-            newCell.classList.add("cell");
-            newCell.id = generationID();
-            newRow.appendChild(newCell);
-        });
-        /*deleteAllAttributes(childList(value)[0]);
-        childList(value)[0].classList.add("first");
-        forEachInCollection(childList(childList(value)[0]), function(value){
-            deleteAllAttributes(value);
-        });*/
     });
 
 };
