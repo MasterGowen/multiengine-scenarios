@@ -178,7 +178,6 @@ function Convertation(){
     documentTable =  getValueFild('raw').body;
     SetDragAttr(documentTable);
     setBlockHtml('view', documentTable.innerHTML);
-    //activateAddItems(documentTable);
     drag();
 }
 
@@ -321,7 +320,8 @@ elementDOM.querySelector("#view").ondblclick = function(event){
 
 elementDOM.querySelector('#fixLine').onclick = function(){
 
-    if (!firstRowIsBlocked){
+    //TODO: 
+    /*if (!firstRowIsBlocked){
         fixLine(documentTable);
         firstRowIsBlocked=true;
     }
@@ -331,9 +331,9 @@ elementDOM.querySelector('#fixLine').onclick = function(){
             fixColumn(documentTable);
         }
         firstRowIsBlocked=false;
-    }
+    }*/
 
-    
+    fixLine(documentTable);
     //TODO: вынести в отдельную функцию
 
     setBlockHtml('view', documentTable.innerHTML);
