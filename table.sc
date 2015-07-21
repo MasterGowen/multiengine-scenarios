@@ -305,8 +305,8 @@ elementDOM.querySelector('#conraw').onclick = function(){
     drag();
 };
 
-
-/*редактирование по двойному клику*/
+//редактирование по двойному клику
+/*
 elementDOM.querySelector("#view").ondblclick = function(event){
    documentTable.innerHTML = elementDOM.querySelector("#view").getElementsByTagName("table")[0].outerHTML;
    var target = event.target; 
