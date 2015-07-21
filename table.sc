@@ -77,12 +77,16 @@ css::
     min-width: 100px;
 }
 
+
+// .answer во вроемя contenteditable
+/*
 .answer[contenteditable=true]{
     border: 1px solid rgb(163, 55, 55);
     cursor: text;
     margin: 5px;
     background: white;
 }
+*/
 
 .answer{
 	border: 1px dashed rgb(163, 55, 55);
@@ -318,7 +322,7 @@ elementDOM.querySelector('#conraw').onclick = function(){
 elementDOM.querySelector("#view").ondblclick = function(event){
    var target = event.target; 
         if (target.classList.contains('answer')){
-            console.log(target.id);
+            console.log(target.id + " is contenteditable?");
             elementDOM.querySelector('#' + target.id ).setAttribute('contenteditable', 'true');
         } 
         else return; 
