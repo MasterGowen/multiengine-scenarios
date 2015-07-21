@@ -283,7 +283,9 @@ elementDOM.querySelector("#addColumn").onclick = function(){
         var newCell = document.createElement('td');
         newCell.classList.add("cell");
         newCell.id = generationID();
-        value.appendChild(newCell)
+        value.appendChild(newCell);
+        setBlockHtml('view', documentTable.innerHTML); // надо ли?! наверно надо
+        drag();
         /*
         forEachInCollection(childList(value), function(value){
             var newCell = document.createElement('td');
