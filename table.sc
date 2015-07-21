@@ -74,6 +74,7 @@ css::
 	background: rgb(170, 222, 226);
 	border: 1px solid white;
     background: #AFCDE7;
+    min-width: 100px;
 }
 
 .answer{
@@ -95,27 +96,6 @@ css::
   display: block;
   width: 9px;
   color: gray;
-}
-
-cssStudent::
-
-.cell {
-    border: 1px solid white;
-    min-width: 100px;
-    cursor: pointer;
-    background: #D8E6F3;
-}
-
-.first{
-    background: rgb(170, 222, 226);
-    border: 1px solid white;
-    background: #AFCDE7;
-}
-
-.answer{
-    border: 1px dashed rgb(163, 55, 55);
-    cursor: move;
-    margin: 5px;
 }
 
 
@@ -329,7 +309,7 @@ elementDOM.querySelector('#conraw').onclick = function(){
 elementDOM.querySelector("#view").ondblclick = function(event){
    documentTable.innerHTML = elementDOM.querySelector("#view").getElementsByTagName("table")[0].outerHTML;
    var target = event.target; 
-        if (target.classList.contains('cell')){
+        if (target.classList.contains('answer')){
             console.log(target.id);
         } 
         else return; 
