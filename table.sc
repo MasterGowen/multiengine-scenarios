@@ -76,6 +76,13 @@ css::
 	border: 1px dashed rgb(163, 55, 55);
 }
 
+.first:before {
+  content: "+";
+  margin: 0 auto;
+  display: block;
+  width: 9px;
+  color: gray;
+
 .cell:before {
   content: "+";
   margin: 0 auto;
