@@ -77,6 +77,13 @@ css::
     min-width: 100px;
 }
 
+.answer[contenteditable=true]{
+    border: 1px solid rgb(163, 55, 55);
+    cursor: text;
+    margin: 5px;
+    background: white;
+}
+
 .answer{
 	border: 1px dashed rgb(163, 55, 55);
     cursor: move;
