@@ -257,36 +257,35 @@ elementDOM.querySelector("#addRow").onclick = function(){
     
     var newRow = document.createElement('tr');
     forEachInCollection(childList(documentTable.getElementsByTagName('tr')[0]), function(value){
-        //forEachInCollection(childList(value), function(value){
             var newCell = document.createElement('td');
             newCell.classList.add("cell");
             newCell.id = generationID();
             newRow.appendChild(newCell);
-        //});
     });
-
     if(firstColumnIsBlocked){
         deleteAllAttributes(newRow.firstChild);
         newRow.firstChild.classList.add("first");
     }
 
     documentTable.getElementsByTagName('tbody')[0].appendChild(newRow);
-
     setBlockHtml('view', documentTable.innerHTML); // надо ли?! наверно надо
     drag();
 };
+
 
 /*добавление столбца к таблице*/
 elementDOM.querySelector("#addColumn").onclick = function(){
     documentTable.innerHTML = elementDOM.querySelector("#view").getElementsByTagName("table")[0].outerHTML;
 
     forEachInCollection(documentTable.getElementsByTagName('tr'), function(value){
-        //console.log(value);
         var newCell = document.createElement('td');
         newCell.classList.add("cell");
         newCell.id = generationID();
         value.appendChild(newCell);
     });
+    if(firstRowIsBlocked){
+        fixLine(documentTable);
+    }
         setBlockHtml('view', documentTable.innerHTML); 
         drag();
 };
