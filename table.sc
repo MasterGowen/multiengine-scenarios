@@ -82,13 +82,14 @@ css::
   display: block;
   width: 9px;
   color: gray;
-
+}
 .cell:before {
   content: "+";
   margin: 0 auto;
   display: block;
   width: 9px;
   color: gray;
+}
 
 javascriptStudent::
 
