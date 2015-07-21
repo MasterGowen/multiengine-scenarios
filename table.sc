@@ -97,6 +97,28 @@ css::
   color: gray;
 }
 
+cssStudent::
+
+.cell {
+    border: 1px solid white;
+    min-width: 100px;
+    cursor: pointer;
+    background: #D8E6F3;
+}
+
+.first{
+    background: rgb(170, 222, 226);
+    border: 1px solid white;
+    background: #AFCDE7;
+}
+
+.answer{
+    border: 1px dashed rgb(163, 55, 55);
+    cursor: move;
+    margin: 5px;
+}
+
+
 javascriptStudent::
 
 function drag(){
