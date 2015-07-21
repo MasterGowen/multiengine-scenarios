@@ -303,6 +303,24 @@ elementDOM.querySelector('#conraw').onclick = function(){
     drag();
 };
 
+elementDOM.querySelector('.answer').ondblclick = function(event){
+
+    //documentTable.innerHTML = elementDOM.querySelector("#view").getElementsByTagName("table")[0].outerHTML;
+    var target = event.target; 
+    
+    console.log(target.id);
+    /*if (target.tagName != 'TD') return; 
+        var div = document.createElement('div');
+        div.innerHTML = "answer";
+
+    if(target.classList.contains('cell')){
+        div.classList.add("answer");
+        div.id = generationID();
+        }
+    target.appendChild(div);
+*/
+};
+
 elementDOM.querySelector('#fixLine').onclick = function(){
     console.log('start_event: нажатие кнопки "Зафиксировать строку"');
 
