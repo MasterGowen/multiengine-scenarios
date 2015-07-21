@@ -243,7 +243,7 @@ function addRow(){
 
 /*добавлялка перетаскивающихся штучек*/
 elementDOM.querySelector("#view").onclick = function(event){
-   documentTable.innerHTML = elementDOM.querySelector("#view").getElementsByTagName("table")[0].outerHTML;
+   //documentTable.innerHTML = elementDOM.querySelector("#view").getElementsByTagName("table")[0].outerHTML;
    var target = event.target; 
         if (target.tagName != 'TD') return; 
         var div = document.createElement('div');
@@ -309,11 +309,10 @@ elementDOM.querySelector('#conraw').onclick = function(){
 // TODO: НЕ РАБОТАЕТ С <P></P>
 
 elementDOM.querySelector("#view").ondblclick = function(event){
-   documentTable.innerHTML = elementDOM.querySelector("#view").getElementsByTagName("table")[0].outerHTML;
    var target = event.target; 
         if (target.classList.contains('answer')){
             console.log(target.id);
-            elementDOM.querySelector('#' + target.id ).setAttribute('contenteditable', 'ture');
+            elementDOM.querySelector('#' + target.id ).setAttribute('contenteditable', 'true');
         } 
         else return; 
 };
