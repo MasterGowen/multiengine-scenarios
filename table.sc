@@ -66,15 +66,19 @@ css::
 .cell {
     border: 1px solid black;
     min-width: 50px;
+    cursor: pointer;
+    background: #D8E6F3;
 }
 
 .first{
 	background: rgb(170, 222, 226);
 	border: 1px solid black;
+    background: #AFCDE7;
 }
 
 .answer{
 	border: 1px dashed rgb(163, 55, 55);
+    cursor: move;
 }
 
 .first:before {
