@@ -142,14 +142,14 @@ var firstColumnIsBlocked;
 
 //Установка всех всех атрибутов необходимых для работы перетаскивания
 function SetDragAttr(value){
-    deleteAllAttributes(value.getElementsByTagName('table')[0],{});
+    deleteAllAttributes(value.getElementsByTagName('table')[0], []);
     value.getElementsByTagName('table')[0].id = "dragAnswers"
     value.getElementsByTagName('table')[0].classList.add("answerPlace");
 
     forEachInCollection(childList(value.getElementsByTagName('tbody')[0]), function(value){
-        deleteAllAttributes(value, {});
+        deleteAllAttributes(value, []);
         forEachInCollection(childList(value), function(value){
-            deleteAllAttributes(value,{});
+            deleteAllAttributes(value, []);
             value.classList.add("cell");
             value.id = generationID();
 
@@ -199,10 +199,10 @@ function Convertation(){
 function fixLine(value){
     console.log('start_event: Фиксация первой строки');
 	forEachInCollection(childList(value.getElementsByTagName('tr')[0]), function(value){
-    	deleteAllAttributes(value,{});
+    	deleteAllAttributes(value,[]);
     	value.classList.add("first");
     	forEachInCollection(childList(value), function(value){
-        	deleteAllAttributes(value,{'id'});
+        	deleteAllAttributes(value,['id']);
     	});
 	});
     firstRowIsBlocked = true;
@@ -215,10 +215,10 @@ function fixLine(value){
 function fixColumn(value){
     console.log('start_event: Фиксация первой столбца');
     forEachInCollection(value.getElementsByTagName('tr'), function(value){
-    	deleteAllAttributes(childList(value)[0],{});
+    	deleteAllAttributes(childList(value)[0], []);
     	childList(value)[0].classList.add("first");
     	forEachInCollection(childList(childList(value)[0]), function(value){
-    		deleteAllAttributes(value,{'id'});
+    		deleteAllAttributes(value, ['id']);
     	});
     });
     firstColumnIsBlocked = true;
@@ -279,7 +279,7 @@ elementDOM.querySelector("#addRow").onclick = function(){
             newRow.appendChild(newCell);
     });
     if(firstColumnIsBlocked){
-        deleteAllAttributes(newRow.firstChild,{});
+        deleteAllAttributes(newRow.firstChild, []);
         newRow.firstChild.classList.add("first");
     }
     documentTable.getElementsByTagName('tbody')[0].appendChild(newRow);
