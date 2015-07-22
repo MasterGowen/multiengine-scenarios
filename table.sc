@@ -25,8 +25,16 @@ html::
     <button id="addRow">Добавить строку</button>
     <button id="addColumn">Добавить столбец</button>
 
+    <button id="getAllAnswers">Добавить столбец</button>
+
+
     <div id="view">
-    </div></div>
+    
+    <!--<div id = "allAnswers">
+    </div>-->
+
+    </div>
+    </div>
 
 
 
@@ -354,7 +362,18 @@ elementDOM.querySelector('#fixColumn').onclick = function(){
     console.log('end_event: нажатие кнопки "Зафиксировать столбец"');
 };
 
+/*перенос всех ответов в отдельное поле*/
+elementDOM.querySelector("#getAllAnswers").onclick = function(){
 
+    var allAnswersList = elementDOM.querySelector('#view').querySelector('#dragAnswers').querySelectorAll('.answer');
+    var allAnswersDiv = document.querySelector('#allAnswers');
+
+    forEachInCollection(allAnswersList,function(value){ 
+        allAnswersDiv.appendChild(value)
+    });
+
+    //setBlockHtml('AllAnswers', AllAnswers.outerHTML);
+};
 
 
 elementDOM.querySelector('#scButtonView').onclick = function(){
