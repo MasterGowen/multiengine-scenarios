@@ -314,7 +314,10 @@ elementDOM.querySelector('#conraw').onclick = function(){
     SetDragAttr(documentTable);
     // TODO: elementDOM.querySelector("#view").appendChild(documentTable);
     setBlockHtml('view', documentTable.innerHTML);
-
+    
+    //костыль
+    elementDOM.querySelector('#allAnswers').querySelector('#scWindowView').innerHTML="";
+    
     firstRowIsBlocked = false;
     firstColumnIsBlocked = false;
 
