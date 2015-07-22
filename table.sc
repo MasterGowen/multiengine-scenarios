@@ -182,7 +182,7 @@ function SetDragAttr(value){
 function deleteAllAttributes(value,undeletableAttributes){
     //while(value.attributes.length>0) {
     for (var i=0; i< value.attributes.length; i++){
-        if(undeletableAttributes.contains(value.attributes[i].name)) continue;
+        if(value.attributes[i].name in undeletableAttributes) continue;
         value.removeAttribute(value.attributes[i].name)
     }
 }
