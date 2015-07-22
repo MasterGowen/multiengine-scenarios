@@ -341,14 +341,15 @@ elementDOM.querySelector('#conraw').onclick = function(){
     {
         console.log("new table");
         documentTable = makeStartTable();
-        console.log(documentTable);
+        console.log(documentTable.outerHTML);
+        setBlockHtml('view', documentTable.outerHTML);
    }
     else
         {   
             console.log("load table");
             documentTable =  getValueFild('raw').body;
             SetDragAttr(documentTable);
-            console.log(documentTable);
+            console.log(documentTable.innerHTML);
             setBlockHtml('view', documentTable.innerHTML);
     // TODO: elementDOM.querySelector("#view").appendChild(documentTable);
         }
