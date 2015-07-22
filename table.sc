@@ -340,7 +340,7 @@ elementDOM.querySelector('#conraw').onclick = function(){
     if(elementDOM.querySelector('#raw').value == '')
     {
         console.log("new table");
-        documentTable = makeStartTable;
+        documentTable = makeStartTable();
         console.log(documentTable);
    }
     else
