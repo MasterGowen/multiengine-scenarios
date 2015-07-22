@@ -19,20 +19,15 @@ html::
     </div>
 
     <div id="scWindowView" hidden='true'>
-    <button id="fixLine">Зафиксировать строку</button>
-    <button id="fixColumn">Зафиксировать столбец</button>
-
-    <button id="addRow">Добавить строку</button>
-    <button id="addColumn">Добавить столбец</button>
-
-    <button id="getAllAnswers">Добавить столбец</button>
-
-
-    <div id="view">
-    
-    <!--<div id = "allAnswers">
-    </div>-->
-
+        <button id="fixLine">Зафиксировать строку</button>
+        <button id="fixColumn">Зафиксировать столбец</button>
+        <button id="addRow">Добавить строку</button>
+        <button id="addColumn">Добавить столбец</button>
+        <button id="getAllAnswers">Вынести ответы</button>
+        
+        <div id="view">
+            <div id = "allAnswers">
+        </div>
     </div>
     </div>
 
