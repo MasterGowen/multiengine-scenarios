@@ -44,6 +44,19 @@ css::
  /*конец*/ 
  .step-one{display:none}
 
+#allAnswers{
+    display: -webkit-box;
+}
+
+html,body{
+    -webkit-user-select: none;
+    -webkit-touch-callout: none;
+}
+
+*[contenteditable] {
+    -webkit-user-select: auto !important;
+}
+
 #scMenu{
     margin: 10px auto;
     display: block;
@@ -323,6 +336,7 @@ elementDOM.querySelector("#view").ondblclick = function(event){
 
 
 
+//фиксация строки
 elementDOM.querySelector('#fixLine').onclick = function(){
 
     //TODO: 
@@ -347,15 +361,16 @@ elementDOM.querySelector('#fixLine').onclick = function(){
    // console.log('end_event: нажатие кнопки "Зафиксировать строку"');
 };
 
+//фиксация столбца
 elementDOM.querySelector('#fixColumn').onclick = function(){
-    console.log('start_event: нажатие кнопки "Зафиксировать столбец"');
+    //console.log('start_event: нажатие кнопки "Зафиксировать столбец"');
 
     fixColumn(documentTable);
     //TODO: вынести в отдельную функцию
     setBlockHtml('view', documentTable.innerHTML);
     editor.setValue(documentTable.innerHTML);
     drag();
-    console.log('end_event: нажатие кнопки "Зафиксировать столбец"');
+    //console.log('end_event: нажатие кнопки "Зафиксировать столбец"');
 };
 
 /*перенос всех ответов в отдельное поле*/
