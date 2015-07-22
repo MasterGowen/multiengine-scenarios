@@ -27,7 +27,7 @@ html::
         
         <div id="view">
             <div id = "allAnswers">
-        </div>
+        </div> 
     </div>
     </div>
 
@@ -361,7 +361,7 @@ elementDOM.querySelector('#fixColumn').onclick = function(){
 elementDOM.querySelector("#getAllAnswers").onclick = function(){
 
     var allAnswersList = elementDOM.querySelector('#view').querySelector('#dragAnswers').querySelectorAll('.answer');
-    var allAnswersDiv = document.querySelector('#allAnswers');
+    var allAnswersDiv = elementDOM.querySelector('#allAnswers');
 
     forEachInCollection(allAnswersList,function(value){ 
         allAnswersDiv.appendChild(value)
