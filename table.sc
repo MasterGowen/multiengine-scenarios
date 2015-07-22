@@ -142,14 +142,14 @@ var firstColumnIsBlocked;
 
 //Установка всех всех атрибутов необходимых для работы перетаскивания
 function SetDragAttr(value){
-    deleteAllAttributes(value.getElementsByTagName('table')[0], []);
+    deleteAttributes(value.getElementsByTagName('table')[0], []);
     value.getElementsByTagName('table')[0].id = "dragAnswers"
     value.getElementsByTagName('table')[0].classList.add("answerPlace");
 
     forEachInCollection(childList(value.getElementsByTagName('tbody')[0]), function(value){
-        deleteAllAttributes(value, []);
+        deleteAttributes(value, []);
         forEachInCollection(childList(value), function(value){
-            deleteAllAttributes(value, []);
+            deleteAttributes(value, []);
             value.classList.add("cell");
             value.id = generationID();
 
@@ -178,9 +178,7 @@ function SetDragAttr(value){
 
 
 //Удаление всех имеющихся атрибутов
-//TODO: Сделать дополнительную переменную которая будет хранить те атрибуты которые не нужно удалять
-function deleteAllAttributes(value,undeletableAttributes){
-    //while(value.attributes.length>0) {
+function deleteAttributes(value,undeletableAttributes){
     for (var i=0; i< value.attributes.length; i++){
         if(value.attributes[i].name in undeletableAttributes) continue;
         value.removeAttribute(value.attributes[i].name)
@@ -199,10 +197,10 @@ function Convertation(){
 function fixLine(value){
     console.log('start_event: Фиксация первой строки');
 	forEachInCollection(childList(value.getElementsByTagName('tr')[0]), function(value){
-    	deleteAllAttributes(value,[]);
+    	deleteAttributes(value,[]);
     	value.classList.add("first");
     	forEachInCollection(childList(value), function(value){
-        	deleteAllAttributes(value,['id']);
+        	deleteAttributes(value,['id']);
     	});
 	});
     firstRowIsBlocked = true;
@@ -215,10 +213,10 @@ function fixLine(value){
 function fixColumn(value){
     console.log('start_event: Фиксация первой столбца');
     forEachInCollection(value.getElementsByTagName('tr'), function(value){
-    	deleteAllAttributes(childList(value)[0], []);
+    	deleteAttributes(childList(value)[0], []);
     	childList(value)[0].classList.add("first");
     	forEachInCollection(childList(childList(value)[0]), function(value){
-    		deleteAllAttributes(value, ['id']);
+    		deleteAttributes(value, ['id']);
     	});
     });
     firstColumnIsBlocked = true;
@@ -260,9 +258,9 @@ elementDOM.querySelector("#view").onclick = function(event){
         var div = document.createElement('div');
         div.innerHTML = "answer";
         if(target.classList.contains('cell')){
-            div.classList.add("dragAnswer");
-            div.id = generationID();
+            div.classList.add("dragAnswer");  
         }
+        div.id = generationID();
         target.appendChild(div);
     documentTable.innerHTML = elementDOM.querySelector("#view").getElementsByTagName("table")[0].outerHTML;
 };
@@ -279,7 +277,7 @@ elementDOM.querySelector("#addRow").onclick = function(){
             newRow.appendChild(newCell);
     });
     if(firstColumnIsBlocked){
-        deleteAllAttributes(newRow.firstChild, []);
+        deleteAttributes(newRow.firstChild, []);
         newRow.firstChild.classList.add("first");
     }
     documentTable.getElementsByTagName('tbody')[0].appendChild(newRow);
