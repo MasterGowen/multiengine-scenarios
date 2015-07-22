@@ -336,7 +336,7 @@ elementDOM.querySelector("#addColumn").onclick = function(){
 
 elementDOM.querySelector('#conraw').onclick = function(){
 
-    if(elementDOM.querySelector('#raw').innerHTML = '')
+    if(elementDOM.querySelector('#raw').value = '')
     {
         makeStartTable();
     }
