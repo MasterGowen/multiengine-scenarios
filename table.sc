@@ -97,7 +97,9 @@ css::
   display: block;
   width: 9px;
   color: gray;
+  cursor: pointer;
 }
+
 .cell:before {
   content: "+";
   margin: 0 auto;
@@ -111,14 +113,14 @@ javascriptStudent::
 
 function drag(){
         $('#dragAnswers').sortable({
-        items: ".answer",
+        items: ".dragAnswer",
         connectWith: '.answerPlace .cell, .answerPlace',
         revert: '100',
         tolerance: "pointer"
     }).disableSelection();
 
     $('.answerPlace .cell').sortable({
-        items: ".answer",
+        items: ".dragAnswer",
         connectWith: '.answerPlace .cell, .answerPlace',
         revert: '100',
         tolerance: "pointer"
@@ -156,7 +158,7 @@ function SetDragAttr(value){
                 div.innerHTML = value.innerHTML;
 //TODO: Костыль
                 value.innerHTML="";
-                div.classList.add("answer");
+                div.classList.add("dragAnswer");
                 div.id = generationID();
                 value.appendChild(div);
             }
@@ -165,7 +167,7 @@ function SetDragAttr(value){
                     console.log(value);
                     var div = document.createElement('div');
                     div.innerHTML = value.innerHTML;
-                    div.classList.add("answer");
+                    div.classList.add("dragAnswer");
                     div.id = generationID();
                     value.parentNode.replaceChild(div, value);
                 });
@@ -226,7 +228,7 @@ function fixColumn(value){
 
 function drag(){
     $('#dragAnswers, .answerPlace .cell, .answerPlace').sortable({
-        items: ".answer",
+        items: ".dragAnswer",
         connectWith: '.answerPlace .cell, .answerPlace',
         revert: '100',
         tolerance: "pointer",
@@ -256,7 +258,7 @@ elementDOM.querySelector("#view").onclick = function(event){
         var div = document.createElement('div');
         div.innerHTML = "answer";
         if(target.classList.contains('cell')){
-            div.classList.add("answer");
+            div.classList.add("dragAnswer");
             div.id = generationID();
         }
         target.appendChild(div);
@@ -318,7 +320,7 @@ elementDOM.querySelector('#conraw').onclick = function(){
 
 elementDOM.querySelector("#view").ondblclick = function(event){
    var target = event.target; 
-        if (target.classList.contains('answer')){
+        if (target.classList.contains('dragAnswer')){
             console.log(target.id + " is contenteditable?");
             elementDOM.querySelector('#' + target.id ).setAttribute('contenteditable', 'true');
         } 
@@ -329,23 +331,7 @@ elementDOM.querySelector("#view").ondblclick = function(event){
 
 //фиксация строки
 elementDOM.querySelector('#fixLine').onclick = function(){
-
-    //TODO: 
-    /*if (!firstRowIsBlocked){
-        fixLine(documentTable);
-        firstRowIsBlocked=true;
-    }
-    else {
-        SetDragAttr(documentTable);
-        if(firstColumnIsBlocked){
-            fixColumn(documentTable);
-        }
-        firstRowIsBlocked=false;
-    }*/
-
     fixLine(documentTable);
-    //TODO: вынести в отдельную функцию
-
     setBlockHtml('view', documentTable.innerHTML);
     editor.setValue(documentTable.innerHTML);
     drag();
@@ -368,7 +354,7 @@ elementDOM.querySelector('#fixColumn').onclick = function(){
 /*перенос всех ответов в отдельное поле*/
 elementDOM.querySelector("#getAllAnswers").onclick = function(){
 
-    var allAnswersList = elementDOM.querySelector('#view').querySelector('#dragAnswers').querySelectorAll('.answer');
+    var allAnswersList = elementDOM.querySelector('#view').querySelector('#dragAnswers').querySelectorAll('.dragAnswer');
     var allAnswersDiv = elementDOM.querySelector('#allAnswers');
 
     forEachInCollection(allAnswersList,function(value){ 
