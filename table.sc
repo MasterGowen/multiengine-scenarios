@@ -180,10 +180,11 @@ function SetDragAttr(value){
 //Удаление всех имеющихся атрибутов
 //TODO: Сделать дополнительную переменную которая будет хранить те атрибуты которые не нужно удалять
 function deleteAllAttributes(value,undeletableAttributes){
-    while(value.attributes.length>0) {
-        if(undeletableAttributes.contains(value.attributes[0].name)) continue;
-        value.removeAttribute(value.attributes[0].name)
-    };
+    //while(value.attributes.length>0) {
+    for (var i=0; i< value.attributes.length; i++){
+        if(undeletableAttributes.contains(value.attributes[i].name)) continue;
+        value.removeAttribute(value.attributes[i].name)
+    }
 }
 
 function Convertation(){
