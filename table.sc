@@ -143,13 +143,13 @@ var firstColumnIsBlocked;
 
 function makeStartTable(){
     var table = document.createElement('table');
-
     var tbody = document.createElement('tbody');
 
     table.classList.add("answerPlace");
     table.id = "dragAnswers";
 
     var tr = document.createElement('tr');
+
     var td = document.createElement('td');
     td.classList.add('cell');
     td.id = generationID();
@@ -158,13 +158,12 @@ function makeStartTable(){
     div.classList.add("answer");
     div.id = generationID();
 
-
     td.appendChild(div);
     tr.appendChild(td);
     tbody.appendChild(tr);
     table.appendChild(tbody);
 
-    return table;
+    return table.outerHTML;
     }
 
 //Установка всех всех атрибутов необходимых для работы перетаскивания
@@ -350,6 +349,7 @@ elementDOM.querySelector('#conraw').onclick = function(){
             SetDragAttr(documentTable);
     // TODO: elementDOM.querySelector("#view").appendChild(documentTable);
         }
+
     setBlockHtml('view', documentTable.innerHTML);   
     //костыль
     elementDOM.querySelector('#scWindowView').querySelector('#allAnswers').innerHTML="";
