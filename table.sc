@@ -140,6 +140,31 @@ var firstRowIsBlocked;
 // заблокирован ли первый столбец (true/false)
 var firstColumnIsBlocked;
 
+
+function makeStartTable(){
+    var table = document.createElement('table');
+    table.classList.add("answerPlace");
+    table.id = "dragAnswers";
+
+    var tr = document.createElement('tr');
+    var td = document.createElement('td');
+    td.classList.add('cell');
+    td.id = generationID();
+
+    var div = document.createElement('div');
+    div.classList.add("answer");
+    div.id = generationID();
+
+
+    td.appendChild(div);
+    tr.appendChild(td);
+    table.appendChild(tr);
+
+    documentTable = table;
+
+    drag();
+    }
+
 //Установка всех всех атрибутов необходимых для работы перетаскивания
 function SetDragAttr(value){
     deleteAttributes(value.getElementsByTagName('table')[0], []);
@@ -310,14 +335,21 @@ elementDOM.querySelector("#addColumn").onclick = function(){
 
 
 elementDOM.querySelector('#conraw').onclick = function(){
-    documentTable =  getValueFild('raw').body;
+
+    if(elementDOM.querySelector('#raw').innerHTML = '')
+    {
+        makeStartTable();
+    }
+    else
+        {    documentTable =  getValueFild('raw').body;
     SetDragAttr(documentTable);
     // TODO: elementDOM.querySelector("#view").appendChild(documentTable);
+        }
     setBlockHtml('view', documentTable.innerHTML);
-    
+        
     //костыль
     elementDOM.querySelector('#scWindowView').querySelector('#allAnswers').innerHTML="";
-    
+        
     firstRowIsBlocked = false;
     firstColumnIsBlocked = false;
 
