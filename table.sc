@@ -143,6 +143,9 @@ var firstColumnIsBlocked;
 
 function makeStartTable(){
     var table = document.createElement('table');
+
+    var tbody = document.createElement('tbody');
+
     table.classList.add("answerPlace");
     table.id = "dragAnswers";
 
@@ -158,11 +161,10 @@ function makeStartTable(){
 
     td.appendChild(div);
     tr.appendChild(td);
-    table.appendChild(tr);
+    tbody.appendChild(tr);
+    table.appendChild(tbody);
 
-    documentTable = table;
-
-    drag();
+    return table;
     }
 
 //Установка всех всех атрибутов необходимых для работы перетаскивания
@@ -338,15 +340,17 @@ elementDOM.querySelector('#conraw').onclick = function(){
 
     if(elementDOM.querySelector('#raw').value = '')
     {
-        makeStartTable();
+        console.log("new table");
+        documentTable = makeStartTable();
     }
     else
-        {    documentTable =  getValueFild('raw').body;
-    SetDragAttr(documentTable);
+        {   
+            console.log("load table");
+            documentTable =  getValueFild('raw').body;
+            SetDragAttr(documentTable);
     // TODO: elementDOM.querySelector("#view").appendChild(documentTable);
         }
-    setBlockHtml('view', documentTable.innerHTML);
-        
+    setBlockHtml('view', documentTable.innerHTML);   
     //костыль
     elementDOM.querySelector('#scWindowView').querySelector('#allAnswers').innerHTML="";
         
