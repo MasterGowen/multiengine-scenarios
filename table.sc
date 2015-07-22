@@ -48,15 +48,6 @@ css::
     display: -webkit-box;
 }
 
-html,body{
-    -webkit-user-select: none;
-    -webkit-touch-callout: none;
-}
-
-*[contenteditable] {
-    -webkit-user-select: auto !important;
-}
-
 #scMenu{
     margin: 10px auto;
     display: block;
@@ -234,7 +225,7 @@ function fixColumn(value){
 
 
 function drag(){
-    $('#dragAnswers, .answerPlace .cell').sortable({
+    $('#dragAnswers, .answerPlace .cell, .answerPlace').sortable({
         items: ".answer",
         connectWith: '.answerPlace .cell, .answerPlace',
         revert: '100',
