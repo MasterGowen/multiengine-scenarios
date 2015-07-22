@@ -177,7 +177,13 @@ function SetDragAttr(value){
 };
 
 
-//Удаление всех имеющихся атрибутов
+/***
+Удаление атрибутов элемента
+
+value - элемент, у которого нужно удалить атрибуты
+undeletableAttributes - массив [] тех атрибутов, которые удалять не нужно
+ 
+***/
 function deleteAttributes(value,undeletableAttributes){
     for (var i=0; i< value.attributes.length; i++){
         if(value.attributes[i].name in undeletableAttributes) continue;
@@ -195,7 +201,7 @@ function Convertation(){
 
 /*удаляет ВСЕ атрибуты первой строки (включая 1 уровень детей (td))*/
 function fixLine(value){
-    console.log('start_event: Фиксация первой строки');
+    //console.log('start_event: Фиксация первой строки');
 	forEachInCollection(childList(value.getElementsByTagName('tr')[0]), function(value){
     	deleteAttributes(value,[]);
     	value.classList.add("first");
@@ -204,7 +210,7 @@ function fixLine(value){
     	});
 	});
     firstRowIsBlocked = true;
-    console.log('end_event: Фиксация первой строки');
+    //console.log('end_event: Фиксация первой строки');
 }
 
 
@@ -341,8 +347,6 @@ elementDOM.querySelector('#fixLine').onclick = function(){
 //фиксация столбца 
 elementDOM.querySelector('#fixColumn').onclick = function(){
     //console.log('start_event: нажатие кнопки "Зафиксировать столбец"');
-
-
     fixColumn(documentTable);
     //TODO: вынести в отдельную функцию
     setBlockHtml('view', documentTable.innerHTML);
@@ -355,12 +359,20 @@ elementDOM.querySelector('#fixColumn').onclick = function(){
 elementDOM.querySelector("#getAllAnswers").onclick = function(){
 
     var allAnswersList = elementDOM.querySelector('#view').querySelector('#dragAnswers').querySelectorAll('.dragAnswer');
+    
     var allAnswersDiv = elementDOM.querySelector('#allAnswers');
+    //var ul = document.querySelector('ul'); 
 
-    forEachInCollection(allAnswersList,function(value){ 
-        allAnswersDiv.appendChild(value)
+    //перемешивание
+
+    forEachInCollection(allAnswersList, function(value){ 
+        allAnswersDiv.appendChild(value);
     });
 
+    for (var i = allAnswersDiv.children.length; i >= 0; i--) {
+        allAnswersDiv.appendChild(allAnswersDiv.children[Math.random() * i | 0]);
+    }
+    
     //setBlockHtml('AllAnswers', AllAnswers.outerHTML);
 };
 
