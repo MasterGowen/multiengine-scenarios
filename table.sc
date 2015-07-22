@@ -14,6 +14,7 @@ html::
         <li id="conraw">Преобразовать HTML</li>
         <li id="scButtonView" scMenuActive="false">Просмотр</li>
     </ul>
+
     <div id="scWindowRaw">
         <textarea id="raw"></textarea>
     </div>
@@ -25,10 +26,10 @@ html::
         <button id="addColumn">Добавить столбец</button>
         <button id="getAllAnswers">Вынести ответы</button>
         
+        <div id="allAnswers" class="answerPlace">
+            </div> 
         <div id="view">
-            <div id = "allAnswers">
-        </div> 
-    </div>
+            
     </div>
 
 
