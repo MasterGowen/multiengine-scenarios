@@ -316,7 +316,7 @@ elementDOM.querySelector('#conraw').onclick = function(){
     setBlockHtml('view', documentTable.innerHTML);
     
     //костыль
-    elementDOM.querySelector('#allAnswers').querySelector('#scWindowView').innerHTML="";
+    elementDOM.querySelector('#scWindowView').querySelector('#allAnswers').innerHTML="";
     
     firstRowIsBlocked = false;
     firstColumnIsBlocked = false;
