@@ -251,7 +251,6 @@ function addRow(){
 
 /*добавлялка перетаскивающихся штучек*/
 elementDOM.querySelector("#view").onclick = function(event){
-   //documentTable.innerHTML = elementDOM.querySelector("#view").getElementsByTagName("table")[0].outerHTML;
    var target = event.target; 
         if (target.tagName != 'TD') return; 
         var div = document.createElement('div');
@@ -261,6 +260,7 @@ elementDOM.querySelector("#view").onclick = function(event){
             div.id = generationID();
         }
         target.appendChild(div);
+    documentTable.innerHTML = elementDOM.querySelector("#view").getElementsByTagName("table")[0].outerHTML;
 };
 
 
@@ -352,9 +352,10 @@ elementDOM.querySelector('#fixLine').onclick = function(){
    // console.log('end_event: нажатие кнопки "Зафиксировать строку"');
 };
 
-//фиксация столбца
+//фиксация столбца 
 elementDOM.querySelector('#fixColumn').onclick = function(){
     //console.log('start_event: нажатие кнопки "Зафиксировать столбец"');
+
 
     fixColumn(documentTable);
     //TODO: вынести в отдельную функцию
