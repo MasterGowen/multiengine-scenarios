@@ -163,7 +163,7 @@ function makeStartTable(){
     tbody.appendChild(tr);
     table.appendChild(tbody);
 
-    return table.outerHTML;
+    return table;
     }
 
 //Установка всех всех атрибутов необходимых для работы перетаскивания
@@ -340,17 +340,19 @@ elementDOM.querySelector('#conraw').onclick = function(){
     if(elementDOM.querySelector('#raw').value == '')
     {
         console.log("new table");
-        documentTable = makeStartTable();
+        documentTable = makeStartTable;
+        elementDOM.querySelector("#view").appendChild(documentTable);
     }
     else
         {   
             console.log("load table");
             documentTable =  getValueFild('raw').body;
             SetDragAttr(documentTable);
+            setBlockHtml('view', documentTable.innerHTML); 
     // TODO: elementDOM.querySelector("#view").appendChild(documentTable);
         }
 
-    setBlockHtml('view', documentTable.innerHTML);   
+      
     //костыль
     elementDOM.querySelector('#scWindowView').querySelector('#allAnswers').innerHTML="";
         
