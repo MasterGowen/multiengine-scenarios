@@ -85,9 +85,21 @@ css::
     min-width: 100px;
 }
 
+
+.dragAnswer[contenteditable=true], .fixAnswer[contenteditable=true]{
+    background: white;
+    border: 1px solid grey;
+}
+
 .dragAnswer{
 	border: 1px dashed rgb(163, 55, 55);
     cursor: move;
+    margin: 5px;
+}
+
+
+.fixAnswer{
+    border: 1px dashed white;
     margin: 5px;
 }
 
@@ -418,7 +430,6 @@ elementDOM.querySelector('#conraw').onclick = function(){
 
 
 //редактирование по двойному клику 
-// TODO: НЕ РАБОТАЕТ С <P></P>
 elementDOM.querySelector("#view").ondblclick = function(event){
    var target = event.target; 
         if (target.classList.contains('dragAnswer')){
@@ -434,6 +445,11 @@ elementDOM.querySelector("#view").ondblclick = function(event){
         else return; 
 };
 
+elementDOM.querySelector("#view").onblur = function(event){
+    var target = event.target;
+    console.log(target.id);
+
+}
 
 
 //фиксация строки
