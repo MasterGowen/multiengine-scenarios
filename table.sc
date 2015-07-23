@@ -135,11 +135,13 @@ function drag(){
 drag();
 
 function generateStudentAnswer(){
-
+/*
+проверять можем только после первого перенонса!!!
+переписать тут все надо!!!!!!!!!
+*/
   var studentTable = document.querySelector('#dragAnswers');
   var studentAnswer = {};
-  studentAnswer = generationAnswerJSON(studentAnswer);
-  
+
 forEachInCollection(childList(studentTable.getElementsByTagName('tbody')[0]), function(value){
         forEachInCollection(childList(value), function(value){
             if(value.classList.contains('cell')){
@@ -153,7 +155,7 @@ forEachInCollection(childList(studentTable.getElementsByTagName('tbody')[0]), fu
         });
     });
   studentAnswer = generationAnswerJSON(studentAnswer);
-  console.log(studentAnswer);
+  //console.log(studentAnswer);
 
   //$('textarea[name=answer]').html
   document.getElementsByName("answer")[0].value = studentAnswer;
