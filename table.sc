@@ -247,7 +247,7 @@ function fixLine(value){
             deleteAttributes(value,[]);
             value.classList.add("first");
             forEachInCollection(childList(value), function(value){
-                deleteAttributes(value,['id']);
+                deleteAttributes(value,[]);
             });
         });
         firstRowIsBlocked = true;
