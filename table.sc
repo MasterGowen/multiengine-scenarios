@@ -122,7 +122,7 @@ css::
 
 
 javascriptStudent::
-
+/*
 function drag(){
         $('#dragAnswers').sortable({
         items: ".dragAnswer",
@@ -138,6 +138,17 @@ function drag(){
         tolerance: "pointer"
     }).disableSelection();
 
+}
+*/
+function drag(){
+    $('#dragAnswers, .answerPlace .cell, .answerPlace').sortable({
+        items: ".dragAnswer",
+        connectWith: '.answerPlace .cell, .answerPlace',
+        revert: '100',
+        tolerance: "pointer",
+        //stop: updateTable
+    }).disableSelection();
+    editor.setValue(documentTable.innerHTML);
 }
 drag();
 
