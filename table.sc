@@ -253,6 +253,7 @@ function fixLine(value){
             value.classList.add("cell");
             forEachInCollection(childList(value), function(value){
                 value.id = generationID();
+                deleteAttributes(value, []);
                 value.classList.add("dragAnswer");
             });
         });
@@ -286,6 +287,7 @@ if (firstColumnIsBlocked)
             childList(value)[0].id = generationID();
             forEachInCollection(childList(childList(value)[0]), function(value){
                 value.id = generationID();
+                deleteAttributes(value, []);
                 value.classList.add("dragAnswer");
             });
         });
