@@ -123,8 +123,6 @@ css::
 
 javascriptStudent::
 
-
-
 function drag(){
     $('#dragAnswers, .answerPlace .cell, .answerPlace').sortable({
         items: ".dragAnswer",
@@ -137,9 +135,40 @@ function drag(){
 drag();
 
 function generateStudentAnswer(){
-  
+    
   var studentTable = document.querySelector('#dragAnswers');
   var studentAnswer = {};
+
+    function forEachInCollection(collection, action) {
+        collection = collection || {};
+        for (var i = 0; i < collection.length; i++)
+            action(collection[i]);
+    };
+
+    function childList(value) {
+        var childList = [];
+        var value = value.children || value.childNodes;
+        /*if(!val.length){
+          console.log('Attention!: '+ typeof(val) + ' has no children')
+          return;
+        };*/
+        for (var i = 0; i < value.length; i++) {
+            if (value[i].nodeType == 1) {
+                childList.push(value[i])
+            };
+        };
+        return childList;
+    };
+
+    function generationAnswerJSON(answer) {
+        var answerJSON = {
+            answer: {}
+        };
+        answerJSON.answer = answer;
+        return JSON.stringify(answerJSON);
+    };
+
+
   forEachInCollection(childList(studentTable.getElementsByTagName('tbody')[0]), function(value){
         forEachInCollection(childList(value), function(value){
             if(value.classList.contains('cell')){
