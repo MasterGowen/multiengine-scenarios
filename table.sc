@@ -417,7 +417,7 @@ elementDOM.querySelector('#conraw').onclick = function(){
 // TODO: НЕ РАБОТАЕТ С <P></P>
 elementDOM.querySelector("#view").ondblclick = function(event){
    var target = event.target; 
-        if (target.classList.contains('dragAnswer')){
+        if (target.classList.contains('dragAnswer') || target.parentNode.classList.contains('dragAnswer')){
             console.log(target.id + " is contenteditable?");
             elementDOM.querySelector('#' + target.id ).setAttribute('contenteditable', 'true');
             elementDOM.querySelector('#' + target.id).focus();
