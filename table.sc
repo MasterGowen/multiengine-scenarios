@@ -144,6 +144,7 @@ var firstColumnIsBlocked;
 function makeStartTable(){
     var table = document.createElement('table');
     var tbody = document.createElement('tbody');
+    var body = document.createElement('body');
 
     table.classList.add("answerPlace");
     table.id = "dragAnswers";
@@ -162,6 +163,7 @@ function makeStartTable(){
     tr.appendChild(td);
     tbody.appendChild(tr);
     table.appendChild(tbody);
+    body.appendChild(table);
 
     return table;
     }
@@ -342,7 +344,7 @@ elementDOM.querySelector('#conraw').onclick = function(){
         console.log("new table");
         documentTable = makeStartTable();
         console.log(documentTable.outerHTML);
-        setBlockHtml('view', documentTable.outerHTML);
+        setBlockHtml('view', documentTable.innerHTML;
    }
     else
         {   
