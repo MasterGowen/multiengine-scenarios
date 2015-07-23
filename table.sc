@@ -231,17 +231,7 @@ function Convertation(){
 /*удаляет ВСЕ атрибуты первой строки (включая 1 уровень детей (td))*/
 function fixLine(value){
     //console.log('start_event: Фиксация первой строки');
-    if(firstRowIsBlocked == false){
-    	forEachInCollection(childList(value.getElementsByTagName('tr')[0]), function(value){
-        	deleteAttributes(value,[]);
-        	value.classList.add("first");
-        	forEachInCollection(childList(value), function(value){
-            	deleteAttributes(value,['id']);
-        	});
-    	});
-        firstRowIsBlocked = true;
-    }
-    else{
+    if(firstRowIsBlocked){
         forEachInCollection(childList(value.getElementsByTagName('tr')[0]), function(value){
             deleteAttributes(value,[]);
             value.classList.add("cell");
@@ -251,6 +241,16 @@ function fixLine(value){
             });
         });
         firstRowIsBlocked = false;
+    }
+    else{
+        forEachInCollection(childList(value.getElementsByTagName('tr')[0]), function(value){
+            deleteAttributes(value,[]);
+            value.classList.add("first");
+            forEachInCollection(childList(value), function(value){
+                deleteAttributes(value,['id']);
+            });
+        });
+        firstRowIsBlocked = true;
     }
     //console.log('end_event: Фиксация первой строки');
 }
