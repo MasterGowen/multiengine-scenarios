@@ -155,11 +155,11 @@ function makeStartTable(){
     td.classList.add('cell');
     td.id = generationID();
 
-    var div = document.createElement('div');
+    /*var div = document.createElement('div');
     div.classList.add("answer");
     div.id = generationID();
 
-    td.appendChild(div);
+    td.appendChild(div);*/
     tr.appendChild(td);
     tbody.appendChild(tr);
     table.appendChild(tbody);
