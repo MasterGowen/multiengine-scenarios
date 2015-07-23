@@ -503,27 +503,25 @@ elementDOM.querySelector('#fixColumn').onclick = function(){
 elementDOM.querySelector("#getAllAnswers").onclick = function(){
 
     var allAnswersList = elementDOM.querySelector('#view').querySelectorAll('.dragAnswer');
-    //var allAnswersDiv = elementDOM.querySelector('#allAnswers');
-
     var allAnswersDiv = document.createElement('div');
     allAnswersDiv.id = "allAnswers";
     allAnswersDiv.classList.add("answerPlace");
-    
     forEachInCollection(allAnswersList, function(value){ 
         allAnswersDiv.appendChild(value);
     });
-
     elementDOM.querySelector('#view').appendChild(allAnswersDiv);
     //перемешивание
-    
     for (var i = allAnswersDiv.children.length; i >= 0; i--) {
         allAnswersDiv.appendChild(allAnswersDiv.children[Math.random() * i | 0]);
     }
     documentTable.innerHTML = elementDOM.querySelector("#view").getElementsByTagName("table")[0].outerHTML;
-
-
     drag();
     editAnswers();
+
+    var studentTable = elementDOM.querySelector("#view");
+    editor.setValue(studentTable.innerHTML);
+
+
 };
 
 
