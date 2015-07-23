@@ -30,7 +30,6 @@ html::
             </div>
         <div id="view">
 
-            
     </div>
 
 
@@ -429,7 +428,7 @@ elementDOM.querySelector('#conraw').onclick = function(){
     setBlockHtml('view', documentTable.innerHTML);
     
     //костыль
-    elementDOM.querySelector('#scWindowView').querySelector('#allAnswers').innerHTML="";
+    //elementDOM.querySelector('#scWindowView').querySelector('#allAnswers').innerHTML="";
         
     firstRowIsBlocked = false;
     firstColumnIsBlocked = false;
@@ -504,17 +503,23 @@ elementDOM.querySelector('#fixColumn').onclick = function(){
 elementDOM.querySelector("#getAllAnswers").onclick = function(){
 
     var allAnswersList = elementDOM.querySelector('#view').querySelector('#dragAnswers').querySelectorAll('.dragAnswer');
-    var allAnswersDiv = elementDOM.querySelector('#allAnswers');
+    //var allAnswersDiv = elementDOM.querySelector('#allAnswers');
 
+    var allAnswersDiv = document.createElement('div');
+    allAnswersDiv.id = "allAnswers"
+    
     
     forEachInCollection(allAnswersList, function(value){ 
         allAnswersDiv.appendChild(value);
     });
-    
+
+    elementDOM.querySelector('#view').appendChild(allAnswersDiv);
     //перемешивание
+    /*
     for (var i = allAnswersDiv.children.length; i >= 0; i--) {
         allAnswersDiv.appendChild(allAnswersDiv.children[Math.random() * i | 0]);
     }
+    */
     
     editAnswers();
 };
