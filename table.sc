@@ -148,7 +148,7 @@ function drag(){
         tolerance: "pointer",
         //stop: updateTable
     }).disableSelection();
-    editor.setValue(documentTable.innerHTML);
+    //editor.setValue(documentTable.innerHTML);
 }
 drag();
 
