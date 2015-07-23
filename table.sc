@@ -129,18 +129,17 @@ function drag(){
 }
 drag();
 
+
 javascriptStudio::
 
 //Переменная хранящая таблицу documentTable.innerHTML
 var documentTable;
-
 // заблокирована ли первая строка (true/false)
 var firstRowIsBlocked;
-
 // заблокирован ли первый столбец (true/false)
 var firstColumnIsBlocked;
 
-
+// создание таблицы из одной ячейки
 function makeStartTable(){
     var table = document.createElement('table');
     var tbody = document.createElement('tbody');
@@ -150,7 +149,6 @@ function makeStartTable(){
     table.id = "dragAnswers";
 
     var tr = document.createElement('tr');
-
     var td = document.createElement('td');
     td.classList.add('cell');
     td.id = generationID();
@@ -212,7 +210,7 @@ value - элемент, у которого нужно удалить атриб
 undeletableAttributes - массив [] тех атрибутов, которые удалять не нужно
  
 ***/
-function deleteAttributes(value,undeletableAttributes){
+function deleteAttributes(value, undeletableAttributes){
     for (var i=0; i< value.attributes.length; i++){
         if(value.attributes[i].name in undeletableAttributes) continue;
         value.removeAttribute(value.attributes[i].name)
@@ -310,10 +308,12 @@ elementDOM.querySelector("#addRow").onclick = function(){
             newCell.id = generationID();
             newRow.appendChild(newCell);
     });
+
     if(firstColumnIsBlocked){
         deleteAttributes(newRow.firstChild, []);
         newRow.firstChild.classList.add("first");
     }
+
     documentTable.getElementsByTagName('tbody')[0].appendChild(newRow);
     setBlockHtml('view', documentTable.innerHTML); // надо ли?! наверно надо
     drag();
@@ -339,36 +339,27 @@ elementDOM.querySelector("#addColumn").onclick = function(){
 
 elementDOM.querySelector('#conraw').onclick = function(){
 
-    if(elementDOM.querySelector('#raw').value == '')
-    {
-        console.log("new table");
+    if(elementDOM.querySelector('#raw').value == ''){
         documentTable = makeStartTable();
-        console.log(documentTable.outerHTML);
-        setBlockHtml('view', documentTable.innerHTML);
    }
-    else
-        {   
-            console.log("load table");
-            documentTable =  getValueFild('raw').body;
-            SetDragAttr(documentTable);
-            console.log(documentTable.innerHTML);
-            setBlockHtml('view', documentTable.innerHTML);
+    else{  
+        documentTable =  getValueFild('raw').body;
+        SetDragAttr(documentTable);
     // TODO: elementDOM.querySelector("#view").appendChild(documentTable);
         }
-
-      
+    setBlockHtml('view', documentTable.innerHTML);
+    
     //костыль
     elementDOM.querySelector('#scWindowView').querySelector('#allAnswers').innerHTML="";
         
     firstRowIsBlocked = false;
     firstColumnIsBlocked = false;
-
     drag();
 };
 
+
 //редактирование по двойному клику 
 // TODO: НЕ РАБОТАЕТ С <P></P>
-
 elementDOM.querySelector("#view").ondblclick = function(event){
    var target = event.target; 
         if (target.classList.contains('dragAnswer')){
@@ -386,39 +377,32 @@ elementDOM.querySelector('#fixLine').onclick = function(){
     setBlockHtml('view', documentTable.innerHTML);
     editor.setValue(documentTable.innerHTML);
     drag();
-   // console.log('end_event: нажатие кнопки "Зафиксировать строку"');
 };
 
 //фиксация столбца 
 elementDOM.querySelector('#fixColumn').onclick = function(){
-    //console.log('start_event: нажатие кнопки "Зафиксировать столбец"');
     fixColumn(documentTable);
-    //TODO: вынести в отдельную функцию
     setBlockHtml('view', documentTable.innerHTML);
     editor.setValue(documentTable.innerHTML);
     drag();
-    //console.log('end_event: нажатие кнопки "Зафиксировать столбец"');
 };
 
 /*перенос всех ответов в отдельное поле*/
 elementDOM.querySelector("#getAllAnswers").onclick = function(){
 
     var allAnswersList = elementDOM.querySelector('#view').querySelector('#dragAnswers').querySelectorAll('.dragAnswer');
-    
     var allAnswersDiv = elementDOM.querySelector('#allAnswers');
-    //var ul = document.querySelector('ul'); 
 
-    //перемешивание
-
+    
     forEachInCollection(allAnswersList, function(value){ 
         allAnswersDiv.appendChild(value);
     });
-
+    
+    //перемешивание
     for (var i = allAnswersDiv.children.length; i >= 0; i--) {
         allAnswersDiv.appendChild(allAnswersDiv.children[Math.random() * i | 0]);
     }
-    
-    //setBlockHtml('AllAnswers', AllAnswers.outerHTML);
+
 };
 
 
@@ -437,6 +421,7 @@ elementDOM.querySelector('#scButtonRaw').onclick = function(){
 
 /*
 // функция генерирует JSON-объект из клеток у которых есть атрибут "id"
+  var json = {};
   forEachInCollection(childList(document.getElementsByTagName('tbody')[0]), function(value){
         forEachInCollection(childList(value), function(value){
         	if(value.id!=""){
@@ -445,7 +430,7 @@ elementDOM.querySelector('#scButtonRaw').onclick = function(){
           		forEachInCollection(childList(value), function(value){ 
           			vals.push(value.id); 
          		 });
-				j[cellId]=vals;
+				json[cellId]=vals;
             }
         });
     });
