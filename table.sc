@@ -138,6 +138,29 @@ function generateStudentAnswer(){
 
   var studentTable = document.querySelector('#dragAnswers');
   var studentAnswer = {};
+forEachInCollection(childList(studentTable.getElementsByTagName('tbody')[0]), function(value){
+        forEachInCollection(childList(value), function(value){
+            if(value.classList.contains('cell')){
+                var cellId = value.id;
+                var vals = [];
+                forEachInCollection(childList(value), function(value){ 
+                    vals.push(value.id); 
+                 });
+                studentAnswer[cellId]=vals;
+            }
+        });
+    });
+  studentAnswer = generationAnswerJSON(studentAnswer);
+  console.log(studentAnswer);
+
+  //$('textarea[name=answer]').html
+  document.getElementsByName("answer")[0].value = studentAnswer;
+  document.getElementsByName("answer")[0].val = studentAnswer;
+  //elementDOM.querySelector('#correct_answer').setAttribute('value', correctAnswer);
+    //var studentView = elementDOM.querySelector("#view");
+    //editor.setValue(studentView.innerHTML);
+}
+
 
     function forEachInCollection(collection, action) {
         collection = collection || {};
@@ -168,28 +191,6 @@ function generateStudentAnswer(){
         return JSON.stringify(answerJSON);
     };
 
-
-  forEachInCollection(childList(studentTable.getElementsByTagName('tbody')[0]), function(value){
-        forEachInCollection(childList(value), function(value){
-            if(value.classList.contains('cell')){
-                var cellId = value.id;
-                var vals = [];
-                forEachInCollection(childList(value), function(value){ 
-                    vals.push(value.id); 
-                 });
-                studentAnswer[cellId]=vals;
-            }
-        });
-    });
-  studentAnswer = generationAnswerJSON(studentAnswer);
-  //console.log(studentAnswer);
-
-  document.getElementsByName("answer")[0].value = studentAnswer;
-  document.getElementsByName("answer")[0].val = studentAnswer;
-  //elementDOM.querySelector('#correct_answer').setAttribute('value', correctAnswer);
-    //var studentView = elementDOM.querySelector("#view");
-    //editor.setValue(studentView.innerHTML);
-}
 
 javascriptStudio::
 
