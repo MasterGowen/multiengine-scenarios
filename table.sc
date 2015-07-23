@@ -462,7 +462,7 @@ elementDOM.querySelector('#conraw').onclick = function(){
 */
 function editAnswers(){  
 
-$(".dragAnswer, .fixAnswer").dblclick(function (){
+$(".dragAnswer").dblclick(function (){
     $("#"+this.id).attr("contenteditable",true);
     $("#"+this.id).css("background",'white');
     $("#"+this.id).css("cursor","text");
@@ -470,7 +470,21 @@ $(".dragAnswer, .fixAnswer").dblclick(function (){
     document.getElementById(this.id).focus();
 });
 
-$(".dragAnswer, .fixAnswer").blur(function (){
+$(".dragAnswer").blur(function (){
+    $("#"+this.id).attr("contenteditable",false);
+    $("#"+this.id).css("background","");
+    $("#"+this.id).css("cursor","move");
+});
+
+$(".fixAnswer").dblclick(function (){
+    $("#"+this.id).attr("contenteditable",true);
+    $("#"+this.id).css("background",'white');
+    $("#"+this.id).css("cursor","text");
+
+    document.getElementById(this.id).focus();
+});
+
+$(".fixAnswer").blur(function (){
     $("#"+this.id).attr("contenteditable",false);
     $("#"+this.id).css("background","");
     $("#"+this.id).css("cursor","move");
