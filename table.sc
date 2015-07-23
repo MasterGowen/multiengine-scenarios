@@ -264,6 +264,7 @@ function fixLine(value){
             value.classList.add("first");
             forEachInCollection(childList(value), function(value){
                 deleteAttributes(value,[]);
+                value.classList.add("fixAnswer");
             });
         });
         firstRowIsBlocked = true;
@@ -297,6 +298,7 @@ else{
         childList(value)[0].classList.add("first");
         forEachInCollection(childList(childList(value)[0]), function(value){
             deleteAttributes(value, []);
+            value.classList.add("fixAnswer");
         });
     });
     firstColumnIsBlocked = true;
