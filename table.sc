@@ -26,10 +26,9 @@ html::
         <button id="addColumn">Добавить столбец</button>
         <button id="getAllAnswers">Вынести ответы</button>
         
-         <div id="allAnswers" class="answerPlace">
-            </div>
-        <div id="view">
 
+        <div id="view">
+        </div>
     </div>
 
 
@@ -506,8 +505,8 @@ elementDOM.querySelector("#getAllAnswers").onclick = function(){
     //var allAnswersDiv = elementDOM.querySelector('#allAnswers');
 
     var allAnswersDiv = document.createElement('div');
-    allAnswersDiv.id = "allAnswers"
-    
+    allAnswersDiv.id = "allAnswers";
+    allAnswersDiv.classList.add("answerPlace");
     
     forEachInCollection(allAnswersList, function(value){ 
         allAnswersDiv.appendChild(value);
