@@ -135,7 +135,7 @@ function drag(){
 drag();
 
 function generateStudentAnswer(){
-    
+
   var studentTable = document.querySelector('#dragAnswers');
   var studentAnswer = {};
 
@@ -182,7 +182,10 @@ function generateStudentAnswer(){
         });
     });
   studentAnswer = generationAnswerJSON(studentAnswer);
-  console.log(studentAnswer);
+  //console.log(studentAnswer);
+
+  document.getElementsByName("answer")[0].value = studentAnswer;
+  document.getElementsByName("answer")[0].val = studentAnswer;
   //elementDOM.querySelector('#correct_answer').setAttribute('value', correctAnswer);
     //var studentView = elementDOM.querySelector("#view");
     //editor.setValue(studentView.innerHTML);
