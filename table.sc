@@ -143,19 +143,19 @@ var firstColumnIsBlocked = false;
 
 // создание таблицы из одной ячейки
 function makeStartTable(){
-    var table = document.createElement('table');
-    var tbody = document.createElement('tbody');
-    var body = document.createElement('body');
+    var table = elementDOM.createElement('table');
+    var tbody = elementDOM.createElement('tbody');
+    var body = elementDOM.createElement('body');
 
     table.classList.add("answerPlace");
     table.id = "dragAnswers";
 
-    var tr = document.createElement('tr');
-    var td = document.createElement('td');
+    var tr = elementDOM.createElement('tr');
+    var td = elementDOM.createElement('td');
     td.classList.add('cell');
     td.id = generationID();
 
-    var div = document.createElement('div');
+    var div = elementDOM.createElement('div');
     div.classList.add("answer");
     div.id = generationID();
 
@@ -183,7 +183,7 @@ function SetDragAttr(value){
             value.id = generationID();
 
             if (value.childNodes[0].nodeType = 3){
-                var div = document.createElement('div');
+                var div = elementDOM.createElement('div');
                 div.innerHTML = value.innerHTML;
 //TODO: Костыль
                 value.innerHTML="";
@@ -194,7 +194,7 @@ function SetDragAttr(value){
             else {
                 forEachInCollection(childList(value), function(value){
                     console.log(value);
-                    var div = document.createElement('div');
+                    var div = elementDOM.createElement('div');
                     div.innerHTML = value.innerHTML;
                     div.classList.add("dragAnswer");
                     div.id = generationID();
@@ -303,7 +303,7 @@ function addRow(){
 elementDOM.querySelector("#view").onclick = function(event){
    var target = event.target; 
         if (target.tagName != 'TD') return; 
-        var div = document.createElement('div');
+        var div = elementDOM.createElement('div');
         div.innerHTML = "answer";
         if(target.classList.contains('cell')){
             div.classList.add("dragAnswer");  
@@ -317,9 +317,9 @@ elementDOM.querySelector("#view").onclick = function(event){
 /* добавление строки к таблице*/
 elementDOM.querySelector("#addRow").onclick = function(){
     documentTable.innerHTML = elementDOM.querySelector("#view").getElementsByTagName("table")[0].outerHTML;
-    var newRow = document.createElement('tr');
+    var newRow = elementDOM.createElement('tr');
     forEachInCollection(childList(documentTable.getElementsByTagName('tr')[0]), function(value){
-            var newCell = document.createElement('td');
+            var newCell = elementDOM.createElement('td');
             newCell.classList.add("cell");
             newCell.id = generationID();
             newRow.appendChild(newCell);
@@ -340,7 +340,7 @@ elementDOM.querySelector("#addRow").onclick = function(){
 elementDOM.querySelector("#addColumn").onclick = function(){
     documentTable.innerHTML = elementDOM.querySelector("#view").getElementsByTagName("table")[0].outerHTML;
     forEachInCollection(documentTable.getElementsByTagName('tr'), function(value){
-        var newCell = document.createElement('td');
+        var newCell = elementDOM.createElement('td');
         newCell.classList.add("cell");
         newCell.id = generationID();
         value.appendChild(newCell);
@@ -438,7 +438,7 @@ elementDOM.querySelector('#scButtonRaw').onclick = function(){
 /*
 // функция генерирует JSON-объект из клеток у которых есть атрибут "id"
   var json = {};
-  forEachInCollection(childList(document.getElementsByTagName('tbody')[0]), function(value){
+  forEachInCollection(childList(elementDOM.getElementsByTagName('tbody')[0]), function(value){
         forEachInCollection(childList(value), function(value){
         	if(value.id!=""){
             	var cellId = value.id;
