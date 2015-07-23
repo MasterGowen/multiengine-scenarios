@@ -344,7 +344,7 @@ elementDOM.querySelector('#conraw').onclick = function(){
         console.log("new table");
         documentTable = makeStartTable();
         console.log(documentTable.outerHTML);
-        setBlockHtml('view', documentTable.innerHTML;
+        setBlockHtml('view', documentTable.innerHTML);
    }
     else
         {   
