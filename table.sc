@@ -215,8 +215,10 @@ undeletableAttributes - массив [] тех атрибутов, которы�
 ***/
 function deleteAttributes(value, undeletableAttributes){
     //var VAL = value.attributes.length;
+    console.log("2");
     for (var i = 0; i < value.attributes.length; i++){
         //console.log("value.attributes.length = " + value.attributes.length);
+        console.log("2: " + i);
         if(value.attributes[i].name in undeletableAttributes){}
         else{ value.removeAttribute(value.attributes[i].name); }
     }
@@ -236,9 +238,11 @@ function fixLine(value){
     //console.log('start_event: Фиксация первой строки');
     if(firstRowIsBlocked){
         forEachInCollection(childList(value.getElementsByTagName('tr')[0]), function(value){
+            console.log("1");
             deleteAttributes(value, []);
-            value.setAttribute('class',"cell");
-            //value.classList.add("cell");
+            console.log("3");
+            //value.setAttribute('class',"cell");
+            value.classList.add("cell");
             /*forEachInCollection(childList(value), function(value){
                 value.id = generationID();
                 value.setAttribute('class',"dragAnswer");
