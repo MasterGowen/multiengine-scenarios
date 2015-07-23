@@ -216,14 +216,9 @@ undeletableAttributes - массив [] тех атрибутов, которы�
 function deleteAttributes(value, undeletableAttributes){
     //var VAL = value.attributes.length;
     for (var i = 0; i < value.attributes.length; i++){
-
-        console.log("value.attributes.length = " + value.attributes.length);
-
+        //console.log("value.attributes.length = " + value.attributes.length);
         if(value.attributes[i].name in undeletableAttributes){}
-        
-        else{
-        value.removeAttribute(value.attributes[i].name);
-        }
+        else{ value.removeAttribute(value.attributes[i].name); }
     }
 
 }
@@ -244,10 +239,11 @@ function fixLine(value){
             deleteAttributes(value, []);
             value.setAttribute('class',"cell");
             //value.classList.add("cell");
-            /*forEachInCollection(childList(value), function(value){
+            forEachInCollection(childList(value), function(value){
                 value.id = generationID();
-                value.classList.add("dragAnswer");
-            });*/
+                value.setAttribute('class',"dragAnswer");
+               // value.classList.add("dragAnswer");
+            });
         });
         firstRowIsBlocked = false;
     }
@@ -256,9 +252,9 @@ function fixLine(value){
             deleteAttributes(value, []);
             value.setAttribute('class',"first");
             //value.classList.add("first");
-            /*forEachInCollection(childList(value), function(value){
+            forEachInCollection(childList(value), function(value){
                 deleteAttributes(value,[]);
-            });*/
+            });
         });
         firstRowIsBlocked = true;
     }
