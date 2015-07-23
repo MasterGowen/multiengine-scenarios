@@ -432,25 +432,30 @@ elementDOM.querySelector('#conraw').onclick = function(){
 //редактирование по двойному клику 
 elementDOM.querySelector("#view").ondblclick = function(event){
    var target = event.target; 
-        if (target.classList.contains('dragAnswer')){
-            console.log(target.id + " is contenteditable?");
+        if (target.classList.contains('dragAnswer') || target.classList.contains('fixAnswer')){
+            //console.log(target.id + " is contenteditable?");
             elementDOM.querySelector('#' + target.id ).setAttribute('contenteditable', 'true');
             elementDOM.querySelector('#' + target.id).focus();
         } 
-        if (target.parentNode.classList.contains('dragAnswer')){
-            console.log(target.parentNode.id + " is contenteditable?");
+        if (target.parentNode.classList.contains('dragAnswer') || target.parentNode.classList.contains('fixAnswer')){
+            //console.log(target.parentNode.id + " is contenteditable?");
             elementDOM.querySelector('#' + target.parentNode.id ).setAttribute('contenteditable', 'true');
             elementDOM.querySelector('#' + target.parentNode.id).focus();
         } 
         else return; 
 };
 
-elementDOM.querySelector("#view").onblur = function(event){
+
+$(".dragAnswer, .fixAnswer").blur(function (){
+    $("#"+this.id).attr("contenteditable",false);
+});
+
+/*elementDOM.querySelector("#view").onblur = function(event){
     var target = event.target;
     console.log(target.id);
 
 }
-
+*/
 
 //фиксация строки
 elementDOM.querySelector('#fixLine').onclick = function(){
