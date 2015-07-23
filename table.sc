@@ -215,12 +215,14 @@ undeletableAttributes - массив [] тех атрибутов, которы�
 ***/
 function deleteAttributes(value, undeletableAttributes){
     //var VAL = value.attributes.length;
-    console.log("2");
-    for (var i = 0; i <= value.attributes.length; i++){
-        //console.log("value.attributes.length = " + value.attributes.length);
-        console.log("2: " + i);
-        if(value.attributes[i].name in undeletableAttributes){}
-        else{ value.removeAttribute(value.attributes[i].name); }
+    //console.log("2");
+    var attrLen = value.attributes.length
+    var allAttrs = value.attributes;
+
+    for (var i = 0; i < attrLen; i++){
+        //console.log("2: " + i);
+        if(allAttrs[i].name in undeletableAttributes){}
+        else{ value.removeAttribute(allAttrs[i].name); }
     }
 
 }
