@@ -249,14 +249,10 @@ function fixLine(value){
     //console.log('start_event: Фиксация первой строки');
     if(firstRowIsBlocked){
         forEachInCollection(childList(value.getElementsByTagName('tr')[0]), function(value){
-            //console.log("1");
             deleteAttributes(value, []);
-            //console.log("3");
-            //value.setAttribute('class',"cell");
             value.classList.add("cell");
             forEachInCollection(childList(value), function(value){
                 value.id = generationID();
-                //value.setAttribute('class',"dragAnswer");
                 value.classList.add("dragAnswer");
             });
         });
@@ -265,7 +261,6 @@ function fixLine(value){
     else{
         forEachInCollection(childList(value.getElementsByTagName('tr')[0]), function(value){
             deleteAttributes(value, []);
-            //value.setAttribute('class',"first");
             value.classList.add("first");
             forEachInCollection(childList(value), function(value){
                 deleteAttributes(value,[]);
@@ -281,14 +276,32 @@ function fixLine(value){
 /*удаляет ВСЕ атрибуты первого столбца (включая 1 уровень детей (td))*/
 function fixColumn(value){
   //  console.log('start_event: Фиксация первой столбца');
+
+if (firstColumnIsBlocked)
+    {    
+        forEachInCollection(value.getElementsByTagName('tr'), function(value){
+            deleteAttributes(childList(value)[0], []);
+            childList(value)[0].classList.add("cell");
+            childList(value)[0].id = generationID());
+            forEachInCollection(childList(childList(value)[0]), function(value){
+                value.id = generationID();
+                value.classList.add("dragAnswer");
+            });
+        });
+    firstRowIsBlocked = false;
+    }
+
+else{
     forEachInCollection(value.getElementsByTagName('tr'), function(value){
-    	deleteAttributes(childList(value)[0], []);
-    	childList(value)[0].classList.add("first");
-    	forEachInCollection(childList(childList(value)[0]), function(value){
-    		deleteAttributes(value, ['id']);
-    	});
+        deleteAttributes(childList(value)[0], []);
+        childList(value)[0].classList.add("first");
+        forEachInCollection(childList(childList(value)[0]), function(value){
+            deleteAttributes(value, []);
+        });
     });
-    firstColumnIsBlocked = true;
+    firstRowIsBlocked = true;
+}
+   
    // console.log('end_event: Фиксация первой столбца');
 }
 
