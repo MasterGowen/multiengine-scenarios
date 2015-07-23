@@ -247,6 +247,7 @@ function fixLine(value){
             value.classList.add("cell");
             forEachInCollection(childList(value), function(value){
                 value.id = generationID();
+                value.classList.add("dragAnswer");
             });
         });
         firstRowIsBlocked = false;
