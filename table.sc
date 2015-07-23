@@ -25,7 +25,7 @@ html::
         <button id="addRow">Добавить строку</button>
         <button id="addColumn">Добавить столбец</button>
         <button id="getAllAnswers">Вынести ответы</button>
-        
+        <button id="generateCorrectAnswer">Собрать JSON</button>
 
         <div id="view">
 
@@ -479,6 +479,28 @@ elementDOM.querySelector('#fixColumn').onclick = function(){
     editAnswers();
 };
 
+function generateCorrectAnswer(value){
+  var correctAnswer = {};
+  forEachInCollection(childList(value.getElementsByTagName('tbody')[0]), function(value){
+        forEachInCollection(childList(value), function(value){
+            if(value.classList.contains('cell')){
+                var cellId = value.id;
+                var vals = [];
+                forEachInCollection(childList(value), function(value){ 
+                    vals.push(value.id); 
+                 });
+                correctAnswer[cellId]=vals;
+            }
+        });
+    });
+  console.log(correctAnswer);
+  console.log(JSON.stringify(correctAnswer));
+}
+
+elementDOM.querySelector('#generateCorrectAnswer').onclick = function(){
+    generateCorrectAnswer(documentTable);
+}
+
 /*перенос всех ответов в отдельное поле*/
 elementDOM.querySelector("#getAllAnswers").onclick = function(){
 
@@ -520,6 +542,8 @@ elementDOM.querySelector('#scButtonRaw').onclick = function(){
 
 /*
 // функция генерирует JSON-объект из клеток у которых есть атрибут "id"
+
+
   var json = {};
   forEachInCollection(childList(elementDOM.getElementsByTagName('tbody')[0]), function(value){
         forEachInCollection(childList(value), function(value){
