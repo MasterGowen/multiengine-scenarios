@@ -232,7 +232,7 @@ undeletableAttributes - массив [] тех атрибутов, которы�
 function deleteAttributes(value, lol){
     while(value.attributes.length>0)
     {
-        value.removeAttribute(value.value.attributes[0]);
+        value.removeAttribute(value.attributes[0].name);
     }
 }
 
