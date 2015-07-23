@@ -282,7 +282,7 @@ if (firstColumnIsBlocked)
         forEachInCollection(value.getElementsByTagName('tr'), function(value){
             deleteAttributes(childList(value)[0], []);
             childList(value)[0].classList.add("cell");
-            childList(value)[0].id = generationID());
+            childList(value)[0].id = generationID();
             forEachInCollection(childList(childList(value)[0]), function(value){
                 value.id = generationID();
                 value.classList.add("dragAnswer");
