@@ -288,7 +288,7 @@ if (firstColumnIsBlocked)
                 value.classList.add("dragAnswer");
             });
         });
-    firstRowIsBlocked = false;
+    firstColumnIsBlocked = false;
     }
 
 else{
@@ -299,7 +299,7 @@ else{
             deleteAttributes(value, []);
         });
     });
-    firstRowIsBlocked = true;
+    firstColumnIsBlocked = true;
 }
    
    // console.log('end_event: Фиксация первой столбца');
