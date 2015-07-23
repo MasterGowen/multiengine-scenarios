@@ -521,7 +521,7 @@ elementDOM.querySelector("#getAllAnswers").onclick = function(){
     }
     documentTable.innerHTML = elementDOM.querySelector("#view").getElementsByTagName("table")[0].outerHTML;
     
-    editor.setValue(documentTable.innerHTML);
+    editor.setValue(elementDOM.querySelector("#view").innerHTML);
 
     drag();
     editAnswers();
