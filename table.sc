@@ -135,10 +135,10 @@ javascriptStudio::
 var documentTable;
 
 // заблокирована ли первая строка (true/false)
-var firstRowIsBlocked;
+var firstRowIsBlocked = false;
 
 // заблокирован ли первый столбец (true/false)
-var firstColumnIsBlocked;
+var firstColumnIsBlocked = false;
 
 
 function makeStartTable(){
@@ -164,7 +164,7 @@ function makeStartTable(){
     table.appendChild(tbody);
 
     return table;
-    }
+}
 
 //Установка всех всех атрибутов необходимых для работы перетаскивания
 function SetDragAttr(value){
@@ -228,14 +228,26 @@ function Convertation(){
 /*удаляет ВСЕ атрибуты первой строки (включая 1 уровень детей (td))*/
 function fixLine(value){
     //console.log('start_event: Фиксация первой строки');
-	forEachInCollection(childList(value.getElementsByTagName('tr')[0]), function(value){
-    	deleteAttributes(value,[]);
-    	value.classList.add("first");
-    	forEachInCollection(childList(value), function(value){
-        	deleteAttributes(value,['id']);
+    if(firstRowIsBlocked == false){
+    	forEachInCollection(childList(value.getElementsByTagName('tr')[0]), function(value){
+        	deleteAttributes(value,[]);
+        	value.classList.add("first");
+        	forEachInCollection(childList(value), function(value){
+            	value.id = generationID();
+        	});
     	});
-	});
-    firstRowIsBlocked = true;
+        firstRowIsBlocked = true;
+    }
+    else{
+        forEachInCollection(childList(value.getElementsByTagName('tr')[0]), function(value){
+            deleteAttributes(value,[]);
+            value.classList.add("cell");
+            forEachInCollection(childList(value), function(value){
+                deleteAttributes(value,['id']);
+            });
+        });
+        firstRowIsBlocked = false;
+    }
     //console.log('end_event: Фиксация первой строки');
 }
 
