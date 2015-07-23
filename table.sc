@@ -493,8 +493,8 @@ function generateCorrectAnswer(value){
             }
         });
     });
-  console.log(correctAnswer);
-  console.log(JSON.stringify(correctAnswer));
+  correctAnswer = generationAnswerJSON(correctAnswer);
+  elementDOM..querySelector('#correct_answer').setAttribute('value', correctAnswer);
 }
 
 elementDOM.querySelector('#generateCorrectAnswer').onclick = function(){
