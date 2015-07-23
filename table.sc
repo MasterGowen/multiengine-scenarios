@@ -28,7 +28,7 @@ html::
         
          
         <div id="view">
-        
+
          <div id="allAnswers" class="answerPlace">
             </div>   
     </div>
@@ -357,9 +357,13 @@ elementDOM.querySelector("#view").onclick = function(event){
         var div = document.createElement('div');
         div.innerHTML = "answer";
         if(target.classList.contains('cell')){
-            div.classList.add("dragAnswer");  
+            div.classList.add("dragAnswer");
+            div.id = generationID();  
         }
-        div.id = generationID();
+        if(target.classList.contains('first')){
+            div.classList.add("fixAnswer");
+        }
+        
         target.appendChild(div);
     documentTable.innerHTML = elementDOM.querySelector("#view").getElementsByTagName("table")[0].outerHTML;
     editAnswers();
