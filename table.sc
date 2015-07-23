@@ -216,7 +216,7 @@ undeletableAttributes - массив [] тех атрибутов, которы�
 function deleteAttributes(value, undeletableAttributes){
     for (var i=0; i< value.attributes.length; i++){
         if(value.attributes[i].name in undeletableAttributes) continue;
-        value.removeAttribute(value.attributes[i].name)
+        value.removeAttribute(value.attributes[i].name);
     }
 }
 
@@ -235,10 +235,10 @@ function fixLine(value){
         forEachInCollection(childList(value.getElementsByTagName('tr')[0]), function(value){
             deleteAttributes(value,[]);
             value.classList.add("cell");
-            forEachInCollection(childList(value), function(value){
+            /*forEachInCollection(childList(value), function(value){
                 value.id = generationID();
                 value.classList.add("dragAnswer");
-            });
+            });*/
         });
         firstRowIsBlocked = false;
     }
@@ -246,9 +246,9 @@ function fixLine(value){
         forEachInCollection(childList(value.getElementsByTagName('tr')[0]), function(value){
             deleteAttributes(value,[]);
             value.classList.add("first");
-            forEachInCollection(childList(value), function(value){
-                deleteAttributes(value,['id']);
-            });
+            /*forEachInCollection(childList(value), function(value){
+                deleteAttributes(value,[]);
+            });*/
         });
         firstRowIsBlocked = true;
     }
