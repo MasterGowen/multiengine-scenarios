@@ -29,8 +29,6 @@ html::
 
         <div id="view">
 
-        <div id="allAnswers" class="answerPlace">
-        </div>
         </div>
     </div>
 
@@ -504,12 +502,12 @@ elementDOM.querySelector('#fixColumn').onclick = function(){
 /*перенос всех ответов в отдельное поле*/
 elementDOM.querySelector("#getAllAnswers").onclick = function(){
 
-    var allAnswersList = elementDOM.querySelector('#view').querySelector('#dragAnswers').querySelectorAll('.dragAnswer');
+    var allAnswersList = elementDOM.querySelector('#view').querySelectorAll('.dragAnswer');
     //var allAnswersDiv = elementDOM.querySelector('#allAnswers');
 
-    var allAnswersDiv = elementDOM.querySelector('#allAnswers'); //document.createElement('div');
-    //allAnswersDiv.id = "allAnswers";
-    //allAnswersDiv.classList.add("answerPlace");
+    var allAnswersDiv = document.createElement('div');
+    allAnswersDiv.id = "allAnswers";
+    allAnswersDiv.classList.add("answerPlace");
     
     forEachInCollection(allAnswersList, function(value){ 
         allAnswersDiv.appendChild(value);
