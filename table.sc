@@ -26,10 +26,11 @@ html::
         <button id="addColumn">Добавить столбец</button>
         <button id="getAllAnswers">Вынести ответы</button>
         
-        <div id="allAnswers" class="answerPlace">
-            </div> 
+         
         <div id="view">
-            
+        
+         <div id="allAnswers" class="answerPlace">
+            </div>   
     </div>
 
 
