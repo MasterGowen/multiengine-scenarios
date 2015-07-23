@@ -236,7 +236,7 @@ function fixLine(value){
         	deleteAttributes(value,[]);
         	value.classList.add("first");
         	forEachInCollection(childList(value), function(value){
-            	value.id = generationID();
+            	deleteAttributes(value,['id']);
         	});
     	});
         firstRowIsBlocked = true;
@@ -246,7 +246,7 @@ function fixLine(value){
             deleteAttributes(value,[]);
             value.classList.add("cell");
             forEachInCollection(childList(value), function(value){
-                deleteAttributes(value,['id']);
+                value.id = generationID();
             });
         });
         firstRowIsBlocked = false;
