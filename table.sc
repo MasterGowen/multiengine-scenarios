@@ -122,33 +122,14 @@ css::
 
 
 javascriptStudent::
-/*
-function drag(){
-        $('#dragAnswers').sortable({
-        items: ".dragAnswer",
-        connectWith: '.answerPlace .cell, .answerPlace',
-        revert: '100',
-        tolerance: "pointer"
-    }).disableSelection();
 
-    $('.answerPlace .cell').sortable({
-        items: ".dragAnswer",
-        connectWith: '.answerPlace .cell, .answerPlace',
-        revert: '100',
-        tolerance: "pointer"
-    }).disableSelection();
-
-}
-*/
 function drag(){
     $('#dragAnswers, .answerPlace .cell, .answerPlace').sortable({
         items: ".dragAnswer",
         connectWith: '.answerPlace .cell, .answerPlace',
         revert: '100',
         tolerance: "pointer",
-        //stop: updateTable
     }).disableSelection();
-    //editor.setValue(documentTable.innerHTML);
 }
 drag();
 
@@ -178,11 +159,6 @@ function makeStartTable(){
     td.classList.add('cell');
     td.id = generationID();
 
-    /*var div = document.createElement('div');
-    div.classList.add("answer");
-    div.id = generationID();
-
-    td.appendChild(div);*/
     tr.appendChild(td);
     tbody.appendChild(tr);
     table.appendChild(tbody);
@@ -269,7 +245,6 @@ function Convertation(){
 
 /*удаляет ВСЕ атрибуты первой строки (включая 1 уровень детей (td))*/
 function fixLine(value){
-    //console.log('start_event: Фиксация первой строки');
     if(firstRowIsBlocked){
         forEachInCollection(childList(value.getElementsByTagName('tr')[0]), function(value){
             deleteAttributes(value, []);
@@ -293,14 +268,12 @@ function fixLine(value){
         });
         firstRowIsBlocked = true;
     }
-    //console.log('end_event: Фиксация первой строки');
 }
 
 
 
 /*удаляет ВСЕ атрибуты первого столбца (включая 1 уровень детей (td))*/
 function fixColumn(value){
-  //  console.log('start_event: Фиксация первой столбца');
 
 if (firstColumnIsBlocked)
     {    
@@ -327,9 +300,7 @@ else{
         });
     });
     firstColumnIsBlocked = true;
-}
-   
-   // console.log('end_event: Фиксация первой столбца');
+    }
 }
 
 
@@ -488,8 +459,6 @@ $(".dragAnswer, .fixAnswer").blur(function (){
 });
 
 } 
-
-
 
 
 //фиксация строки
