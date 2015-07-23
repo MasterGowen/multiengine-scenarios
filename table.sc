@@ -361,6 +361,7 @@ elementDOM.querySelector("#view").onclick = function(event){
         div.id = generationID();
         target.appendChild(div);
     documentTable.innerHTML = elementDOM.querySelector("#view").getElementsByTagName("table")[0].outerHTML;
+    editAnswers();
 };
 
 
@@ -383,6 +384,7 @@ elementDOM.querySelector("#addRow").onclick = function(){
     documentTable.getElementsByTagName('tbody')[0].appendChild(newRow);
     setBlockHtml('view', documentTable.innerHTML); // надо ли?! наверно надо
     drag();
+    editAnswers();
 };
 
 
@@ -405,6 +407,7 @@ elementDOM.querySelector("#addColumn").onclick = function(){
     }
         setBlockHtml('view', documentTable.innerHTML); 
         drag();
+        editAnswers();
 };
 
 
@@ -426,11 +429,12 @@ elementDOM.querySelector('#conraw').onclick = function(){
     firstRowIsBlocked = false;
     firstColumnIsBlocked = false;
     drag();
+    editAnswers();
 };
 
 
-//редактирование по двойному клику 
-elementDOM.querySelector("#view").ondblclick = function(event){
+// TODO: редактирование по двойному клику 
+/*elementDOM.querySelector("#view").ondblclick = function(event){
    var target = event.target; 
         if (target.classList.contains('dragAnswer') || target.classList.contains('fixAnswer')){
             //console.log(target.id + " is contenteditable?");
@@ -444,18 +448,32 @@ elementDOM.querySelector("#view").ondblclick = function(event){
         } 
         else return; 
 };
-
-
-$(".dragAnswer, .fixAnswer").blur(function (){
-    $("#"+this.id).attr("contenteditable",false);
-});
-
+*/
 /*elementDOM.querySelector("#view").onblur = function(event){
     var target = event.target;
     console.log(target.id);
 
 }
 */
+function editAnswers(){  
+
+$(".dragAnswer, .fixAnswer").dblclick(function (){
+    $("#"+this.id).attr("contenteditable",true);
+    $("#"+this.id).css("background",'white');
+    $("#"+this.id).css("cursor","text");
+
+    document.getElementById(this.id).focus();
+});
+
+$(".dragAnswer, .fixAnswer").blur(function (){
+    $("#"+this.id).attr("contenteditable",false);
+    $("#"+this.id).css("background","");
+    $("#"+this.id).css("cursor","move");
+});
+} 
+
+
+
 
 //фиксация строки
 elementDOM.querySelector('#fixLine').onclick = function(){
@@ -463,6 +481,7 @@ elementDOM.querySelector('#fixLine').onclick = function(){
     setBlockHtml('view', documentTable.innerHTML);
     editor.setValue(documentTable.innerHTML);
     drag();
+    editAnswers();
 };
 
 //фиксация столбца 
@@ -471,6 +490,7 @@ elementDOM.querySelector('#fixColumn').onclick = function(){
     setBlockHtml('view', documentTable.innerHTML);
     editor.setValue(documentTable.innerHTML);
     drag();
+    editAnswers();
 };
 
 /*перенос всех ответов в отдельное поле*/
@@ -488,7 +508,8 @@ elementDOM.querySelector("#getAllAnswers").onclick = function(){
     for (var i = allAnswersDiv.children.length; i >= 0; i--) {
         allAnswersDiv.appendChild(allAnswersDiv.children[Math.random() * i | 0]);
     }
-
+    
+    editAnswers();
 };
 
 
