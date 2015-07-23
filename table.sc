@@ -123,16 +123,41 @@ css::
 
 javascriptStudent::
 
+
+
 function drag(){
     $('#dragAnswers, .answerPlace .cell, .answerPlace').sortable({
         items: ".dragAnswer",
         connectWith: '.answerPlace .cell, .answerPlace',
         revert: '100',
         tolerance: "pointer",
+         stop: generateStudentAnswer
     }).disableSelection();
 }
 drag();
 
+function generateStudentAnswer(){
+  
+  var studentTable = elementDOM.querySelector('#dragAnswers');
+  var studentAnswer = {};
+  forEachInCollection(childList(studentTable.getElementsByTagName('tbody')[0]), function(value){
+        forEachInCollection(childList(value), function(value){
+            if(value.classList.contains('cell')){
+                var cellId = value.id;
+                var vals = [];
+                forEachInCollection(childList(value), function(value){ 
+                    vals.push(value.id); 
+                 });
+                studentAnswer[cellId]=vals;
+            }
+        });
+    });
+  studentAnswer = generationAnswerJSON(studentAnswer);
+  console.log(studentAnswer);
+  //elementDOM.querySelector('#correct_answer').setAttribute('value', correctAnswer);
+    //var studentView = elementDOM.querySelector("#view");
+    //editor.setValue(studentView.innerHTML);
+}
 
 javascriptStudio::
 
