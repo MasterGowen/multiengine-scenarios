@@ -520,8 +520,7 @@ elementDOM.querySelector("#getAllAnswers").onclick = function(){
         allAnswersDiv.appendChild(allAnswersDiv.children[Math.random() * i | 0]);
     }
     documentTable.innerHTML = elementDOM.querySelector("#view").getElementsByTagName("table")[0].outerHTML;
-    
-    editor.setValue(elementDOM.querySelector("#view").innerHTML);
+
 
     drag();
     editAnswers();
