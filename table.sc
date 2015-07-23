@@ -214,12 +214,17 @@ undeletableAttributes - массив [] тех атрибутов, которы�
  
 ***/
 function deleteAttributes(value, undeletableAttributes){
-    var VAL = value.attributes.length;
-    for (var i=0; i < VAL; i++){
-        if(value.attributes[i].name in undeletableAttributes) continue;
+    //var VAL = value.attributes.length;
+    for (var i=0; i < value.attributes.length; i++){
+        console.log("value.attributes.length = " + value.attributes.length);
 
+        if(value.attributes[i].name in undeletableAttributes){}
+        
+        else{
         value.removeAttribute(value.attributes[i].name);
+        }
     }
+
 }
 
 function Convertation(){
