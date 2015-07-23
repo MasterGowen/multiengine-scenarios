@@ -165,7 +165,7 @@ function makeStartTable(){
     table.appendChild(tbody);
     body.appendChild(table);
 
-    return table;
+    return body;
     }
 
 //Установка всех всех атрибутов необходимых для работы перетаскивания
@@ -245,7 +245,7 @@ function fixLine(value){
 
 /*удаляет ВСЕ атрибуты первого столбца (включая 1 уровень детей (td))*/
 function fixColumn(value){
-    console.log('start_event: Фиксация первой столбца');
+  //  console.log('start_event: Фиксация первой столбца');
     forEachInCollection(value.getElementsByTagName('tr'), function(value){
     	deleteAttributes(childList(value)[0], []);
     	childList(value)[0].classList.add("first");
@@ -254,7 +254,7 @@ function fixColumn(value){
     	});
     });
     firstColumnIsBlocked = true;
-    console.log('end_event: Фиксация первой столбца');
+   // console.log('end_event: Фиксация первой столбца');
 }
 
 
