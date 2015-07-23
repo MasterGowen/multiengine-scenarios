@@ -138,6 +138,8 @@ function generateStudentAnswer(){
 
   var studentTable = document.querySelector('#dragAnswers');
   var studentAnswer = {};
+  studentAnswer = generationAnswerJSON(studentAnswer);
+  
 forEachInCollection(childList(studentTable.getElementsByTagName('tbody')[0]), function(value){
         forEachInCollection(childList(value), function(value){
             if(value.classList.contains('cell')){
