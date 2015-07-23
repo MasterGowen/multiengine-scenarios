@@ -26,11 +26,11 @@ html::
         <button id="addColumn">Добавить столбец</button>
         <button id="getAllAnswers">Вынести ответы</button>
         
-         
+         <div id="allAnswers" class="answerPlace">
+            </div>
         <div id="view">
 
-         <div id="allAnswers" class="answerPlace">
-            </div>   
+            
     </div>
 
 
@@ -460,9 +460,10 @@ elementDOM.querySelector('#conraw').onclick = function(){
 
 }
 */
+
 function editAnswers(){  
-
-$(".dragAnswer").dblclick(function (){
+// не работает .fixAnswer так так у них нет id
+$(".dragAnswer, .fixAnswer").dblclick(function (){
     $("#"+this.id).attr("contenteditable",true);
     $("#"+this.id).css("background",'white');
     $("#"+this.id).css("cursor","text");
@@ -470,25 +471,12 @@ $(".dragAnswer").dblclick(function (){
     document.getElementById(this.id).focus();
 });
 
-$(".dragAnswer").blur(function (){
+$(".dragAnswer, .fixAnswer").blur(function (){
     $("#"+this.id).attr("contenteditable",false);
     $("#"+this.id).css("background","");
     $("#"+this.id).css("cursor","move");
 });
 
-$(".fixAnswer").dblclick(function (){
-    $("#"+this.id).attr("contenteditable",true);
-    $("#"+this.id).css("background",'white');
-    $("#"+this.id).css("cursor","text");
-
-    document.getElementById(this.id).focus();
-});
-
-$(".fixAnswer").blur(function (){
-    $("#"+this.id).attr("contenteditable",false);
-    $("#"+this.id).css("background","");
-    $("#"+this.id).css("cursor","move");
-});
 } 
 
 
