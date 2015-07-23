@@ -373,13 +373,18 @@ elementDOM.querySelector("#addRow").onclick = function(){
 /*добавление столбца к таблице*/
 elementDOM.querySelector("#addColumn").onclick = function(){
     documentTable.innerHTML = elementDOM.querySelector("#view").getElementsByTagName("table")[0].outerHTML;
+    
     forEachInCollection(documentTable.getElementsByTagName('tr'), function(value){
+        
         var newCell = document.createElement('td');
         newCell.classList.add("cell");
         newCell.id = generationID();
         value.appendChild(newCell);
     });
+
+    //маленький костыльчик
     if(firstRowIsBlocked){
+        fixLine(documentTable);
         fixLine(documentTable);
     }
         setBlockHtml('view', documentTable.innerHTML); 
