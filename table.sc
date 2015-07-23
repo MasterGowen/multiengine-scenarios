@@ -514,11 +514,11 @@ elementDOM.querySelector("#getAllAnswers").onclick = function(){
 
     elementDOM.querySelector('#view').appendChild(allAnswersDiv);
     //перемешивание
-    /*
+    
     for (var i = allAnswersDiv.children.length; i >= 0; i--) {
         allAnswersDiv.appendChild(allAnswersDiv.children[Math.random() * i | 0]);
     }
-    */
+    
     drag();
     editAnswers();
 };
