@@ -229,7 +229,7 @@ undeletableAttributes - массив [] тех атрибутов, которы�
 
 }*/
 
-function deleteAttributes(value, lol){
+function deleteAttributes(value, undeletableAttributes){
     while(value.attributes.length>0)
     {
         value.removeAttribute(value.attributes[0].name);
@@ -249,27 +249,27 @@ function fixLine(value){
     //console.log('start_event: Фиксация первой строки');
     if(firstRowIsBlocked){
         forEachInCollection(childList(value.getElementsByTagName('tr')[0]), function(value){
-            console.log("1");
+            //console.log("1");
             deleteAttributes(value, []);
-            console.log("3");
+            //console.log("3");
             //value.setAttribute('class',"cell");
             value.classList.add("cell");
-            /*forEachInCollection(childList(value), function(value){
+            forEachInCollection(childList(value), function(value){
                 value.id = generationID();
-                value.setAttribute('class',"dragAnswer");
-               // value.classList.add("dragAnswer");
-            });*/
+                //value.setAttribute('class',"dragAnswer");
+                value.classList.add("dragAnswer");
+            });
         });
         firstRowIsBlocked = false;
     }
     else{
         forEachInCollection(childList(value.getElementsByTagName('tr')[0]), function(value){
             deleteAttributes(value, []);
-            value.setAttribute('class',"first");
-            //value.classList.add("first");
-            /*forEachInCollection(childList(value), function(value){
+            //value.setAttribute('class',"first");
+            value.classList.add("first");
+            forEachInCollection(childList(value), function(value){
                 deleteAttributes(value,[]);
-            });*/
+            });
         });
         firstRowIsBlocked = true;
     }
