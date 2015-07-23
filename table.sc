@@ -214,8 +214,10 @@ undeletableAttributes - массив [] тех атрибутов, которы�
  
 ***/
 function deleteAttributes(value, undeletableAttributes){
-    for (var i=0; i< value.attributes.length; i++){
+    var VAL = value.attributes.length;
+    for (var i=0; i < VAL; i++){
         if(value.attributes[i].name in undeletableAttributes) continue;
+
         value.removeAttribute(value.attributes[i].name);
     }
 }
