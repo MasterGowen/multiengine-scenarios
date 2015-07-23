@@ -422,6 +422,11 @@ elementDOM.querySelector("#view").ondblclick = function(event){
             elementDOM.querySelector('#' + target.id ).setAttribute('contenteditable', 'true');
             elementDOM.querySelector('#' + target.id).focus();
         } 
+        if (target.parentNode.classList.contains('dragAnswer')){
+            console.log(target.parentNode.id + " is contenteditable?");
+            elementDOM.querySelector('#' + target.parentNode.id ).setAttribute('contenteditable', 'true');
+            elementDOM.querySelector('#' + target.parentNode.id).focus();
+        } 
         else return; 
 };
 
