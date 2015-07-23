@@ -420,6 +420,7 @@ elementDOM.querySelector("#view").ondblclick = function(event){
         if (target.classList.contains('dragAnswer')){
             console.log(target.id + " is contenteditable?");
             elementDOM.querySelector('#' + target.id ).setAttribute('contenteditable', 'true');
+            elementDOM.querySelector('#' + target.id).focus();
         } 
         else return; 
 };
