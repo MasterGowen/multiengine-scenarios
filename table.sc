@@ -360,7 +360,7 @@ elementDOM.querySelector("#view").onclick = function(event){
             div.classList.add("dragAnswer");
             div.id = generationID();  
         }
-        if(target.classList.contains('first')){
+        else(target.classList.contains('first')){
             div.classList.add("fixAnswer");
         }
         
