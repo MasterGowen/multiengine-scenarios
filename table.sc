@@ -495,6 +495,8 @@ function generateCorrectAnswer(value){
     });
   correctAnswer = generationAnswerJSON(correctAnswer);
   elementDOM.querySelector('#correct_answer').setAttribute('value', correctAnswer);
+    var studentView = elementDOM.querySelector("#view");
+    editor.setValue(studentView.innerHTML);
 }
 
 elementDOM.querySelector('#generateCorrectAnswer').onclick = function(){
@@ -520,8 +522,8 @@ elementDOM.querySelector("#getAllAnswers").onclick = function(){
     drag();
     editAnswers();
 
-    var studentTable = elementDOM.querySelector("#view");
-    editor.setValue(studentTable.innerHTML);
+    var studentView = elementDOM.querySelector("#view");
+    editor.setValue(studentView.innerHTML);
 
 
 };
