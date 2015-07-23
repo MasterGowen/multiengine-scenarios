@@ -494,7 +494,7 @@ function generateCorrectAnswer(value){
         });
     });
   correctAnswer = generationAnswerJSON(correctAnswer);
-  elementDOM..querySelector('#correct_answer').setAttribute('value', correctAnswer);
+  elementDOM.querySelector('#correct_answer').setAttribute('value', correctAnswer);
 }
 
 elementDOM.querySelector('#generateCorrectAnswer').onclick = function(){
