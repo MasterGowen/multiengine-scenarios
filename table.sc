@@ -213,7 +213,7 @@ value - элемент, у которого нужно удалить атриб
 undeletableAttributes - массив [] тех атрибутов, которые удалять не нужно
  
 ***/
-function deleteAttributes(value, undeletableAttributes){
+/*function deleteAttributes(value, undeletableAttributes){
     //var VAL = value.attributes.length;
     //console.log("2");
     var attrLen = value.attributes.length
@@ -222,9 +222,18 @@ function deleteAttributes(value, undeletableAttributes){
     for (var i = 0; i < attrLen; i++){
         //console.log("2: " + i);
         if(allAttrs[i].name in undeletableAttributes){}
-        else{ value.removeAttribute(allAttrs[i].name); }
+        else{ 
+            value.removeAttribute(allAttrs[i].name); 
+        }
     }
 
+}*/
+
+function deleteAttributes(value){
+    while(value.attributes.length>0)
+    {
+        value.removeAttribute(value.value.attributes[0]);
+    }
 }
 
 function Convertation(){
