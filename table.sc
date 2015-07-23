@@ -519,7 +519,7 @@ elementDOM.querySelector("#getAllAnswers").onclick = function(){
         allAnswersDiv.appendChild(allAnswersDiv.children[Math.random() * i | 0]);
     }
     */
-    
+    drag();
     editAnswers();
 };
 
