@@ -216,7 +216,7 @@ undeletableAttributes - массив [] тех атрибутов, которы�
 function deleteAttributes(value, undeletableAttributes){
     //var VAL = value.attributes.length;
     console.log("2");
-    for (var i = 0; i < value.attributes.length; i++){
+    for (var i = 0; i <= value.attributes.length; i++){
         //console.log("value.attributes.length = " + value.attributes.length);
         console.log("2: " + i);
         if(value.attributes[i].name in undeletableAttributes){}
