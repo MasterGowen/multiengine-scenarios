@@ -519,7 +519,10 @@ elementDOM.querySelector("#getAllAnswers").onclick = function(){
     for (var i = allAnswersDiv.children.length; i >= 0; i--) {
         allAnswersDiv.appendChild(allAnswersDiv.children[Math.random() * i | 0]);
     }
+    documentTable.innerHTML = elementDOM.querySelector("#view").getElementsByTagName("table")[0].outerHTML;
     
+    editor.setValue(documentTable.innerHTML);
+
     drag();
     editAnswers();
 };
