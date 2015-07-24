@@ -494,7 +494,7 @@ elementDOM.querySelector("#addColumn").onclick = function(){
 
 elementDOM.querySelector('#conraw').onclick = function(){
 
-    if (elementDOM.querySelector('scButtonView').getAttribute(scmenuactive) == "false") {
+    if (elementDOM.querySelector('#scButtonView').getAttribute('scmenuactive') == "false") {
         
         if(elementDOM.querySelector('#raw').value == ''){
             documentTable = makeStartTable();
@@ -515,7 +515,7 @@ elementDOM.querySelector('#conraw').onclick = function(){
 
     }
 
-    if (elementDOM.querySelector('scButtonView').getAttribute(scmenuactive) == "true") {
+    if (elementDOM.querySelector('#scButtonView').getAttribute('scmenuactive') == "true") {
     
     setBlockHtml('raw',getValueFild('raw').body);
     //elementDOM.querySelector('#raw').value = getValueFild('raw').body;
