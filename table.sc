@@ -89,12 +89,16 @@ css::
 .dragAnswer[contenteditable=true], .fixAnswer[contenteditable=true]{
     background: white;
     border: 1px solid grey;
+    padding: 2px 10px;
+    display: inline-block;
 }
 
 .dragAnswer{
 	border: 1px dashed rgb(163, 55, 55);
     cursor: move;
     margin: 5px;
+    padding: 2px 10px;
+    display: inline-block;
 }
 
 
@@ -103,21 +107,17 @@ css::
     margin: 5px;
 }
 
-.first:before {
-  content: "+";
-  margin: 0 auto;
-  display: block;
-  width: 9px;
-  color: gray;
-  cursor: pointer;
-}
-
+.first:before, 
 .cell:before {
   content: "+";
   margin: 0 auto;
   display: block;
   width: 9px;
   color: gray;
+}
+
+.first:before {
+  cursor: pointer;
 }
 
 
@@ -132,6 +132,7 @@ function drag(){
          stop: generateStudentAnswer
     }).disableSelection();
 }
+//TODO: Зачем здесь вызов функции
 drag();
 
 function generateStudentAnswer(){
