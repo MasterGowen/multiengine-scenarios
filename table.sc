@@ -24,8 +24,8 @@ html::
         <div class="scEditButtonView" id="addRow">+ Добавить строку</div>
         <div class="scEditButtonView" id="addColumn">+ Добавить столбец</div>
         <div id="view">        </div>
-        <div class="scEditButtonConv" id="getAllAnswers">Вынести ответы</div>
-        <div class="scEditButtonConv" id="generateCorrectAnswer">Собрать JSON</div>
+        <!--<div class="scEditButtonConv" id="getAllAnswers">Вынести ответы</div>
+        <div class="scEditButtonConv" id="generateCorrectAnswer">Собрать JSON</div>-->
     </div>
 
 
@@ -238,6 +238,10 @@ elementDOM.querySelector('#viewSettings').onclick = function(){elementDOM.getEle
 
 
 function scenarioSave(){
+
+    generateCorrectAnswer(documentTable);
+    alert();
+    getAllAnswers();
     console.log("scenarioSave work!");
 }
 
@@ -311,32 +315,9 @@ function SetDragAttr(value){
 };
 
 
-/***
-Удаление атрибутов элемента
-
-value - элемент, у которого нужно удалить атрибуты
-undeletableAttributes - массив [] тех атрибутов, которые удалять не нужно
- 
-***/
-/*function deleteAttributes(value, undeletableAttributes){
-    //var VAL = value.attributes.length;
-    //console.log("2");
-    var attrLen = value.attributes.length
-    var allAttrs = value.attributes;
-
-    for (var i = 0; i < attrLen; i++){
-        //console.log("2: " + i);
-        if(allAttrs[i].name in undeletableAttributes){}
-        else{ 
-            value.removeAttribute(allAttrs[i].name); 
-        }
-    }
-
-}*/
-
 
 /**
-* Функция удаляеет все атрибуты элемента переданого в нее за исключением тех что перечисленный в массиве исключений
+* Функция удаляеет все атрибуты элемента переданого в нее, за исключением тех, что перечисленны в массиве исключений
 * value = HTMLelement
 * undeletableAttributes = [];
 */
@@ -614,16 +595,41 @@ function generateCorrectAnswer(value){
   correctAnswer = generationAnswerJSON(correctAnswer);
 
   elementDOM.querySelector('#correct_answer').setAttribute('value', correctAnswer);
-    var studentView = elementDOM.querySelector("#view");
-    editor.setValue(studentView.innerHTML);
+  var studentView = elementDOM.querySelector("#view");
+  editor.setValue(studentView.innerHTML);
 }
-
+/*
 elementDOM.querySelector('#generateCorrectAnswer').onclick = function(){
     generateCorrectAnswer(documentTable);
 }
+*/
 
 /*перенос всех ответов в отдельное поле*/
+function getAllAnswers(){
+
+    var allAnswersList = elementDOM.querySelector('#view').querySelectorAll('.dragAnswer');
+    var allAnswersDiv = document.createElement('div');
+    allAnswersDiv.id = "allAnswers";
+    allAnswersDiv.classList.add("answerPlace");
+    forEachInCollection(allAnswersList, function(value){ 
+        allAnswersDiv.appendChild(value);
+    });
+    elementDOM.querySelector('#view').appendChild(allAnswersDiv);
+    //перемешивание
+    for (var i = allAnswersDiv.children.length; i >= 0; i--) {
+        allAnswersDiv.appendChild(allAnswersDiv.children[Math.random() * i | 0]);
+    }
+    documentTable.innerHTML = elementDOM.querySelector("#view").getElementsByTagName("table")[0].outerHTML;
+    drag();
+    editAnswers();
+
+    var studentView = elementDOM.querySelector("#view");
+    editor.setValue(studentView.innerHTML);
+
+}
+/*
 elementDOM.querySelector("#getAllAnswers").onclick = function(){
+
 
     var allAnswersList = elementDOM.querySelector('#view').querySelectorAll('.dragAnswer');
     var allAnswersDiv = document.createElement('div');
@@ -646,7 +652,7 @@ elementDOM.querySelector("#getAllAnswers").onclick = function(){
 
 
 };
-
+*/
 
 elementDOM.querySelector('#scButtonView').onclick = function(){
     elementDOM.querySelector('#scButtonRaw').setAttribute('scMenuActive', 'false');
