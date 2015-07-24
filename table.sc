@@ -19,12 +19,12 @@ html::
     </div>
 
     <div id="scWindowView" hidden='true'>
-        <button id="fixLine">Зафиксировать строку</button>
-        <button id="fixColumn">Зафиксировать столбец</button>
-        <button id="addRow">Добавить строку</button>
-        <button id="addColumn">Добавить столбец</button>
-        <button id="getAllAnswers">Вынести ответы</button>
-        <button id="generateCorrectAnswer">Собрать JSON</button>
+        <div class="scEditButtonView" id="fixLine">Зафиксировать строку</div>
+        <div class="scEditButtonView" id="fixColumn">Зафиксировать столбец</div>
+        <div class="scEditButtonView" id="addRow">Добавить строку</div>
+        <div class="scEditButtonView" id="addColumn">Добавить столбец</div>
+        <div class="scEditButtonView" id="getAllAnswers">Вынести ответы</div>
+        <div class="scEditButtonView" id="generateCorrectAnswer">Собрать JSON</div>
 
         <div id="view">
 
@@ -49,12 +49,6 @@ cssStudent::
 }
 
 
-.dragAnswer[contenteditable=true], .fixAnswer[contenteditable=true]{
-    background: white;
-    border: 1px solid grey;
-    padding: 2px 10px;
-    display: inline-block;
-}
 
 .dragAnswer{
     border: 1px dashed rgb(163, 55, 55);
@@ -79,6 +73,14 @@ css::
 }
  /*конец*/ 
  .step-one{display:none}
+
+ .scEditButtonView{
+    background: gold none repeat scroll 0% 0%;
+    margin: 5px;
+    padding: 2px;
+    width: 169px;
+    text-align: center;
+ }
 
 #allAnswers{
     display: -webkit-box;
@@ -235,6 +237,11 @@ function generateStudentAnswer(){
 //end
 
 javascriptStudio::
+/**
+* JavaScript работаюший со сторновы студии
+*/
+
+// Показывает все скрытые поля отноящиеся к XBlock'у в целом.
 elementDOM.querySelector('#viewSettings').onclick = function(){elementDOM.getElementsByClassName('step-one')[0].style.display = 'block';}
 
 
