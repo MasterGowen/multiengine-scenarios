@@ -34,6 +34,43 @@ html::
 
 
 
+cssStudent::
+.cell {
+    border: 1px solid white;
+    min-width: 100px;
+    cursor: pointer;
+    background: #D8E6F3;
+}
+
+.first{
+    background: rgb(170, 222, 226);
+    border: 1px solid white;
+    background: #AFCDE7;
+    min-width: 100px;
+}
+
+
+.dragAnswer[contenteditable=true], .fixAnswer[contenteditable=true]{
+    background: white;
+    border: 1px solid grey;
+    padding: 2px 10px;
+    display: inline-block;
+}
+
+.dragAnswer{
+    border: 1px dashed rgb(163, 55, 55);
+    cursor: move;
+    margin: 5px;
+    padding: 2px 10px;
+    display: inline-block;
+}
+
+
+.fixAnswer{
+    border: 1px dashed white;
+    margin: 5px;
+}
+
 css::
 /*костыл*/
 [class*="view-"] .modal-lg.modal-editor .modal-content {
