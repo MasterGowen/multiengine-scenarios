@@ -237,9 +237,7 @@ elementDOM.querySelector('#viewSettings').onclick = function(){elementDOM.getEle
 function scenarioSave(){
 
     generateCorrectAnswer(documentTable);
-    //alert();
     getAllAnswers();
-    //console.log("scenarioSave work!");
 }
 
 
@@ -419,13 +417,6 @@ function updateTable() {
     documentTable.innerHTML = elementDOM.querySelector("#view").getElementsByTagName("table")[0].outerHTML;
 }
 
-
-/*вынести сюда добавление строки*/
-function addRow(){
-
-}
-
-
 /*добавлялка перетаскивающихся штучек*/
 elementDOM.querySelector("#view").onclick = function(event){
    var target = event.target; 
@@ -480,8 +471,6 @@ elementDOM.querySelector("#addColumn").onclick = function(){
         newCell.id = generationID();
         value.appendChild(newCell);
     });
-
-    //маленький костыльчик
     if(firstRowIsBlocked){
         fixLine(documentTable);
         fixLine(documentTable);
@@ -502,12 +491,9 @@ elementDOM.querySelector('#conraw').onclick = function(){
         else{  
             documentTable =  getValueFild('raw').body;
             SetDragAttr(documentTable);
-            // TODO: elementDOM.querySelector("#view").appendChild(documentTable);
         }
     
     setBlockHtml('view', documentTable.innerHTML);
-    //костыль
-    //elementDOM.querySelector('#scWindowView').querySelector('#allAnswers').innerHTML="";
     firstRowIsBlocked = false;
     firstColumnIsBlocked = false;
     drag();
@@ -520,8 +506,6 @@ elementDOM.querySelector('#conraw').onclick = function(){
     var tst = getValueFild('view').body;
     console.log(tst.innerHTML);
     elementDOM.querySelector('#raw').value = tst.innerHTML;
-    //setBlockHtml('raw', tst.innerHTML);
-    //elementDOM.querySelector('#raw').value = getValueFild('raw').body;
     
     }
 
@@ -590,6 +574,7 @@ elementDOM.querySelector('#fixColumn').onclick = function(){
     editAnswers();
 };
 
+//генерация json правильного ответа
 function generateCorrectAnswer(value){
   var correctAnswer = {};
   forEachInCollection(childList(value.getElementsByTagName('tbody')[0]), function(value){
@@ -611,11 +596,8 @@ function generateCorrectAnswer(value){
   var studentView = elementDOM.querySelector("#view");
   editor.setValue(studentView.innerHTML);
 }
-/*
-elementDOM.querySelector('#generateCorrectAnswer').onclick = function(){
-    generateCorrectAnswer(documentTable);
-}
-*/
+
+
 
 /*перенос всех ответов в отдельное поле*/
 function getAllAnswers(){
@@ -640,32 +622,6 @@ function getAllAnswers(){
     editor.setValue(studentView.innerHTML);
 
 }
-/*
-elementDOM.querySelector("#getAllAnswers").onclick = function(){
-
-
-    var allAnswersList = elementDOM.querySelector('#view').querySelectorAll('.dragAnswer');
-    var allAnswersDiv = document.createElement('div');
-    allAnswersDiv.id = "allAnswers";
-    allAnswersDiv.classList.add("answerPlace");
-    forEachInCollection(allAnswersList, function(value){ 
-        allAnswersDiv.appendChild(value);
-    });
-    elementDOM.querySelector('#view').appendChild(allAnswersDiv);
-    //перемешивание
-    for (var i = allAnswersDiv.children.length; i >= 0; i--) {
-        allAnswersDiv.appendChild(allAnswersDiv.children[Math.random() * i | 0]);
-    }
-    documentTable.innerHTML = elementDOM.querySelector("#view").getElementsByTagName("table")[0].outerHTML;
-    drag();
-    editAnswers();
-
-    var studentView = elementDOM.querySelector("#view");
-    editor.setValue(studentView.innerHTML);
-
-
-};
-*/
 
 elementDOM.querySelector('#scButtonView').onclick = function(){
     elementDOM.querySelector('#scButtonRaw').setAttribute('scMenuActive', 'false');
