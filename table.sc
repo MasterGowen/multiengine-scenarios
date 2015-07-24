@@ -517,7 +517,7 @@ elementDOM.querySelector('#conraw').onclick = function(){
 
     if (elementDOM.querySelector('#scButtonView').getAttribute('scmenuactive') == "true") {
     
-    var tst = getValueFild('view');
+    var tst = getValueFild('view').body;
     console.log(tst);
     setBlockHtml('raw', tst);
     //elementDOM.querySelector('#raw').value = getValueFild('raw').body;
