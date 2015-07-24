@@ -19,16 +19,13 @@ html::
     </div>
 
     <div id="scWindowView" hidden='true'>
-        <div class="scEditButtonView" id="fixLine">Зафиксировать строку</div>
-        <div class="scEditButtonView" id="fixColumn">Зафиксировать столбец</div>
-        <div class="scEditButtonView" id="addRow">Добавить строку</div>
-        <div class="scEditButtonView" id="addColumn">Добавить столбец</div>
-        <div class="scEditButtonView" id="getAllAnswers">Вынести ответы</div>
-        <div class="scEditButtonView" id="generateCorrectAnswer">Собрать JSON</div>
-
-        <div id="view">
-
-        </div>
+        <div class="scEditButtonView" id="fixLine">Фиксировать строку</div>
+        <div class="scEditButtonView" id="fixColumn">Фиксировать столбец</div>
+        <div class="scEditButtonView" id="addRow">+ Добавить строку</div>
+        <div class="scEditButtonView" id="addColumn">+ Добавить столбец</div>
+        <div id="view">        </div>
+        <div class="scEditButtonConv" id="getAllAnswers">Вынести ответы</div>
+        <div class="scEditButtonConv" id="generateCorrectAnswer">Собрать JSON</div>
     </div>
 
 
@@ -82,6 +79,22 @@ css::
     margin: 11px 1px;
     cursor: pointer;
  }
+  .scEditButtonView:hover{
+ background: #FFB400;
+}
+
+ .scEditButtonConv{
+    background: #FF4800 none repeat scroll 0% 0%;
+    text-align: center;
+    display: inline-block;
+    padding: 4px 12px;
+    margin: 11px 1px;
+    cursor: pointer;
+    color: #FFFFFF;
+ }
+  .scEditButtonConv:hover{
+ background: #D53C00;
+}
 
 #allAnswers{
     display: -webkit-box;
@@ -100,8 +113,9 @@ css::
     width: 28%;
     text-align: center;
     margin: 0px;
+    cursor: pointer;
 }
-#scMenu li:hover {
+#scMenu li[scMenuActive=false]:hover {
 border-color:gold;
     }
 #scMenu li[scMenuActive=true]{
