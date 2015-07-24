@@ -215,7 +215,7 @@ function generateStudentAnswer(){
         });
     });
   studentAnswer = generationAnswerJSON(studentAnswer);
-  //console.log(studentAnswer);
+  console.log(studentAnswer);
 
   //$('textarea[name=answer]').html
   document.getElementsByName("answer")[0].value = studentAnswer;
