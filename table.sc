@@ -225,37 +225,8 @@ function generateStudentAnswer(){
     //editor.setValue(studentView.innerHTML);
 }
 
- //TODO: Вынести в javascript самого XBlock'а
- //start
-    function forEachInCollection(collection, action) {
-        collection = collection || {};
-        for (var i = 0; i < collection.length; i++)
-            action(collection[i]);
-    };
 
-    function childList(value) {
-        var childList = [];
-        var value = value.children || value.childNodes;
-        /*if(!val.length){
-          console.log('Attention!: '+ typeof(val) + ' has no children')
-          return;
-        };*/
-        for (var i = 0; i < value.length; i++) {
-            if (value[i].nodeType == 1) {
-                childList.push(value[i])
-            };
-        };
-        return childList;
-    };
 
-    function generationAnswerJSON(answer) {
-        var answerJSON = {
-            answer: {}
-        };
-        answerJSON.answer = answer;
-        return JSON.stringify(answerJSON);
-    };
-//end
 
 javascriptStudio::
 /**
