@@ -605,7 +605,9 @@ function generateCorrectAnswer(value){
             }
         });
     });
+  console.log(correctAnswer+" : "+generationAnswerJSON(correctAnswer));
   correctAnswer = generationAnswerJSON(correctAnswer);
+
   elementDOM.querySelector('#correct_answer').setAttribute('value', correctAnswer);
     var studentView = elementDOM.querySelector("#view");
     editor.setValue(studentView.innerHTML);
@@ -654,24 +656,6 @@ elementDOM.querySelector('#scButtonRaw').onclick = function(){
     elementDOM.querySelector('#scWindowView').setAttribute('hidden', 'true');
 };
 
-/*
-// функция генерирует JSON-объект из клеток у которых есть атрибут "id"
-
-
-  var json = {};
-  forEachInCollection(childList(elementDOM.getElementsByTagName('tbody')[0]), function(value){
-        forEachInCollection(childList(value), function(value){
-        	if(value.id!=""){
-            	var cellId = value.id;
-        		var vals = [];
-          		forEachInCollection(childList(value), function(value){ 
-          			vals.push(value.id); 
-         		 });
-				json[cellId]=vals;
-            }
-        });
-    });
-*/
 
 
 
