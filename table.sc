@@ -237,6 +237,11 @@ javascriptStudio::
 elementDOM.querySelector('#viewSettings').onclick = function(){elementDOM.getElementsByClassName('step-one')[0].style.display = 'block';}
 
 
+function scenarioSave(){
+    console.log("scenarioSave work!");
+}
+
+
 //Переменная хранящая таблицу documentTable.innerHTML
 var documentTable;
 
