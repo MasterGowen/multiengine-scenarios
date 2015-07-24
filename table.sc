@@ -182,13 +182,16 @@ border-color:#e6e6e6;
 
 javascriptStudent::
 
+var studentAnswer = {};
+studentAnswer = generationAnswerJSON(studentAnswer);
+
 function drag(){
     $('#dragAnswers, .answerPlace .cell, .answerPlace').sortable({
         items: ".dragAnswer",
         connectWith: '.answerPlace .cell, .answerPlace',
         revert: '100',
         tolerance: "pointer",
-         stop: generateStudentAnswer
+        stop: generateStudentAnswer
     }).disableSelection();
 }
 //TODO: Зачем здесь вызов функции
@@ -200,7 +203,7 @@ function generateStudentAnswer(){
 переписать тут все надо!!!!!!!!!
 */
   var studentTable = document.querySelector('#dragAnswers');
-  var studentAnswer = {};
+
 
     forEachInCollection(childList(studentTable.getElementsByTagName('tbody')[0]), function(value){
         forEachInCollection(childList(value), function(value){
@@ -217,12 +220,8 @@ function generateStudentAnswer(){
   studentAnswer = generationAnswerJSON(studentAnswer);
   console.log(studentAnswer);
 
-  //$('textarea[name=answer]').html
   document.getElementsByName("answer")[0].value = studentAnswer;
   document.getElementsByName("answer")[0].val = studentAnswer;
-  //elementDOM.querySelector('#correct_answer').setAttribute('value', correctAnswer);
-    //var studentView = elementDOM.querySelector("#view");
-    //editor.setValue(studentView.innerHTML);
 }
 
 
