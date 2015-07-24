@@ -7,8 +7,7 @@ description::
 Табличный тест
 
 html::
-    <script type="text/javascript" src="http://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
-
+    <a id=viewSettings>Показать основные настройки</a>
     <ul id="scMenu">
         <li id="scButtonRaw" scMenuActive="true">Исходный код</li>
         <li id="conraw">Преобразовать HTML</li>
@@ -180,7 +179,7 @@ function generateStudentAnswer(){
   var studentTable = document.querySelector('#dragAnswers');
   var studentAnswer = {};
 
-forEachInCollection(childList(studentTable.getElementsByTagName('tbody')[0]), function(value){
+    forEachInCollection(childList(studentTable.getElementsByTagName('tbody')[0]), function(value){
         forEachInCollection(childList(value), function(value){
             if(value.classList.contains('cell')){
                 var cellId = value.id;
@@ -203,7 +202,8 @@ forEachInCollection(childList(studentTable.getElementsByTagName('tbody')[0]), fu
     //editor.setValue(studentView.innerHTML);
 }
 
-
+ //TODO: Вынести в javascript самого XBlock'а
+ //start
     function forEachInCollection(collection, action) {
         collection = collection || {};
         for (var i = 0; i < collection.length; i++)
@@ -232,9 +232,11 @@ forEachInCollection(childList(studentTable.getElementsByTagName('tbody')[0]), fu
         answerJSON.answer = answer;
         return JSON.stringify(answerJSON);
     };
-
+//end
 
 javascriptStudio::
+elementDOM.querySelector('#viewSettings').onclick = function(){elementDOM.getElementsByClassName('step-one')[0].style.display = 'block';}
+
 
 //Переменная хранящая таблицу documentTable.innerHTML
 var documentTable;
@@ -328,10 +330,23 @@ undeletableAttributes - массив [] тех атрибутов, которы�
 
 }*/
 
+
+/**
+* Функция удаляеет все атрибуты элемента переданого в нее за исключением тех что перечисленный в массиве исключений
+* value = HTMLelement
+* undeletableAttributes = [];
+*/
+
 function deleteAttributes(value, undeletableAttributes){
-    while(value.attributes.length>0)
+    var i = 0;
+    while(value.attributes.length-undeletableAttributes.length>0)
     {
-        value.removeAttribute(value.attributes[0].name);
+        if (value.attributes[i].name in undeletableAttributes){
+            i++;
+        }
+        else{
+            value.removeAttribute(value.attributes[i].name);
+        }
     }
 }
 
@@ -374,9 +389,7 @@ function fixLine(value){
 
 /*удаляет ВСЕ атрибуты первого столбца (включая 1 уровень детей (td))*/
 function fixColumn(value){
-
-if (firstColumnIsBlocked)
-    {    
+    if (firstColumnIsBlocked){    
         forEachInCollection(value.getElementsByTagName('tr'), function(value){
             deleteAttributes(childList(value)[0], []);
             childList(value)[0].classList.add("cell");
@@ -387,19 +400,19 @@ if (firstColumnIsBlocked)
                 value.classList.add("dragAnswer");
             });
         });
-    firstColumnIsBlocked = false;
-    }
+        firstColumnIsBlocked = false;
+        }
 
-else{
-    forEachInCollection(value.getElementsByTagName('tr'), function(value){
-        deleteAttributes(childList(value)[0], []);
-        childList(value)[0].classList.add("first");
-        forEachInCollection(childList(childList(value)[0]), function(value){
-            deleteAttributes(value, []);
-            value.classList.add("fixAnswer");
+    else{
+        forEachInCollection(value.getElementsByTagName('tr'), function(value){
+            deleteAttributes(childList(value)[0], []);
+            childList(value)[0].classList.add("first");
+            forEachInCollection(childList(childList(value)[0]), function(value){
+                deleteAttributes(value, []);
+                value.classList.add("fixAnswer");
+            });
         });
-    });
-    firstColumnIsBlocked = true;
+        firstColumnIsBlocked = true;
     }
 }
 
