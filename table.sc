@@ -193,13 +193,12 @@ function drag(){
 }
 //TODO: Зачем здесь вызов функции
 drag();
+
+//вызывается для того, чтобы полю 'answer' присвоился json (backend требует ключи для поверки)
+//если жмем "Сохранить" впервые (без перетаскиваний), то json будет присвоен (только ключи)
 generateStudentAnswer();
 
 function generateStudentAnswer(){
-/*
-проверять можем только после первого перенонса!!!
-переписать тут все надо!!!!!!!!!
-*/
   var studentTable = document.querySelector('#dragAnswers');
   var studentAnswer = {};
 
@@ -495,23 +494,36 @@ elementDOM.querySelector("#addColumn").onclick = function(){
 
 elementDOM.querySelector('#conraw').onclick = function(){
 
-    if(elementDOM.querySelector('#raw').value == ''){
-        documentTable = makeStartTable();
-   }
-    else{  
-        documentTable =  getValueFild('raw').body;
-        SetDragAttr(documentTable);
-    // TODO: elementDOM.querySelector("#view").appendChild(documentTable);
+    if (elementDOM.querySelector('scButtonView').getAttribute(scmenuactive) == "false") {
+        
+        if(elementDOM.querySelector('#raw').value == ''){
+            documentTable = makeStartTable();
         }
-    setBlockHtml('view', documentTable.innerHTML);
+        else{  
+            documentTable =  getValueFild('raw').body;
+            SetDragAttr(documentTable);
+            // TODO: elementDOM.querySelector("#view").appendChild(documentTable);
+        }
     
+    setBlockHtml('view', documentTable.innerHTML);
     //костыль
     //elementDOM.querySelector('#scWindowView').querySelector('#allAnswers').innerHTML="";
-        
     firstRowIsBlocked = false;
     firstColumnIsBlocked = false;
     drag();
     editAnswers();
+
+    }
+
+    if (elementDOM.querySelector('scButtonView').getAttribute(scmenuactive) == "true") {
+    
+    setBlockHtml('raw',getValueFild('raw').body);
+    //elementDOM.querySelector('#raw').value = getValueFild('raw').body;
+    
+    }
+
+
+    
 };
 
 
