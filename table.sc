@@ -182,9 +182,6 @@ border-color:#e6e6e6;
 
 javascriptStudent::
 
-var studentAnswer = {};
-studentAnswer = generationAnswerJSON(studentAnswer);
-
 function drag(){
     $('#dragAnswers, .answerPlace .cell, .answerPlace').sortable({
         items: ".dragAnswer",
@@ -196,6 +193,7 @@ function drag(){
 }
 //TODO: Зачем здесь вызов функции
 drag();
+generateStudentAnswer();
 
 function generateStudentAnswer(){
 /*
@@ -203,7 +201,7 @@ function generateStudentAnswer(){
 переписать тут все надо!!!!!!!!!
 */
   var studentTable = document.querySelector('#dragAnswers');
-
+  var studentAnswer = {};
 
     forEachInCollection(childList(studentTable.getElementsByTagName('tbody')[0]), function(value){
         forEachInCollection(childList(value), function(value){
@@ -222,6 +220,7 @@ function generateStudentAnswer(){
 
   document.getElementsByName("answer")[0].value = studentAnswer;
   document.getElementsByName("answer")[0].val = studentAnswer;
+
 }
 
 
