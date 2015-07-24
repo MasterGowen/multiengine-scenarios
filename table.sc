@@ -237,9 +237,9 @@ elementDOM.querySelector('#viewSettings').onclick = function(){elementDOM.getEle
 function scenarioSave(){
 
     generateCorrectAnswer(documentTable);
-    alert();
+    //alert();
     getAllAnswers();
-    console.log("scenarioSave work!");
+    //console.log("scenarioSave work!");
 }
 
 
@@ -519,7 +519,8 @@ elementDOM.querySelector('#conraw').onclick = function(){
     
     var tst = getValueFild('view').body;
     console.log(tst.innerHTML);
-    setBlockHtml('raw', tst.innerHTML);
+    elementDOM.querySelector('#raw').value = tst.innerHTML;
+    //setBlockHtml('raw', tst.innerHTML);
     //elementDOM.querySelector('#raw').value = getValueFild('raw').body;
     
     }
