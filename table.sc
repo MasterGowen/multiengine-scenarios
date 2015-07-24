@@ -115,8 +115,11 @@ css::
     margin: 0px;
     cursor: pointer;
 }
-#scMenu li[scMenuActive=false]:hover {
+#scMenu li:hover {
 border-color:gold;
+    }
+#scMenu li[scMenuActive=true]:hover {
+border-color:#e6e6e6;
     }
 #scMenu li[scMenuActive=true]{
     background:#e6e6e6;
