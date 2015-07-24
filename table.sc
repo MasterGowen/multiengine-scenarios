@@ -75,11 +75,12 @@ css::
  .step-one{display:none}
 
  .scEditButtonView{
-    background: gold none repeat scroll 0% 0%;
-    margin: 5px;
-    padding: 2px;
-    width: 169px;
+    background: #FFD700 none repeat scroll 0% 0%;
     text-align: center;
+    display: inline-block;
+    padding: 4px 12px;
+    margin: 11px 1px;
+    cursor: pointer;
  }
 
 #allAnswers{
@@ -100,6 +101,9 @@ css::
     text-align: center;
     margin: 0px;
 }
+#scMenu li:hover {
+border-color:gold;
+    }
 #scMenu li[scMenuActive=true]{
     background:#e6e6e6;
 }
