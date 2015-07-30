@@ -1,13 +1,10 @@
 name::
-
 Forces
 
 description:: 
-
 Выбор действующий сил и моментов на объект или обекты
 
 html::
-	<a id=viewSettings>Показать основные настройки</a>
     <a id=scSave>Сохранить результат</a>
 	<ul id="scMenu">
 		<li id="scButtonRaw" scMenuActive="true">Исходный код</li>
@@ -22,15 +19,6 @@ html::
 
 
 css::
-/*костыл*/
-[class*="view-"] .modal-lg.modal-editor .modal-content {
-  height: 609px;}
-[class*="view-"] .modal-window .editor-with-buttons.wrapper-comp-settings .list-input.settings-list {
-  height: 549px;
-}
- /*конец*/ 
-.step-one{display:none}
-
 #scMenu{
 	margin: 10px auto;
     display: block;

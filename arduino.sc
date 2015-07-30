@@ -1,14 +1,15 @@
 name::
-Таблица(альфа версия)
+
+arduino
 
 description:: 
 
-Задание на соответствий на остновне таблицы
+Ардуино
 
 html::
     <ul id="scMenu">
         <li id="scButtonRaw" scMenuActive="true">Исходный код</li>
-        <li id="conraw">Преобразовать HTML</li>
+        <li id="conraw">Преобразовать SVG</li>
         <li id="scButtonView" scMenuActive="false">Просмотр</li>
     </ul>
 
@@ -21,7 +22,7 @@ html::
         <div class="scEditButtonView" id="fixColumn">Фиксировать столбец</div>
         <div class="scEditButtonView" id="addRow">+ Добавить строку</div>
         <div class="scEditButtonView" id="addColumn">+ Добавить столбец</div>
-        <div id="view">        </div>
+        <div id="view"></div>
         <!--<div class="scEditButtonConv" id="getAllAnswers">Вынести ответы</div>
         <div class="scEditButtonConv" id="generateCorrectAnswer">Собрать JSON</div>-->
     </div>
@@ -60,7 +61,7 @@ cssStudent::
 }
 
 css::
-.scEditButtonView{
+ .scEditButtonView{
     background: #FFD700 none repeat scroll 0% 0%;
     text-align: center;
     display: inline-block;
@@ -68,7 +69,7 @@ css::
     margin: 11px 1px;
     cursor: pointer;
  }
-.scEditButtonView:hover{
+  .scEditButtonView:hover{
  background: #FFB400;
 }
 
