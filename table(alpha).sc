@@ -195,7 +195,7 @@ drag();
 
 //вызывается для того, чтобы полю 'answer' присвоился json (backend требует ключи для поверки)
 //если жмем "Сохранить" впервые (без перетаскиваний), то json будет присвоен (только ключи)
-generateStudentAnswer();
+//generateStudentAnswer();
 
 function generateStudentAnswer(){
   var studentTable = document.querySelector('#dragAnswers');
