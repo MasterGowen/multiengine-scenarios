@@ -6,6 +6,7 @@ description::
 Задание на соответствий на остновне таблицы
 
 html::
+    <a id=viewSettings>Показать основные настройки</a>
     <ul id="scMenu">
         <li id="scButtonRaw" scMenuActive="true">Исходный код</li>
         <li id="conraw">Преобразовать HTML</li>
@@ -60,7 +61,16 @@ cssStudent::
 }
 
 css::
-.scEditButtonView{
+/*костыл*/
+[class*="view-"] .modal-lg.modal-editor .modal-content {
+  height: 609px;}
+[class*="view-"] .modal-window .editor-with-buttons.wrapper-comp-settings .list-input.settings-list {
+  height: 549px;
+}
+ /*конец*/ 
+ .step-one{display:none}
+
+ .scEditButtonView{
     background: #FFD700 none repeat scroll 0% 0%;
     text-align: center;
     display: inline-block;
@@ -68,7 +78,7 @@ css::
     margin: 11px 1px;
     cursor: pointer;
  }
-.scEditButtonView:hover{
+  .scEditButtonView:hover{
  background: #FFB400;
 }
 
@@ -127,8 +137,8 @@ border-color:#e6e6e6;
 }
 
 .first{
-	background: rgb(170, 222, 226);
-	border: 1px solid white;
+    background: rgb(170, 222, 226);
+    border: 1px solid white;
     background: #AFCDE7;
     min-width: 100px;
 }
@@ -142,7 +152,7 @@ border-color:#e6e6e6;
 }
 
 .dragAnswer{
-	border: 1px dashed rgb(163, 55, 55);
+    border: 1px dashed rgb(163, 55, 55);
     cursor: move;
     margin: 5px;
     padding: 2px 10px;
@@ -624,7 +634,3 @@ elementDOM.querySelector('#scButtonRaw').onclick = function(){
     elementDOM.querySelector('#scWindowRaw').removeAttribute('hidden');
     elementDOM.querySelector('#scWindowView').setAttribute('hidden', 'true');
 };
-
-
-
-
