@@ -241,6 +241,8 @@ function scenarioSave(){
     getAllAnswers();
 }
 
+test();
+
 function test(){
     alert("work");
 }
