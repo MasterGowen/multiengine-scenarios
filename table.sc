@@ -200,7 +200,7 @@ drag();
 generateStudentAnswer();
 
 function generateStudentAnswer(){
-  var studentTable = elementDOM.querySelector('#dragAnswers');
+  var studentTable = document.querySelector('#dragAnswers');
   var studentAnswer = {};
 
     forEachInCollection(childList(studentTable.getElementsByTagName('tbody')[0]), function(value){
@@ -239,6 +239,10 @@ function scenarioSave(){
 
     generateCorrectAnswer(documentTable);
     getAllAnswers();
+}
+
+function test(){
+    alert("work");
 }
 
 
