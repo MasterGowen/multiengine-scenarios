@@ -194,12 +194,13 @@ function drag(){
 //TODO: Зачем здесь вызов функции
 drag();
 
+
 //вызывается для того, чтобы полю 'answer' присвоился json (backend требует ключи для поверки)
 //если жмем "Сохранить" впервые (без перетаскиваний), то json будет присвоен (только ключи)
 generateStudentAnswer();
 
 function generateStudentAnswer(){
-  var studentTable = document.querySelector('#dragAnswers');
+  var studentTable = elementDOM.querySelector('#dragAnswers');
   var studentAnswer = {};
 
     forEachInCollection(childList(studentTable.getElementsByTagName('tbody')[0]), function(value){
