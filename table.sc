@@ -492,12 +492,12 @@ elementDOM.querySelector('#conraw').onclick = function(){
 
     if (elementDOM.querySelector('#scButtonView').getAttribute('scmenuactive') == "false") {
         
-        if(elementDOM.querySelector('#raw').value == '' && document.querySelector("#student_view_template").value == ''){
+        if(elementDOM.querySelector('#raw').value == '' && document.querySelector("#student_view_template").value == undefined){
             documentTable = makeStartTable();
             
             alert('empty')
         }
-        if(document.querySelector("#student_view_template").value != '')
+        if(document.querySelector("#student_view_template").value != undefined)
         {
             alert('copy student view')
         }
