@@ -504,18 +504,11 @@ elementDOM.querySelector('#conraw').onclick = function(){
             SetDragAttr(documentTable);
         }
 
-        if(document.getElementsByName("student_view_template")[0].value != "" elementDOM.querySelector('#raw').value == ''){
+        if(document.getElementsByName("student_view_template")[0].value != "" && elementDOM.querySelector('#raw').value == ''){
 
             console.log('old table');
         }
 
-/*
-
-        if(document.querySelector("#student_view_template").value != '')
-        {
-            alert('copy student view')
-        }
-*/
     
     setBlockHtml('view', documentTable.innerHTML);
     firstRowIsBlocked = false;
