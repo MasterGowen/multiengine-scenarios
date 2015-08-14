@@ -258,7 +258,6 @@ function loadStudentView(){
     elementDOM.querySelector("#student_view_template");
 }
 */
-
 // создание таблицы из одной ячейки
 function makeStartTable(){
     var table = document.createElement('table');
@@ -494,13 +493,15 @@ elementDOM.querySelector('#conraw').onclick = function(){
 
     if (elementDOM.querySelector('#scButtonView').getAttribute('scmenuactive') == "false") {
         
-        if(elementDOM.querySelector('#raw').value == '' && document.querySelector("#student_view_template").value == ''){
+        if(elementDOM.querySelector('#raw').value == ''){
             documentTable = makeStartTable();
         }
+/*
         if(document.querySelector("#student_view_template").value != '')
         {
             alert('copy student view')
         }
+*/
         else{  
             documentTable =  getValueFild('raw').body;
             SetDragAttr(documentTable);
