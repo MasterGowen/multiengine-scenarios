@@ -242,8 +242,6 @@ function scenarioSave(){
 }
 
 
-
-
 //Переменная хранящая таблицу documentTable.innerHTML
 var documentTable;
 
@@ -492,14 +490,14 @@ elementDOM.querySelector('#conraw').onclick = function(){
 
     if (elementDOM.querySelector('#scButtonView').getAttribute('scmenuactive') == "false") {
         
-        if(elementDOM.querySelector('#raw').value == '' && document.querySelector("#student_view_template").value == undefined){
+        if(elementDOM.querySelector('#raw').value == '' && elementDOM.querySelector("#student_view_template").value == undefined){
             documentTable = makeStartTable();
             
-            alert('empty')
+            alert('empty');
         }
-        if(document.querySelector("#student_view_template").value != undefined)
+        if(elementDOM.querySelector("#student_view_template").value != undefined)
         {
-            alert('copy student view')
+            alert('copy student view');
         }
         else{  
             documentTable =  getValueFild('raw').body;
