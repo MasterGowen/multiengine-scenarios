@@ -506,6 +506,9 @@ elementDOM.querySelector('#conraw').onclick = function(){
 
         if(document.getElementsByName("student_view_template")[0].value != "" && elementDOM.querySelector('#raw').value == ''){
 
+            document.getElementsByName("student_view_template")[0].id = "lolo";
+            documentTable =  getValueFild('lolo').body;
+            console.log(documentTable);
             console.log('old table');
         }
 
