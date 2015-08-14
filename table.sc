@@ -490,7 +490,7 @@ elementDOM.querySelector('#conraw').onclick = function(){
 
     if (elementDOM.querySelector('#scButtonView').getAttribute('scmenuactive') == "false") {
         
-        if(elementDOM.querySelector('#raw').value == '' && elementDOM.querySelector("#student_view_template").value == ''){
+        if(elementDOM.querySelector('#raw').value == ''){
             documentTable = makeStartTable();
             
             alert('empty');
