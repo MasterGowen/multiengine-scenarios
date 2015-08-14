@@ -493,8 +493,10 @@ elementDOM.querySelector('#conraw').onclick = function(){
 
     if (elementDOM.querySelector('#scButtonView').getAttribute('scmenuactive') == "false") {
         
-        if(elementDOM.querySelector('#raw').value == ''){
+        if(elementDOM.querySelector('#raw').value == '' && elementDOM.getElementsByName("student_view_template")[0].value == ""){
+            console.log("making new table");
             documentTable = makeStartTable();
+        
         }
 /*
         if(document.querySelector("#student_view_template").value != '')
