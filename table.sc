@@ -498,16 +498,24 @@ elementDOM.querySelector('#conraw').onclick = function(){
             documentTable = makeStartTable();
         
         }
+        if(elementDOM.querySelector('#raw').value != ''){
+            console.log('table from raw');
+            documentTable =  getValueFild('raw').body;
+            SetDragAttr(documentTable);
+        }
+
+        if(document.getElementsByName("student_view_template")[0].value != "" elementDOM.querySelector('#raw').value == ''){
+
+            console.log('old table');
+        }
+
 /*
+
         if(document.querySelector("#student_view_template").value != '')
         {
             alert('copy student view')
         }
 */
-        else{  
-            documentTable =  getValueFild('raw').body;
-            SetDragAttr(documentTable);
-        }
     
     setBlockHtml('view', documentTable.innerHTML);
     firstRowIsBlocked = false;
