@@ -242,6 +242,8 @@ function scenarioSave(){
 }
 
 
+
+
 //Переменная хранящая таблицу documentTable.innerHTML
 var documentTable;
 
@@ -251,9 +253,11 @@ var firstRowIsBlocked = false;
 // заблокирован ли первый столбец (true/false)
 var firstColumnIsBlocked = false;
 
+/*
 function loadStudentView(){
     elementDOM.querySelector("#student_view_template");
 }
+*/
 
 // создание таблицы из одной ячейки
 function makeStartTable(){
@@ -490,14 +494,12 @@ elementDOM.querySelector('#conraw').onclick = function(){
 
     if (elementDOM.querySelector('#scButtonView').getAttribute('scmenuactive') == "false") {
         
-        if(elementDOM.querySelector('#raw').value == ''){
+        if(elementDOM.querySelector('#raw').value == '' && document.querySelector("#student_view_template").value == ''){
             documentTable = makeStartTable();
-            
-            alert('empty');
         }
-        if(elementDOM.querySelector("#student_view_template").value != '')
+        if(document.querySelector("#student_view_template").value != '')
         {
-            alert('copy student view');
+            alert('copy student view')
         }
         else{  
             documentTable =  getValueFild('raw').body;
