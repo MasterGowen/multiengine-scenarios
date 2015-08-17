@@ -515,7 +515,7 @@ elementDOM.querySelector('#conraw').onclick = function(){
 
             for (key in correctAnswer) {
                 for (i=0; i<correctAnswer[key].length;i++){
-                    documentTable.getElementById(key).appendChild(documentTable.getElementById(correctAnswer[key][i]))
+                    documentTable.querySelector("#" + key).appendChild(documentTable.querySelector("#" + correctAnswer[key][i]))
                 }
             }
 
