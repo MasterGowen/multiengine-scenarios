@@ -515,7 +515,7 @@ elementDOM.querySelector('#conraw').onclick = function(){
 
 
 
-            SetDragAttr(documentTable);
+            //SetDragAttr(documentTable);
             
             forEachInCollection(documentTable.getElementsByTagName('tr'), function(value){  
                 forEachInCollection(value.getElementsByTagName('td'), function(value){
