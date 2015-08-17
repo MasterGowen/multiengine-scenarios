@@ -514,7 +514,7 @@ elementDOM.querySelector('#conraw').onclick = function(){
             console.log("editor:  " + editor.getValue());
 
             documentTable =  document.createElement('div');// d('lolo').body;
-            documentTable.outerHTML = editor.getValue();
+            documentTable.innerHTML = editor.getValue();
             
             
 
