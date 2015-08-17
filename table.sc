@@ -513,7 +513,7 @@ elementDOM.querySelector('#conraw').onclick = function(){
             
             console.log("editor:  " + editor.getValue());
 
-            documentTable.innerHTML =  '<div>12344</div>';// d('lolo').body;
+            documentTable =  document.createElement(editor.getValue());// d('lolo').body;
             
             
 
