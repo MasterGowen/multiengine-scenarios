@@ -519,7 +519,7 @@ elementDOM.querySelector('#conraw').onclick = function(){
             
 
             documentTable.querySelector("#dragAnswersStudent").id = "dragAnswers";
-            documentTable.querySelector("#dragAnswersStudent").setAttribute("class", "answerPlace");
+            documentTable.querySelector("#dragAnswers").setAttribute("class", "answerPlace");
 
             console.log(documentTable);
             
