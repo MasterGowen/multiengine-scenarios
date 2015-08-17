@@ -183,9 +183,9 @@ border-color:#e6e6e6;
 javascriptStudent::
 
 function drag(){
-    $('#dragAnswersStudent, .answerPlace .cell, .answerPlace').sortable({
+    $('#dragAnswersStudent, .answerPlaceStudent .cell, .answerPlaceStudent').sortable({
         items: ".dragAnswer",
-        connectWith: '.answerPlace .cell, .answerPlace',
+        connectWith: '.answerPlaceStudent .cell, .answerPlaceStudent',
         revert: '100',
         tolerance: "pointer",
         stop: generateStudentAnswer
@@ -519,6 +519,7 @@ elementDOM.querySelector('#conraw').onclick = function(){
             
 
             documentTable.querySelector("#dragAnswersStudent").id = "dragAnswers";
+            documentTable.querySelector("#dragAnswersStudent").setAttribute("class", "answerPlace");
 
             console.log(documentTable);
             
@@ -681,6 +682,9 @@ function getAllAnswers(){
 
     elementDOM.querySelector("#view").getElementsByTagName("table")[0].id = "dragAnswersStudent";
     
+    elementDOM.querySelector("#view").getElementsByTagName("table")[0].setAttribute('class', 'answerPlaceStudent');
+
+
     documentTable.innerHTML = elementDOM.querySelector("#view").getElementsByTagName("table")[0].outerHTML;
 
     drag();
