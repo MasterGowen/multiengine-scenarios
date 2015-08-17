@@ -669,7 +669,7 @@ function getAllAnswers(){
 
     var allAnswersList = elementDOM.querySelector('#view').querySelectorAll('.dragAnswer');
     var allAnswersDiv = document.createElement('div');
-    allAnswersDiv.id = "allAnswers";
+    allAnswersDiv.id = "allAnswersStudent";
     allAnswersDiv.classList.add("answerPlace");
     forEachInCollection(allAnswersList, function(value){ 
         allAnswersDiv.appendChild(value);
@@ -684,6 +684,7 @@ function getAllAnswers(){
     
     elementDOM.querySelector("#view").getElementsByTagName("table")[0].setAttribute('class', 'answerPlaceStudent');
 
+    elementDOM.querySelector("#view").querySelector("#allAnswersStudent").setAttribute('class', 'answerPlaceStudent');
 
     documentTable.innerHTML = elementDOM.querySelector("#view").getElementsByTagName("table")[0].outerHTML;
 
