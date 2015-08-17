@@ -183,7 +183,7 @@ border-color:#e6e6e6;
 javascriptStudent::
 
 function drag(){
-    $('#dragAnswers, .answerPlace .cell, .answerPlace').sortable({
+    $('#dragAnswersStudent, .answerPlace .cell, .answerPlace').sortable({
         items: ".dragAnswer",
         connectWith: '.answerPlace .cell, .answerPlace',
         revert: '100',
@@ -566,9 +566,7 @@ elementDOM.querySelector('#conraw').onclick = function(){
     
 };
 
-function generateCorrectTable(table, correctAnswer){
 
-}
 
 // TODO: редактирование по двойному клику 
 /*elementDOM.querySelector("#view").ondblclick = function(event){
@@ -670,7 +668,11 @@ function getAllAnswers(){
     for (var i = allAnswersDiv.children.length; i >= 0; i--) {
         allAnswersDiv.appendChild(allAnswersDiv.children[Math.random() * i | 0]);
     }
+
+    elementDOM.querySelector("#view").getElementsByTagName("table")[0].id = "dragAnswersStudent";
+    
     documentTable.innerHTML = elementDOM.querySelector("#view").getElementsByTagName("table")[0].outerHTML;
+
     drag();
     editAnswers();
 
