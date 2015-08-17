@@ -509,20 +509,38 @@ elementDOM.querySelector('#conraw').onclick = function(){
             var correctAnswer = elementDOM.querySelector('#correct_answer').value;
             correctAnswer = JSON.parse(correctAnswer);
             correctAnswer = correctAnswer["answer"];
+
             document.getElementsByName("student_view_template")[0].id = "lolo";
             documentTable =  getValueFild('lolo').body;
 
+            for (key in correctAnswer) {
+                for (i=0; i<correctAnswer[key].length;i++){
+                    documentTable.getElementById(key).appendChild(documentTable.getElementById(correctAnswer[key][i]))
+                }
+            }
 
 
 
             //SetDragAttr(documentTable);
-            
+            /*
             forEachInCollection(documentTable.getElementsByTagName('tr'), function(value){  
                 forEachInCollection(value.getElementsByTagName('td'), function(value){
+                    if(value.id != ""){
+
+                        for(var i = 0; i < correctAnswer[value.id.toString()].length; i++){
+                               //var newDiv = document.createElement('div');
+
+                                var itemId = correctAnswer[value.id.toString()][i];
+                                newDiv.id = itemId;
+                                value.appendChild(newDiv);
+                        
+                        }
+                        
+                    }
                     console.log(value.id);
                 });
                 });
-
+*/
             console.log(documentTable);
             console.log('old table');
         }
@@ -549,7 +567,7 @@ elementDOM.querySelector('#conraw').onclick = function(){
 };
 
 function generateCorrectTable(table, correctAnswer){
-    cor
+
 }
 
 // TODO: редактирование по двойному клику 
