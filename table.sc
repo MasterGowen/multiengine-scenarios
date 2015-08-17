@@ -511,8 +511,11 @@ elementDOM.querySelector('#conraw').onclick = function(){
             correctAnswer = correctAnswer["answer"];
 
             
+            console.log("editor:  " + editor.getValue());
 
-            documentTable.innerHTML =  editor.getValue();// d('lolo').body;
+            documentTable.innerHTML =  '<div>12344</div>';// d('lolo').body;
+            
+            
 
             documentTable.querySelector("#dragAnswersStudent").id = "dragAnswers";
 
