@@ -506,8 +506,10 @@ elementDOM.querySelector('#conraw').onclick = function(){
 
         if(document.getElementsByName("student_view_template")[0].value != "" && elementDOM.querySelector('#raw').value == ''){
 
+            var correctAnswer = elementDOM..querySelector('#correct_answer').value;
             document.getElementsByName("student_view_template")[0].id = "lolo";
             documentTable =  getValueFild('lolo').body;
+            SetDragAttr(documentTable);
             console.log(documentTable);
             console.log('old table');
         }
@@ -533,6 +535,8 @@ elementDOM.querySelector('#conraw').onclick = function(){
     
 };
 
+function generateCorrectTable(table, correctAnswer){
+}
 
 // TODO: редактирование по двойному клику 
 /*elementDOM.querySelector("#view").ondblclick = function(event){
