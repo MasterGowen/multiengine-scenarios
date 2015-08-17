@@ -510,9 +510,12 @@ elementDOM.querySelector('#conraw').onclick = function(){
             correctAnswer = JSON.parse(correctAnswer);
             correctAnswer = correctAnswer["answer"];
 
-            document.getElementsByName("student_view_template")[0].id = "lolo";
-            documentTable =  getValueFild('lolo').body;
+            
 
+            documentTable =  editor.getValue();// d('lolo').body;
+
+            console.log(documentTable);
+            
             for (key in correctAnswer) {
                 for (i=0; i<correctAnswer[key].length;i++){
                     documentTable.querySelector("#" + key).appendChild(documentTable.querySelector("#" + correctAnswer[key][i]))
@@ -541,7 +544,7 @@ elementDOM.querySelector('#conraw').onclick = function(){
                 });
                 });
 */
-            console.log(documentTable);
+            
             console.log('old table');
         }
 
