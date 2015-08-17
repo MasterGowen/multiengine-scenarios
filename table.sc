@@ -512,10 +512,13 @@ elementDOM.querySelector('#conraw').onclick = function(){
 
             
 
-            documentTable =  editor.getValue();// d('lolo').body;
+            documentTable.innerHTML =  editor.getValue();// d('lolo').body;
+
+            documentTable.querySelector("#dragAnswersStudent").id = "dragAnswers";
 
             console.log(documentTable);
             
+
             for (key in correctAnswer) {
                 for (i=0; i<correctAnswer[key].length;i++){
                     documentTable.querySelector("#" + key).appendChild(documentTable.querySelector("#" + correctAnswer[key][i]))
