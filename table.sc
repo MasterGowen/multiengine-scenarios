@@ -216,7 +216,7 @@ function generateStudentAnswer(){
         });
     });
   studentAnswer = generationAnswerJSON(studentAnswer);
-  console.log(studentAnswer);
+ // console.log(studentAnswer);
 
   document.getElementsByName("answer")[0].value = studentAnswer;
   document.getElementsByName("answer")[0].val = studentAnswer;
@@ -506,10 +506,23 @@ elementDOM.querySelector('#conraw').onclick = function(){
 
         if(document.getElementsByName("student_view_template")[0].value != "" && elementDOM.querySelector('#raw').value == ''){
 
-            var correctAnswer = elementDOM..querySelector('#correct_answer').value;
+            var correctAnswer = elementDOM.querySelector('#correct_answer').value;
+            correctAnswer = JSON.parse(correctAnswer);
+            correctAnswer = correctAnswer["answer"];
             document.getElementsByName("student_view_template")[0].id = "lolo";
             documentTable =  getValueFild('lolo').body;
+
+
+
+
             SetDragAttr(documentTable);
+            
+            forEachInCollection(documentTable.getElementsByTagName('tr'), function(value){  
+                forEachInCollection(value.getElementsByTagName('td'), function(value){
+                    console.log(value.id);
+                });
+                });
+
             console.log(documentTable);
             console.log('old table');
         }
@@ -526,7 +539,7 @@ elementDOM.querySelector('#conraw').onclick = function(){
     if (elementDOM.querySelector('#scButtonView').getAttribute('scmenuactive') == "true") {
     
     var tst = getValueFild('view').body;
-    console.log(tst.innerHTML);
+   // console.log(tst.innerHTML);
     elementDOM.querySelector('#raw').value = tst.innerHTML;
     
     }
@@ -536,6 +549,7 @@ elementDOM.querySelector('#conraw').onclick = function(){
 };
 
 function generateCorrectTable(table, correctAnswer){
+    cor
 }
 
 // TODO: редактирование по двойному клику 
@@ -613,7 +627,7 @@ function generateCorrectAnswer(value){
             }
         });
     });
-  console.log(correctAnswer+" : "+generationAnswerJSON(correctAnswer));
+ // console.log(correctAnswer+" : "+generationAnswerJSON(correctAnswer));
   correctAnswer = generationAnswerJSON(correctAnswer);
 
   elementDOM.querySelector('#correct_answer').setAttribute('value', correctAnswer);
