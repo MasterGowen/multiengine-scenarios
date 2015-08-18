@@ -685,12 +685,12 @@ function generateCorrectAnswer(value){
 /*перенос всех ответов в отдельное поле*/
 function getAllAnswers(){
 
-    /*
+    
     var allAnswersList = elementDOM.querySelector('#view').querySelectorAll('.dragAnswer');
     var allAnswersDiv = document.createElement('div');
-    */
+    
 
-    var allAnswersDiv = elementDOM.querySelector('#view').querySelectorAll('.dragAnswer');
+    //var allAnswersDiv = elementDOM.querySelector('#view').querySelectorAll('.dragAnswer');
 
 
     allAnswersDiv.id = "allAnswersStudent";
