@@ -602,9 +602,10 @@ elementDOM.querySelector('#conraw').onclick = function(){
 }
 */
 
+/*
 function editAnswers(){  
 // не работает .fixAnswer так так у них нет id
-$(".dragAnswer, .fixAnswer").dblclick(function (){
+$(".answerPlace .dragAnswer, .fixAnswer").dblclick(function (){
     $("#"+this.id).attr("contenteditable",true);
     $("#"+this.id).css("background",'white');
     $("#"+this.id).css("cursor","text");
@@ -617,9 +618,8 @@ $(".dragAnswer, .fixAnswer").blur(function (){
     $("#"+this.id).css("background","");
     $("#"+this.id).css("cursor","move");
 });
-
 } 
-
+*/
 
 //фиксация строки
 elementDOM.querySelector('#fixLine').onclick = function(){
