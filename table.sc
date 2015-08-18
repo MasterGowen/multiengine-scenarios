@@ -441,7 +441,7 @@ elementDOM.querySelector("#view").onclick = function(event){
         
         target.appendChild(div);
     documentTable.innerHTML = elementDOM.querySelector("#view").getElementsByTagName("table")[0].outerHTML;
-  //  editAnswers();
+    editAnswers();
 };
 
 
@@ -464,7 +464,7 @@ elementDOM.querySelector("#addRow").onclick = function(){
     documentTable.getElementsByTagName('tbody')[0].appendChild(newRow);
     setBlockHtml('view', documentTable.innerHTML); // надо ли?! наверно надо
     drag();
-  //  editAnswers();
+   editAnswers();
 };
 
 
@@ -485,7 +485,7 @@ elementDOM.querySelector("#addColumn").onclick = function(){
     }
         setBlockHtml('view', documentTable.innerHTML); 
         drag();
-      //  editAnswers();
+       editAnswers();
 };
 
 
@@ -561,7 +561,7 @@ elementDOM.querySelector('#conraw').onclick = function(){
     firstRowIsBlocked = false;
     firstColumnIsBlocked = false;
     drag();
-  //  editAnswers();
+   editAnswers();
 
     }
 
@@ -623,7 +623,7 @@ $(".dragAnswer, .fixAnswer").blur(function (){
 
 function editAnswers(){
 
-var editableElements = document.querySelector(".answerPlace").querySelectorAll(".dragAnswer");
+var editableElements = document.querySelector(".answerPlace").querySelectorAll(".dragAnswer, .fixAnswer");
 
 for(var i =0; i < editableElements.length; i++) { 
     editableElements[i].ondblclick = function(e){
@@ -645,7 +645,7 @@ elementDOM.querySelector('#fixLine').onclick = function(){
     setBlockHtml('view', documentTable.innerHTML);
     editor.setValue(documentTable.innerHTML);
     drag();
-   // editAnswers();
+    editAnswers();
 };
 
 //фиксация столбца 
@@ -654,7 +654,7 @@ elementDOM.querySelector('#fixColumn').onclick = function(){
     setBlockHtml('view', documentTable.innerHTML);
     editor.setValue(documentTable.innerHTML);
     drag();
-  //  editAnswers();
+    editAnswers();
 };
 
 //генерация json правильного ответа
@@ -717,7 +717,7 @@ function getAllAnswers(){
     documentTable.innerHTML = elementDOM.querySelector("#view").getElementsByTagName("table")[0].outerHTML;
 
     drag();
-  //  editAnswers();
+    editAnswers();
 
     var studentView = elementDOM.querySelector("#view");
     editor.setValue(studentView.innerHTML);
