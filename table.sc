@@ -621,6 +621,24 @@ $(".dragAnswer, .fixAnswer").blur(function (){
 } 
 */
 
+function editAnswers(){
+
+var editableElements = document.querySelector(".answerPlace").querySelectorAll(".dragAnswer");
+
+for(var i =0; i < editableElements.length; i++) { 
+    editableElements[i].ondblclick = function(e){
+        this.setAttribute('contenteditable', 'true'); 
+        this.focus();
+        }
+    editableElements[i].onblur = function(e){
+        this.removeAttribute('contenteditable')
+    }
+
+    }
+
+}
+
+
 //фиксация строки
 elementDOM.querySelector('#fixLine').onclick = function(){
     fixLine(documentTable);
@@ -670,7 +688,7 @@ function getAllAnswers(){
     var allAnswersList = elementDOM.querySelector('#view').querySelectorAll('.dragAnswer');
     var allAnswersDiv = document.createElement('div');
     allAnswersDiv.id = "allAnswersStudent";
-    allAnswersDiv.classList.add("answerPlace");
+    allAnswersDiv.classList.add("answerPlaceStudent");
     forEachInCollection(allAnswersList, function(value){ 
         allAnswersDiv.appendChild(value);
     });
@@ -684,7 +702,7 @@ function getAllAnswers(){
     
     elementDOM.querySelector("#view").getElementsByTagName("table")[0].setAttribute('class', 'answerPlaceStudent');
 
-    elementDOM.querySelector("#view").querySelector("#allAnswersStudent").setAttribute('class', 'answerPlaceStudent');
+   // elementDOM.querySelector("#view").querySelector("#allAnswersStudent").setAttribute('class', 'answerPlaceStudent');
 
     documentTable.innerHTML = elementDOM.querySelector("#view").getElementsByTagName("table")[0].outerHTML;
 
