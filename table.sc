@@ -685,13 +685,23 @@ function generateCorrectAnswer(value){
 /*перенос всех ответов в отдельное поле*/
 function getAllAnswers(){
 
+    /*
     var allAnswersList = elementDOM.querySelector('#view').querySelectorAll('.dragAnswer');
     var allAnswersDiv = document.createElement('div');
+    */
+
+    var allAnswersDiv = elementDOM.querySelector('#view').querySelectorAll('.dragAnswer');
+
+
     allAnswersDiv.id = "allAnswersStudent";
     allAnswersDiv.classList.add("answerPlaceStudent");
+
+
+
     forEachInCollection(allAnswersList, function(value){ 
         allAnswersDiv.appendChild(value);
     });
+
     elementDOM.querySelector('#view').appendChild(allAnswersDiv);
     //перемешивание
     for (var i = allAnswersDiv.children.length; i >= 0; i--) {
