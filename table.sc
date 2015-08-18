@@ -150,6 +150,7 @@ border-color:#e6e6e6;
     border: 1px solid grey;
     padding: 2px 10px;
     display: inline-block;
+    cursor: text;
 }
 
 .dragAnswer{
