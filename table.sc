@@ -53,25 +53,15 @@ cssStudent::
     margin: 5px;
     padding: 2px 10px;
     display: inline-block;
-    position: relative;
 }
 
 
 .fixAnswer{
     border: 1px dashed white;
     margin: 5px;
-    position: relative;
 }
 
-.deleteItemBurron {
-    border: 1px dashed white;
-    margin: 5px;
-    background-color: white;
-    position: absolute;
-    width: 10px;
-    height: 10px;
-    top: -5px;
-    right: -5px;
+
 
 css::
 /*костыл*/
@@ -171,13 +161,27 @@ border-color:#e6e6e6;
     margin: 5px;
     padding: 2px 10px;
     display: inline-block;
+    position: relative;
 }
 
 
 .fixAnswer{
     border: 1px dashed white;
     margin: 5px;
+    position: relative;
 }
+
+.deleteItemBurron {
+    border: 1px dashed white;
+    margin: 5px;
+    background-color: white;
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    top: -5px;
+    right: -5px;
+}
+
 
 .first:before, 
 .cell:before {
