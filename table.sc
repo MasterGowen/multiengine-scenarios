@@ -535,7 +535,7 @@ elementDOM.querySelector('#conraw').onclick = function(){
             if(documentTable.querySelector("#dragAnswers").querySelector('tr').lastChild.classList.contains("first")){
                 //fixLine(documentTable);
                 firstRowIsBlocked = true;
-                console.log("cicl");
+                console.log("cicl:" + firstRowIsBlocked);
 
             }
             
