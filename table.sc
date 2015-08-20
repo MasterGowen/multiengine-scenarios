@@ -572,7 +572,7 @@ elementDOM.querySelector('#conraw').onclick = function(){
                 deleteButton.src = "http://openedu.urfu.ru/c4x/edX/DemoX/asset/Close-2-icon.png";
                 allItems[i].appendChild(deleteButton);
             }
-            
+            /*
             if(documentTable.querySelector("#dragAnswers").querySelector('tr').lastChild.classList.contains("first")){
                 firstRowIsBlocked = true;
             }
@@ -580,9 +580,9 @@ elementDOM.querySelector('#conraw').onclick = function(){
             if(documentTable.querySelector("#dragAnswers").querySelectorAll('tr')[documentTable.querySelector("#dragAnswers").querySelectorAll('tr').length - 1].firstChild.classList.contains("first")){
                 firstColumnIsBlocked = true
             }
-            
-            console.log("firstColumnIsBlocked:" + firstColumnIsBlocked);
-            console.log("firstRowIsBlocked:" + firstRowIsBlocked);
+            */
+            //console.log("firstColumnIsBlocked:" + firstColumnIsBlocked);
+            //console.log("firstRowIsBlocked:" + firstRowIsBlocked);
             console.log('old table');
         }
 
