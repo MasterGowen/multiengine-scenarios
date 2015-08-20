@@ -556,13 +556,14 @@ elementDOM.querySelector('#conraw').onclick = function(){
 
             var allItems = documentTable.querySelectorAll(".dragAnswer, .fixAnswer");
             console.log(allItems);
-            var deleteButton = document.createElement('img');
-            deleteButton.classList.add("deleteItemButton");
-            deleteButton.src = "http://openedu.urfu.ru/c4x/edX/DemoX/asset/Close-2-icon.png";
+            
 
-            for(var i = 0; i < documentTable.querySelectorAll(".dragAnswer, .fixAnswer").length; i++ ){
+            for(var i = 0; i < allItems.length; i++ ){
                 console.log(allItems[i]);
-                documentTable.querySelectorAll(".dragAnswer, .fixAnswer")[i].appendChild(deleteButton);
+                var deleteButton = document.createElement('img');
+                deleteButton.classList.add("deleteItemButton");
+                deleteButton.src = "http://openedu.urfu.ru/c4x/edX/DemoX/asset/Close-2-icon.png";
+                allItems[i].appendChild(deleteButton);
             }
             
             if(documentTable.querySelector("#dragAnswers").querySelector('tr').lastChild.classList.contains("first")){
