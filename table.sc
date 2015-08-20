@@ -53,13 +53,25 @@ cssStudent::
     margin: 5px;
     padding: 2px 10px;
     display: inline-block;
+    position: relative;
 }
 
 
 .fixAnswer{
     border: 1px dashed white;
     margin: 5px;
+    position: relative;
 }
+
+.deleteItemBurron {
+    border: 1px dashed white;
+    margin: 5px;
+    background-color: white;
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    top: -5px;
+    right: -5px;
 
 css::
 /*костыл*/
@@ -441,6 +453,11 @@ elementDOM.querySelector("#view").onclick = function(event){
             div.classList.add("fixAnswer");
         }
         
+        var deleteButton = document.createElement('div');
+        deleteButton.classList.add("deleteItemButton");
+
+        div.appendChild(deleteButton);
+
         target.appendChild(div);
     documentTable.innerHTML = elementDOM.querySelector("#view").getElementsByTagName("table")[0].outerHTML;
     editAnswers();
@@ -533,16 +550,11 @@ elementDOM.querySelector('#conraw').onclick = function(){
             }
 
             if(documentTable.querySelector("#dragAnswers").querySelector('tr').lastChild.classList.contains("first")){
-                //fixLine(documentTable);
                 firstRowIsBlocked = true;
-                fixLine(documentTable);
-                fixLine(documentTable);   
             }
 
             if(documentTable.querySelector("#dragAnswers").querySelectorAll('tr')[documentTable.querySelector("#dragAnswers").querySelectorAll('tr').length - 1].firstChild.classList.contains("first")){
                 firstColumnIsBlocked = true
-                fixColumn(documentTable);
-                fixColumn(documentTable);
             }
             
             console.log("firstColumnIsBlocked:" + firstColumnIsBlocked);
