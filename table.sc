@@ -535,10 +535,14 @@ elementDOM.querySelector('#conraw').onclick = function(){
             if(documentTable.querySelector("#dragAnswers").querySelector('tr').lastChild.classList.contains("first")){
                 //fixLine(documentTable);
                 firstRowIsBlocked = true;
-                console.log("cicl:" + firstRowIsBlocked);
+            }
 
+            if(documentTable.querySelector("#dragAnswers").querySelectorAll('tr')[document.querySelector("#dragAnswers").querySelectorAll('tr').length - 1].firstChild.classList.contains("first")){
+                firstColumnIsBlocked = true
             }
             
+            console.log("firstColumnIsBlocked:" + firstColumnIsBlocked);
+            console.log("firstRowIsBlocked:" + firstRowIsBlocked);
             console.log('old table');
         }
 
