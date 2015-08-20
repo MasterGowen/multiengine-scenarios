@@ -533,7 +533,7 @@ elementDOM.querySelector('#conraw').onclick = function(){
             }
 
             if(documentTable.querySelector("#dragAnswers").querySelector('tr').lastChild.classList.contains("first")){
-                fixLine(value);
+                fixLine(documentTable);
 
             }
             
