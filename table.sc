@@ -632,15 +632,14 @@ for(var i =0; i < editableElements.length; i++) {
         this.focus();
         /*if(this.classList.toggle('dragAnswer')){
 
-        }
-
         }*/
+
+        }
     editableElements[i].onblur = function(e){
         this.removeAttribute('contenteditable')
     }
 
     }
-
 }
 
 
@@ -721,8 +720,8 @@ function getAllAnswers(){
 
     documentTable.innerHTML = elementDOM.querySelector("#view").getElementsByTagName("table")[0].outerHTML;
 
-   // drag();
-   // editAnswers();
+    drag();
+    editAnswers();
 
     var studentView = elementDOM.querySelector("#view");
     editor.setValue(studentView.innerHTML);
