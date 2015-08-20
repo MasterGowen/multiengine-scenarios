@@ -457,7 +457,7 @@ elementDOM.querySelector("#view").onclick = function(event){
         }
         
         var deleteButton = document.createElement('img');
-        deleteButton.classList.add("deleteItemButtton");
+        deleteButton.classList.add("deleteItemButton");
 
         deleteButton.src = "http://openedu.urfu.ru/c4x/edX/DemoX/asset/Close-2-icon.png";
 
