@@ -353,6 +353,7 @@ function fixLine(value){
         forEachInCollection(childList(value.getElementsByTagName('tr')[0]), function(value){
             deleteAttributes(value, []);
             value.classList.add("cell");
+            value.id = generationID();
             forEachInCollection(childList(value), function(value){
                 deleteAttributes(value, []);
                 value.id = generationID();
@@ -384,8 +385,8 @@ function fixColumn(value){
             childList(value)[0].classList.add("cell");
             childList(value)[0].id = generationID();
             forEachInCollection(childList(childList(value)[0]), function(value){
-                value.id = generationID();
                 deleteAttributes(value, []);
+                value.id = generationID();
                 value.classList.add("dragAnswer");
             });
         });
