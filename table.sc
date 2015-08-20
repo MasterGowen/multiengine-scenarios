@@ -532,7 +532,7 @@ elementDOM.querySelector('#conraw').onclick = function(){
                 }
             }
 
-            if(querySelector("#dragAnswers").querySelector('tr').lastChild.classList.contains("first")){
+            if(documentTable.querySelector("#dragAnswers").querySelector('tr').lastChild.classList.contains("first")){
                 fixLine(value);
 
             }
