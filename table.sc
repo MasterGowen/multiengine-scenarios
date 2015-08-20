@@ -554,6 +554,14 @@ elementDOM.querySelector('#conraw').onclick = function(){
                 }
             }
 
+            var allItems = elementDOM.querySelector("#view").querySelectorAll(".dragAnswer, .fixAnswer");
+            var deleteButton = document.createElement('img');
+            deleteButton.classList.add("deleteItemButton");
+            deleteButton.src = "http://openedu.urfu.ru/c4x/edX/DemoX/asset/Close-2-icon.png";
+            for(var i = 0; i < allItems.length; i++ ){
+                allItems[i].appendChild(deleteButton);
+            }
+            
             if(documentTable.querySelector("#dragAnswers").querySelector('tr').lastChild.classList.contains("first")){
                 firstRowIsBlocked = true;
             }
