@@ -513,7 +513,7 @@ elementDOM.querySelector('#conraw').onclick = function(){
             correctAnswer = correctAnswer["answer"];
 
             
-            console.log("editor:  " + editor.getValue());
+            //console.log("editor:  " + editor.getValue());
 
             documentTable =  document.createElement('div');// d('lolo').body;
             documentTable.innerHTML = editor.getValue();
@@ -532,28 +532,10 @@ elementDOM.querySelector('#conraw').onclick = function(){
                 }
             }
 
+            if(.querySelector("#dragAnswers").querySelector('tr').lastChild.classList.contains("first")){
+                fixLine(value);
 
-
-            //SetDragAttr(documentTable);
-            /*
-            forEachInCollection(documentTable.getElementsByTagName('tr'), function(value){  
-                forEachInCollection(value.getElementsByTagName('td'), function(value){
-                    if(value.id != ""){
-
-                        for(var i = 0; i < correctAnswer[value.id.toString()].length; i++){
-                               //var newDiv = document.createElement('div');
-
-                                var itemId = correctAnswer[value.id.toString()][i];
-                                newDiv.id = itemId;
-                                value.appendChild(newDiv);
-                        
-                        }
-                        
-                    }
-                    console.log(value.id);
-                });
-                });
-*/
+            }
             
             console.log('old table');
         }
