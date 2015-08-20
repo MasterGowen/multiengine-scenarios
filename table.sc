@@ -745,6 +745,13 @@ function getAllAnswers(){
 
     documentTable.innerHTML = elementDOM.querySelector("#view").getElementsByTagName("table")[0].outerHTML;
 
+
+    var allDeleteButtons = document.querySelector("#view").querySelectorAll(".deleteItemButton");
+    for(var i =0; i < allDeleteButtons.length; i++) { 
+        allDeleteButtons[i].remove();
+    }
+    
+
     //drag();
     //editAnswers();
 
