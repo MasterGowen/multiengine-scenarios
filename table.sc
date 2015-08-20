@@ -650,6 +650,19 @@ for(var i =0; i < editableElements.length; i++) {
     }
 
     }
+
+var allItems = document.querySelector("#view").querySelectorAll(".deleteItemButton");
+
+for(var i =0; i < allItems.length; i++) { 
+    document.querySelectorAll(".deleteItemButton")[i].onclick = function(){ 
+        var itemId = this.parentNode;
+        itemId.parentNode.removeNode(itemId);
+
+}
+
+}
+
+
 }
 
 
