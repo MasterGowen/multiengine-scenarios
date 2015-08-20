@@ -721,8 +721,8 @@ function getAllAnswers(){
 
     documentTable.innerHTML = elementDOM.querySelector("#view").getElementsByTagName("table")[0].outerHTML;
 
-    drag();
-    editAnswers();
+   // drag();
+   // editAnswers();
 
     var studentView = elementDOM.querySelector("#view");
     editor.setValue(studentView.innerHTML);
