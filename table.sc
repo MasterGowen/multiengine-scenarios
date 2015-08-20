@@ -531,7 +531,6 @@ elementDOM.querySelector('#conraw').onclick = function(){
                 }
             }
 
-            elementDOM.querySelector("#view").removeChild(elementDOM.querySelector("#view").querySelector("#allAnswersStudent"));
 
 
             //SetDragAttr(documentTable);
@@ -706,6 +705,8 @@ function getAllAnswers(){
     forEachInCollection(allAnswersList, function(value){ 
         allAnswersDiv.appendChild(value);
     });
+
+    elementDOM.querySelector("#view").removeChild(elementDOM.querySelector("#view").querySelector("#allAnswersStudent"));
 
     elementDOM.querySelector('#view').appendChild(allAnswersDiv);
     //перемешивание
