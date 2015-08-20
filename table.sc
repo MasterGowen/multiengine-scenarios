@@ -171,7 +171,7 @@ border-color:#e6e6e6;
     position: relative;
 }
 
-.deleteItemButtton {
+.deleteItemButton {
     position: absolute;
     width: 12px;
     height: 12px;
