@@ -526,6 +526,16 @@ elementDOM.querySelector('#conraw').onclick = function(){
             console.log('table from raw');
             documentTable =  getValueFild('raw').body;
             SetDragAttr(documentTable);
+
+            var allItems = documentTable.querySelectorAll(".dragAnswer, .fixAnswer");
+               for(var i = 0; i < allItems.length; i++ ){
+                //console.log(allItems[i]);
+                var deleteButton = document.createElement('img');
+                deleteButton.classList.add("deleteItemButton");
+                deleteButton.src = "http://openedu.urfu.ru/c4x/edX/DemoX/asset/Close-2-icon.png";
+                allItems[i].appendChild(deleteButton);
+            }
+
         }
 
         if(document.getElementsByName("student_view_template")[0].value != "" && elementDOM.querySelector('#raw').value == ''){
@@ -555,11 +565,8 @@ elementDOM.querySelector('#conraw').onclick = function(){
             }
 
             var allItems = documentTable.querySelectorAll(".dragAnswer, .fixAnswer");
-            console.log(allItems);
-            
-
-            for(var i = 0; i < allItems.length; i++ ){
-                console.log(allItems[i]);
+               for(var i = 0; i < allItems.length; i++ ){
+                //console.log(allItems[i]);
                 var deleteButton = document.createElement('img');
                 deleteButton.classList.add("deleteItemButton");
                 deleteButton.src = "http://openedu.urfu.ru/c4x/edX/DemoX/asset/Close-2-icon.png";
