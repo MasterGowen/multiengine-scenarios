@@ -554,7 +554,7 @@ elementDOM.querySelector('#conraw').onclick = function(){
                 }
             }
 
-            var allItems = documentTable.querySelector("#view").querySelectorAll(".dragAnswer, .fixAnswer");
+            var allItems = documentTable.querySelectorAll(".dragAnswer, .fixAnswer");
             var deleteButton = document.createElement('img');
             deleteButton.classList.add("deleteItemButton");
             deleteButton.src = "http://openedu.urfu.ru/c4x/edX/DemoX/asset/Close-2-icon.png";
