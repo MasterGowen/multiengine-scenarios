@@ -172,14 +172,13 @@ border-color:#e6e6e6;
 }
 
 .deleteItemButtton {
-    border: 1px dashed white;
-    //margin: 5px;
-    background-color: white;
     position: absolute;
-    width: 10px;
-    height: 10px;
-    top: -5px;
-    right: -5px;
+    width: 12px;
+    height: 12px;
+    top: -6px;
+    right: -6px;
+    vertical-align: middle;
+    cursor: pointer;
 }
 
 
@@ -457,10 +456,10 @@ elementDOM.querySelector("#view").onclick = function(event){
             div.classList.add("fixAnswer");
         }
         
-        var deleteButton = document.createElement('div');
+        var deleteButton = document.createElement('img');
         deleteButton.classList.add("deleteItemButtton");
 
-        deleteButton.innerHTML = '<img src="http://openedu.urfu.ru/c4x/edX/DemoX/asset/Close-2-icon.png" style="vertical-align: middle;margin-top: -10px;"></img>'
+        deleteButton.src = "http://openedu.urfu.ru/c4x/edX/DemoX/asset/Close-2-icon.png";
 
         div.appendChild(deleteButton);
 
