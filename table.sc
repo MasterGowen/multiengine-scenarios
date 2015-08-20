@@ -655,8 +655,8 @@ var allItems = document.querySelector("#view").querySelectorAll(".deleteItemButt
 
 for(var i =0; i < allItems.length; i++) { 
     document.querySelectorAll(".deleteItemButton")[i].onclick = function(){ 
-        var itemId = this.parentNode;
-        itemId.parentNode.removeNode(itemId);
+        var item = this.parentNode;
+        item.remove();
 
 }
 
