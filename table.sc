@@ -173,7 +173,7 @@ border-color:#e6e6e6;
 
 .deleteItemButtton {
     border: 1px dashed white;
-    margin: 5px;
+    //margin: 5px;
     background-color: white;
     position: absolute;
     width: 10px;
@@ -459,6 +459,8 @@ elementDOM.querySelector("#view").onclick = function(event){
         
         var deleteButton = document.createElement('div');
         deleteButton.classList.add("deleteItemButtton");
+
+        deleteButton.innerHTML = '<img src="http://openedu.urfu.ru/c4x/edX/DemoX/asset/Close-2-icon.png" style="vertical-align: middle;margin-top: -10px;"></img>'
 
         div.appendChild(deleteButton);
 
