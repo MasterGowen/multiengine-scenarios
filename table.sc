@@ -171,7 +171,7 @@ border-color:#e6e6e6;
     position: relative;
 }
 
-.deleteItemBurron {
+.deleteItemButtton {
     border: 1px dashed white;
     margin: 5px;
     background-color: white;
@@ -458,7 +458,7 @@ elementDOM.querySelector("#view").onclick = function(event){
         }
         
         var deleteButton = document.createElement('div');
-        deleteButton.classList.add("deleteItemButton");
+        deleteButton.classList.add("deleteItemButtton");
 
         div.appendChild(deleteButton);
 
