@@ -630,7 +630,11 @@ for(var i =0; i < editableElements.length; i++) {
     editableElements[i].ondblclick = function(e){
         this.setAttribute('contenteditable', 'true'); 
         this.focus();
+        /*if(this.classList.toggle('dragAnswer')){
+
         }
+
+        }*/
     editableElements[i].onblur = function(e){
         this.removeAttribute('contenteditable')
     }
