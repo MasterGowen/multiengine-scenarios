@@ -354,8 +354,8 @@ function fixLine(value){
             deleteAttributes(value, []);
             value.classList.add("cell");
             forEachInCollection(childList(value), function(value){
-                value.id = generationID();
                 deleteAttributes(value, []);
+                value.id = generationID();
                 value.classList.add("dragAnswer");
             });
         });
