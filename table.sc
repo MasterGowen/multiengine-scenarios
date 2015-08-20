@@ -522,7 +522,7 @@ elementDOM.querySelector('#conraw').onclick = function(){
             documentTable.querySelector("#dragAnswersStudent").id = "dragAnswers";
             documentTable.querySelector("#dragAnswers").setAttribute("class", "answerPlace");
 
-            console.log(documentTable);
+           // console.log(documentTable);
             
 
             for (key in correctAnswer) {
@@ -706,8 +706,7 @@ function getAllAnswers(){
         allAnswersDiv.appendChild(value);
     });
 
-    console.log("allAnswersStudent" + elementDOM.querySelector('#view').querySelector('#allAnswersStudent'));
-    elementDOM.querySelector('#view').replaceChild(elementDOM.querySelector('#view').querySelector('#allAnswersStudent'), allAnswersDiv);
+    elementDOM.querySelector('#view').appendChild(allAnswersDiv);
     //перемешивание
     for (var i = allAnswersDiv.children.length; i >= 0; i--) {
         allAnswersDiv.appendChild(allAnswersDiv.children[Math.random() * i | 0]);
