@@ -537,7 +537,7 @@ elementDOM.querySelector('#conraw').onclick = function(){
                 firstRowIsBlocked = true;
             }
 
-            if(documentTable.querySelector("#dragAnswers").querySelectorAll('tr')[document.querySelector("#dragAnswers").querySelectorAll('tr').length - 1].firstChild.classList.contains("first")){
+            if(documentTable.querySelector("#dragAnswers").querySelectorAll('tr')[documentTable.querySelector("#dragAnswers").querySelectorAll('tr').length - 1].firstChild.classList.contains("first")){
                 firstColumnIsBlocked = true
             }
             
