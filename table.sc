@@ -555,10 +555,13 @@ elementDOM.querySelector('#conraw').onclick = function(){
             }
 
             var allItems = documentTable.querySelectorAll(".dragAnswer, .fixAnswer");
+            console.log(allItems);
             var deleteButton = document.createElement('img');
             deleteButton.classList.add("deleteItemButton");
             deleteButton.src = "http://openedu.urfu.ru/c4x/edX/DemoX/asset/Close-2-icon.png";
+
             for(var i = 0; i < allItems.length; i++ ){
+                console.log(allItems[i]);
                 allItems[i].appendChild(deleteButton);
             }
             
