@@ -706,7 +706,7 @@ function getAllAnswers(){
         allAnswersDiv.appendChild(value);
     });
 
-    elementDOM.querySelector("#view").removeChild(elementDOM.querySelector("#view").querySelector("#allAnswersStudent"));
+   // elementDOM.querySelector("#view").removeChild(elementDOM.querySelector("#view").querySelector("#allAnswersStudent"));
 
     elementDOM.querySelector('#view').appendChild(allAnswersDiv);
     //перемешивание
