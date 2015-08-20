@@ -531,6 +531,7 @@ elementDOM.querySelector('#conraw').onclick = function(){
                 }
             }
 
+            elementDOM.querySelector("#view").removeChild(elementDOM.querySelector("#view").querySelector("#allAnswersStudent"));
 
 
             //SetDragAttr(documentTable);
