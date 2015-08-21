@@ -335,8 +335,8 @@ function SetDragAttr(value){
                     div.classList.add("dragAnswer");
                     div.id = generationID();
                     value.parentNode.replaceChild(div, value);
-                /*}*/);
-            }
+                });
+            //}
         });
     });
 };
