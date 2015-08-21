@@ -315,10 +315,10 @@ function SetDragAttr(value){
             deleteAttributes(value, []);
             value.classList.add("cell");
             value.id = generationID();
-            value.childNodes[0].trim();
+            
             
             if (value.childNodes[0].nodeType = 3){
-                
+                value.childNodes[0].trim();
 
                 console.log(value, value.childNodes.length, value.childNodes[0]);
                 var div = document.createElement('div');
