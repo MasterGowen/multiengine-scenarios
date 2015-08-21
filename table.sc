@@ -324,16 +324,14 @@ function SetDragAttr(value){
                 console.log("0")
                 for (var i=0; i<value.childNodes.length; i++ ){
                     console.log("1", value.childNodes[i].nodeType);
-                   /* if (value.childNodes[i].nodeType == 3){
+                    if (value.childNodes[i].nodeType == 3){
                         console.log("2");
                         var div = document.createElement('div');
-                        div.innerHTML = value.childNodes[i].textContent;
-        //TODO: Костыль
-                        value.innerHTML="";
+                        div.innerHTML = value.childNodes[i].textContent.trim();
                         div.classList.add("dragAnswer");
                         div.id = generationID();
                         value.appendChild(div);
-                    };*/
+                    };
                 }
   
 
