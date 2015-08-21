@@ -322,10 +322,11 @@ function SetDragAttr(value){
 
             if (value.childNodes[0].nodeType == 3){
                 console.log("0")
+                console.log(value.childNodes.length);
                 for (var i=0; i<value.childNodes.length; i++ ){
-                    console.log("1", value.childNodes[i])
+                    console.log("1", value.childNodes[i]);
                     if (value.childNodes[i].nodeType == 3){
-                        console.log("2")
+                        console.log("2");
                         var div = document.createElement('div');
                         div.innerHTML = value.childNodes[i].textContent;
         //TODO: Костыль
@@ -335,10 +336,7 @@ function SetDragAttr(value){
                         value.appendChild(div);
                     }
                 }
-
-               
-                
-                
+  
 
             }
             else {
