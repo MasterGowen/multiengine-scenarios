@@ -322,21 +322,23 @@ function SetDragAttr(value){
 
             if (value.childNodes[0].nodeType == 3){
                 console.log("0");
-                for (var i=0; i<value.childNodes.length; i++ ){
-                    console.log("1", value.childNodes[i].nodeType);
-                    if (value.childNodes[i].nodeType == 3){
+                //var len = 
+                while (value.childNodes.length > 0 ){
+                    console.log("1", value.childNodes[0].nodeType);
+                    if (value.childNodes[0].nodeType == 3){
                         console.log("2");
                         var div = document.createElement('div');
-                        div.innerHTML = value.childNodes[i].textContent.trim();
+                        div.innerHTML = value.childNodes[0].textContent.trim();
                               
                         div.classList.add("dragAnswer");
                         div.id = generationID();
-                        value.removeChild(value.childNodes[i]);
+                        //value.removeChild(value.childNodes[0]);
                         value.appendChild(div);
                     }
-                    else{
-                        value.removeChild(value.childNodes[i]);
-                    }
+                    value.childNodes[0].remove();
+                  /*  else{
+                       // value.removeChild(value.childNodes[0]);
+                    }*/
 
                 }
                 
