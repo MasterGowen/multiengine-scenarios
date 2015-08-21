@@ -323,20 +323,20 @@ function SetDragAttr(value){
             if (value.childNodes[0].nodeType == 3){
                 console.log("0");
                 var len = value.childNodes.length;
-                for (var i=0; i<len; i++ ){
+                for (lol in value.childNodes){
                     console.log("1", value.childNodes[i].nodeType);
-                    if (value.childNodes[i].nodeType == 3){
+                    if (lol.nodeType == 3){
                         console.log("2");
                         var div = document.createElement('div');
-                        div.innerHTML = value.childNodes[i].textContent.trim();
+                        div.innerHTML = lol.textContent.trim();
                               
                         div.classList.add("dragAnswer");
                         div.id = generationID();
-                        value.removeChild(value.childNodes[i]);
+                        value.removeChild(lol);
                         value.appendChild(div);
                     }
                     else{
-                        value.removeChild(value.childNodes[i]);
+                        value.removeChild(lol);
                     }
 
                 }
