@@ -317,7 +317,7 @@ function SetDragAttr(value){
             value.id = generationID();
 
             if (value.childNodes[0].nodeType = 3){
-                console.log(value.childNodes[0].length);
+                console.log(value.childNodes[0].length, value.childNodes[0]);
                 var div = document.createElement('div');
                 div.innerHTML = value.innerHTML;
 //TODO: Костыль
