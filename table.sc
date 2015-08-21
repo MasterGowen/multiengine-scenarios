@@ -336,7 +336,7 @@ function SetDragAttr(value){
                         value.appendChild(div);
                     }
                     else{
-                        value.removeChild(lols);
+                        value.removeChild(lol);
                     }
 
                 }
