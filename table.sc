@@ -322,7 +322,7 @@ function SetDragAttr(value){
 
             if (value.childNodes[0].nodeType == 3){
                 console.log("0")
-                for (var i; i<value.childNodes.length; i++ ){
+                for (var i=0; i<value.childNodes.length; i++ ){
                     console.log("1", value.childNodes[i])
                     if (value.childNodes[i].nodeType == 3){
                         console.log("2")
