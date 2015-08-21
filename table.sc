@@ -318,9 +318,12 @@ function SetDragAttr(value){
             
             
             if (value.childNodes[0].nodeType = 3){
-                value.childNodes[0].trim();
 
                 console.log(value, value.childNodes.length, value.childNodes[0]);
+                value.childNodes[0].trim();
+                
+
+                
                 var div = document.createElement('div');
                 div.innerHTML = value.innerHTML;
 //TODO: Костыль
