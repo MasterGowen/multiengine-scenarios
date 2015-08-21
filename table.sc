@@ -316,7 +316,7 @@ function SetDragAttr(value){
             value.classList.add("cell");
             value.id = generationID();
             
-            value.childNodes[0].textContent.trim();
+            value.childNodes[0] = value.childNodes[0].textContent.trim();
             if (value.childNodes[0].nodeType == 3){
 
                 console.log(value, value.childNodes.length, value.childNodes[0].textContent );
