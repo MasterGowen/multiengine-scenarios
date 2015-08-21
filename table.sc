@@ -316,11 +316,16 @@ function SetDragAttr(value){
             value.classList.add("cell");
             value.id = generationID();
             
-            if (value.childNodes[0].textContent.trim().length==0)
-            value.removeChild(value.childNodes[0]);
+            if (value.childNodes[0].textContent.trim().length==0){
+                value.removeChild(value.childNodes[0]);
+            }
+
             if (value.childNodes[0].nodeType == 3){
+                console.log("0")
                 for (child in value.childNodes ){
+                    console.log("1")
                     if (child.nodeType == 3){
+                        console.log("2")
                         var div = document.createElement('div');
                         div.innerHTML = child.textContent;
         //TODO: Костыль
