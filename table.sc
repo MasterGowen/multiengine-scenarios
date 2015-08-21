@@ -332,14 +332,14 @@ function SetDragAttr(value){
                               
                         div.classList.add("dragAnswer");
                         div.id = generationID();
-                        //value.removeChild(value.childNodes[0]);
+                        value.removeChild(value.childNodes[0]);
                         value.appendChild(div);
                     }
 
-                    value.childNodes[0].remove();
-                   /* else{
-                       // value.removeChild(value.childNodes[0]);
-                    }*/
+                    //value.childNodes[0].remove();
+                    else{
+                        value.removeChild(value.childNodes[0]);
+                    }
 
                 }
                 
