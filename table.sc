@@ -317,6 +317,7 @@ function SetDragAttr(value){
             value.id = generationID();
 
             if (value.childNodes[0].nodeType = 3){
+                console.log(value.childNodes[0].length);
                 var div = document.createElement('div');
                 div.innerHTML = value.innerHTML;
 //TODO: Костыль
@@ -327,7 +328,7 @@ function SetDragAttr(value){
             }
             else {
                 forEachInCollection(childList(value), function(value){
-                    console.log(value);
+                    //console.log(value);
                     var div = document.createElement('div');
                     div.innerHTML = value.innerHTML;
                     div.classList.add("dragAnswer");
