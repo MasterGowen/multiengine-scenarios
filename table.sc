@@ -319,17 +319,21 @@ function SetDragAttr(value){
             if (value.childNodes[0].textContent.trim().length==0)
             value.removeChild(value.childNodes[0]);
             if (value.childNodes[0].nodeType == 3){
+                for (value.childNodes in child)
+                    if (child.nodeType == 3){
+                        var div = document.createElement('div');
+                        div.innerHTML = child.textContent;
+        //TODO: Костыль
+                        value.innerHTML="";
+                        div.classList.add("dragAnswer");
+                        div.id = generationID();
+                        value.appendChild(div);
+                    }
 
-                console.log(value, value.childNodes.length, value.childNodes[0].textContent );
+               
                 
                 
-                var div = document.createElement('div');
-                div.innerHTML = value.innerHTML;
-//TODO: Костыль
-                value.innerHTML="";
-                div.classList.add("dragAnswer");
-                div.id = generationID();
-                value.appendChild(div);
+
             }
             else {
                 console.log("олололол");
