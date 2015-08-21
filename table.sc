@@ -323,9 +323,9 @@ function SetDragAttr(value){
             if (value.childNodes[0].nodeType == 3){
                 console.log("0")
                 //TODO: Костыль
-                var goo = value;
+                /*var goo = value;
                 value.innerHTML="";
-                var value = goo;
+                var value = goo;*/
                 //TODO: Костыль
                 for (var i=0; i<value.childNodes.length; i++ ){
                     console.log("1", value.childNodes[i].nodeType);
