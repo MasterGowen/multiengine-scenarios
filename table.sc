@@ -316,13 +316,11 @@ function SetDragAttr(value){
             value.classList.add("cell");
             value.id = generationID();
             
-            
+            value.childNodes[0].textContent.trim();
             if (value.childNodes[0].nodeType == 3){
 
                 console.log(value, value.childNodes.length, value.childNodes[0].textContent );
-                value.childNodes[0].textContent.trim();
-                console.log(value.childNodes[0].textContent.trim());
-
+                
                 
                 var div = document.createElement('div');
                 div.innerHTML = value.innerHTML;
