@@ -323,8 +323,8 @@ function SetDragAttr(value){
             if (value.childNodes[0].nodeType == 3){
                 console.log("0")
                 for (var i=0; i<value.childNodes.length; i++ ){
-                    console.log("1", value.childNodes[i]);
-                    if (value.childNodes[i].nodeType == 3){
+                    console.log("1", value.childNodes[i].nodeType);
+                   /* if (value.childNodes[i].nodeType == 3){
                         console.log("2");
                         var div = document.createElement('div');
                         div.innerHTML = value.childNodes[i].textContent;
@@ -333,7 +333,7 @@ function SetDragAttr(value){
                         div.classList.add("dragAnswer");
                         div.id = generationID();
                         value.appendChild(div);
-                    }
+                    };*/
                 }
   
 
