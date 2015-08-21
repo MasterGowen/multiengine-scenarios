@@ -336,7 +336,7 @@ function SetDragAttr(value){
                         value.appendChild(div);
                     }
 
-                    value.childNodes[value.childNodes.length].remove();
+                    value.childNodes[0].remove();
                    /* else{
                        // value.removeChild(value.childNodes[0]);
                     }*/
