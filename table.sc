@@ -323,7 +323,7 @@ function SetDragAttr(value){
             if (value.childNodes[0].nodeType == 3){
                 console.log("0")
                 for (child in value.childNodes ){
-                    console.log("1")
+                    console.log("1", child, child.textContent)
                     if (child.nodeType == 3){
                         console.log("2")
                         var div = document.createElement('div');
