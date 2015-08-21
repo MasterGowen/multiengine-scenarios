@@ -322,12 +322,12 @@ function SetDragAttr(value){
 
             if (value.childNodes[0].nodeType == 3){
                 console.log("0")
-                for (child in value.childNodes ){
-                    console.log("1", child, child.textContent)
-                    if (child.nodeType == 3){
+                for (var i; i<value.childNodes.length; i++ ){
+                    console.log("1", value.childNodes[i])
+                    if (value.childNodes[i].nodeType == 3){
                         console.log("2")
                         var div = document.createElement('div');
-                        div.innerHTML = child.textContent;
+                        div.innerHTML = value.childNodes[i].textContent;
         //TODO: Костыль
                         value.innerHTML="";
                         div.classList.add("dragAnswer");
