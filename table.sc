@@ -331,6 +331,7 @@ function SetDragAttr(value){
                 value.appendChild(div);
             }
             else {
+                console.log("олололол");
                 forEachInCollection(childList(value), function(value){
                     //console.log(value);
                     var div = document.createElement('div');
