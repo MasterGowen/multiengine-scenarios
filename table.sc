@@ -40,7 +40,7 @@ cssStudent::
 
 .first{
     background: rgb(170, 222, 226);
-   // border: 1px solid white;
+    border: 1px solid white;
     background: #AFCDE7;
     min-width: 100px;
 }
@@ -57,7 +57,7 @@ cssStudent::
 
 
 .fixAnswer{
-    border: 1px dashed white;
+   // border: 1px dashed white;
     margin: 5px;
 }
 
