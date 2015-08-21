@@ -316,7 +316,7 @@ function SetDragAttr(value){
             value.classList.add("cell");
             value.id = generationID();
 
-            if (value.childNodes[0].nodeType = 3){
+            /*if (value.childNodes[0].nodeType = 3){
 
                 console.log(value, value.childNodes[0].length, value.childNodes[0]);
                 var div = document.createElement('div');
@@ -327,7 +327,7 @@ function SetDragAttr(value){
                 div.id = generationID();
                 value.appendChild(div);
             }
-            else {
+            else {*/
                 forEachInCollection(childList(value), function(value){
                     //console.log(value);
                     var div = document.createElement('div');
@@ -335,7 +335,7 @@ function SetDragAttr(value){
                     div.classList.add("dragAnswer");
                     div.id = generationID();
                     value.parentNode.replaceChild(div, value);
-                });
+                /*}*/);
             }
         });
     });
