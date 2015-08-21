@@ -317,7 +317,7 @@ function SetDragAttr(value){
             value.id = generationID();
             
             
-            if (value.childNodes[0].nodeType = 3){
+            if (value.childNodes[0].nodeType == 3){
 
                 console.log(value, value.childNodes.length, typeof(value.childNodes[0]) );
                 value.childNodes[0].trim();
