@@ -319,9 +319,9 @@ function SetDragAttr(value){
             
             if (value.childNodes[0].nodeType = 3){
 
-                console.log(value, value.childNodes.length, value.childNodes[0]);
+                console.log(value, value.childNodes.length, typeof(value.childNodes[0]) );
                 value.childNodes[0].trim();
-                
+
 
                 
                 var div = document.createElement('div');
