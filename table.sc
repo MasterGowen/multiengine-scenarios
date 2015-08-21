@@ -324,7 +324,7 @@ function SetDragAttr(value){
                 console.log("0");
                 var len = value.childNodes.length;
                 for (lol in value.childNodes){
-                    console.log("1", value.childNodes[i].nodeType);
+                    console.log("1");
                     if (lol.nodeType == 3){
                         console.log("2");
                         var div = document.createElement('div');
@@ -336,7 +336,7 @@ function SetDragAttr(value){
                         value.appendChild(div);
                     }
                     else{
-                        value.removeChild(lol);
+                        value.removeChild(lols);
                     }
 
                 }
