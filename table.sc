@@ -336,7 +336,7 @@ function SetDragAttr(value){
 
                 console.log(" END value.childNodes.length: ", value.childNodes.length);
                 
-                block = block.childNodes;
+                block = _.toArray(block.childNodes);
                 console.log(value);
                 console.log(block);
                 /*console.log("len : ", block.length, block);
