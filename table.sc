@@ -579,17 +579,13 @@ var editableElements = document.querySelector(".answerPlace").querySelectorAll("
 
 for(var i =0; i < editableElements.length; i++) { 
     editableElements[i].ondblclick = function(e){
+        this.querySelectorAll('.deleteItemButton').style.display = 'none';
         this.setAttribute('contenteditable', 'true'); 
         this.focus();
         }
     editableElements[i].onblur = function(e){
         this.removeAttribute('contenteditable');
-        if(this.querySelectorAll('.deleteItemButton').length==0){
-            var deleteButton = document.createElement('img');
-            deleteButton.classList.add("deleteItemButton");
-            this.appendChild(deleteButton);
-            editAnswers();
-        }
+        this.querySelectorAll('.deleteItemButton').style.display = 'block';
     }
 }
 
