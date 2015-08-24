@@ -302,6 +302,12 @@ function makeStartTable(){
     return body;
     }
 
+function removeChildren(node) {
+    var children = node.childNodes;
+    while(children.length) {
+        node.removeChild(children[0])
+    }
+}
 
 //Установка всех всех атрибутов необходимых для работы перетаскивания
 function SetDragAttr(value){
@@ -325,28 +331,26 @@ function SetDragAttr(value){
                 console.log("0");
                 var len = value.childNodes.length;
                 console.log("Len: ", len);
-
-                var buf = value.childNodes;
-                for (var i=0; i < len; i++ ){
+                while (value.childNodes.length>0 ){
                    // console.log("Len: ",i , "/", len);
                    // console.log("1", value.childNodes[i].nodeType);
-                    console.log("value.childNodes[", i, "] = ", buf[i]);
-                   // console.log( "value.childNodes[", i, "].Type = ", buf[i].nodeType);
-                   if(buf[i].nodeType == 3){
+                    //console.log("value.childNodes[", i, "] = ", value.childNodes[i]);
+                    //console.log( "value.childNodes[", i, "].Type = ", value.childNodes[i].nodeType);
+                   if(value.childNodes[0].nodeType == 3){
 
-                        console.log("value.childNodes[", i, "].Str = ", buf[i].textContent.trim())
+                      //  console.log("value.childNodes[", i, "].Str = ", value.childNodes[i].textContent.trim())
 
                         var div = document.createElement('div');
-                        div.innerHTML = buf[i].textContent.trim();
+                        div.innerHTML = value.childNodes[0].textContent.trim();
                         div.classList.add("dragAnswer");
                         div.id = generationID();
 
                         block.appendChild(div);
-                        value.removeChild(value.childNodes[i]);
+                        //value.removeChild(value.childNodes[i]);
                     }
-                    /*else{
-                        value.removeChild(value.childNodes[i]);
-                    }
+                    /*else{*/
+                        value.removeChild(value.childNodes[0]);
+                   // }
                    /* if (value.childNodes[i].nodeType == 3){
                         console.log("2");
                         var div = document.createElement('div');
