@@ -583,7 +583,12 @@ for(var i =0; i < editableElements.length; i++) {
         this.focus();
         }
     editableElements[i].onblur = function(e){
-        this.removeAttribute('contenteditable')
+        this.removeAttribute('contenteditable');
+        (this.querySelectorAll('.deleteItemButton').length==0){
+            var deleteButton = document.createElement('img');
+            deleteButton.classList.add("deleteItemButton");
+            this.appendChild(deleteButton);
+        }
     }
 }
 
