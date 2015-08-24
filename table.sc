@@ -332,7 +332,8 @@ function SetDragAttr(value){
                     }
                         value.removeChild(value.childNodes[0]);
                 }
-                console.log(block[0]);
+                block = block.childNodes;
+                console.log(block);
                 /*console.log(value);
                 var l = block.childNodes.length;
                 console.log(l , block);*/
