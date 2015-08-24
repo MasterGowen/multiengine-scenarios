@@ -336,6 +336,8 @@ function SetDragAttr(value){
 
                         var div = document.createElement('div');
                         div.innerHTML = value.childNodes[i].textContent.trim();
+                        div.classList.add("dragAnswer");
+                        div.id = generationID();
 
                         block.appendChild(div);
                         //value.removeChild(value.childNodes[i]);
@@ -359,8 +361,8 @@ function SetDragAttr(value){
                     }*/
 
                 }
-                value.appendChild(block);
-  
+                value.appendChild(block.outerHTML);
+                
 
             }
             else {
