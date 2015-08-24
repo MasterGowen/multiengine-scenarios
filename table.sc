@@ -361,7 +361,8 @@ function SetDragAttr(value){
                     }*/
 
                 }
-                value.appendChild(block.outerHTML);
+                console.log(block);
+                value.appendChild(block);
                 
 
             }
