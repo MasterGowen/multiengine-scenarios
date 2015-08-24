@@ -163,12 +163,16 @@ css::
     padding: 2px 10px;
     display: inline-block;
     position: relative;
+    min-height: 15px;
+    min-width: 30px;
 }
 
 .fixAnswer{
     border: 1px dashed white;
     margin: 5px;
     position: relative;
+    min-height: 15px;
+    min-width: 30px;
 }
 
 .deleteItemButton {
