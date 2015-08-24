@@ -236,7 +236,7 @@ function generateStudentAnswer(){
 
 javascriptStudio::
 /**
-* JavaScript работаюший со сторноы студии
+* JavaScript работаюший со сторновы студии
 */
 
 // Показывает все скрытые поля отноящиеся к XBlock'у в целом.
@@ -546,7 +546,7 @@ elementDOM.querySelector('#conraw').onclick = function(){
             }
             */
             //console.log("firstColumnIsBlocked:" + firstColumnIsBlocked);
-            //console.log("firstRowIsBlocked:" + firstRowIsBlocked); 
+            //console.log("firstRowIsBlocked:" + firstRowIsBlocked);
             console.log('old table');
         }
 
@@ -638,11 +638,6 @@ function getAllAnswers(){
     forEachInCollection(allAnswersList, function(value){ 
         allAnswersDiv.appendChild(value);
     });
-
-    /*if(elementDOM.querySelector('#view').querySelector('#allAnswersStudent')!=null){
-        elementDOM.querySelector('#view').querySelector('#allAnswersStudent').remove();
-    }*/
-
     elementDOM.querySelector('#view').appendChild(allAnswersDiv);
     //перемешивание
     for (var i = allAnswersDiv.children.length; i >= 0; i--) {
