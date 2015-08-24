@@ -548,6 +548,7 @@ elementDOM.querySelector('#conraw').onclick = function(){
             */
             //console.log("firstColumnIsBlocked:" + firstColumnIsBlocked);
             //console.log("firstRowIsBlocked:" + firstRowIsBlocked);
+            console.log(elementDOM.querySelector('#view').querySelector('#allAnswersStudent'));
             if(elementDOM.querySelector('#view').querySelector('#allAnswersStudent')!=null){
                 elementDOM.querySelector('#view').querySelector('#allAnswersStudent').remove();
                 console.log("delete allAnswersStudent");
