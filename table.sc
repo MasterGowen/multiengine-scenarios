@@ -331,27 +331,14 @@ function SetDragAttr(value){
                         block.appendChild(div);
                     }
                         value.removeChild(value.childNodes[0]);
-                   console.log("value.childNodes.length: ", value.childNodes.length);
                 }
-
-                console.log(" END value.childNodes.length: ", value.childNodes.length);
-                
                 block = _.toArray(block.childNodes);
-                console.log(value);
-                console.log(block);
-                /*console.log("len : ", block.length, block);*/
-                for(var i = 0; i < block.length; i++){
+                /*for(var i = 0; i < block.length; i++){
                     value.appendChild(block[i]);
-                }
-                /*;
-                var l = block.childNodes.length;
-                console.log(l , block);*/
-                /*for(var i=0; i < l; i++){
-                    console.log("i = ", i, " l = ", l);
-                //console.log(block.childNodes.length)
-                   console.log(block.childNodes[i]);
-                   value.appendChild(block.childNodes[i]);
                 }*/
+                for(child in block){
+                    value.appendChild(child);
+                }
             }
             else {
                 //console.log("олололол");
