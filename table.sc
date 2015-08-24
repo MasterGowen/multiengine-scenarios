@@ -579,13 +579,13 @@ var editableElements = document.querySelector(".answerPlace").querySelectorAll("
 
 for(var i =0; i < editableElements.length; i++) { 
     editableElements[i].ondblclick = function(e){
-        this.querySelectorAll('.deleteItemButton').style.display = 'none';
+        this.querySelector('.deleteItemButton').style.display = 'none';
         this.setAttribute('contenteditable', 'true'); 
         this.focus();
         }
     editableElements[i].onblur = function(e){
         this.removeAttribute('contenteditable');
-        this.querySelectorAll('.deleteItemButton').style.display = 'block';
+        this.querySelector('.deleteItemButton').style.display = 'block';
     }
 }
 
