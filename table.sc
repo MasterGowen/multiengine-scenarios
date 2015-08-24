@@ -525,7 +525,7 @@ elementDOM.querySelector('#conraw').onclick = function(){
             documentTable.innerHTML = editor.getValue();
             documentTable.querySelector("#dragAnswersStudent").id = "dragAnswers";
             documentTable.querySelector("#dragAnswers").setAttribute("class", "answerPlace");
-            documentTable.querySelector("#allAnswersStudent").remove();
+
             for (key in correctAnswer) {
                 for (i=0; i<correctAnswer[key].length;i++){
                     documentTable.querySelector("#" + key).appendChild(documentTable.querySelector("#" + correctAnswer[key][i]))
@@ -537,7 +537,8 @@ elementDOM.querySelector('#conraw').onclick = function(){
                 deleteButton.classList.add("deleteItemButton");
                 allItems[i].appendChild(deleteButton);
             }
-
+            
+            documentTable.querySelector("#allAnswersStudent").remove();
             //setBlockHtml('view', documentTable.innerHTML);
             /*
             if(documentTable.querySelector("#dragAnswers").querySelector('tr').lastChild.classList.contains("first")){
