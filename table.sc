@@ -322,7 +322,7 @@ function SetDragAttr(value){
             if (value.childNodes[0].nodeType == 3){
                 var block = document.createElement('div');
                 console.log("0");
-                while (value.childNodes.length>0 ){
+                while (value.childNodes.length > 0 ){
                    if(value.childNodes[0].nodeType == 3){
                         var div = document.createElement('div');
                         div.innerHTML = value.childNodes[0].textContent.trim();
@@ -335,7 +335,9 @@ function SetDragAttr(value){
                 console.log(block);
                 console.log(value);
                 var l = block.childNodes.length;
+                console.log(l);
                 for(var i=0; i<l; i++){
+                    console.log("i = ", i);
                     //console.log(block.childNodes.length)
                    console.log(block.childNodes[i]);
                    value.appendChild(block.childNodes[i]);
