@@ -341,7 +341,8 @@ function SetDragAttr(value){
                 }
                 console.log(block);
                 for(child in childList(block)){
-                    value.appendChild(child);
+                    console.log(child);
+                    //value.appendChild(child);
                 }
                 
             }
