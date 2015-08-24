@@ -236,7 +236,7 @@ function generateStudentAnswer(){
 
 javascriptStudio::
 /**
-* JavaScript работаюший со сторновы студии
+* JavaScript работаюший со сторноы студии
 */
 
 // Показывает все скрытые поля отноящиеся к XBlock'у в целом.
@@ -501,13 +501,11 @@ elementDOM.querySelector('#conraw').onclick = function(){
         if(elementDOM.querySelector('#raw').value == '' && document.getElementsByName("student_view_template")[0].value == ""){
             console.log("making new table");
             documentTable = makeStartTable();
-        
         }
         if(elementDOM.querySelector('#raw').value != ''){
             console.log('table from raw');
             documentTable =  getValueFild('raw').body;
             SetDragAttr(documentTable);
-
             var allItems = documentTable.querySelectorAll(".dragAnswer, .fixAnswer");
                for(var i = 0; i < allItems.length; i++ ){
                 //console.log(allItems[i]);
@@ -516,7 +514,6 @@ elementDOM.querySelector('#conraw').onclick = function(){
                // deleteButton.src = "http://openedu.urfu.ru/c4x/edX/DemoX/asset/Close-2-icon.png";
                 allItems[i].appendChild(deleteButton);
             }
-
         }
 
         if(document.getElementsByName("student_view_template")[0].value != "" && elementDOM.querySelector('#raw').value == ''){
@@ -524,33 +521,19 @@ elementDOM.querySelector('#conraw').onclick = function(){
             var correctAnswer = elementDOM.querySelector('#correct_answer').value;
             correctAnswer = JSON.parse(correctAnswer);
             correctAnswer = correctAnswer["answer"];
-
-            
-            //console.log("editor:  " + editor.getValue());
-
             documentTable =  document.createElement('div');// d('lolo').body;
             documentTable.innerHTML = editor.getValue();
-            
-            
-
             documentTable.querySelector("#dragAnswersStudent").id = "dragAnswers";
             documentTable.querySelector("#dragAnswers").setAttribute("class", "answerPlace");
-
-           // console.log(documentTable);
-            
-
             for (key in correctAnswer) {
                 for (i=0; i<correctAnswer[key].length;i++){
                     documentTable.querySelector("#" + key).appendChild(documentTable.querySelector("#" + correctAnswer[key][i]))
                 }
             }
-
             var allItems = documentTable.querySelectorAll(".dragAnswer, .fixAnswer");
                for(var i = 0; i < allItems.length; i++ ){
-                //console.log(allItems[i]);
                 var deleteButton = document.createElement('img');
                 deleteButton.classList.add("deleteItemButton");
-                //deleteButton.src = "http://openedu.urfu.ru/c4x/edX/DemoX/asset/Close-2-icon.png";
                 allItems[i].appendChild(deleteButton);
             }
             /*
@@ -579,58 +562,10 @@ elementDOM.querySelector('#conraw').onclick = function(){
     if (elementDOM.querySelector('#scButtonView').getAttribute('scmenuactive') == "true") {
     
     var tst = getValueFild('view').body;
-   // console.log(tst.innerHTML);
     elementDOM.querySelector('#raw').value = tst.innerHTML;
-    
     }
-
-
-    
 };
 
-
-
-// TODO: редактирование по двойному клику 
-/*elementDOM.querySelector("#view").ondblclick = function(event){
-   var target = event.target; 
-        if (target.classList.contains('dragAnswer') || target.classList.contains('fixAnswer')){
-            //console.log(target.id + " is contenteditable?");
-            elementDOM.querySelector('#' + target.id ).setAttribute('contenteditable', 'true');
-            elementDOM.querySelector('#' + target.id).focus();
-        } 
-        if (target.parentNode.classList.contains('dragAnswer') || target.parentNode.classList.contains('fixAnswer')){
-            //console.log(target.parentNode.id + " is contenteditable?");
-            elementDOM.querySelector('#' + target.parentNode.id ).setAttribute('contenteditable', 'true');
-            elementDOM.querySelector('#' + target.parentNode.id).focus();
-        } 
-        else return; 
-};
-*/
-/*elementDOM.querySelector("#view").onblur = function(event){
-    var target = event.target;
-    console.log(target.id);
-
-}
-*/
-
-/*
-function editAnswers(){  
-// не работает .fixAnswer так так у них нет id
-$(".answerPlace .dragAnswer, .fixAnswer").dblclick(function (){
-    $("#"+this.id).attr("contenteditable",true);
-    $("#"+this.id).css("background",'white');
-    $("#"+this.id).css("cursor","text");
-
-    document.getElementById(this.id).focus();
-});
-
-$(".dragAnswer, .fixAnswer").blur(function (){
-    $("#"+this.id).attr("contenteditable",false);
-    $("#"+this.id).css("background","");
-    $("#"+this.id).css("cursor","move");
-});
-} 
-*/
 
 function editAnswers(){
 
@@ -640,31 +575,20 @@ for(var i =0; i < editableElements.length; i++) {
     editableElements[i].ondblclick = function(e){
         this.setAttribute('contenteditable', 'true'); 
         this.focus();
-        /*if(this.classList.toggle('dragAnswer')){
-
-        }*/
-
         }
     editableElements[i].onblur = function(e){
         this.removeAttribute('contenteditable')
     }
-
-    }
+}
 
 var allItems = document.querySelector("#view").querySelectorAll(".deleteItemButton");
-
 for(var i =0; i < allItems.length; i++) { 
     document.querySelectorAll(".deleteItemButton")[i].onclick = function(){ 
         var item = this.parentNode;
         item.remove();
-
+    }
 }
-
 }
-
-
-}
-
 
 //фиксация строки
 elementDOM.querySelector('#fixLine').onclick = function(){
@@ -699,62 +623,33 @@ function generateCorrectAnswer(value){
             }
         });
     });
- // console.log(correctAnswer+" : "+generationAnswerJSON(correctAnswer));
   correctAnswer = generationAnswerJSON(correctAnswer);
-
   elementDOM.querySelector('#correct_answer').setAttribute('value', correctAnswer);
   var studentView = elementDOM.querySelector("#view");
   editor.setValue(studentView.innerHTML);
 }
 
-
-
 /*перенос всех ответов в отдельное поле*/
 function getAllAnswers(){
-
-    
     var allAnswersList = elementDOM.querySelector('#view').querySelectorAll('.dragAnswer');
     var allAnswersDiv = document.createElement('div');
-    
-
-    //var allAnswersDiv = elementDOM.querySelector('#view').querySelectorAll('.dragAnswer');
-
-
     allAnswersDiv.id = "allAnswersStudent";
     allAnswersDiv.classList.add("answerPlaceStudent");
-
-
-
     forEachInCollection(allAnswersList, function(value){ 
         allAnswersDiv.appendChild(value);
     });
-
-   // elementDOM.querySelector("#view").removeChild(elementDOM.querySelector("#view").querySelector("#allAnswersStudent"));
-
     elementDOM.querySelector('#view').appendChild(allAnswersDiv);
     //перемешивание
     for (var i = allAnswersDiv.children.length; i >= 0; i--) {
         allAnswersDiv.appendChild(allAnswersDiv.children[Math.random() * i | 0]);
     }
-
     elementDOM.querySelector("#view").getElementsByTagName("table")[0].id = "dragAnswersStudent";
-    
     elementDOM.querySelector("#view").getElementsByTagName("table")[0].setAttribute('class', 'answerPlaceStudent');
-
-   // elementDOM.querySelector("#view").querySelector("#allAnswersStudent").setAttribute('class', 'answerPlaceStudent');
-
     documentTable.innerHTML = elementDOM.querySelector("#view").getElementsByTagName("table")[0].outerHTML;
-
-
     var allDeleteButtons = document.querySelector("#view").querySelectorAll(".deleteItemButton");
     for(var i =0; i < allDeleteButtons.length; i++) { 
         allDeleteButtons[i].remove();
     }
-    
-
-    //drag();
-    //editAnswers();
-
     var studentView = elementDOM.querySelector("#view");
     editor.setValue(studentView.innerHTML);
 
@@ -772,7 +667,3 @@ elementDOM.querySelector('#scButtonRaw').onclick = function(){
     elementDOM.querySelector('#scWindowRaw').removeAttribute('hidden');
     elementDOM.querySelector('#scWindowView').setAttribute('hidden', 'true');
 };
-
-
-
-
