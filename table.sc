@@ -302,13 +302,6 @@ function makeStartTable(){
     return body;
     }
 
-function removeChildren(node) {
-    var children = node.childNodes;
-    while(children.length) {
-        node.removeChild(children[0])
-    }
-}
-
 //Установка всех всех атрибутов необходимых для работы перетаскивания
 function SetDragAttr(value){
     deleteAttributes(value.getElementsByTagName('table')[0], []);
@@ -340,8 +333,8 @@ function SetDragAttr(value){
                         value.removeChild(value.childNodes[0]);
                 }
                 console.log(block);
-                for(child in childList(block)){
-                    console.log(child);
+                for(var i=0; i<block.length; i++){
+                    console.log(block[i]);
                     //value.appendChild(child);
                 }
                 
