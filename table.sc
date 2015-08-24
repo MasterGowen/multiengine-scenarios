@@ -638,6 +638,9 @@ function getAllAnswers(){
     forEachInCollection(allAnswersList, function(value){ 
         allAnswersDiv.appendChild(value);
     });
+    if(elementDOM.querySelector('#view').querySelector('#allAnswersStudent')!=null){
+        elementDOM.querySelector('#view').querySelector('#allAnswersStudent').remove();
+    }
     elementDOM.querySelector('#view').appendChild(allAnswersDiv);
     //перемешивание
     for (var i = allAnswersDiv.children.length; i >= 0; i--) {
