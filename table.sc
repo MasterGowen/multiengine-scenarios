@@ -536,7 +536,7 @@ elementDOM.querySelector('#conraw').onclick = function(){
                 deleteButton.classList.add("deleteItemButton");
                 allItems[i].appendChild(deleteButton);
             }
-            elementDOM.querySelector("view").innerHTML = documentTable.innerHTML;
+            elementDOM.querySelector("#view").innerHTML = documentTable.innerHTML;
             alert("lol");
             /*
             if(documentTable.querySelector("#dragAnswers").querySelector('tr').lastChild.classList.contains("first")){
