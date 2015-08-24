@@ -332,21 +332,12 @@ function SetDragAttr(value){
                 var len = value.childNodes.length;
                 console.log("Len: ", len);
                 while (value.childNodes.length>0 ){
-                   // console.log("Len: ",i , "/", len);
-                   // console.log("1", value.childNodes[i].nodeType);
-                    //console.log("value.childNodes[", i, "] = ", value.childNodes[i]);
-                    //console.log( "value.childNodes[", i, "].Type = ", value.childNodes[i].nodeType);
                    if(value.childNodes[0].nodeType == 3){
-
-                      //  console.log("value.childNodes[", i, "].Str = ", value.childNodes[i].textContent.trim())
-
                         var div = document.createElement('div');
                         div.innerHTML = value.childNodes[0].textContent.trim();
                         div.classList.add("dragAnswer");
                         div.id = generationID();
-
                         block.appendChild(div);
-                        //value.removeChild(value.childNodes[i]);
                     }
                     /*else{*/
                         value.removeChild(value.childNodes[0]);
@@ -367,8 +358,8 @@ function SetDragAttr(value){
                     }*/
 
                 }
-                console.log(block);
-                value.appendChild(block);
+                console.log(block.childNodes);
+                value.appendChild(block.childNodes);
                 
 
             }
