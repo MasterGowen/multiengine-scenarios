@@ -173,12 +173,12 @@ css::
 
 .deleteItemButton {
     background-image: url("http://openedu.urfu.ru/c4x/edX/DemoX/asset/Close-2-icon.png");
+    background-size: cover;
     position: absolute;
     width: 12px;
     height: 12px;
     top: -6px;
     right: -6px;
-    vertical-align: middle;
     cursor: pointer;
 }
 
