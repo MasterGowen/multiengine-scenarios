@@ -329,8 +329,6 @@ function SetDragAttr(value){
             if (value.childNodes[0].nodeType == 3){
                 var block = document.createElement('div');
                 console.log("0");
-                var len = value.childNodes.length;
-                console.log("Len: ", len);
                 while (value.childNodes.length>0 ){
                    if(value.childNodes[0].nodeType == 3){
                         var div = document.createElement('div');
@@ -339,32 +337,16 @@ function SetDragAttr(value){
                         div.id = generationID();
                         block.appendChild(div);
                     }
-                    /*else{*/
                         value.removeChild(value.childNodes[0]);
-                   // }
-                   /* if (value.childNodes[i].nodeType == 3){
-                        console.log("2");
-                        var div = document.createElement('div');
-                        div.innerHTML = value.childNodes[i].textContent.trim();
-                              
-                        div.classList.add("dragAnswer");
-                        div.id = generationID();
-                        
-                        //value.appendChild(div);
-                        value.removeChild(value.childNodes[i]);
-                    }
-                    else{
-                        value.removeChild(value.childNodes[i]);
-                    }*/
-
                 }
-                console.log(block.childNodes);
-                value.appendChild(block.childNodes);
+                console.log(block);
+                for(child in block){
+                    value.appendChild(child);
+                }
                 
-
             }
             else {
-                console.log("олололол");
+                //console.log("олололол");
                 forEachInCollection(childList(value), function(value){
                     //console.log(value);
                     var div = document.createElement('div');
