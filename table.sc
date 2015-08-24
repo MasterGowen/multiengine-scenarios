@@ -548,7 +548,8 @@ elementDOM.querySelector('#conraw').onclick = function(){
             //console.log("firstColumnIsBlocked:" + firstColumnIsBlocked);
             //console.log("firstRowIsBlocked:" + firstRowIsBlocked);
             if(elementDOM.querySelector('#view').querySelector('#allAnswersStudent')!=null){
-        elementDOM.querySelector('#view').querySelector('#allAnswersStudent').remove();
+                elementDOM.querySelector('#view').querySelector('#allAnswersStudent').remove();
+                console.log("delete allAnswersStudent");
             }   
             console.log('old table');
         }
