@@ -321,6 +321,7 @@ function SetDragAttr(value){
             }
 
             if (value.childNodes[0].nodeType == 3){
+                var block = document.createElement('div');
                 console.log("0");
                 var len = value.childNodes.length;
                 console.log("Len: ", len);
@@ -328,11 +329,19 @@ function SetDragAttr(value){
                    // console.log("Len: ",i , "/", len);
                    // console.log("1", value.childNodes[i].nodeType);
                     console.log("value.childNodes[", i, "] = ", value.childNodes[i],  "value.childNodes[", i, "].Type = ", value.childNodes[i].nodeType);
-                   if(value.childNodes[i].nodeType == 3)
+                   if(value.childNodes[i].nodeType == 3){
 
-                    console.log("value.childNodes[", i, "].Str = ", value.childNodes[i].textContent.trim())
+                        console.log("value.childNodes[", i, "].Str = ", value.childNodes[i].textContent.trim())
 
+                        var div = document.createElement('div');
+                        div.innerHTML = value.childNodes[i].textContent.trim();
 
+                        block.appendChild(div);
+                        value.removeChild(value.childNodes[i]);
+                    }
+                    /*else{
+                        value.removeChild(value.childNodes[i]);
+                    }
                    /* if (value.childNodes[i].nodeType == 3){
                         console.log("2");
                         var div = document.createElement('div');
@@ -349,7 +358,7 @@ function SetDragAttr(value){
                     }*/
 
                 }
-                
+                value.appendChild(block);
   
 
             }
