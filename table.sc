@@ -23,19 +23,15 @@ html::
         <div class="scEditButtonView" id="fixColumn">Фиксировать столбец</div>
         <div class="scEditButtonView" id="addRow">+ Добавить строку</div>
         <div class="scEditButtonView" id="addColumn">+ Добавить столбец</div>
-        <div id="view">        </div>
-        <!--<div class="scEditButtonConv" id="getAllAnswers">Вынести ответы</div>
-        <div class="scEditButtonConv" id="generateCorrectAnswer">Собрать JSON</div>-->
+        <div id="view"> </div>
     </div>
 
-
-
 cssStudent::
+
 #allAnswersStudent{
     border: 1px solid rgb(176, 165, 222);
     min-height: 30px;
 }
-
 
 .cell {
     border: 1px solid white;
@@ -51,8 +47,6 @@ cssStudent::
     min-width: 100px;
 }
 
-
-
 .dragAnswer{
     border: 1px dashed rgb(163, 55, 55);
     cursor: move;
@@ -61,12 +55,9 @@ cssStudent::
     display: inline-block;
 }
 
-
 .fixAnswer{
-   // border: 1px dashed white;
     margin: 5px;
 }
-
 
 
 css::
@@ -91,7 +82,7 @@ css::
  background: #FFB400;
 }
 
- .scEditButtonConv{
+.scEditButtonConv{
     background: #FF4800 none repeat scroll 0% 0%;
     text-align: center;
     display: inline-block;
@@ -100,7 +91,8 @@ css::
     cursor: pointer;
     color: #FFFFFF;
  }
-  .scEditButtonConv:hover{
+
+.scEditButtonConv:hover{
  background: #D53C00;
 }
 
@@ -123,12 +115,15 @@ css::
     margin: 0px;
     cursor: pointer;
 }
+
 #scMenu li:hover {
-border-color:gold;
-    }
+    border-color:gold;
+}
+
 #scMenu li[scMenuActive=true]:hover {
-border-color:#e6e6e6;
-    }
+    border-color:#e6e6e6;
+}
+
 #scMenu li[scMenuActive=true]{
     background:#e6e6e6;
 }
@@ -138,6 +133,7 @@ border-color:#e6e6e6;
     width: 100%;
     min-height: 300px;
 }
+
 .cell {
     border: 1px solid white;
     min-width: 100px;
@@ -151,7 +147,6 @@ border-color:#e6e6e6;
     background: #AFCDE7;
     min-width: 100px;
 }
-
 
 .dragAnswer[contenteditable=true], .fixAnswer[contenteditable=true]{
     background: white;
@@ -170,7 +165,6 @@ border-color:#e6e6e6;
     position: relative;
 }
 
-
 .fixAnswer{
     border: 1px dashed white;
     margin: 5px;
@@ -178,6 +172,7 @@ border-color:#e6e6e6;
 }
 
 .deleteItemButton {
+    background-image: url("http://openedu.urfu.ru/c4x/edX/DemoX/asset/Close-2-icon.png");
     position: absolute;
     width: 12px;
     height: 12px;
@@ -186,7 +181,6 @@ border-color:#e6e6e6;
     vertical-align: middle;
     cursor: pointer;
 }
-
 
 .first:before, 
 .cell:before {
@@ -201,7 +195,6 @@ border-color:#e6e6e6;
   cursor: pointer;
 }
 
-
 javascriptStudent::
 
 function drag(){
@@ -213,9 +206,7 @@ function drag(){
         stop: generateStudentAnswer
     }).disableSelection();
 }
-//TODO: Зачем здесь вызов функции
 drag();
-
 
 //вызывается для того, чтобы полю 'answer' присвоился json (backend требует ключи для поверки)
 //если жмем "Сохранить" впервые (без перетаскиваний), то json будет присвоен (только ключи)
@@ -238,14 +229,9 @@ function generateStudentAnswer(){
         });
     });
   studentAnswer = generationAnswerJSON(studentAnswer);
- // console.log(studentAnswer);
-
   document.getElementsByName("answer")[0].value = studentAnswer;
   document.getElementsByName("answer")[0].val = studentAnswer;
-
 }
-
-
 
 
 javascriptStudio::
@@ -256,15 +242,10 @@ javascriptStudio::
 // Показывает все скрытые поля отноящиеся к XBlock'у в целом.
 elementDOM.querySelector('#viewSettings').onclick = function(){elementDOM.getElementsByClassName('step-one')[0].style.display = 'block';}
 
-
 function scenarioSave(){
-
     generateCorrectAnswer(documentTable);
     getAllAnswers();
 }
-
-
-
 
 //Переменная хранящая таблицу documentTable.innerHTML
 var documentTable;
@@ -275,11 +256,6 @@ var firstRowIsBlocked = false;
 // заблокирован ли первый столбец (true/false)
 var firstColumnIsBlocked = false;
 
-/*
-function loadStudentView(){
-    elementDOM.querySelector("#student_view_template");
-}
-*/
 // создание таблицы из одной ячейки
 function makeStartTable(){
     var table = document.createElement('table');
@@ -300,7 +276,7 @@ function makeStartTable(){
     body.appendChild(table);
 
     return body;
-    }
+}
 
 //Установка всех всех атрибутов необходимых для работы перетаскивания
 function SetDragAttr(value){
@@ -356,7 +332,6 @@ function SetDragAttr(value){
 * value = HTMLelement
 * undeletableAttributes = [];
 */
-
 function deleteAttributes(value, undeletableAttributes){
     var i = 0;
     while(value.attributes.length-undeletableAttributes.length>0)
@@ -376,7 +351,6 @@ function Convertation(){
     setBlockHtml('view', documentTable.innerHTML);
     drag();
 }
-
 
 /*удаляет ВСЕ атрибуты первой строки (включая 1 уровень детей (td))*/
 function fixLine(value){
@@ -405,8 +379,6 @@ function fixLine(value){
         firstRowIsBlocked = true;
     }
 }
-
-
 
 /*удаляет ВСЕ атрибуты первого столбца (включая 1 уровень детей (td))*/
 function fixColumn(value){
@@ -438,8 +410,6 @@ function fixColumn(value){
 }
 
 
-
-
 function drag(){
     $('#dragAnswers, .answerPlace .cell, .answerPlace').sortable({
         items: ".dragAnswer",
@@ -450,7 +420,6 @@ function drag(){
     }).disableSelection();
     editor.setValue(documentTable.innerHTML);
 }
-
 
 
 function updateTable() { 
@@ -471,14 +440,10 @@ elementDOM.querySelector("#view").onclick = function(event){
         if(target.classList.contains('first')){
             div.classList.add("fixAnswer");
         }
-        
         var deleteButton = document.createElement('img');
         deleteButton.classList.add("deleteItemButton");
-
-        deleteButton.src = "http://openedu.urfu.ru/c4x/edX/DemoX/asset/Close-2-icon.png";
-
+       // deleteButton.src = "http://openedu.urfu.ru/c4x/edX/DemoX/asset/Close-2-icon.png";
         div.appendChild(deleteButton);
-
         target.appendChild(div);
     documentTable.innerHTML = elementDOM.querySelector("#view").getElementsByTagName("table")[0].outerHTML;
     editAnswers();
@@ -548,7 +513,7 @@ elementDOM.querySelector('#conraw').onclick = function(){
                 //console.log(allItems[i]);
                 var deleteButton = document.createElement('img');
                 deleteButton.classList.add("deleteItemButton");
-                deleteButton.src = "http://openedu.urfu.ru/c4x/edX/DemoX/asset/Close-2-icon.png";
+               // deleteButton.src = "http://openedu.urfu.ru/c4x/edX/DemoX/asset/Close-2-icon.png";
                 allItems[i].appendChild(deleteButton);
             }
 
@@ -585,7 +550,7 @@ elementDOM.querySelector('#conraw').onclick = function(){
                 //console.log(allItems[i]);
                 var deleteButton = document.createElement('img');
                 deleteButton.classList.add("deleteItemButton");
-                deleteButton.src = "http://openedu.urfu.ru/c4x/edX/DemoX/asset/Close-2-icon.png";
+                //deleteButton.src = "http://openedu.urfu.ru/c4x/edX/DemoX/asset/Close-2-icon.png";
                 allItems[i].appendChild(deleteButton);
             }
             /*
