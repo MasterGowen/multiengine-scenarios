@@ -336,9 +336,8 @@ function SetDragAttr(value){
                 console.log(value);
                 for(var i=0; i<block.childNodes.length; i++){
                    console.log(block.childNodes[i]);
-                    //value.appendChild(block.childNodes[i]);
+                    value.appendChild(block.childNodes[i]);
                 }
-                
             }
             else {
                 //console.log("олололол");
