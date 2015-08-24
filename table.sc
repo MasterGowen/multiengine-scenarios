@@ -576,6 +576,8 @@ var editableElements = document.querySelector(".answerPlace").querySelectorAll("
 for(var i =0; i < editableElements.length; i++) { 
     editableElements[i].ondblclick = function(e){
         var span = document.createElement('span');
+        span.innerHTML = this.innerHTML;
+        this.innerHTML = "";
         this.appendChild(span);
         span.setAttribute('contenteditable', 'true'); 
         span.focus();
