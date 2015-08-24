@@ -499,19 +499,17 @@ elementDOM.querySelector('#conraw').onclick = function(){
     if (elementDOM.querySelector('#scButtonView').getAttribute('scmenuactive') == "false") {
         
         if(elementDOM.querySelector('#raw').value == '' && document.getElementsByName("student_view_template")[0].value == ""){
-            console.log("making new table");
+            console.log("New table created");
             documentTable = makeStartTable();
         }
         if(elementDOM.querySelector('#raw').value != ''){
-            console.log('table from raw');
+            console.log('Table from "raw" ');
             documentTable =  getValueFild('raw').body;
             SetDragAttr(documentTable);
             var allItems = documentTable.querySelectorAll(".dragAnswer, .fixAnswer");
                for(var i = 0; i < allItems.length; i++ ){
-                //console.log(allItems[i]);
                 var deleteButton = document.createElement('img');
                 deleteButton.classList.add("deleteItemButton");
-               // deleteButton.src = "http://openedu.urfu.ru/c4x/edX/DemoX/asset/Close-2-icon.png";
                 allItems[i].appendChild(deleteButton);
             }
         }
@@ -537,7 +535,7 @@ elementDOM.querySelector('#conraw').onclick = function(){
                 deleteButton.classList.add("deleteItemButton");
                 allItems[i].appendChild(deleteButton);
             }
-            
+
             documentTable.querySelector("#allAnswersStudent").remove();
             //setBlockHtml('view', documentTable.innerHTML);
             /*
@@ -551,7 +549,7 @@ elementDOM.querySelector('#conraw').onclick = function(){
             */
             //console.log("firstColumnIsBlocked:" + firstColumnIsBlocked);
             //console.log("firstRowIsBlocked:" + firstRowIsBlocked);
-            console.log('old table');
+            console.log('Load old table');
         }
 
     
@@ -577,8 +575,10 @@ var editableElements = document.querySelector(".answerPlace").querySelectorAll("
 
 for(var i =0; i < editableElements.length; i++) { 
     editableElements[i].ondblclick = function(e){
-        this.setAttribute('contenteditable', 'true'); 
-        this.focus();
+        var span = document.createElement('span');
+        this.appendChild(span);
+        span.setAttribute('contenteditable', 'true'); 
+        span.focus();
         }
     editableElements[i].onblur = function(e){
         this.removeAttribute('contenteditable')
