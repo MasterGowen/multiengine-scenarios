@@ -325,22 +325,24 @@ function SetDragAttr(value){
                 console.log("0");
                 var len = value.childNodes.length;
                 console.log("Len: ", len);
+
+                var buf = value.childNodes;
                 for (var i=0; i < len; i++ ){
                    // console.log("Len: ",i , "/", len);
                    // console.log("1", value.childNodes[i].nodeType);
-                    console.log("value.childNodes[", i, "] = ", value.childNodes[i]);
-                    console.log( "value.childNodes[", i, "].Type = ", value.childNodes[i].nodeType);
-                   if(value.childNodes[i].nodeType == 3){
+                    console.log("value.childNodes[", i, "] = ", buf[i]);
+                   // console.log( "value.childNodes[", i, "].Type = ", buf[i].nodeType);
+                   if(buf[i].nodeType == 3){
 
-                        console.log("value.childNodes[", i, "].Str = ", value.childNodes[i].textContent.trim())
+                        console.log("value.childNodes[", i, "].Str = ", buf[i].textContent.trim())
 
                         var div = document.createElement('div');
-                        div.innerHTML = value.childNodes[i].textContent.trim();
+                        div.innerHTML = buf[i].textContent.trim();
                         div.classList.add("dragAnswer");
                         div.id = generationID();
 
                         block.appendChild(div);
-                        //value.removeChild(value.childNodes[i]);
+                        value.removeChild(value.childNodes[i]);
                     }
                     /*else{
                         value.removeChild(value.childNodes[i]);
