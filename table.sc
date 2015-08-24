@@ -536,6 +536,7 @@ elementDOM.querySelector('#conraw').onclick = function(){
                 deleteButton.classList.add("deleteItemButton");
                 allItems[i].appendChild(deleteButton);
             }
+            elementDOM.querySelector("view").innerHTML = documentTable.innerHTML;
             alert("lol");
             /*
             if(documentTable.querySelector("#dragAnswers").querySelector('tr').lastChild.classList.contains("first")){
@@ -549,10 +550,10 @@ elementDOM.querySelector('#conraw').onclick = function(){
             //console.log("firstColumnIsBlocked:" + firstColumnIsBlocked);
             //console.log("firstRowIsBlocked:" + firstRowIsBlocked);
             console.log(document.querySelector('#view').querySelector('#allAnswersStudent'));
-            if(document.querySelector('#view').querySelector('#allAnswersStudent')!=null){
+            /*if(document.querySelector('#view').querySelector('#allAnswersStudent')!=null){
                 document.querySelector('#view').querySelector('#allAnswersStudent').remove();
                 console.log("delete allAnswersStudent");
-            }   
+            }   */
             console.log('old table');
         }
 
