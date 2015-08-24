@@ -588,6 +588,7 @@ for(var i =0; i < editableElements.length; i++) {
             var deleteButton = document.createElement('img');
             deleteButton.classList.add("deleteItemButton");
             this.appendChild(deleteButton);
+            editAnswers();
         }
     }
 }
