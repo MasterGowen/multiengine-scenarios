@@ -332,16 +332,17 @@ function SetDragAttr(value){
                     }
                         value.removeChild(value.childNodes[0]);
                 }
-                console.log(block);
+                console.log(block[0]);
                 /*console.log(value);
                 var l = block.childNodes.length;
-                console.log(l , block);
-                for(var i=0; i < l; i++){
+                console.log(l , block);*/
+                /*for(var i=0; i < l; i++){
                     console.log("i = ", i, " l = ", l);
                 //console.log(block.childNodes.length)
                    console.log(block.childNodes[i]);
                    value.appendChild(block.childNodes[i]);
                 }*/
+
             }
             else {
                 //console.log("олололол");
