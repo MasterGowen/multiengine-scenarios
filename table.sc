@@ -333,7 +333,7 @@ function SetDragAttr(value){
                         value.removeChild(value.childNodes[0]);
                    console.log("value.childNodes.length: ", value.childNodes.length);
                 }
-
+                console.log(" END value.childNodes.length: ", value.childNodes.length);
                 block = block.childNodes;
                 console.log(value);
                 console.log("len : ", block.length, block);
