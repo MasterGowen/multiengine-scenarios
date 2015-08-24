@@ -331,10 +331,12 @@ function SetDragAttr(value){
                         block.appendChild(div);
                     }
                         value.removeChild(value.childNodes[0]);
+                   console.log("value.childNodes.length: ", value.childNodes.length);
                 }
+
                 block = block.childNodes;
                 console.log(value);
-                console.log("len : ",block.length, block);
+                console.log("len : ", block.length, block);
                 for(var i = 0; i < block.length; i++){
                     value.appendChild(block[i]);
                 }
