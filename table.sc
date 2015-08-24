@@ -639,8 +639,8 @@ function getAllAnswers(){
         allAnswersDiv.appendChild(value);
     });
 
-    if(elementDOM.querySelector('#view')!=null){
-        elementDOM.querySelector('#view').remove();
+    if(elementDOM.querySelector('#view').querySelector('#allAnswersStudent')!=null){
+        elementDOM.querySelector('#view').querySelector('#allAnswersStudent').remove();
     }
 
     elementDOM.querySelector('#view').appendChild(allAnswersDiv);
