@@ -327,6 +327,7 @@ function SetDragAttr(value){
                 for (var i=0; i < len; i++ ){
                     console.log("Len: ",i , "/", len);
                     console.log("1", value.childNodes[i].nodeType);
+                    console.log("value.childNodes[i] ", value.childNodes[i]);
                     if (value.childNodes[i].nodeType == 3){
                         console.log("2");
                         var div = document.createElement('div');
