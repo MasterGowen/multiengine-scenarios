@@ -548,9 +548,9 @@ elementDOM.querySelector('#conraw').onclick = function(){
             */
             //console.log("firstColumnIsBlocked:" + firstColumnIsBlocked);
             //console.log("firstRowIsBlocked:" + firstRowIsBlocked);
-            console.log(elementDOM.querySelector('#view').querySelector('#allAnswersStudent'));
-            if(elementDOM.querySelector('#view').querySelector('#allAnswersStudent')!=null){
-                elementDOM.querySelector('#view').querySelector('#allAnswersStudent').remove();
+            console.log(document.querySelector('#view').querySelector('#allAnswersStudent'));
+            if(document.querySelector('#view').querySelector('#allAnswersStudent')!=null){
+                document.querySelector('#view').querySelector('#allAnswersStudent').remove();
                 console.log("delete allAnswersStudent");
             }   
             console.log('old table');
@@ -645,9 +645,9 @@ function getAllAnswers(){
         allAnswersDiv.appendChild(value);
     });
 
-    if(elementDOM.querySelector('#view').querySelector('#allAnswersStudent')!=null){
+    /*if(elementDOM.querySelector('#view').querySelector('#allAnswersStudent')!=null){
         elementDOM.querySelector('#view').querySelector('#allAnswersStudent').remove();
-    }
+    }*/
 
     elementDOM.querySelector('#view').appendChild(allAnswersDiv);
     //перемешивание
