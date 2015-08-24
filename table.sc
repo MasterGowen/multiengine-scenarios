@@ -584,7 +584,7 @@ for(var i =0; i < editableElements.length; i++) {
         }
     editableElements[i].onblur = function(e){
         this.removeAttribute('contenteditable');
-        (this.querySelectorAll('.deleteItemButton').length==0){
+        if(this.querySelectorAll('.deleteItemButton').length==0){
             var deleteButton = document.createElement('img');
             deleteButton.classList.add("deleteItemButton");
             this.appendChild(deleteButton);
