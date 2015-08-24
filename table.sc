@@ -202,7 +202,7 @@ css::
 javascriptStudent::
 
 function drag(){
-    $('tbody<#dragAnswersStudent, .answerPlaceStudent .cell, .answerPlaceStudent').sortable({
+    $('#dragAnswersStudent, .answerPlaceStudent .cell, .answerPlaceStudent').sortable({
         items: ".dragAnswer",
         connectWith: '.answerPlaceStudent .cell, .answerPlaceStudent',
         revert: '100',
