@@ -575,7 +575,7 @@ elementDOM.querySelector('#conraw').onclick = function(){
 
 function editAnswers(){
 
-var editableElements = document.querySelector(".answerPlace").querySelectorAll(".dragAnswer, .fixAnswer");
+var editableElements = document.querySelector(".answerPlace").querySelectorAll(".dragAnswer, .fixAnswer, .test");
 
 for(var i =0; i < editableElements.length; i++) { 
     editableElements[i].ondblclick = function(e){
