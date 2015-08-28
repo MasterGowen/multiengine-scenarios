@@ -217,7 +217,7 @@ drag();
 generateStudentAnswer();
 
 function generateStudentAnswer(){
-  var studentTable = document.querySelector('#dragAnswersStudent');
+  var studentTable = elementDOM.querySelector('#dragAnswersStudent');
   var studentAnswer = {};
 
     forEachInCollection(childList(studentTable.getElementsByTagName('tbody')[0]), function(value){
