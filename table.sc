@@ -236,6 +236,7 @@ function generateStudentAnswer(){
         });
     });
   studentAnswer = generationAnswerJSON(studentAnswer);
+  console.log(JSON.parse(studentAnswer));
   $(elementDOM).find('[name=answer]')[0].value = studentAnswer;
   //elementDOM.getElementsByName("answer")[0].value = studentAnswer;
   //elementDOM.getElementsByName("answer")[0].val = studentAnswer;
