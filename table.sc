@@ -248,7 +248,7 @@ elementDOM.querySelector('#viewSettings').onclick = function(){elementDOM.getEle
 
 function scenarioSave(){
     generateCorrectAnswer(documentTable);
-    documentTable.getElementsByTagName('table')[0].classList.add("drag-table");
+    //documentTable.getElementsByTagName('table')[0].classList.add("drag-table");
     getAllAnswers();
 }
 
@@ -659,6 +659,7 @@ function getAllAnswers(){
     }
     elementDOM.querySelector("#view").getElementsByTagName("table")[0].id = "dragAnswersStudent";
     elementDOM.querySelector("#view").getElementsByTagName("table")[0].setAttribute('class', 'answerPlaceStudent');
+    elementDOM.querySelector("#view").getElementsByTagName("table")[0].setAttribute('class', 'drag-table');
     documentTable.innerHTML = elementDOM.querySelector("#view").getElementsByTagName("table")[0].outerHTML;
     var allDeleteButtons = document.querySelector("#view").querySelectorAll(".deleteItemButton");
     for(var i =0; i < allDeleteButtons.length; i++) { 
