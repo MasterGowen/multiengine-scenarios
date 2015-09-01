@@ -529,7 +529,7 @@ elementDOM.querySelector('#conraw').onclick = function(){
             correctAnswer = correctAnswer["answer"];
             documentTable =  document.createElement('div');// d('lolo').body;
             documentTable.innerHTML = editor.getValue();
-            documentTable.querySelector("#dragAnswersStudent").id = "dragAnswers";
+            documentTable.getElementsByTagName("table")[0].id = "dragAnswers";
             documentTable.querySelector("#dragAnswers").setAttribute("class", "answerPlace");
 
             for (key in correctAnswer) {
@@ -660,7 +660,7 @@ function getAllAnswers(){
     for (var i = allAnswersDiv.children.length; i >= 0; i--) {
         allAnswersDiv.appendChild(allAnswersDiv.children[Math.random() * i | 0]);
     }
-    elementDOM.querySelector("#view").getElementsByTagName("table")[0].id = "dragAnswersStudent";
+    //elementDOM.querySelector("#view").getElementsByTagName("table")[0].id = "dragAnswersStudent";
     elementDOM.querySelector("#view").getElementsByTagName("table")[0].setAttribute('class', 'answerPlaceStudent drag-table');
    // elementDOM.querySelector("#view").getElementsByTagName("table")[0].setAttribute('class', 'drag-table');
     documentTable.innerHTML = elementDOM.querySelector("#view").getElementsByTagName("table")[0].outerHTML;
