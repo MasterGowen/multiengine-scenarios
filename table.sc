@@ -200,7 +200,7 @@ css::
 }
 
 javascriptStudent::
-    document.getElementById('content').addEventListener('click', function(){console.log(element)});
+function javascriptStudent(element) {
 function drag(){
     $('.drag-table, .answerPlaceStudent .cell, .answerPlaceStudent').sortable({
         items: ".dragAnswer",
@@ -242,7 +242,7 @@ function generateStudentAnswer(){
   //element.getElementsByName("answer")[0].val = studentAnswer;
 }
 
-
+};
 javascriptStudio::
 /**
 * JavaScript работаюший со сторновы студии
