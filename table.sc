@@ -217,8 +217,8 @@ drag();
 generateStudentAnswer();
 
 function generateStudentAnswer(){
-     // console.log(elementDOM);
-  var studentTable = elementDOM.querySelectorAll('.drag-table')[0];
+     // console.log(element);
+  var studentTable = element.querySelectorAll('.drag-table')[0];
 
   console.log(studentTable);
   var studentAnswer = {};
@@ -237,9 +237,9 @@ function generateStudentAnswer(){
     });
   studentAnswer = generationAnswerJSON(studentAnswer);
   console.log(JSON.parse(studentAnswer));
-  $(elementDOM).find('[name=answer]')[0].value = studentAnswer;
-  //elementDOM.getElementsByName("answer")[0].value = studentAnswer;
-  //elementDOM.getElementsByName("answer")[0].val = studentAnswer;
+  $(element).find('[name=answer]')[0].value = studentAnswer;
+  //element.getElementsByName("answer")[0].value = studentAnswer;
+  //element.getElementsByName("answer")[0].val = studentAnswer;
 }
 
 
@@ -249,7 +249,7 @@ javascriptStudio::
 */
 
 // Показывает все скрытые поля отноящиеся к XBlock'у в целом.
-elementDOM.querySelector('#viewSettings').onclick = function(){elementDOM.getElementsByClassName('step-one')[0].style.display = 'block';}
+element.querySelector('#viewSettings').onclick = function(){element.getElementsByClassName('step-one')[0].style.display = 'block';}
 
 function scenarioSave(){
     generateCorrectAnswer(documentTable);
@@ -434,11 +434,11 @@ function drag(){
 
 function updateTable() { 
     //TODO: разобраться как это делать
-    documentTable.innerHTML = elementDOM.querySelector("#view").getElementsByTagName("table")[0].outerHTML;
+    documentTable.innerHTML = element.querySelector("#view").getElementsByTagName("table")[0].outerHTML;
 }
 
 /*добавлялка перетаскивающихся штучек*/
-elementDOM.querySelector("#view").onclick = function(event){
+element.querySelector("#view").onclick = function(event){
    var target = event.target; 
         if (target.tagName != 'TD') return; 
         var div = document.createElement('div');
@@ -455,14 +455,14 @@ elementDOM.querySelector("#view").onclick = function(event){
        // deleteButton.src = "http://openedu.urfu.ru/c4x/edX/DemoX/asset/Close-2-icon.png";
         div.appendChild(deleteButton);
         target.appendChild(div);
-    documentTable.innerHTML = elementDOM.querySelector("#view").getElementsByTagName("table")[0].outerHTML;
+    documentTable.innerHTML = element.querySelector("#view").getElementsByTagName("table")[0].outerHTML;
     editAnswers();
 };
 
 
 /* добавление строки к таблице*/
-elementDOM.querySelector("#addRow").onclick = function(){
-    documentTable.innerHTML = elementDOM.querySelector("#view").getElementsByTagName("table")[0].outerHTML;
+element.querySelector("#addRow").onclick = function(){
+    documentTable.innerHTML = element.querySelector("#view").getElementsByTagName("table")[0].outerHTML;
     var newRow = document.createElement('tr');
     forEachInCollection(childList(documentTable.getElementsByTagName('tr')[0]), function(value){
             var newCell = document.createElement('td');
@@ -484,8 +484,8 @@ elementDOM.querySelector("#addRow").onclick = function(){
 
 
 /*добавление столбца к таблице*/
-elementDOM.querySelector("#addColumn").onclick = function(){
-    documentTable.innerHTML = elementDOM.querySelector("#view").getElementsByTagName("table")[0].outerHTML;
+element.querySelector("#addColumn").onclick = function(){
+    documentTable.innerHTML = element.querySelector("#view").getElementsByTagName("table")[0].outerHTML;
     
     forEachInCollection(documentTable.getElementsByTagName('tr'), function(value){
         
@@ -504,15 +504,15 @@ elementDOM.querySelector("#addColumn").onclick = function(){
 };
 
 
-elementDOM.querySelector('#conraw').onclick = function(){
+element.querySelector('#conraw').onclick = function(){
 
-    if (elementDOM.querySelector('#scButtonView').getAttribute('scmenuactive') == "false") {
+    if (element.querySelector('#scButtonView').getAttribute('scmenuactive') == "false") {
         
-        if(elementDOM.querySelector('#raw').value == '' && document.getElementsByName("student_view_template")[0].value == ""){
+        if(element.querySelector('#raw').value == '' && document.getElementsByName("student_view_template")[0].value == ""){
             console.log("New table created");
             documentTable = makeStartTable();
         }
-        if(elementDOM.querySelector('#raw').value != ''){
+        if(element.querySelector('#raw').value != ''){
             console.log('Table from "raw" ');
             documentTable =  getValueFild('raw').body;
             SetDragAttr(documentTable);
@@ -524,9 +524,9 @@ elementDOM.querySelector('#conraw').onclick = function(){
             }
         }
 
-        if(document.getElementsByName("student_view_template")[0].value != "" && elementDOM.querySelector('#raw').value == ''){
+        if(document.getElementsByName("student_view_template")[0].value != "" && element.querySelector('#raw').value == ''){
 
-            var correctAnswer = elementDOM.querySelector('#correct_answer').value;
+            var correctAnswer = element.querySelector('#correct_answer').value;
             correctAnswer = JSON.parse(correctAnswer);
             correctAnswer = correctAnswer["answer"];
             documentTable =  document.createElement('div');// d('lolo').body;
@@ -571,10 +571,10 @@ elementDOM.querySelector('#conraw').onclick = function(){
 
     }
 
-    if (elementDOM.querySelector('#scButtonView').getAttribute('scmenuactive') == "true") {
+    if (element.querySelector('#scButtonView').getAttribute('scmenuactive') == "true") {
     
     var tst = getValueFild('view').body;
-    elementDOM.querySelector('#raw').value = tst.innerHTML;
+    element.querySelector('#raw').value = tst.innerHTML;
     }
 };
 
@@ -605,7 +605,7 @@ for(var i =0; i < allItems.length; i++) {
 }
 
 //фиксация строки
-elementDOM.querySelector('#fixLine').onclick = function(){
+element.querySelector('#fixLine').onclick = function(){
     fixLine(documentTable);
     setBlockHtml('view', documentTable.innerHTML);
     editor.setValue(documentTable.innerHTML);
@@ -614,7 +614,7 @@ elementDOM.querySelector('#fixLine').onclick = function(){
 };
 
 //фиксация столбца 
-elementDOM.querySelector('#fixColumn').onclick = function(){
+element.querySelector('#fixColumn').onclick = function(){
     fixColumn(documentTable);
     setBlockHtml('view', documentTable.innerHTML);
     editor.setValue(documentTable.innerHTML);
@@ -639,14 +639,14 @@ function generateCorrectAnswer(value){
     });
   //value.classList.add("table-table");
   correctAnswer = generationAnswerJSON(correctAnswer);
-  elementDOM.querySelector('#correct_answer').setAttribute('value', correctAnswer);
-  var studentView = elementDOM.querySelector("#view");
+  element.querySelector('#correct_answer').setAttribute('value', correctAnswer);
+  var studentView = element.querySelector("#view");
   editor.setValue(studentView.innerHTML);
 }
 
 /*перенос всех ответов в отдельное поле*/
 function getAllAnswers(){
-    var allAnswersList = elementDOM.querySelector('#view').querySelectorAll('.dragAnswer');
+    var allAnswersList = element.querySelector('#view').querySelectorAll('.dragAnswer');
     var allAnswersDiv = document.createElement('div');
     allAnswersDiv.id = "allAnswersStudent";
     allAnswersDiv.classList.add("answerPlaceStudent");
@@ -654,36 +654,36 @@ function getAllAnswers(){
         allAnswersDiv.appendChild(value);
     });
 
-   /* if(elementDOM.querySelector('#view').querySelector('#allAnswersStudent')!=null){
-        elementDOM.querySelector('#view').querySelector('#allAnswersStudent').remove();
+   /* if(element.querySelector('#view').querySelector('#allAnswersStudent')!=null){
+        element.querySelector('#view').querySelector('#allAnswersStudent').remove();
     }*/
-    elementDOM.querySelector('#view').appendChild(allAnswersDiv);
+    element.querySelector('#view').appendChild(allAnswersDiv);
     //перемешивание
     for (var i = allAnswersDiv.children.length; i >= 0; i--) {
         allAnswersDiv.appendChild(allAnswersDiv.children[Math.random() * i | 0]);
     }
-    elementDOM.querySelector("#view").getElementsByTagName("table")[0].removeAttribute("id");
-    elementDOM.querySelector("#view").getElementsByTagName("table")[0].setAttribute('class', 'answerPlaceStudent drag-table');
-   // elementDOM.querySelector("#view").getElementsByTagName("table")[0].setAttribute('class', 'drag-table');
-    documentTable.innerHTML = elementDOM.querySelector("#view").getElementsByTagName("table")[0].outerHTML;
+    element.querySelector("#view").getElementsByTagName("table")[0].removeAttribute("id");
+    element.querySelector("#view").getElementsByTagName("table")[0].setAttribute('class', 'answerPlaceStudent drag-table');
+   // element.querySelector("#view").getElementsByTagName("table")[0].setAttribute('class', 'drag-table');
+    documentTable.innerHTML = element.querySelector("#view").getElementsByTagName("table")[0].outerHTML;
     var allDeleteButtons = document.querySelector("#view").querySelectorAll(".deleteItemButton");
     for(var i =0; i < allDeleteButtons.length; i++) { 
         allDeleteButtons[i].remove();
     }
-    var studentView = elementDOM.querySelector("#view");
+    var studentView = element.querySelector("#view");
     editor.setValue(studentView.innerHTML);
 
 }
 
-elementDOM.querySelector('#scButtonView').onclick = function(){
-    elementDOM.querySelector('#scButtonRaw').setAttribute('scMenuActive', 'false');
-    elementDOM.querySelector('#scButtonView').setAttribute('scMenuActive', 'true');
-    elementDOM.querySelector('#scWindowRaw').setAttribute('hidden', 'true'); 
-    elementDOM.querySelector('#scWindowView').removeAttribute('hidden');
+element.querySelector('#scButtonView').onclick = function(){
+    element.querySelector('#scButtonRaw').setAttribute('scMenuActive', 'false');
+    element.querySelector('#scButtonView').setAttribute('scMenuActive', 'true');
+    element.querySelector('#scWindowRaw').setAttribute('hidden', 'true'); 
+    element.querySelector('#scWindowView').removeAttribute('hidden');
 };
-elementDOM.querySelector('#scButtonRaw').onclick = function(){
-    elementDOM.querySelector('#scButtonRaw').setAttribute('scMenuActive', 'true');
-    elementDOM.querySelector('#scButtonView').setAttribute('scMenuActive', 'false');
-    elementDOM.querySelector('#scWindowRaw').removeAttribute('hidden');
-    elementDOM.querySelector('#scWindowView').setAttribute('hidden', 'true');
+element.querySelector('#scButtonRaw').onclick = function(){
+    element.querySelector('#scButtonRaw').setAttribute('scMenuActive', 'true');
+    element.querySelector('#scButtonView').setAttribute('scMenuActive', 'false');
+    element.querySelector('#scWindowRaw').removeAttribute('hidden');
+    element.querySelector('#scWindowView').setAttribute('hidden', 'true');
 };
