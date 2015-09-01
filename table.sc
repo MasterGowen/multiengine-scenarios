@@ -658,8 +658,8 @@ function getAllAnswers(){
         allAnswersDiv.appendChild(allAnswersDiv.children[Math.random() * i | 0]);
     }
     elementDOM.querySelector("#view").getElementsByTagName("table")[0].id = "dragAnswersStudent";
-    elementDOM.querySelector("#view").getElementsByTagName("table")[0].setAttribute('class', 'answerPlaceStudent');
-    elementDOM.querySelector("#view").getElementsByTagName("table")[0].setAttribute('class', 'drag-table');
+    elementDOM.querySelector("#view").getElementsByTagName("table")[0].setAttribute('class', 'answerPlaceStudent drag-table');
+   // elementDOM.querySelector("#view").getElementsByTagName("table")[0].setAttribute('class', 'drag-table');
     documentTable.innerHTML = elementDOM.querySelector("#view").getElementsByTagName("table")[0].outerHTML;
     var allDeleteButtons = document.querySelector("#view").querySelectorAll(".deleteItemButton");
     for(var i =0; i < allDeleteButtons.length; i++) { 
