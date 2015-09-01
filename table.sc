@@ -219,10 +219,10 @@ drag();
 generateStudentAnswer();
 
 function generateStudentAnswer(){
-    console.log(element);
+    console.log('Private element:     'element);
   var studentTable = element.querySelectorAll('.drag-table')[0];
 
-    console.log(studentTable);
+    //console.log(studentTable);
   var studentAnswer = {};
 
     forEachInCollection(childList(studentTable.getElementsByTagName('tbody')[0]), function(value){
