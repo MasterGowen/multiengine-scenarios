@@ -200,7 +200,7 @@ css::
 }
 
 javascriptStudent::
-
+    document.getElementById('content').addEventListener('click', function(){console.log(element)});
 function drag(){
     $('.drag-table, .answerPlaceStudent .cell, .answerPlaceStudent').sortable({
         items: ".dragAnswer",
