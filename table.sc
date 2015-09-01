@@ -236,8 +236,9 @@ function generateStudentAnswer(){
         });
     });
   studentAnswer = generationAnswerJSON(studentAnswer);
-  elementDOM.getElementsByName("answer")[0].value = studentAnswer;
-  elementDOM.getElementsByName("answer")[0].val = studentAnswer;
+  $(elementDOM).find('[name=answer]')[0].value = studentAnswer;
+  //elementDOM.getElementsByName("answer")[0].value = studentAnswer;
+  //elementDOM.getElementsByName("answer")[0].val = studentAnswer;
 }
 
 
