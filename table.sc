@@ -631,6 +631,7 @@ function generateCorrectAnswer(value){
             }
         });
     });
+  value.classList.add("table-table");
   correctAnswer = generationAnswerJSON(correctAnswer);
   elementDOM.querySelector('#correct_answer').setAttribute('value', correctAnswer);
   var studentView = elementDOM.querySelector("#view");
