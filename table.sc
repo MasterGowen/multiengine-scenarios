@@ -201,6 +201,8 @@ css::
 
 javascriptStudent::
 
+var element = elementParent;
+
 function drag(){
     $('.drag-table, .answerPlaceStudent .cell, .answerPlaceStudent').sortable({
         items: ".dragAnswer",
