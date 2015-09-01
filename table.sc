@@ -236,8 +236,8 @@ function generateStudentAnswer(){
         });
     });
   studentAnswer = generationAnswerJSON(studentAnswer);
-  document.getElementsByName("answer")[0].value = studentAnswer;
-  document.getElementsByName("answer")[0].val = studentAnswer;
+  elementDOM.getElementsByName("answer")[0].value = studentAnswer;
+  elementDOM.getElementsByName("answer")[0].val = studentAnswer;
 }
 
 
