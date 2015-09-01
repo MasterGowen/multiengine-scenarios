@@ -248,6 +248,7 @@ elementDOM.querySelector('#viewSettings').onclick = function(){elementDOM.getEle
 
 function scenarioSave(){
     generateCorrectAnswer(documentTable);
+    documentTable.getElementsByTagName('table')[0].classList.add("drag-table");
     getAllAnswers();
 }
 
@@ -631,7 +632,7 @@ function generateCorrectAnswer(value){
             }
         });
     });
-  value.classList.add("table-table");
+  //value.classList.add("table-table");
   correctAnswer = generationAnswerJSON(correctAnswer);
   elementDOM.querySelector('#correct_answer').setAttribute('value', correctAnswer);
   var studentView = elementDOM.querySelector("#view");
