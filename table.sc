@@ -219,7 +219,7 @@ drag();
 generateStudentAnswer();
 
 function generateStudentAnswer(){
-    console.log('Private element:     '+element.toString());
+    console.log('Private element:     '+element[0]]);
   var studentTable = element.querySelectorAll('.drag-table')[0];
 
     //console.log(studentTable);
