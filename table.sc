@@ -217,7 +217,7 @@ drag();
 generateStudentAnswer();
 
 function generateStudentAnswer(){
-     // console.log(element);
+      console.log(element);
   var studentTable = element.querySelectorAll('.drag-table')[0];
 
   console.log(studentTable);
