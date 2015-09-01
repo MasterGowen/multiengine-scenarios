@@ -202,7 +202,7 @@ css::
 javascriptStudent::
 
 function drag(){
-    $('#dragAnswersStudent, .answerPlaceStudent .cell, .answerPlaceStudent').sortable({
+    $('.drag-table, .answerPlaceStudent .cell, .answerPlaceStudent').sortable({
         items: ".dragAnswer",
         connectWith: '.answerPlaceStudent .cell, .answerPlaceStudent',
         revert: '100',
@@ -217,7 +217,7 @@ drag();
 generateStudentAnswer();
 
 function generateStudentAnswer(){
-      console.log(elementDOM);
+     // console.log(elementDOM);
   var studentTable = elementDOM.querySelectorAll('.drag-table')[0];
 
   console.log(studentTable);
