@@ -23,6 +23,7 @@ html::
         <div class="scEditButtonView" id="fixColumn">Фиксировать столбец</div>
         <div class="scEditButtonView" id="addRow">+ Добавить строку</div>
         <div class="scEditButtonView" id="addColumn">+ Добавить столбец</div>
+        <div class="scEditButtonView" id="drop_item">УДАЛИТЬ</div>
         <div id="view"> </div>
     </div>
 
@@ -491,6 +492,16 @@ function drag(){
     editor.setValue(documentTable.innerHTML);
 }
 
+function drop(){
+    $('#drop_item').droppable( {
+    drop: handleDropEvent
+  } );
+}
+
+function handleDropEvent( event, ui ) {
+  var draggable = ui.draggable;
+  alert( 'The square with ID "' + draggable.attr('id') + '" was dropped onto me!' );
+}
 
 function updateTable() { 
     //TODO: разобраться как это делать
