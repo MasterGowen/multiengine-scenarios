@@ -200,7 +200,7 @@ css::
 }
 
 javascriptStudent::
-document.getElementById("content").addEventListener("click", function(){console.log(element)});
+
    function forEachInCollection(collection, action) {
         collection = collection || {};
         for (var i = 0; i < collection.length; i++)
