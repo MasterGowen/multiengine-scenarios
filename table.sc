@@ -499,8 +499,8 @@ function drop(){
 }
 
 function handleDropEvent( event, ui ) {
-  var draggable = ui.draggable;
-  alert( 'The square with ID "' + draggable.attr('id') + '" was dropped onto me!' );
+  //var draggable = ui.draggable;
+  alert( 'The square with ID was dropped onto me!' );
 }
 
 function updateTable() { 
