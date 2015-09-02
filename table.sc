@@ -267,16 +267,17 @@ function drag(){
         connectWith: '.answerPlaceStudent .cell, .answerPlaceStudent',
         revert: '100',
         tolerance: "pointer",
-        stop: generateStudentAnswer(element)
+        //stop: generateStudentAnswer
     }).disableSelection();
 }
 drag();
 
 //вызывается для того, чтобы полю 'answer' присвоился json (backend требует ключи для поверки)
 //если жмем "Сохранить" впервые (без перетаскиваний), то json будет присвоен (только ключи)
+
 generateStudentAnswer();
 
-function generateStudentAnswer(element){
+function generateStudentAnswer(){
     //console.log(element);
   var studentTable = element.getElementsByTagName('table')[0];
 
@@ -302,6 +303,9 @@ function generateStudentAnswer(element){
   //element.getElementsByName("answer")[0].val = studentAnswer;
 
 }
+
+document.getElemetmById('content').addEventListener('click', generateStudentAnswer());
+
 
 
 javascriptStudio::
