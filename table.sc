@@ -277,7 +277,7 @@ drag();
 generateStudentAnswer();
 
 function generateStudentAnswer(){
-    console.log(element);
+    //console.log(element);
   var studentTable = element.querySelectorAll('.drag-table')[0];
 
     //console.log(studentTable);
@@ -296,10 +296,11 @@ function generateStudentAnswer(){
         });
     });
   studentAnswer = generationAnswerJSON(studentAnswer);
-  //console.log(studentAnswer);
-  $(element).find('[name=answer]')[0].value = studentAnswer;
-  //element.getElementsByName("answer")[0].value = studentAnswer;
+  console.log(studentAnswer);
+  //$(element).find('[name=answer]')[0].value = studentAnswer;
+  element.getElementsByName("answer")[0].value = studentAnswer;
   //element.getElementsByName("answer")[0].val = studentAnswer;
+
 }
 
 
