@@ -492,17 +492,6 @@ function drag(){
     editor.setValue(documentTable.innerHTML);
 }
 
-function drop(){
-    $('#drop_item').droppable( {
-    drop: handleDropEvent
-  } );
-}
-
-function handleDropEvent( event, ui ) {
-  //var draggable = ui.draggable;
-  alert( 'The square with ID was dropped onto me!' );
-}
-
 function updateTable() { 
     //TODO: разобраться как это делать
     documentTable.innerHTML = elementDOM.querySelector("#view").getElementsByTagName("table")[0].outerHTML;
