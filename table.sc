@@ -298,7 +298,7 @@ function generateStudentAnswer(){
   studentAnswer = generationAnswerJSON(studentAnswer);
   console.log(studentAnswer);
   //$(element).find('[name=answer]')[0].value = studentAnswer;
-  element.getElementsByName("answer")[0].value = studentAnswer;
+  element.querySelector("[name='answer']").value = studentAnswer;
   //element.getElementsByName("answer")[0].val = studentAnswer;
 
 }
