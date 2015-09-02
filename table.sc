@@ -267,7 +267,7 @@ function drag(){
         connectWith: '.answerPlaceStudent .cell, .answerPlaceStudent',
         revert: '100',
         tolerance: "pointer",
-        stop: generateStudentAnswer
+        stop: generateStudentAnswer(element)
     }).disableSelection();
 }
 drag();
@@ -276,7 +276,7 @@ drag();
 //если жмем "Сохранить" впервые (без перетаскиваний), то json будет присвоен (только ключи)
 generateStudentAnswer();
 
-function generateStudentAnswer(){
+function generateStudentAnswer(element){
     //console.log(element);
   var studentTable = element.getElementsByTagName('table')[0];
 
