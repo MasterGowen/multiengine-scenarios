@@ -23,7 +23,6 @@ html::
         <div class="scEditButtonView" id="fixColumn">Фиксировать столбец</div>
         <div class="scEditButtonView" id="addRow">+ Добавить строку</div>
         <div class="scEditButtonView" id="addColumn">+ Добавить столбец</div>
-        <div class="scEditButtonView" id="drop_item">УДАЛИТЬ</div>
         <div id="view"> </div>
     </div>
 
