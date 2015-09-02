@@ -304,7 +304,7 @@ function generateStudentAnswer(){
 
 }
 
-document.getElemetmById('content').addEventListener('click', generateStudentAnswer());
+document.getElementById('content').addEventListener('click', generateStudentAnswer());
 
 
 
