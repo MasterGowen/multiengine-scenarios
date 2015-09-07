@@ -215,10 +215,7 @@ drag();
 //вызывается для того, чтобы полю 'answer' присвоился json (backend требует ключи для поверки)
 //если жмем "Сохранить" впервые (без перетаскиваний), то json будет присвоен (только ключи)
 
-generateStudentAnswer();
-
-function generateStudentAnswer(){
-    //console.log(element);
+mengine.genAnswerObj = (function (){
   var studentTable = element.getElementsByTagName('table')[0];
 
    console.log(studentTable);
@@ -237,18 +234,15 @@ function generateStudentAnswer(){
         });
     });
   mengine.studentStateJSON = studentAnswer;
-  studentAnswer = generationAnswerJSON(studentAnswer);
+ /* studentAnswer = generationAnswerJSON(studentAnswer);
   console.log(studentAnswer);
   //$(element).find('[name=answer]')[0].value = studentAnswer;
-  element.querySelector("[name='answer']").value = studentAnswer;
+  element.querySelector("[name='answer']").value = studentAnswer;*/
   //element.getElementsByName("answer")[0].val = studentAnswer;
 
   return studentAnswer
 
-}
-
-document.getElementById('content').addEventListener('click', generateStudentAnswer);
-
+});
 
 
 javascriptStudio::
