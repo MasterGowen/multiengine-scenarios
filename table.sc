@@ -548,6 +548,7 @@ elementDOM.querySelector('#conraw').onclick = function(){
                 }
             }
             var allItems = documentTable.querySelectorAll(".dragAnswer, .fixAnswer");
+            allItems.length;
                for(var i = 0; i < allItems.length; i++ ){
                 var deleteButton = document.createElement('img');
                 deleteButton.classList.add("deleteItemButton");
