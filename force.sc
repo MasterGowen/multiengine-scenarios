@@ -164,10 +164,6 @@ javascriptStudent::
 console.log("student");
 
 javascriptStudio::
-elementDOM.querySelector('#viewSettings').onclick = function(){elementDOM.getElementsByClassName('step-one')[0].style.display = 'block';}
-
-function CONRaw(){setBlockHtml('view', getValueFild('raw').body.innerHTML)};
-elementDOM.querySelector('#conraw').onclick = CONRaw;
 elementDOM.querySelector('#scButtonView').onclick = function(){
     elementDOM.querySelector('#scButtonRaw').setAttribute('scMenuActive', 'false');
     elementDOM.querySelector('#scButtonView').setAttribute('scMenuActive', 'true');
@@ -180,10 +176,3 @@ elementDOM.querySelector('#scButtonRaw').onclick = function(){
     elementDOM.querySelector('#scWindowRaw').removeAttribute('hidden');
     elementDOM.querySelector('#scWindowView').setAttribute('hidden', 'true');
 };
-
-function scSave(){
-console.log(getValueFild('view').body.innerHTML)
-    editor.setValue(getValueFild('view').body.innerHTML);
-}
-
-elementDOM.querySelector('#scSave').onclick = scSave;
