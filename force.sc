@@ -104,9 +104,9 @@ css::
 
 
 javascriptStudent::
-mengine.x = 'текст';
+mengine.xq = 'текст';
 mengine.console = function(){console.log(x)};
-console.log(mengine)
+mengine.console()
 
 javascriptStudio::
 elementDOM.querySelector('#scButtonView').onclick = function(){
