@@ -543,12 +543,12 @@ elementDOM.querySelector('#conraw').onclick = function(){
 
             for (key in correctAnswer) {
                 for (i=0; i < correctAnswer[key].length;i++){
-                    console.log(documentTable.querySelector("#" + correctAnswer[key][i]));
+                    //console.log(documentTable.querySelector("#" + correctAnswer[key][i]));
                     documentTable.querySelector("#" + key).appendChild(documentTable.querySelector("#" + correctAnswer[key][i]));
                 }
             }
             var allItems = documentTable.querySelectorAll(".dragAnswer, .fixAnswer");
-            console.log("lol");
+            //console.log("lol");
                for(var i = 0; i < allItems.length; i++ ){
                 var deleteButton = document.createElement('img');
                 deleteButton.classList.add("deleteItemButton");
