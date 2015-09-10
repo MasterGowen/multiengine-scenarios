@@ -304,6 +304,7 @@ function SetDragAttr(value){
             value.id = generationID();
             
             console.log(value);
+
             if (value.childNodes[0].textContent.trim().length==0){
                 value.removeChild(value.childNodes[0]);
             }
@@ -516,6 +517,9 @@ elementDOM.querySelector('#conraw').onclick = function(){
         }
         if(elementDOM.querySelector('#raw').value != ''){
             console.log('Table from "raw" ');
+
+
+
             documentTable =  getValueFild('raw').body;
             SetDragAttr(documentTable);
             var allItems = documentTable.querySelectorAll(".dragAnswer, .fixAnswer");
@@ -526,6 +530,7 @@ elementDOM.querySelector('#conraw').onclick = function(){
             }
         }
 
+        //load old table
         if(document.getElementsByName("student_view_template")[0].value != "" && elementDOM.querySelector('#raw').value == ''){
 
             var correctAnswer = elementDOM.querySelector('#correct_answer').value;
@@ -547,20 +552,8 @@ elementDOM.querySelector('#conraw').onclick = function(){
                 deleteButton.classList.add("deleteItemButton");
                 allItems[i].appendChild(deleteButton);
             }
+            documentTable.querySelector("#allAnswers").remove();
 
-            documentTable.querySelector("#allAnswersStudent").remove();
-            //setBlockHtml('view', documentTable.innerHTML);
-            /*
-            if(documentTable.querySelector("#dragAnswers").querySelector('tr').lastChild.classList.contains("first")){
-                firstRowIsBlocked = true;
-            }
-
-            if(documentTable.querySelector("#dragAnswers").querySelectorAll('tr')[documentTable.querySelector("#dragAnswers").querySelectorAll('tr').length - 1].firstChild.classList.contains("first")){
-                firstColumnIsBlocked = true
-            }
-            */
-            //console.log("firstColumnIsBlocked:" + firstColumnIsBlocked);
-            //console.log("firstRowIsBlocked:" + firstRowIsBlocked);
             console.log('Load old table');
         }
 
@@ -650,7 +643,7 @@ function generateCorrectAnswer(value){
 function getAllAnswers(){
     var allAnswersList = elementDOM.querySelector('#view').querySelectorAll('.dragAnswer');
     var allAnswersDiv = document.createElement('div');
-    allAnswersDiv.id = "allAnswersStudent";
+    allAnswersDiv.id = "allAnswers";
     allAnswersDiv.classList.add("answerPlaceStudent");
     forEachInCollection(allAnswersList, function(value){ 
         allAnswersDiv.appendChild(value);
