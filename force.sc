@@ -104,7 +104,9 @@ css::
 
 
 javascriptStudent::
-console.log("student");
+mengine.x = 'текст';
+mengine.console = function(){console.log(this.x)};
+mengine.console;
 
 javascriptStudio::
 elementDOM.querySelector('#scButtonView').onclick = function(){
@@ -120,6 +122,3 @@ elementDOM.querySelector('#scButtonRaw').onclick = function(){
     elementDOM.querySelector('#scWindowView').setAttribute('hidden', 'true');
 };
 
-mengine.x = 'текст';
-mengine.console = function(){console.log(this.x)};
-mengine.console;
