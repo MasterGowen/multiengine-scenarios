@@ -105,7 +105,7 @@ css::
 
 javascriptStudent::
 mengine.xq = 'текст';
-mengine.console = function(){console.log(this.x)};
+mengine.console = function(){console.log(this.xq)};
 mengine.console()
 
 javascriptStudio::
