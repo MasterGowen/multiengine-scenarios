@@ -106,7 +106,7 @@ css::
 javascriptStudent::
 mengine.x = 'текст';
 mengine.console = function(){console.log(this.x)};
-mengine.console;
+mengine.console();
 
 javascriptStudio::
 elementDOM.querySelector('#scButtonView').onclick = function(){
