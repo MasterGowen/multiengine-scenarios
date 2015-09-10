@@ -28,7 +28,7 @@ html::
 
 cssStudent::
 
-#allAnswersStudent{
+#allAnswers{
     border: 1px solid rgb(176, 165, 222);
     min-height: 30px;
 }
