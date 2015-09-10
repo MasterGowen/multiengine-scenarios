@@ -119,3 +119,7 @@ elementDOM.querySelector('#scButtonRaw').onclick = function(){
     elementDOM.querySelector('#scWindowRaw').removeAttribute('hidden');
     elementDOM.querySelector('#scWindowView').setAttribute('hidden', 'true');
 };
+
+mengine.x = 'текст';
+mengine.console = function(){console.log(this.x)};
+mengine.console;
