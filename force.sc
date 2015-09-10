@@ -19,10 +19,49 @@ html::
 
 
 css::
+/*костыл*/
+[class*="view-"] .modal-lg.modal-editor .modal-content {
+  height: 609px;}
+[class*="view-"] .modal-window .editor-with-buttons.wrapper-comp-settings .list-input.settings-list {
+  height: 549px;
+}
+ /*конец*/ 
+ .step-one{display:none}
+
+ .scEditButtonView{
+    background: #FFD700 none repeat scroll 0% 0%;
+    text-align: center;
+    display: inline-block;
+    padding: 4px 12px;
+    margin: 11px 1px;
+    cursor: pointer;
+ }
+  .scEditButtonView:hover{
+ background: #FFB400;
+}
+
+.scEditButtonConv{
+    background: #FF4800 none repeat scroll 0% 0%;
+    text-align: center;
+    display: inline-block;
+    padding: 4px 12px;
+    margin: 11px 1px;
+    cursor: pointer;
+    color: #FFFFFF;
+ }
+
+.scEditButtonConv:hover{
+ background: #D53C00;
+}
+
+#allAnswers{
+    display: -webkit-box;
+}
+
 #scMenu{
-	margin: 10px auto;
+    margin: 10px auto;
     display: block;
-    width: 570px;
+    width: 620px;
 }
 
 #scMenu li {
@@ -32,13 +71,23 @@ css::
     width: 28%;
     text-align: center;
     margin: 0px;
+    cursor: pointer;
 }
+
+#scMenu li:hover {
+    border-color:gold;
+}
+
+#scMenu li[scMenuActive=true]:hover {
+    border-color:#e6e6e6;
+}
+
 #scMenu li[scMenuActive=true]{
     background:#e6e6e6;
 }
 
 #raw, #view{
-	border: 1px solid #e6e6e6;
+    border: 1px solid #e6e6e6;
     width: 100%;
     min-height: 300px;
 }
