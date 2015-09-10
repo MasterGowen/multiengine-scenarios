@@ -218,7 +218,7 @@ drag();
 mengine.genAnswerObj = (function (){
   var studentTable = element.getElementsByTagName('table')[0];
 
-   console.log(studentTable);
+ //  console.log(studentTable);
   var studentAnswer = {};
 
     forEachInCollection(childList(studentTable.getElementsByTagName('tbody')[0]), function(value){
@@ -543,7 +543,7 @@ elementDOM.querySelector('#conraw').onclick = function(){
 
             for (key in correctAnswer) {
                 for (i=0; i < correctAnswer[key].length;i++){
-                    console.log(documentTable.querySelector("#" + correctAnswer[key][i]));
+                  //  console.log(documentTable.querySelector("#" + correctAnswer[key][i]));
                     documentTable.querySelector("#" + key).appendChild(documentTable.querySelector("#" + correctAnswer[key][i]));
                 }
             }
