@@ -541,9 +541,11 @@ elementDOM.querySelector('#conraw').onclick = function(){
             documentTable.getElementsByTagName("table")[0].id = "dragAnswers";
             documentTable.querySelector("#dragAnswers").setAttribute("class", "answerPlace");
 
-            console.log(correctAnswer.length);
+
             for (key in correctAnswer) {
                 for (i=0; i < correctAnswer[key].length;i++){
+                    
+                    console.log(correctAnswer[key].length);
                    console.log(documentTable.querySelector("#" + key));
                     documentTable.querySelector("#" + key).appendChild(documentTable.querySelector("#" + correctAnswer[key][i]));
                 }
