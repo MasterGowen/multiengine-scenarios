@@ -158,8 +158,8 @@ scRadiusMenu.appendChild(scForce);
 
 
 
-g = elementSVG.createElement('g');
-console.log(svgMenu);
+
+
 
 
 elementDOM.querySelector('#conraw').onclick = function(){
