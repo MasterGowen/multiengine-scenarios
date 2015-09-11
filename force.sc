@@ -133,4 +133,12 @@ elementSVG = {
 };
 
 console.log(elementSVG.createElement('svg'));
-elementDOM.querySelector('#view').appendChild(elementSVG.createElement('svg'));
+
+
+
+elementDOM.querySelector('#conraw').onclick = function(){
+stringSVG = elementDOM.querySelector('#raw').value;
+parser = new DOMParser();
+doc = parser.parseFromString(stringSVG, "svg");
+elementDOM.querySelector('#view').appendChild(doc);
+}
