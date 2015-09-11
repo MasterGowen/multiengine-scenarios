@@ -139,7 +139,7 @@ console.log(elementSVG.createElement('svg'));
 elementDOM.querySelector('#conraw').onclick = function(){
 stringSVG = elementDOM.querySelector('#raw').value;
 parser = new DOMParser();
-doc = parser.parseFromString(stringSVG, "xml");
+doc = parser.parseFromString(stringSVG, "text/xml");
 console.log(doc);
 elementDOM.querySelector('#view').innerHTML = doc;
 }
