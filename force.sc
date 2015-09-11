@@ -108,6 +108,10 @@ var menuPosition = {x:0, y:0};
 var forcePosition = {x:0, y:0, angle:0, type: ""}
 var MenuAbovePointId;
 var stateMenu={visible:false, scRadiusMenuSector:true, scProtractor:false };
+
+
+
+
 function scStatusMenu(){
 	if (stateMenu.visible){
 		document.getElementsByClassName('scRadiusMenu')[0].style.display='block';
@@ -115,7 +119,17 @@ function scStatusMenu(){
 	else{
 		document.getElementsByClassName('scRadiusMenu')[0].style.display='none';
 	}
-	
+	if (stateMenu.scRadiusMenuSector){
+		document.getElementsByClassName('scRadiusMenuSector')[0].style.display='block';
+    	document.getElementsByClassName('scRadiusMenuSector')[1].style.display='block';
+    	document.getElementsByClassName('scRadiusMenuSector')[2].style.display='block';
+
+	}
+	else{
+		document.getElementsByClassName('scRadiusMenuSector')[0].style.display='none';
+    	document.getElementsByClassName('scRadiusMenuSector')[1].style.display='none';
+    	document.getElementsByClassName('scRadiusMenuSector')[2].style.display='none';
+	}
 	if(stateMenu.scProtractor){
 		document.getElementById('protractor').style.display='block'
 	}
@@ -127,6 +141,10 @@ document.getElementById('force').style.display='none';
 document.getElementById('moment').style.display='none';
 }
 scStatusMenu();
+
+
+
+//document.getElementById('moment').style.display='none';
 
 var pt   = document.getElementById("svg").createSVGPoint()
 
@@ -204,7 +222,7 @@ for (var i=0; i<document.getElementsByClassName('click').length; i++){
 
 	}
 }
-document.getElementById('`orce').onclick = function(){
+document.getElementById('scForce').onclick = function(){
 	forcePosition.type = "force";
 		console.log(forcePosition.type)
     if(document.getElementById('protractor').style.display!=='none'){
@@ -245,7 +263,6 @@ document.getElementById('scDelAllinPoint').onclick = function(){
 
 
 }
-
 
 
 javascriptStudio::
