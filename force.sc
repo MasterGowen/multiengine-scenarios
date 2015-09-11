@@ -132,7 +132,7 @@ elementSVG = {
     }
 };
 
-console.log(elementSVG.createElement('svg'));
+console.log(elementSVG.createElement('image/svg+xml'));
 
 
 
