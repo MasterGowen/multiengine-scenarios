@@ -169,13 +169,17 @@ moment.innerHTML = '<path fill="#FF691F" stroke="#724A22" stroke-miterlimit="10"
 protractor.appendChild(activeSpaceForce);
 protractor.appendChild(force);
 protractor.appendChild(moment);
+scButtonOpenClose = elementSVG.createElement('g', 'scButtonOpenClose', '')
+scButtonOpenClose.innerHTML = '<circle fill="#FFFFFF" stroke="#000000" stroke-width="2" stroke-miterlimit="10" cx="0" cy="0" r="10"/>';
+scButtonOpenClose.innerHTML += '<line fill="none" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-miterlimit="10" x1="5" y1="-5" x2="-5" y2="5"/>';
+scButtonOpenClose.innerHTML += '<line fill="none" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-miterlimit="10" x1="-5" y1="-5" x2="5" y2="5"/>';
 
 scRadiusMenu.appendChild(whiteRound);
 scRadiusMenu.appendChild(scDelAllinPoint);
 scRadiusMenu.appendChild(scMoment);
 scRadiusMenu.appendChild(scForce);
 scRadiusMenu.appendChild(protractor);
-
+scRadiusMenu.appendChild(scButtonOpenClose);
 
 
 
