@@ -141,5 +141,5 @@ stringSVG = elementDOM.querySelector('#raw').value;
 parser = new DOMParser();
 doc = parser.parseFromString(stringSVG, "text/xml");
 console.log(doc);
-elementDOM.querySelector('#view').innerHTML = doc;
+elementDOM.querySelector('#view').innerHTML = stringSVG;
 }
