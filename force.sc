@@ -132,8 +132,9 @@ elementSVG = {
     }
 };
 
-console.log(elementSVG.createElement('svg'));
-
+svgMenu = elementSVG.createElement('svg');
+svgMenu.createElement('g');
+console.log(svgMenu);
 
 
 elementDOM.querySelector('#conraw').onclick = function(){
