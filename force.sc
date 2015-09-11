@@ -140,5 +140,6 @@ elementDOM.querySelector('#conraw').onclick = function(){
 stringSVG = elementDOM.querySelector('#raw').value;
 parser = new DOMParser();
 doc = parser.parseFromString(stringSVG, "image/svg+xml");
+console.log(doc);
 elementDOM.querySelector('#view').appendChild(doc);
 }
