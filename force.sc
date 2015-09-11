@@ -350,5 +350,6 @@ elementDOM.querySelector('#conraw').onclick = function(){
 stringSVG = elementDOM.querySelector('#raw').value;
 elementDOM.querySelector('#view').innerHTML = stringSVG;
 elementDOM.querySelector('#view').querySelector('svg').appendChild(scRadiusMenu);
+stringSVG = elementDOM.querySelector('#view').innerHTML;
 editor.setValue(stringSVG);
 }
