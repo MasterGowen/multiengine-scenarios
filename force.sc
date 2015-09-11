@@ -109,6 +109,35 @@ var forcePosition = {x:0, y:0, angle:0, type: ""}
 var MenuAbovePointId;
 var stateMenu={visible:false, scRadiusMenuSector:true, scProtractor:false };
 
+function scStatusMenu(){
+	if (stateMenu.visible){
+		document.getElementsByClassName('scRadiusMenu')[0].style.display='block';
+	}
+	else{
+		document.getElementsByClassName('scRadiusMenu')[0].style.display='none';
+	}
+	if (stateMenu.scRadiusMenuSector){
+		document.getElementsByClassName('scRadiusMenuSector')[0].style.display='block';
+    	document.getElementsByClassName('scRadiusMenuSector')[1].style.display='block';
+    	document.getElementsByClassName('scRadiusMenuSector')[2].style.display='block';
+
+	}
+	else{
+		document.getElementsByClassName('scRadiusMenuSector')[0].style.display='none';
+    	document.getElementsByClassName('scRadiusMenuSector')[1].style.display='none';
+    	document.getElementsByClassName('scRadiusMenuSector')[2].style.display='none';
+	}
+	if(stateMenu.scProtractor){
+		document.getElementById('protractor').style.display='block'
+	}
+	else{
+		document.getElementById('protractor').style.display='none'
+	}
+
+document.getElementById('force').style.display='none';
+document.getElementById('moment').style.display='none';
+}
+scStatusMenu();
 
 
 javascriptStudio::
