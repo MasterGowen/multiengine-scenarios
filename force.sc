@@ -127,9 +127,10 @@ elementDOM.querySelector('#scButtonRaw').onclick = function(){
 elementSVG = {
 	NS: 'http://www.w3.org/2000/svg',
 	createElement: function(name){
-        var element = document.createElementNS(SVG.NS, name);
+        var element = document.createElementNS(this.NS, name);
         return element;
     }
 };
 
-console.log(elementSVG.createElement(svg))
+console.log(elementSVG.createElement('svg'));
+elementDOM.querySelector('#view').appendChild(elementSVG.createElement('svg'));
