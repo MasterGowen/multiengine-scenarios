@@ -109,6 +109,8 @@ mengine.console = function(){console.log(this.xq)};
 mengine.console()
 
 javascriptStudio::
+
+//дизайн страницы
 elementDOM.querySelector('#scButtonView').onclick = function(){
     elementDOM.querySelector('#scButtonRaw').setAttribute('scMenuActive', 'false');
     elementDOM.querySelector('#scButtonView').setAttribute('scMenuActive', 'true');
@@ -122,3 +124,12 @@ elementDOM.querySelector('#scButtonRaw').onclick = function(){
     elementDOM.querySelector('#scWindowView').setAttribute('hidden', 'true');
 };
 
+elementSVG = {
+	NS: 'http://www.w3.org/2000/svg',
+	createElement: function(name){
+        var element = document.createElementNS(SVG.NS, name);
+        return element;
+    }
+};
+
+console.log(elementSVG.createElement(svg))
