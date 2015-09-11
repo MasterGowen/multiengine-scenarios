@@ -118,13 +118,8 @@ var stateMenu={visible:false, scRadiusMenuSector:true, scProtractor:false };
 
 
 function scStatusMenu(){
+};
 
-	}
-
-document.getElementById('force').style.display='none';
-document.getElementById('moment').style.display='none';
-}
-scStatusMenu();
 
 
 
