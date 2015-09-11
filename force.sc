@@ -164,6 +164,6 @@ scRadiusMenu.appendChild(scForce);
 elementDOM.querySelector('#conraw').onclick = function(){
 stringSVG = elementDOM.querySelector('#raw').value;
 elementDOM.querySelector('#view').innerHTML = stringSVG;
-elementDOM.querySelector('#view').elementDOM.querySelector('svg').appendChild(scRadiusMenu);
+elementDOM.querySelector('#view').querySelector('svg').appendChild(scRadiusMenu);
 editor.setValue(stringSVG);
 }
