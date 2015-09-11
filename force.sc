@@ -108,6 +108,25 @@ var menuPosition = {x:0, y:0};
 var forcePosition = {x:0, y:0, angle:0, type: ""}
 var MenuAbovePointId;
 var stateMenu={visible:false, scRadiusMenuSector:true, scProtractor:false };
+function scStatusMenu(){
+	if (stateMenu.visible){
+		document.getElementsByClassName('scRadiusMenu')[0].style.display='block';
+	}
+	else{
+		document.getElementsByClassName('scRadiusMenu')[0].style.display='none';
+	}
+	
+	if(stateMenu.scProtractor){
+		document.getElementById('protractor').style.display='block'
+	}
+	else{
+		document.getElementById('protractor').style.display='none'
+	}
+
+document.getElementById('force').style.display='none';
+document.getElementById('moment').style.display='none';
+}
+scStatusMenu();
 
 
 
@@ -158,7 +177,7 @@ scMoment.innerHTML += '<circle fill="#FFFFFF" stroke="#000000" stroke-width="2" 
 scForce = elementSVG.createElement('g','scForce' ,'scRadiusMenu');
 scForce.innerHTML = '<circle  fill="#FFFFFF" stroke="#000000" stroke-width="2" stroke-miterlimit="10" cx="-57" cy="19" r="28" />';
 scForce.innerHTML += '<path d="M-51.534,19.316l7.712-14.965l-14.162,9.104l2.115,1.922l-13.115,14.431c-0.075-0.007-0.148-0.021-0.225-0.021c-1.38,0-2.5,1.117-2.5,2.5c0,1.381,1.119,2.5,2.5,2.5s2.5-1.119,2.5-2.5c0-0.161-0.019-0.316-0.047-0.471l13.107-14.422L-51.534,19.316z"/>';
-protractor = elementSVG.createElement('g', '', 'protractor');
+protractor = elementSVG.createElement('g', 'protractor', '');
 activeSpaceForce = elementSVG.createElement('circle', 'whiteRound','');
 activeSpaceForce.setAttribute('fill', '#FFFFFF');
 activeSpaceForce.setAttribute('opacity', '0.01');
