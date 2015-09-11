@@ -104,6 +104,10 @@ css::
 
 
 javascriptStudent::
+var menuPosition = {x:0, y:0};
+var forcePosition = {x:0, y:0, angle:0, type: ""}
+var MenuAbovePointId;
+var stateMenu={visible:false, scRadiusMenuSector:true, scProtractor:false };
 
 
 
