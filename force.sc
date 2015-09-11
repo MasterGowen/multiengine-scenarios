@@ -132,13 +132,13 @@ elementSVG = {
     }
 };
 
-console.log(elementSVG.createElement('image/svg+xml'));
+console.log(elementSVG.createElement('svg'));
 
 
 
 elementDOM.querySelector('#conraw').onclick = function(){
 stringSVG = elementDOM.querySelector('#raw').value;
 parser = new DOMParser();
-doc = parser.parseFromString(stringSVG, "svg");
+doc = parser.parseFromString(stringSVG, "image/svg+xml");
 elementDOM.querySelector('#view').appendChild(doc);
 }
