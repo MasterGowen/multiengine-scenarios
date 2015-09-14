@@ -296,7 +296,7 @@ elementSVG = {
 
 scRadiusMenu = elementSVG.createElement('g','' ,'scRadiusMenu');
 whiteRound = elementSVG.createElement('circle', 'whiteRound','');
-whiteRound.setAttribute('fill', 'green');
+whiteRound.setAttribute('fill', '#FFFFFF');
 whiteRound.setAttribute('opacity', '0.1');
 whiteRound.setAttribute('cx', '0');
 whiteRound.setAttribute('cx', '0');
