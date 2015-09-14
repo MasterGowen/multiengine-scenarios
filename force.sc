@@ -178,16 +178,17 @@ document.getElementById('protractor').addEventListener("mousemove", function(e) 
 document.getElementById('protractor').onclick = function(){
 
 	var force = document.getElementById(forcePosition.type).cloneNode(true);
-	force.id= generationID();
 	force.classList.add("locforce");
 	//force.firstElementChild.setAttribute('fill','#000');
 	if (forcePosition.type == 'force'){
 		force.setAttribute("transform","translate("+forcePosition.x+","+forcePosition.y+") rotate("+((-1 * forcePosition.angle+5 + 360)%360)+")");
+        
 	}
 	else{
 		force.setAttribute("transform", "translate("+forcePosition.x+","+forcePosition.y+") scale("+ leftOrRigth +", 1)");
 	}
-	console.log(document.getElementById(MenuAbovePointId).parentNode)
+    force.id= MenuAbovePointId+forcePosition.angle;
+	console.log(force.id)
 	document.getElementById(MenuAbovePointId).parentNode.insertBefore(force, document.getElementById(MenuAbovePointId));
 	scStatusMenu();
 
