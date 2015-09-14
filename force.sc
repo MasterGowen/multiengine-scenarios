@@ -274,6 +274,7 @@ var dict = {};
         }}
         dict[document.getElementsByClassName('click')[i].id.valueOf()] = arr;
     }
+    console.log(dict);
     return dict;
 }
 
