@@ -182,12 +182,12 @@ document.getElementById('protractor').onclick = function(){
 	//force.firstElementChild.setAttribute('fill','#000');
 	if (forcePosition.type == 'force'){
 		force.setAttribute("transform","translate("+forcePosition.x+","+forcePosition.y+") rotate("+((-1 * forcePosition.angle+5 + 360)%360)+")");
-        
+
 	}
 	else{
 		force.setAttribute("transform", "translate("+forcePosition.x+","+forcePosition.y+") scale("+ leftOrRigth +", 1)");
 	}
-    force.id= MenuAbovePointId+forcePosition.angle;
+    force.id= MenuAbovePointId+"_"+forcePosition.angle;
 	console.log(force.id)
 	document.getElementById(MenuAbovePointId).parentNode.insertBefore(force, document.getElementById(MenuAbovePointId));
 	scStatusMenu();
@@ -259,10 +259,22 @@ document.getElementById('scMoment').onclick = function(){
 document.getElementById('scDelAllinPoint').onclick = function(){
 	while (document.getElementById(MenuAbovePointId).parentNode.getElementsByClassName('locforce')[0])
 	document.getElementById(MenuAbovePointId).parentNode.removeChild(document.getElementById(MenuAbovePointId).parentNode.getElementsByClassName('locforce')[0]);
-    	
-    
+}
 
+mengine.genAnswerObj = function (){
+var dict = {};
+    console.log(1);
+    for (var i=0; i<document.getElementsByClassName('click').length; i++){
+        var arr = [];
+        if (document.getElementsByClassName('click')[i].parentNode.getElementsByClassName("locforce").length){console.log(2); 
+             
+            for (var j=0; j<document.getElementsByClassName('click')[i].parentNode.getElementsByClassName("locforce").length; j++){
 
+            arr.push(document.getElementsByClassName('click')[i].parentNode.getElementsByClassName("locforce")[j].id);
+        }}
+        dict[document.getElementsByClassName('click')[i].id.valueOf()] = arr;
+    }
+    return dict;
 }
 
 
@@ -348,4 +360,10 @@ elementDOM.querySelector('#view').innerHTML = stringSVG;
 elementDOM.querySelector('#view').querySelector('svg').appendChild(scRadiusMenu);
 stringSVG = elementDOM.querySelector('#view').innerHTML;
 editor.setValue(stringSVG);
+
 }
+
+
+
+
+
