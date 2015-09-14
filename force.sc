@@ -271,8 +271,10 @@ var dict = {};
             for (var j=0; j<document.getElementsByClassName('click')[i].parentNode.getElementsByClassName("locforce").length; j++){
 
             arr.push(document.getElementsByClassName('click')[i].parentNode.getElementsByClassName("locforce")[j].id);
-        }}
+            }
         dict[document.getElementsByClassName('click')[i].id.valueOf()] = arr;
+        }
+        
     }
     console.log(dict);
     return dict;
