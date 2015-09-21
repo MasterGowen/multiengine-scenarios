@@ -228,10 +228,10 @@ for(var i=0; i<dragElements.length; i++){
     dragElements[i].addEventListener("click", function(){ 
         if(this.parentNode.classList.contains("cell"))
         {
-            dragElements[i].setAttribute("inTable","true");
+            this.setAttribute("inTable","true");
         }
         else{
-            dragElements[i].setAttribute("inTable","false");
+            this.setAttribute("inTable","false");
         }
      })
     
