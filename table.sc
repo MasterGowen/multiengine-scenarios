@@ -57,6 +57,14 @@ cssStudent::
     /*display: inline-block;*/
 }
 
+.dragAnswer["inTable=false"]{
+    display: inline-block
+}
+
+.dragAnswer["inTable=true"]{
+    display: block
+}
+
 .fixAnswer{
     margin: 5px;
 }
@@ -209,13 +217,25 @@ function drag(){
         connectWith: '.answerPlaceStudent .cell, .answerPlaceStudent',
         revert: '100',
         tolerance: "pointer",
-        stop: console.log(this),
+        //stop: generateStudentAnswer
     }).disableSelection();
 }
 drag();
 
-//вызывается для того, чтобы полю 'answer' присвоился json (backend требует ключи для поверки)
-//если жмем "Сохранить" впервые (без перетаскиваний), то json будет присвоен (только ключи)
+var dragElements = element.getElementsByClassName("dragAnswer");
+
+for(var i=0; i<dragElements.length; i++){
+    dragElements[i].addEventListener("click", function(){ 
+        if(this.parentNode.classList.contains("cell"))
+        {
+            dragElements[i].setAttribute("inTable","true");
+        }
+        else{
+            dragElements[i].setAttribute("inTable","false");
+        }
+     })
+    
+}
 
 mengine.genAnswerObj = (function (){
   var studentTable = element.getElementsByTagName('table')[0];
