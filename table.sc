@@ -36,7 +36,7 @@ cssStudent::
 .cell {
     border: 1px solid white;
     min-width: 100px;
-    height: 100px;
+    height: 50px;
     cursor: pointer;
     background: #D8E6F3;
 }
