@@ -209,7 +209,7 @@ function drag(){
         connectWith: '.answerPlaceStudent .cell, .answerPlaceStudent',
         revert: '100',
         tolerance: "pointer",
-        //stop: generateStudentAnswer
+        stop: console.log(this),
     }).disableSelection();
 }
 drag();
