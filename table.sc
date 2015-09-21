@@ -225,7 +225,7 @@ drag();
 var dragElements = element.getElementsByClassName("dragAnswer");
 
 for(var i=0; i<dragElements.length; i++){
-    dragElements[i].addEventListener("mouseup", function(){ 
+    dragElements[i].addEventListener("mouseout", function(){ 
         if(this.parentNode.classList.contains("cell"))
         {
             this.setAttribute("inTable","true");
