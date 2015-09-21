@@ -52,7 +52,7 @@ cssStudent::
     cursor: move;
     margin: 5px;
     padding: 2px 10px;
-    display: inline-block;
+    /*display: inline-block;*/
 }
 
 .fixAnswer{
