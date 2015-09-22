@@ -325,7 +325,7 @@ function SetDragAttr(value){
             value.classList.add("cell");
             value.id = generationID();
 
-            console.log(value, "value");
+            //console.log(value, "value");
 
             if (value.childNodes[0] != undefined && value.childNodes[0].textContent.trim().length==0){
                 value.removeChild(value.childNodes[0]);
@@ -351,6 +351,7 @@ function SetDragAttr(value){
             else {
                 forEachInCollection(childList(value), function(value){
                     var div = document.createElement('div');
+                    console.log(value);
                     div.innerHTML = value.innerHTML;
                     div.classList.add("dragAnswer");
                     div.id = generationID();
