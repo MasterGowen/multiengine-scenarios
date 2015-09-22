@@ -670,7 +670,7 @@ function getAllAnswers(){
     //перемешивание
     
 
-    shuffleArray(allAnswersList.children);
+    shuffleArray(allAnswersDiv.children);
 
 
 /*
