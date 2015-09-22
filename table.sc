@@ -671,7 +671,7 @@ function getAllAnswers(){
 
     var divs = allAnswersDiv.children;
     while (divs.length) {
-        allAnswersDiv.append(divs.splice(Math.floor(Math.random() * divs.length), 1)[0]);
+        allAnswersDiv.append(divs.splice(Math.floor(Math.random() * divs.length), 1));
     }
 
 /*
