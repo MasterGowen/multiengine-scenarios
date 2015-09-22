@@ -326,11 +326,11 @@ function SetDragAttr(value){
             value.id = generationID();
 
             console.log("value: ", value);
-
+            /*
             if (value.childNodes[0].textContent.trim().length==0){
                 value.removeChild(value.childNodes[0]);
             }
-
+*/
             if (value.childNodes[0].nodeType == 3){
                 var block = document.createElement('div');
                 while (value.childNodes.length > 0 ){
