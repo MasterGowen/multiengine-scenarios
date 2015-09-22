@@ -324,8 +324,6 @@ function SetDragAttr(value){
             deleteAttributes(value, []);
             value.classList.add("cell");
             value.id = generationID();
-
-            console.log("value: ", value);
             
             if (value.childNodes[0].nodeType == 3 && value.childNodes[0].textContent.trim().length==0){
                 value.removeChild(value.childNodes[0]);
