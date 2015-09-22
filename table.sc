@@ -332,6 +332,7 @@ function SetDragAttr(value){
             }
 
             if (value.childNodes[0] != undefined && value.childNodes[0].nodeType == 3){
+                console.log("вап");
                 var block = document.createElement('div');
                 while (value.childNodes.length > 0 ){
                    if(value.childNodes[0].nodeType == 3){
