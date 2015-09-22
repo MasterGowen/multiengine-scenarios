@@ -656,6 +656,7 @@ function generateCorrectAnswer(value){
   editor.setValue(studentView.innerHTML);
 }
 
+
 /*перенос всех ответов в отдельное поле*/
 function getAllAnswers(){
     var allAnswersList = elementDOM.querySelector('#view').querySelectorAll('.dragAnswer');
@@ -669,16 +670,23 @@ function getAllAnswers(){
     //перемешивание
     
 
-    var divs = allAnswersDiv.children;
-    while (divs.length) {
-        allAnswersDiv.append(divs.splice(Math.floor(Math.random() * divs.length), 1));
-    }
+    shuffleArray(allAnswersList.children);
+
 
 /*
     for (var i = allAnswersDiv.children.length; i >= 0; i--) {
         allAnswersDiv.appendChild(allAnswersDiv.children[Math.random() * i | 0]);
     }
 */
+    function shuffleArray(array) {
+    for (var i = array.length - 1; i > 0; i--) {
+            var j = Math.floor(Math.random() * (i + 1));
+            var temp = array[i];
+            array[i] = array[j];
+            array[j] = temp;
+        }
+    return array;
+    }
 
     elementDOM.querySelector("#view").getElementsByTagName("table")[0].removeAttribute("id");
     elementDOM.querySelector("#view").getElementsByTagName("table")[0].setAttribute('class', 'answerPlaceStudent drag-table');
