@@ -667,9 +667,19 @@ function getAllAnswers(){
     });
     elementDOM.querySelector('#view').appendChild(allAnswersDiv);
     //перемешивание
+    
+
+    var divs = allAnswersDiv.children;
+    while (divs.length) {
+        allAnswersDiv.append(divs.splice(Math.floor(Math.random() * divs.length), 1)[0]);
+    }
+
+/*
     for (var i = allAnswersDiv.children.length; i >= 0; i--) {
         allAnswersDiv.appendChild(allAnswersDiv.children[Math.random() * i | 0]);
     }
+*/
+
     elementDOM.querySelector("#view").getElementsByTagName("table")[0].removeAttribute("id");
     elementDOM.querySelector("#view").getElementsByTagName("table")[0].setAttribute('class', 'answerPlaceStudent drag-table');
     documentTable.innerHTML = elementDOM.querySelector("#view").getElementsByTagName("table")[0].outerHTML;
