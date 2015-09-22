@@ -327,11 +327,11 @@ function SetDragAttr(value){
 
             console.log(value, "value");
 
-            if (value.childNodes[0].textContent.trim().length==0){
+            if (value.childNodes[0] != undefined && value.childNodes[0].textContent.trim().length==0){
                 value.removeChild(value.childNodes[0]);
             }
 
-            if (value.childNodes[0].nodeType == 3){
+            if (value.childNodes[0] != undefined && value.childNodes[0].nodeType == 3){
                 var block = document.createElement('div');
                 while (value.childNodes.length > 0 ){
                    if(value.childNodes[0].nodeType == 3){
