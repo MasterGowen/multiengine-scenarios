@@ -327,11 +327,11 @@ function SetDragAttr(value){
 
             //console.log(value, "value");
 
-            if (value.childNodes[0] != undefined && value.childNodes[0].textContent.trim().length==0){
+            if (value.childNodes[0].textContent.trim().length==0){
                 value.removeChild(value.childNodes[0]);
             }
 
-            if (value.childNodes[0] != undefined && value.childNodes[0].nodeType == 3){
+            if (value.childNodes[0].nodeType == 3){
                 console.log("вап");
                 var block = document.createElement('div');
                 while (value.childNodes.length > 0 ){
@@ -477,9 +477,9 @@ elementDOM.querySelector("#view").onclick = function(event){
         if(target.classList.contains('first')){
             div.classList.add("fixAnswer");
         }
-       /* var deleteButton = document.createElement('img');
+        var deleteButton = document.createElement('img');
         deleteButton.classList.add("deleteItemButton");
-        div.appendChild(deleteButton);*/
+        div.appendChild(deleteButton);
         target.appendChild(div);
     documentTable.innerHTML = elementDOM.querySelector("#view").getElementsByTagName("table")[0].outerHTML;
     editAnswers();
@@ -545,12 +545,12 @@ elementDOM.querySelector('#conraw').onclick = function(){
 
             documentTable =  getValueFild('raw').body;
             SetDragAttr(documentTable);
-           /* var allItems = documentTable.querySelectorAll(".dragAnswer, .fixAnswer");
+            var allItems = documentTable.querySelectorAll(".dragAnswer, .fixAnswer");
                for(var i = 0; i < allItems.length; i++ ){
                 var deleteButton = document.createElement('img');
                 deleteButton.classList.add("deleteItemButton");
                 allItems[i].appendChild(deleteButton);
-            }*/
+            }
         }
 
         //load old table
@@ -570,12 +570,12 @@ elementDOM.querySelector('#conraw').onclick = function(){
                     documentTable.querySelector("#" + key).appendChild(documentTable.querySelector("#" + correctAnswer[key][i]));
                 }
             }
-            /*var allItems = documentTable.querySelectorAll(".dragAnswer, .fixAnswer");
+            var allItems = documentTable.querySelectorAll(".dragAnswer, .fixAnswer");
                for(var i = 0; i < allItems.length; i++ ){
                 var deleteButton = document.createElement('img');
                 deleteButton.classList.add("deleteItemButton");
                 allItems[i].appendChild(deleteButton);
-            }*/
+            }
             documentTable.querySelector("#allAnswers").remove();
 
             console.log('Load old table');
