@@ -325,7 +325,8 @@ function SetDragAttr(value){
             value.classList.add("cell");
             value.id = generationID();
 
-            if (value.childNodes[0] =! undefined){
+            console.log(value, "value");
+
             if (value.childNodes[0].textContent.trim().length==0){
                 value.removeChild(value.childNodes[0]);
             }
@@ -356,19 +357,6 @@ function SetDragAttr(value){
                     value.parentNode.replaceChild(div, value);
                 });
             }
-
-        }
-
-        else{
-            forEachInCollection(childList(value), function(value){
-                    var div = document.createElement('div');
-                    div.innerHTML = value.innerHTML;
-                    div.classList.add("dragAnswer");
-                    div.id = generationID();
-                    value.parentNode.replaceChild(div, value);
-                });
-        }
-
         });
     });
 };
