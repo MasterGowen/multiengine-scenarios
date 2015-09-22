@@ -325,11 +325,12 @@ function SetDragAttr(value){
             value.classList.add("cell");
             value.id = generationID();
 
-            if (value.childNodes[0]!=undefined && value.childNodes[0].textContent.trim().length==0){
+            if (value.childNodes[0] =! undefined){
+            if (value.childNodes[0].textContent.trim().length==0){
                 value.removeChild(value.childNodes[0]);
             }
 
-            if (value.childNodes[0]!=undefined && value.childNodes[0].nodeType == 3){
+            if (value.childNodes[0].nodeType == 3){
                 var block = document.createElement('div');
                 while (value.childNodes.length > 0 ){
                    if(value.childNodes[0].nodeType == 3){
@@ -355,6 +356,19 @@ function SetDragAttr(value){
                     value.parentNode.replaceChild(div, value);
                 });
             }
+
+        }
+
+        else{
+            forEachInCollection(childList(value), function(value){
+                    var div = document.createElement('div');
+                    div.innerHTML = value.innerHTML;
+                    div.classList.add("dragAnswer");
+                    div.id = generationID();
+                    value.parentNode.replaceChild(div, value);
+                });
+        }
+
         });
     });
 };
