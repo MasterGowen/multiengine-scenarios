@@ -325,14 +325,13 @@ function SetDragAttr(value){
             value.classList.add("cell");
             value.id = generationID();
 
-            //console.log(value, "value");
+            console.log("value: ", value);
 
             if (value.childNodes[0].textContent.trim().length==0){
                 value.removeChild(value.childNodes[0]);
             }
 
             if (value.childNodes[0].nodeType == 3){
-                console.log("вап");
                 var block = document.createElement('div');
                 while (value.childNodes.length > 0 ){
                    if(value.childNodes[0].nodeType == 3){
@@ -352,7 +351,7 @@ function SetDragAttr(value){
             else {
                 forEachInCollection(childList(value), function(value){
                     var div = document.createElement('div');
-                    console.log(value);
+                    //console.log(value);
                     div.innerHTML = value.innerHTML;
                     div.classList.add("dragAnswer");
                     div.id = generationID();
@@ -540,9 +539,6 @@ elementDOM.querySelector('#conraw').onclick = function(){
         }
         if(elementDOM.querySelector('#raw').value != ''){
             console.log('Table from "raw" ');
-
-
-
             documentTable =  getValueFild('raw').body;
             SetDragAttr(documentTable);
             var allItems = documentTable.querySelectorAll(".dragAnswer, .fixAnswer");
