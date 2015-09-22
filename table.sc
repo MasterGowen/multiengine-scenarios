@@ -477,10 +477,9 @@ elementDOM.querySelector("#view").onclick = function(event){
         if(target.classList.contains('first')){
             div.classList.add("fixAnswer");
         }
-        var deleteButton = document.createElement('img');
+       /* var deleteButton = document.createElement('img');
         deleteButton.classList.add("deleteItemButton");
-       // deleteButton.src = "http://openedu.urfu.ru/c4x/edX/DemoX/asset/Close-2-icon.png";
-        div.appendChild(deleteButton);
+        div.appendChild(deleteButton);*/
         target.appendChild(div);
     documentTable.innerHTML = elementDOM.querySelector("#view").getElementsByTagName("table")[0].outerHTML;
     editAnswers();
@@ -546,12 +545,12 @@ elementDOM.querySelector('#conraw').onclick = function(){
 
             documentTable =  getValueFild('raw').body;
             SetDragAttr(documentTable);
-            var allItems = documentTable.querySelectorAll(".dragAnswer, .fixAnswer");
+           /* var allItems = documentTable.querySelectorAll(".dragAnswer, .fixAnswer");
                for(var i = 0; i < allItems.length; i++ ){
                 var deleteButton = document.createElement('img');
                 deleteButton.classList.add("deleteItemButton");
                 allItems[i].appendChild(deleteButton);
-            }
+            }*/
         }
 
         //load old table
@@ -571,12 +570,12 @@ elementDOM.querySelector('#conraw').onclick = function(){
                     documentTable.querySelector("#" + key).appendChild(documentTable.querySelector("#" + correctAnswer[key][i]));
                 }
             }
-            var allItems = documentTable.querySelectorAll(".dragAnswer, .fixAnswer");
+            /*var allItems = documentTable.querySelectorAll(".dragAnswer, .fixAnswer");
                for(var i = 0; i < allItems.length; i++ ){
                 var deleteButton = document.createElement('img');
                 deleteButton.classList.add("deleteItemButton");
                 allItems[i].appendChild(deleteButton);
-            }
+            }*/
             documentTable.querySelector("#allAnswers").remove();
 
             console.log('Load old table');
