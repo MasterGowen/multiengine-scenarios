@@ -211,7 +211,7 @@ css::
 
 javascriptStudent::
 
-console.log("work!");
+console.log(element);
 
 function drag(){
     $('.drag-table, .answerPlaceStudent .cell, .answerPlaceStudent').sortable({
@@ -226,6 +226,7 @@ drag();
 
 var dragElements = element.getElementsByClassName("dragAnswer");
 
+/*
 for(var i=0; i<dragElements.length; i++){
     dragElements[i].addEventListener("mouseout", function(){ 
         if(this.parentNode.classList.contains("cell"))
@@ -236,8 +237,9 @@ for(var i=0; i<dragElements.length; i++){
             this.setAttribute("inTable","false");
         }
      })
-    
 }
+*/
+
 
 mengine.genAnswerObj = (function (){
   var studentTable = element.getElementsByTagName('table')[0];
