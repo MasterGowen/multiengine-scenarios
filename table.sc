@@ -211,7 +211,10 @@ css::
 
 javascriptStudent::
 
-console.log(element);
+console.log(element.getElementsByClassName("dragAnswer"));
+
+
+
 
 function drag(){
     $('.drag-table, .answerPlaceStudent .cell, .answerPlaceStudent').sortable({
