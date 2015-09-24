@@ -275,12 +275,22 @@ javascriptStudio::
 */
 
 // Показывает все скрытые поля отноящиеся к XBlock'у в целом.
-elementDOM.querySelector('#viewSettings').onclick = function(){elementDOM.getElementsByClassName('step-one')[0].style.display = 'block';}
+elementDOM.querySelector('#viewSettings').onclick = function(){
+    console.log(elementDOM.querySelector('#view'));
+    //elementDOM.getElementsByClassName('step-one')[0].style.display = 'block';
+
+}
 
 function scenarioSave(){
-    generateCorrectAnswer(documentTable);
-    //documentTable.getElementsByTagName('table')[0].classList.add("drag-table");
-    getAllAnswers();
+    if(elementDOM.querySelector('#view').innerHTML.length > 1){
+        generateCorrectAnswer(documentTable);
+        //documentTable.getElementsByTagName('table')[0].classList.add("drag-table");
+        getAllAnswers();
+    }
+    else{
+        //если в поле "view" пусто 
+        console.log("во view пусто"); 
+    }
 }
 
 //Переменная хранящая таблицу documentTable.innerHTML
@@ -527,6 +537,7 @@ elementDOM.querySelector("#addColumn").onclick = function(){
         drag();
        editAnswers();
 };
+
 
 
 elementDOM.querySelector('#conraw').onclick = function(){
