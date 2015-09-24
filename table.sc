@@ -213,36 +213,6 @@ javascriptStudent::
 
 shuffle(element.getElementsByClassName("dragAnswer"));
 
-
-function shuffle(elems) {
- 
-    allElems = (function(){
-    var ret = [], l = elems.length;
-    while (l--) { ret[ret.length] = elems[l]; }
-    return ret;
-    })();
- 
-    var shuffled = (function(){
-        var l = allElems.length, ret = [];
-        while (l--) {
-            var random = Math.floor(Math.random() * allElems.length),
-                randEl = allElems[random].cloneNode(true);
-            allElems.splice(random, 1);
-            ret[ret.length] = randEl;
-        }
-        return ret; 
-    })(), l = elems.length;
- 
-    while (l--) {
-        elems[l].parentNode.insertBefore(shuffled[l], elems[l].nextSibling);
-        elems[l].parentNode.removeChild(elems[l]);
-    }
- 
-}
-
-
-
-
 function drag(){
     $('.drag-table, .answerPlaceStudent .cell, .answerPlaceStudent').sortable({
         items: ".dragAnswer",
@@ -254,9 +224,10 @@ function drag(){
 }
 drag();
 
+/*
 var dragElements = element.getElementsByClassName("dragAnswer");
 
-/*
+
 for(var i=0; i<dragElements.length; i++){
     dragElements[i].addEventListener("mouseout", function(){ 
         if(this.parentNode.classList.contains("cell"))
@@ -290,16 +261,36 @@ mengine.genAnswerObj = (function (){
         });
     });
   mengine.studentStateJSON = studentAnswer;
- /* studentAnswer = generationAnswerJSON(studentAnswer);
-  console.log(studentAnswer);
-  //$(element).find('[name=answer]')[0].value = studentAnswer;
-  element.querySelector("[name='answer']").value = studentAnswer;*/
-  //element.getElementsByName("answer")[0].val = studentAnswer;
 
   return studentAnswer
 
 });
 
+//функция перемешивания DOM-элементов
+function shuffle(elems) {
+    allElems = (function(){
+    var ret = [], l = elems.length;
+    while (l--) { ret[ret.length] = elems[l]; }
+    return ret;
+    })();
+ 
+    var shuffled = (function(){
+        var l = allElems.length, ret = [];
+        while (l--) {
+            var random = Math.floor(Math.random() * allElems.length),
+                randEl = allElems[random].cloneNode(true);
+            allElems.splice(random, 1);
+            ret[ret.length] = randEl;
+        }
+        return ret; 
+    })(), l = elems.length;
+ 
+    while (l--) {
+        elems[l].parentNode.insertBefore(shuffled[l], elems[l].nextSibling);
+        elems[l].parentNode.removeChild(elems[l]);
+    }
+ 
+}
 
 javascriptStudio::
 /**
@@ -309,19 +300,13 @@ javascriptStudio::
 // Показывает все скрытые поля отноящиеся к XBlock'у в целом.
 elementDOM.querySelector('#viewSettings').onclick = function(){
     console.log(elementDOM.querySelector('#view'));
-    //elementDOM.getElementsByClassName('step-one')[0].style.display = 'block';
 
 }
 
 function scenarioSave(){
-    if(elementDOM.querySelector('#view').innerHTML.length > 1){
+    if( elementDOM.querySelector('#view').innerHTML.length > 1){
         generateCorrectAnswer(documentTable);
-        //documentTable.getElementsByTagName('table')[0].classList.add("drag-table");
         getAllAnswers();
-    }
-    else{
-        //если в поле "view" пусто 
-        console.log("во view пусто"); 
     }
 }
 
@@ -544,7 +529,7 @@ elementDOM.querySelector("#addRow").onclick = function(){
     }
 
     documentTable.getElementsByTagName('tbody')[0].appendChild(newRow);
-    setBlockHtml('view', documentTable.innerHTML); // надо ли?! наверно надо
+    setBlockHtml('view', documentTable.innerHTML);
     drag();
    editAnswers();
 };
@@ -555,7 +540,6 @@ elementDOM.querySelector("#addColumn").onclick = function(){
     documentTable.innerHTML = elementDOM.querySelector("#view").getElementsByTagName("table")[0].outerHTML;
     
     forEachInCollection(documentTable.getElementsByTagName('tr'), function(value){
-        
         var newCell = document.createElement('td');
         newCell.classList.add("cell");
         newCell.id = generationID();
@@ -573,15 +557,13 @@ elementDOM.querySelector("#addColumn").onclick = function(){
 
 
 elementDOM.querySelector('#conraw').onclick = function(){
-
     if (elementDOM.querySelector('#scButtonView').getAttribute('scmenuactive') == "false") {
         
         if(elementDOM.querySelector('#raw').value == '' && document.getElementsByName("student_view_template")[0].value == ""){
-            console.log("New table created");
             documentTable = makeStartTable();
+            console.log("New table created");
         }
         if(elementDOM.querySelector('#raw').value != ''){
-            console.log('Table from "raw" ');
             documentTable =  getValueFild('raw').body;
             SetDragAttr(documentTable);
             var allItems = documentTable.querySelectorAll(".dragAnswer, .fixAnswer");
@@ -590,22 +572,21 @@ elementDOM.querySelector('#conraw').onclick = function(){
                 deleteButton.classList.add("deleteItemButton");
                 allItems[i].appendChild(deleteButton);
             }
+            console.log('Table from "raw" ');
         }
 
-        //load old table
         if(document.getElementsByName("student_view_template")[0].value != "" && elementDOM.querySelector('#raw').value == ''){
 
             var correctAnswer = elementDOM.querySelector('#correct_answer').value;
             correctAnswer = JSON.parse(correctAnswer);
             correctAnswer = correctAnswer["answer"];
-            documentTable =  document.createElement('div');// d('lolo').body;
+            documentTable =  document.createElement('div');
             documentTable.innerHTML = editor.getValue();
             documentTable.getElementsByTagName("table")[0].id = "dragAnswers";
             documentTable.querySelector("#dragAnswers").setAttribute("class", "answerPlace");
 
             for (key in correctAnswer) {
                 for (i=0; i < correctAnswer[key].length;i++){
-                    //console.log(documentTable.querySelector("#" + correctAnswer[key][i]));
                     documentTable.querySelector("#" + key).appendChild(documentTable.querySelector("#" + correctAnswer[key][i]));
                 }
             }
@@ -616,21 +597,17 @@ elementDOM.querySelector('#conraw').onclick = function(){
                 allItems[i].appendChild(deleteButton);
             }
             documentTable.querySelector("#allAnswers").remove();
-
             console.log('Load old table');
         }
-
     
     setBlockHtml('view', documentTable.innerHTML);
     firstRowIsBlocked = false;
     firstColumnIsBlocked = false;
     drag();
    editAnswers();
-
     }
 
     if (elementDOM.querySelector('#scButtonView').getAttribute('scmenuactive') == "true") {
-    
     var tst = getValueFild('view').body;
     elementDOM.querySelector('#raw').value = tst.innerHTML;
     }
@@ -712,27 +689,12 @@ function getAllAnswers(){
         allAnswersDiv.appendChild(value);
     });
     elementDOM.querySelector('#view').appendChild(allAnswersDiv);
-    //перемешивание
     
-
-   // shuffleArray(allAnswersDiv.children);
-
-
-
+    //перемешивание
     for (var i = allAnswersDiv.children.length; i >= 0; i--) {
         allAnswersDiv.appendChild(allAnswersDiv.children[Math.random() * i | 0]);
     }
 
-    /*function shuffleArray(array) {
-    for (var i = array.length - 1; i > 0; i--) {
-            var j = Math.floor(Math.random() * (i + 1));
-            var temp = array[i];
-            array[i] = array[j];
-            array[j] = temp;
-        }
-    return array;
-    }
-*/
     elementDOM.querySelector("#view").getElementsByTagName("table")[0].removeAttribute("id");
     elementDOM.querySelector("#view").getElementsByTagName("table")[0].setAttribute('class', 'answerPlaceStudent drag-table');
     documentTable.innerHTML = elementDOM.querySelector("#view").getElementsByTagName("table")[0].outerHTML;
@@ -742,7 +704,6 @@ function getAllAnswers(){
     }
     var studentView = elementDOM.querySelector("#view");
     editor.setValue(studentView.innerHTML);
-
 }
 
 elementDOM.querySelector('#scButtonView').onclick = function(){
