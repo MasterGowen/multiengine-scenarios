@@ -245,7 +245,7 @@ for(var i=0; i<dragElements.length; i++){
 mengine.genAnswerObj = (function (){
   var studentTable = element.getElementsByTagName('table')[0];
 
-   console.log(studentTable);
+  // console.log(studentTable);
   var studentAnswer = {};
 
     forEachInCollection(childList(studentTable.getElementsByTagName('tbody')[0]), function(value){
@@ -299,7 +299,6 @@ javascriptStudio::
 
 // Показывает все скрытые поля отноящиеся к XBlock'у в целом.
 elementDOM.querySelector('#viewSettings').onclick = function(){
-    console.log(elementDOM.querySelector('#view'));
 
 }
 
@@ -378,7 +377,6 @@ function SetDragAttr(value){
             else {
                 forEachInCollection(childList(value), function(value){
                     var div = document.createElement('div');
-                    //console.log(value);
                     div.innerHTML = value.innerHTML;
                     div.classList.add("dragAnswer");
                     div.id = generationID();
