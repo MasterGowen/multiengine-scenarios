@@ -480,7 +480,7 @@ function drag(){
         tolerance: "pointer",
         stop: updateTable
     }).disableSelection();
-    elementDOM.querySelector("#student_view_template").innerHTML = documentTable.innerHTML;
+    elementDOM.querySelector("#student_view_template").value = documentTable.innerHTML;
 }
 
 function updateTable() { 
@@ -579,7 +579,7 @@ elementDOM.querySelector('#conraw').onclick = function(){
             correctAnswer = JSON.parse(correctAnswer);
             correctAnswer = correctAnswer["answer"];
             documentTable =  document.createElement('div');
-            documentTable.innerHTML = elementDOM.querySelector("#student_view_template").innerHTML;
+            documentTable.innerHTML = elementDOM.querySelector("#student_view_template").value;
             documentTable.getElementsByTagName("table")[0].id = "dragAnswers";
             documentTable.querySelector("#dragAnswers").setAttribute("class", "answerPlace");
 
@@ -641,7 +641,7 @@ for(var i =0; i < allItems.length; i++) {
 elementDOM.querySelector('#fixLine').onclick = function(){
     fixLine(documentTable);
     setBlockHtml('view', documentTable.innerHTML);
-    elementDOM.querySelector("#student_view_template").innerHTML = documentTable.innerHTML;
+    elementDOM.querySelector("#student_view_template").value = documentTable.innerHTML;
     drag();
     editAnswers();
 };
@@ -650,7 +650,7 @@ elementDOM.querySelector('#fixLine').onclick = function(){
 elementDOM.querySelector('#fixColumn').onclick = function(){
     fixColumn(documentTable);
     setBlockHtml('view', documentTable.innerHTML);
-    elementDOM.querySelector("#student_view_template").innerHTML = documentTable.innerHTML;
+    elementDOM.querySelector("#student_view_template").value = documentTable.innerHTML;
     drag();
     editAnswers();
 };
@@ -673,7 +673,7 @@ function generateCorrectAnswer(value){
   correctAnswer = generationAnswerJSON(correctAnswer);
   elementDOM.querySelector('#correct_answer').setAttribute('value', correctAnswer);
   var studentView = elementDOM.querySelector("#view");
-  elementDOM.querySelector("#student_view_template").innerHTML = studentView.innerHTML;
+  elementDOM.querySelector("#student_view_template").value = studentView.innerHTML;
 }
 
 
@@ -701,7 +701,7 @@ function getAllAnswers(){
         allDeleteButtons[i].remove();
     }
     var studentView = elementDOM.querySelector("#view");
-    elementDOM.querySelector("#student_view_template").innerHTML = studentView.innerHTML;
+    elementDOM.querySelector("#student_view_template").value = studentView.innerHTML;
 }
 
 elementDOM.querySelector('#scButtonView').onclick = function(){
