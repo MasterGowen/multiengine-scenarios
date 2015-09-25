@@ -7,7 +7,7 @@ description::
 Табличный тест
 
 html::
-    <a id=viewSettings>Показать основные настройки</a>
+
     <ul id="scMenu">
         <li id="scButtonRaw" scMenuActive="true">Исходный код</li>
         <li id="conraw">Преобразовать HTML</li>
