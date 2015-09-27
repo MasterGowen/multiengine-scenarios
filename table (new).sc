@@ -1,9 +1,10 @@
 name::
-Таблица(альфа версия)
+
+Table
 
 description:: 
 
-Задание на соответствий на остновне таблицы
+Табличный тест
 
 html::
     <a id=viewSettings>Показать основные настройки</a>
@@ -22,17 +23,20 @@ html::
         <div class="scEditButtonView" id="fixColumn">Фиксировать столбец</div>
         <div class="scEditButtonView" id="addRow">+ Добавить строку</div>
         <div class="scEditButtonView" id="addColumn">+ Добавить столбец</div>
-        <div id="view">        </div>
-        <!--<div class="scEditButtonConv" id="getAllAnswers">Вынести ответы</div>
-        <div class="scEditButtonConv" id="generateCorrectAnswer">Собрать JSON</div>-->
+        <div id="view"> </div>
     </div>
 
-
-
 cssStudent::
+
+/*#allAnswers{
+    border: 1px solid rgb(176, 165, 222);
+    min-height: 30px;
+}*/
+
 .cell {
     border: 1px solid white;
     min-width: 100px;
+    height: 50px;
     cursor: pointer;
     background: #D8E6F3;
 }
@@ -44,21 +48,27 @@ cssStudent::
     min-width: 100px;
 }
 
-
-
 .dragAnswer{
     border: 1px dashed rgb(163, 55, 55);
     cursor: move;
     margin: 5px;
     padding: 2px 10px;
+    max-width:300px;
+   /* display: inline-block;*/
+}
+
+.dragAnswer["intable=false"]{
     display: inline-block;
 }
 
+.dragAnswer["intable=true"]{
+    display: block;
+}
 
 .fixAnswer{
-    border: 1px dashed white;
     margin: 5px;
 }
+
 
 css::
 /*костыл*/
@@ -82,7 +92,7 @@ css::
  background: #FFB400;
 }
 
- .scEditButtonConv{
+.scEditButtonConv{
     background: #FF4800 none repeat scroll 0% 0%;
     text-align: center;
     display: inline-block;
@@ -91,7 +101,8 @@ css::
     cursor: pointer;
     color: #FFFFFF;
  }
-  .scEditButtonConv:hover{
+
+.scEditButtonConv:hover{
  background: #D53C00;
 }
 
@@ -114,12 +125,15 @@ css::
     margin: 0px;
     cursor: pointer;
 }
+
 #scMenu li:hover {
-border-color:gold;
-    }
+    border-color:gold;
+}
+
 #scMenu li[scMenuActive=true]:hover {
-border-color:#e6e6e6;
-    }
+    border-color:#e6e6e6;
+}
+
 #scMenu li[scMenuActive=true]{
     background:#e6e6e6;
 }
@@ -129,6 +143,7 @@ border-color:#e6e6e6;
     width: 100%;
     min-height: 300px;
 }
+
 .cell {
     border: 1px solid white;
     min-width: 100px;
@@ -137,32 +152,48 @@ border-color:#e6e6e6;
 }
 
 .first{
-    background: rgb(170, 222, 226);
-    border: 1px solid white;
+	background: rgb(170, 222, 226);
+	border: 1px solid white;
     background: #AFCDE7;
     min-width: 100px;
 }
-
 
 .dragAnswer[contenteditable=true], .fixAnswer[contenteditable=true]{
     background: white;
     border: 1px solid grey;
     padding: 2px 10px;
     display: inline-block;
+    cursor: text;
 }
 
 .dragAnswer{
-    border: 1px dashed rgb(163, 55, 55);
+	border: 1px dashed rgb(163, 55, 55);
     cursor: move;
     margin: 5px;
     padding: 2px 10px;
     display: inline-block;
+    position: relative;
+    min-height: 15px;
+    min-width: 30px;
 }
-
 
 .fixAnswer{
     border: 1px dashed white;
     margin: 5px;
+    position: relative;
+    min-height: 15px;
+    min-width: 30px;
+}
+
+.deleteItemButton {
+    background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAACbklEQVR42qWTXUiTURjH/+/XPt5tbII1lokoSSAV7Cqo0UU5RkVpTIOiUqEb+6DvKKEcBhZhHxfSboS0Dy9aiyxK1rSLWNHdbkQQw5KMZUnb2N53be+7d529OpnOLqLn5jz/85zzO895nnMo/KdRxYIHbpmB2giwn8jfy9bqKoAnUWBSBM6VADRAd295+eU16TTaEok3P4FGMp1aCOttwNBjk8k5odXi1Nzc9QzQsQhggEs9Fkv3vtZWKidJ+DgwgOPJ5MgvYG8+vgp40Wc01m9qaQHFcXjW35+7EIt1ZIEbeYDOBcS8zc1azmZTj8vGYgj5/TgpCKP5BV6DYcdmtxuMxaLGpUgE7T5fOgBYClc4dNFsvn/C6WRpnp+HJBL4EAio/haXC4zJpPqKKKI3GJRvxuNtRD4qLqL7NM8Pnnc4NAWIIgjqSBsMi5t7QqHMXVE8SKS/pAvEdrVrtU+v2O36AqRg+c3XwuGUN51uIvL1im0kZrQC714aDPbqurolgS/j49gjCOHvwDYikysBTGsJeZDjHBurqgBS7SVGujM2PY0DkhSaIZmSmUQxwFQDDPtZdus6qxUUw6iTciajjqxGo465bBafZmfhluX3U8DOPEQF6IDbYzR9prKsjFSMVhdnyImH4/Efef+h2bxaU8hIUTATjWKDotwhr+ysCtADnucs2+nUE4+ikJJlNInit2GgXq0sMOLj+Qo9y5I0cgimUmiU5S4C6Cx+yp4HNH11N8NQDZL0+e385qmFcM12AhniuOpX2WzuiKJ0kct5SrpAkj9WCxydABqI/LqsQ5XryX+YBPoU4N7f2vjP9gfr3dEZbh82JAAAAABJRU5ErkJggg==);
+    background-size: cover;
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    top: -6px;
+    right: -6px;
+    cursor: pointer;
 }
 
 .first:before, 
@@ -178,27 +209,43 @@ border-color:#e6e6e6;
   cursor: pointer;
 }
 
-
 javascriptStudent::
 
+shuffle(element.getElementsByClassName("dragAnswer"));
+
 function drag(){
-    $('#dragAnswers, .answerPlace .cell, .answerPlace').sortable({
+    $('.drag-table, .answerPlaceStudent .cell, .answerPlaceStudent').sortable({
         items: ".dragAnswer",
-        connectWith: '.answerPlace .cell, .answerPlace',
+        connectWith: '.answerPlaceStudent .cell, .answerPlaceStudent',
         revert: '100',
         tolerance: "pointer",
-        stop: generateStudentAnswer
+        //stop: generateStudentAnswer
     }).disableSelection();
 }
-//TODO: Зачем здесь вызов функции
 drag();
 
-//вызывается для того, чтобы полю 'answer' присвоился json (backend требует ключи для поверки)
-//если жмем "Сохранить" впервые (без перетаскиваний), то json будет присвоен (только ключи)
-//generateStudentAnswer();
+/*
+var dragElements = element.getElementsByClassName("dragAnswer");
 
-function generateStudentAnswer(){
-  var studentTable = document.querySelector('#dragAnswers');
+
+for(var i=0; i<dragElements.length; i++){
+    dragElements[i].addEventListener("mouseout", function(){ 
+        if(this.parentNode.classList.contains("cell"))
+        {
+            this.setAttribute("inTable","true");
+        }
+        else{
+            this.setAttribute("inTable","false");
+        }
+     })
+}
+*/
+
+
+mengine.genAnswerObj = (function (){
+  var studentTable = element.getElementsByTagName('table')[0];
+
+  // console.log(studentTable);
   var studentAnswer = {};
 
     forEachInCollection(childList(studentTable.getElementsByTagName('tbody')[0]), function(value){
@@ -213,16 +260,37 @@ function generateStudentAnswer(){
             }
         });
     });
-  studentAnswer = generationAnswerJSON(studentAnswer);
-  console.log(studentAnswer);
+  mengine.studentStateJSON = studentAnswer;
 
-  document.getElementsByName("answer")[0].value = studentAnswer;
-  document.getElementsByName("answer")[0].val = studentAnswer;
+  return studentAnswer
 
+});
+
+//функция перемешивания DOM-элементов
+function shuffle(elems) {
+    allElems = (function(){
+    var ret = [], l = elems.length;
+    while (l--) { ret[ret.length] = elems[l]; }
+    return ret;
+    })();
+ 
+    var shuffled = (function(){
+        var l = allElems.length, ret = [];
+        while (l--) {
+            var random = Math.floor(Math.random() * allElems.length),
+                randEl = allElems[random].cloneNode(true);
+            allElems.splice(random, 1);
+            ret[ret.length] = randEl;
+        }
+        return ret; 
+    })(), l = elems.length;
+ 
+    while (l--) {
+        elems[l].parentNode.insertBefore(shuffled[l], elems[l].nextSibling);
+        elems[l].parentNode.removeChild(elems[l]);
+    }
+ 
 }
-
-
-
 
 javascriptStudio::
 /**
@@ -230,15 +298,16 @@ javascriptStudio::
 */
 
 // Показывает все скрытые поля отноящиеся к XBlock'у в целом.
-elementDOM.querySelector('#viewSettings').onclick = function(){elementDOM.getElementsByClassName('step-one')[0].style.display = 'block';}
+elementDOM.querySelector('#viewSettings').onclick = function(){
 
-
-function scenarioSave(){
-
-    generateCorrectAnswer(documentTable);
-    getAllAnswers();
 }
 
+function scenarioSave(){
+    if( elementDOM.querySelector('#view').innerHTML.length > 1){
+        generateCorrectAnswer(documentTable);
+        getAllAnswers();
+    }
+}
 
 //Переменная хранящая таблицу documentTable.innerHTML
 var documentTable;
@@ -269,8 +338,7 @@ function makeStartTable(){
     body.appendChild(table);
 
     return body;
-    }
-
+}
 
 //Установка всех всех атрибутов необходимых для работы перетаскивания
 function SetDragAttr(value){
@@ -284,19 +352,30 @@ function SetDragAttr(value){
             deleteAttributes(value, []);
             value.classList.add("cell");
             value.id = generationID();
+            
+            if (value.childNodes[0].nodeType == 3 && value.childNodes[0].textContent.trim().length==0){
+                value.removeChild(value.childNodes[0]);
+            }
 
-            if (value.childNodes[0].nodeType = 3){
-                var div = document.createElement('div');
-                div.innerHTML = value.innerHTML;
-//TODO: Костыль
-                value.innerHTML="";
-                div.classList.add("dragAnswer");
-                div.id = generationID();
-                value.appendChild(div);
+            if (value.childNodes[0].nodeType == 3){
+                var block = document.createElement('div');
+                while (value.childNodes.length > 0 ){
+                   if(value.childNodes[0].nodeType == 3){
+                        var div = document.createElement('div');
+                        div.innerHTML = value.childNodes[0].textContent.trim();
+                        div.classList.add("dragAnswer");
+                        div.id = generationID();
+                        block.appendChild(div);
+                    }
+                        value.removeChild(value.childNodes[0]);
+                }
+                block = _.toArray(block.childNodes);
+                for(var i = 0; i < block.length; i++){
+                    value.appendChild(block[i]);
+                }
             }
             else {
                 forEachInCollection(childList(value), function(value){
-                    console.log(value);
                     var div = document.createElement('div');
                     div.innerHTML = value.innerHTML;
                     div.classList.add("dragAnswer");
@@ -315,7 +394,6 @@ function SetDragAttr(value){
 * value = HTMLelement
 * undeletableAttributes = [];
 */
-
 function deleteAttributes(value, undeletableAttributes){
     var i = 0;
     while(value.attributes.length-undeletableAttributes.length>0)
@@ -336,16 +414,16 @@ function Convertation(){
     drag();
 }
 
-
 /*удаляет ВСЕ атрибуты первой строки (включая 1 уровень детей (td))*/
 function fixLine(value){
     if(firstRowIsBlocked){
         forEachInCollection(childList(value.getElementsByTagName('tr')[0]), function(value){
             deleteAttributes(value, []);
             value.classList.add("cell");
+            value.id = generationID();
             forEachInCollection(childList(value), function(value){
-                value.id = generationID();
                 deleteAttributes(value, []);
+                value.id = generationID();
                 value.classList.add("dragAnswer");
             });
         });
@@ -364,8 +442,6 @@ function fixLine(value){
     }
 }
 
-
-
 /*удаляет ВСЕ атрибуты первого столбца (включая 1 уровень детей (td))*/
 function fixColumn(value){
     if (firstColumnIsBlocked){    
@@ -374,8 +450,8 @@ function fixColumn(value){
             childList(value)[0].classList.add("cell");
             childList(value)[0].id = generationID();
             forEachInCollection(childList(childList(value)[0]), function(value){
-                value.id = generationID();
                 deleteAttributes(value, []);
+                value.id = generationID();
                 value.classList.add("dragAnswer");
             });
         });
@@ -396,8 +472,6 @@ function fixColumn(value){
 }
 
 
-
-
 function drag(){
     $('#dragAnswers, .answerPlace .cell, .answerPlace').sortable({
         items: ".dragAnswer",
@@ -406,10 +480,8 @@ function drag(){
         tolerance: "pointer",
         stop: updateTable
     }).disableSelection();
-    editor.setValue(documentTable.innerHTML);
+    elementDOM.querySelector("#student_view_template").value = documentTable.innerHTML;
 }
-
-
 
 function updateTable() { 
     //TODO: разобраться как это делать
@@ -429,7 +501,9 @@ elementDOM.querySelector("#view").onclick = function(event){
         if(target.classList.contains('first')){
             div.classList.add("fixAnswer");
         }
-        
+        var deleteButton = document.createElement('img');
+        deleteButton.classList.add("deleteItemButton");
+        div.appendChild(deleteButton);
         target.appendChild(div);
     documentTable.innerHTML = elementDOM.querySelector("#view").getElementsByTagName("table")[0].outerHTML;
     editAnswers();
@@ -453,9 +527,9 @@ elementDOM.querySelector("#addRow").onclick = function(){
     }
 
     documentTable.getElementsByTagName('tbody')[0].appendChild(newRow);
-    setBlockHtml('view', documentTable.innerHTML); // надо ли?! наверно надо
+    setBlockHtml('view', documentTable.innerHTML);
     drag();
-    editAnswers();
+   editAnswers();
 };
 
 
@@ -464,7 +538,6 @@ elementDOM.querySelector("#addColumn").onclick = function(){
     documentTable.innerHTML = elementDOM.querySelector("#view").getElementsByTagName("table")[0].outerHTML;
     
     forEachInCollection(documentTable.getElementsByTagName('tr'), function(value){
-        
         var newCell = document.createElement('td');
         newCell.classList.add("cell");
         newCell.id = generationID();
@@ -476,90 +549,99 @@ elementDOM.querySelector("#addColumn").onclick = function(){
     }
         setBlockHtml('view', documentTable.innerHTML); 
         drag();
-        editAnswers();
+       editAnswers();
 };
 
 
-elementDOM.querySelector('#conraw').onclick = function(){
 
+elementDOM.querySelector('#conraw').onclick = function(){
     if (elementDOM.querySelector('#scButtonView').getAttribute('scmenuactive') == "false") {
         
-        if(elementDOM.querySelector('#raw').value == ''){
+        if(elementDOM.querySelector('#raw').value == '' && document.getElementsByName("student_view_template")[0].value == ""){
             documentTable = makeStartTable();
+            console.log("New table created");
         }
-        else{  
+        if(elementDOM.querySelector('#raw').value != ''){
             documentTable =  getValueFild('raw').body;
             SetDragAttr(documentTable);
+            var allItems = documentTable.querySelectorAll(".dragAnswer, .fixAnswer");
+               for(var i = 0; i < allItems.length; i++ ){
+                var deleteButton = document.createElement('img');
+                deleteButton.classList.add("deleteItemButton");
+                allItems[i].appendChild(deleteButton);
+            }
+            console.log('Table from "raw" ');
+        }
+
+        if(document.getElementsByName("student_view_template")[0].value != "" && elementDOM.querySelector('#raw').value == ''){
+
+            var correctAnswer = elementDOM.querySelector('#correct_answer').value;
+            correctAnswer = JSON.parse(correctAnswer);
+            correctAnswer = correctAnswer["answer"];
+            documentTable =  document.createElement('div');
+            documentTable.innerHTML = elementDOM.querySelector("#student_view_template").value;
+            documentTable.getElementsByTagName("table")[0].id = "dragAnswers";
+            documentTable.querySelector("#dragAnswers").setAttribute("class", "answerPlace");
+
+            for (key in correctAnswer) {
+                for (i=0; i < correctAnswer[key].length;i++){
+                    documentTable.querySelector("#" + key).appendChild(documentTable.querySelector("#" + correctAnswer[key][i]));
+                }
+            }
+            var allItems = documentTable.querySelectorAll(".dragAnswer, .fixAnswer");
+               for(var i = 0; i < allItems.length; i++ ){
+                var deleteButton = document.createElement('img');
+                deleteButton.classList.add("deleteItemButton");
+                allItems[i].appendChild(deleteButton);
+            }
+            documentTable.querySelector("#allAnswers").remove();
+            console.log('Load old table');
         }
     
     setBlockHtml('view', documentTable.innerHTML);
     firstRowIsBlocked = false;
     firstColumnIsBlocked = false;
     drag();
-    editAnswers();
-
+   editAnswers();
     }
 
     if (elementDOM.querySelector('#scButtonView').getAttribute('scmenuactive') == "true") {
-    
     var tst = getValueFild('view').body;
-    console.log(tst.innerHTML);
     elementDOM.querySelector('#raw').value = tst.innerHTML;
-    
     }
-
-
-    
 };
 
 
-// TODO: редактирование по двойному клику 
-/*elementDOM.querySelector("#view").ondblclick = function(event){
-   var target = event.target; 
-        if (target.classList.contains('dragAnswer') || target.classList.contains('fixAnswer')){
-            //console.log(target.id + " is contenteditable?");
-            elementDOM.querySelector('#' + target.id ).setAttribute('contenteditable', 'true');
-            elementDOM.querySelector('#' + target.id).focus();
-        } 
-        if (target.parentNode.classList.contains('dragAnswer') || target.parentNode.classList.contains('fixAnswer')){
-            //console.log(target.parentNode.id + " is contenteditable?");
-            elementDOM.querySelector('#' + target.parentNode.id ).setAttribute('contenteditable', 'true');
-            elementDOM.querySelector('#' + target.parentNode.id).focus();
-        } 
-        else return; 
-};
-*/
-/*elementDOM.querySelector("#view").onblur = function(event){
-    var target = event.target;
-    console.log(target.id);
+function editAnswers(){
 
+var editableElements = document.querySelector(".answerPlace").querySelectorAll(".dragAnswer, .fixAnswer, .test");
+
+for(var i =0; i < editableElements.length; i++) { 
+    editableElements[i].ondblclick = function(e){
+        this.querySelector('.deleteItemButton').style.display = 'none';
+        this.setAttribute('contenteditable', 'true'); 
+        this.focus();
+        }
+    editableElements[i].onblur = function(e){
+        this.removeAttribute('contenteditable');
+        this.querySelector('.deleteItemButton').style.display = 'block';
+    }
 }
-*/
 
-function editAnswers(){  
-// не работает .fixAnswer так так у них нет id
-$(".dragAnswer, .fixAnswer").dblclick(function (){
-    $("#"+this.id).attr("contenteditable",true);
-    $("#"+this.id).css("background",'white');
-    $("#"+this.id).css("cursor","text");
-
-    document.getElementById(this.id).focus();
-});
-
-$(".dragAnswer, .fixAnswer").blur(function (){
-    $("#"+this.id).attr("contenteditable",false);
-    $("#"+this.id).css("background","");
-    $("#"+this.id).css("cursor","move");
-});
-
-} 
-
+var allItems = document.querySelector("#view").querySelectorAll(".deleteItemButton");
+for(var i =0; i < allItems.length; i++) { 
+    document.querySelectorAll(".deleteItemButton")[i].onclick = function(){ 
+        var item = this.parentNode;
+        item.remove();
+    }
+}
+}
 
 //фиксация строки
 elementDOM.querySelector('#fixLine').onclick = function(){
     fixLine(documentTable);
     setBlockHtml('view', documentTable.innerHTML);
-    editor.setValue(documentTable.innerHTML);
+    elementDOM.querySelector("#student_view_template").value = documentTable.innerHTML;
     drag();
     editAnswers();
 };
@@ -568,7 +650,7 @@ elementDOM.querySelector('#fixLine').onclick = function(){
 elementDOM.querySelector('#fixColumn').onclick = function(){
     fixColumn(documentTable);
     setBlockHtml('view', documentTable.innerHTML);
-    editor.setValue(documentTable.innerHTML);
+    elementDOM.querySelector("#student_view_template").value = documentTable.innerHTML;
     drag();
     editAnswers();
 };
@@ -588,38 +670,38 @@ function generateCorrectAnswer(value){
             }
         });
     });
-  console.log(correctAnswer+" : "+generationAnswerJSON(correctAnswer));
   correctAnswer = generationAnswerJSON(correctAnswer);
-
   elementDOM.querySelector('#correct_answer').setAttribute('value', correctAnswer);
   var studentView = elementDOM.querySelector("#view");
-  editor.setValue(studentView.innerHTML);
+  elementDOM.querySelector("#student_view_template").value = studentView.innerHTML;
 }
-
 
 
 /*перенос всех ответов в отдельное поле*/
 function getAllAnswers(){
-
     var allAnswersList = elementDOM.querySelector('#view').querySelectorAll('.dragAnswer');
     var allAnswersDiv = document.createElement('div');
     allAnswersDiv.id = "allAnswers";
-    allAnswersDiv.classList.add("answerPlace");
+    allAnswersDiv.classList.add("answerPlaceStudent");
     forEachInCollection(allAnswersList, function(value){ 
         allAnswersDiv.appendChild(value);
     });
     elementDOM.querySelector('#view').appendChild(allAnswersDiv);
+    
     //перемешивание
     for (var i = allAnswersDiv.children.length; i >= 0; i--) {
         allAnswersDiv.appendChild(allAnswersDiv.children[Math.random() * i | 0]);
     }
+
+    elementDOM.querySelector("#view").getElementsByTagName("table")[0].removeAttribute("id");
+    elementDOM.querySelector("#view").getElementsByTagName("table")[0].setAttribute('class', 'answerPlaceStudent drag-table');
     documentTable.innerHTML = elementDOM.querySelector("#view").getElementsByTagName("table")[0].outerHTML;
-    drag();
-    editAnswers();
-
+    var allDeleteButtons = document.querySelector("#view").querySelectorAll(".deleteItemButton");
+    for(var i =0; i < allDeleteButtons.length; i++) { 
+        allDeleteButtons[i].remove();
+    }
     var studentView = elementDOM.querySelector("#view");
-    editor.setValue(studentView.innerHTML);
-
+    elementDOM.querySelector("#student_view_template").value = studentView.innerHTML;
 }
 
 elementDOM.querySelector('#scButtonView').onclick = function(){

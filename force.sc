@@ -272,9 +272,9 @@ var dict = {};
 
             arr.push(document.getElementsByClassName('click')[i].parentNode.getElementsByClassName("locforce")[j].id);
             }
-        dict[document.getElementsByClassName('click')[i].id.valueOf()] = arr;
-        }
         
+        }
+        dict[document.getElementsByClassName('click')[i].id.valueOf()] = arr;
     }
     console.log(dict);
     return dict;
