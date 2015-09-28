@@ -228,18 +228,11 @@ function drag(){
         },
         stop:function(event, ui) {
             if(ui.item.context.parentNode.classList.contains("cell")){
-                console.log("yes");
                 ui.item.context.setAttribute("intable","true");
             }
-            else{console.log("no");
+            else{
                 ui.item.context.setAttribute("intable","false");
         }
-
-
-           
-           // var table = element.getElementsByClassName("drag-table")[0];
-            //console.log(table);
-            //table.style.border = 'none';
             $('.cell').css('box-shadow', 'none')
         },
         //stop: generateStudentAnswer
