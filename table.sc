@@ -233,7 +233,7 @@ function drag(){
             else{console.log("no");}
 
 
-           console.log(ui);
+           console.log(ui.item.context.attributes.setAttribute("intable","true"));
            // var table = element.getElementsByClassName("drag-table")[0];
             //console.log(table);
             //table.style.border = 'none';
