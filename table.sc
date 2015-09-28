@@ -234,7 +234,7 @@ console.log("Student state", studentState);
 shuffle(element.getElementsByClassName("dragAnswer"));
 
 
-studentAnswer = studentState;
+studentAnswer = JSON.parse(studentState);
 
 studentAnswer = studentAnswer["state"];
 
