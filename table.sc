@@ -240,7 +240,7 @@ function drag(){
         revert: '100',
         tolerance: "pointer",
         start: function() {
-            $('.cell').css('box-shadow', 'inset 0px 1px 5px 2px rgba(50, 50, 50, 0.38)')
+            $('.cell').css('box-shadow', 'box-shadow: inset 1px 0px 6px 2px rgb(18, 133, 187)')
         },
         stop:function(event, ui) {
             if(ui.item.context.parentNode.classList.contains("cell")){
