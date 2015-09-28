@@ -230,18 +230,22 @@ css::
 
 javascriptStudent::
 
-//console.log("Student state", studentState);
+console.log("Student state", studentState);
 shuffle(element.getElementsByClassName("dragAnswer"));
 
 
 studentAnswer = studentState;
+
 studentAnswer = studentAnswer["state"];
+
+console.log("Student answer", studentAnswer);
 
 for (key in studentAnswer) {
                 for (i=0; i < studentAnswer[key].length;i++){
                     element.querySelector("#" + key).appendChild(element.querySelector("#" + studentAnswer[key][i]));
                 }
             }
+
 function drag(){
     $('.drag-table, .answerPlaceStudent .cell, .answerPlaceStudent').sortable({
         items: ".dragAnswer",
