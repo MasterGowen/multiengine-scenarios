@@ -28,10 +28,10 @@ html::
 
 cssStudent::
 
-/*#allAnswers{
+#allAnswers{
     border: 1px solid rgb(176, 165, 222);
     min-height: 30px;
-}*/
+}
 
 .cell {
     border: 1px solid white;
