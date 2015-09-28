@@ -230,7 +230,7 @@ css::
 
 javascriptStudent::
 
-//console.log("lol");
+console.log("Student state",studentState);
 shuffle(element.getElementsByClassName("dragAnswer"));
 
 function drag(){
