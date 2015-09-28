@@ -227,10 +227,10 @@ function drag(){
             $('.cell').css('box-shadow', 'inset 0px 1px 5px 2px rgba(50, 50, 50, 0.38)')
         },
         stop:function(event, ui) {
-            var dragElement = element.querySelector(ui.draggable.attr("id"));
-            console.log(ui.draggable.attr("id"));
+           // var dragElement = element.querySelector(ui.draggable.attr("id"));
+            console.log(ui.helper);
 
-            console.log(dragElement);
+           // console.log(dragElement);
            // var table = element.getElementsByClassName("drag-table")[0];
             //console.log(table);
             //table.style.border = 'none';
