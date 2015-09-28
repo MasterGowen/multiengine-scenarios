@@ -225,10 +225,10 @@ function drag(){
         stop:function(event, ui) {
             if(ui.item.context.parentNode.classList.contains("cell")){
                 console.log("yes");
-                console.log(ui.item.context.classList.Add("dragAnswerInTable"));
+                ui.item.context.classList.Add("dragAnswerInTable");
             }
             else{console.log("no");
-                console.log(ui.item.context.classList.Remove("dragAnswerInTable"));
+                ui.item.context.classList.Remove("dragAnswerInTable");
         }
 
 
