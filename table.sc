@@ -29,7 +29,7 @@ html::
 cssStudent::
 
 #allAnswers{
-    border: 1px solid rgb(176, 165, 222);
+    border: 1px solid #e3e3e3;
     min-height: 30px;
 }
 
