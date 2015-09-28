@@ -230,16 +230,9 @@ css::
 
 javascriptStudent::
 
-console.log("Student state", studentState);
 shuffle(element.getElementsByClassName("dragAnswer"));
-
-
 studentAnswer = JSON.parse(studentState);
-
 studentAnswer = studentAnswer["state"];
-
-console.log("Student answer", studentAnswer);
-
 for (key in studentAnswer) {
                 for (i=0; i < studentAnswer[key].length;i++){
                     element.querySelector("#" + key).appendChild(element.querySelector("#" + studentAnswer[key][i]));
@@ -265,7 +258,6 @@ function drag(){
         }
             $('.cell').css('box-shadow', 'none')
         },
-        //stop: generateStudentAnswer
     }).disableSelection();
 }
 drag();
