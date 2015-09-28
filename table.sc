@@ -64,11 +64,12 @@ cssStudent::
 }
 
 .dragAnswer{
-    border: 1px dashed rgb(163, 55, 55);
+    background-color: #F2F2F9;
+    border: 1px dotted #0D72A2;
     cursor: move;
     margin: 5px;
     padding: 2px 10px;
-    max-width:300px;
+    max-width: 300px;
     display: inline-block;
 }
 
