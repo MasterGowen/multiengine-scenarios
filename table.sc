@@ -41,6 +41,14 @@ cssStudent::
     background: #D8E6F3;
 }
 
+.cell:before {
+    font-size: 12px;
+    content: "Разместите ответ";
+    display: block;
+    margin: -8px 0 0 0;
+    color: cadetblue;
+}
+
 .first{
     background: rgb(170, 222, 226);
     border: 1px solid white;
@@ -152,13 +160,7 @@ css::
     background: #D8E6F3;
 }
 
-.cell:before {
-    font-size: 12px;
-    content: "Разместите ответ";
-    display: block;
-    margin: -8px 0 0 0;
-    color: cadetblue;
-}
+
 
 .first{
 	background: rgb(170, 222, 226);
