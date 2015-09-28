@@ -224,7 +224,7 @@ function drag(){
            // var table = element.getElementsByClassName("drag-table")[0];
           //  console.log(table);
            // table.style.box-shadow = 'inset 3px 3px 3px 3px rgba(50, 50, 50, 0.48);';
-            $('.cell').css('box-shadow', 'inset 3px 3px 3px 3px rgba(50, 50, 50, 0.48)')
+            $('.cell').css('box-shadow', 'inset 0px 0px 1px 3px rgba(50, 50, 50, 0.48)')
         },
         stop:function() {
            // var table = element.getElementsByClassName("drag-table")[0];
