@@ -221,14 +221,16 @@ function drag(){
         revert: '100',
         tolerance: "pointer",
         start: function() {
-            var table = element.getElementsByClassName("drag-table")[0];
-            console.log(table);
-            table.style.box-shadow = 'inset 3px 3px 3px 3px rgba(50, 50, 50, 0.48);';
+           // var table = element.getElementsByClassName("drag-table")[0];
+          //  console.log(table);
+           // table.style.box-shadow = 'inset 3px 3px 3px 3px rgba(50, 50, 50, 0.48);';
+            $('.cell').css('box-shadow', 'inset 3px 3px 3px 3px rgba(50, 50, 50, 0.48)')
         },
         stop:function() {
-            var table = element.getElementsByClassName("drag-table")[0];
-            console.log(table);
-            table.style.border = 'none';
+           // var table = element.getElementsByClassName("drag-table")[0];
+            //console.log(table);
+            //table.style.border = 'none';
+            $('.cell').css('box-shadow', 'none')
         },
         //stop: generateStudentAnswer
     }).disableSelection();
