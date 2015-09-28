@@ -243,6 +243,7 @@ console.log("Student answer", studentAnswer);
 for (key in studentAnswer) {
                 for (i=0; i < studentAnswer[key].length;i++){
                     element.querySelector("#" + key).appendChild(element.querySelector("#" + studentAnswer[key][i]));
+                    element.querySelector("#" + studentAnswer[key][i]).setAttribute("intable","true");
                 }
             }
 
