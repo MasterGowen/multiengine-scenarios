@@ -52,7 +52,7 @@ cssStudent::
     font-size: 10px;
     content: "Разместите ответ здесь";
     display: block;
-    margin: -4px 0px 0 4px;
+    margin: 0px 0px 0 6px;
     color: cadetblue;
 }
 
