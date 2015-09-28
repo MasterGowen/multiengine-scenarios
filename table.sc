@@ -152,10 +152,13 @@ css::
     background: #D8E6F3;
 }
 
-.cell:after {
-    content: "Разместите ответ здесь";
-    font-size: 11px;
-    font-style: italic;
+.cell:before {
+    font-size: 12px;
+    content: "Разместите ответ";
+    display: block;
+    margin: -8px 0 0 0;
+    color: cadetblue;
+}
 
 .first{
 	background: rgb(170, 222, 226);
@@ -227,9 +230,6 @@ function drag(){
         revert: '100',
         tolerance: "pointer",
         start: function() {
-           // var table = element.getElementsByClassName("drag-table")[0];
-          //  console.log(table);
-           // table.style.box-shadow = 'inset 3px 3px 3px 3px rgba(50, 50, 50, 0.48);';
             $('.cell').css('box-shadow', 'inset 0px 1px 5px 2px rgba(50, 50, 50, 0.38)')
         },
         stop:function(event, ui) {
@@ -245,24 +245,6 @@ function drag(){
     }).disableSelection();
 }
 drag();
-
-/*
-var dragElements = element.getElementsByClassName("dragAnswer");
-
-
-for(var i=0; i<dragElements.length; i++){
-    dragElements[i].addEventListener("mouseout", function(){ 
-        if(this.parentNode.classList.contains("cell"))
-        {
-            this.setAttribute("inTable","true");
-        }
-        else{
-            this.setAttribute("inTable","false");
-        }
-     })
-}
-*/
-
 
 mengine.genAnswerObj = (function (){
   var studentTable = element.getElementsByTagName('table')[0];
