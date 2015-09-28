@@ -54,7 +54,7 @@ cssStudent::
     margin: 5px;
     padding: 2px 10px;
     max-width:300px;
-   /* display: inline-block;*/
+    display: inline-block;
 }
 
 .dragAnswer["intable=false"]{
@@ -229,11 +229,14 @@ function drag(){
         stop:function(event, ui) {
             if(ui.item.context.parentNode.classList.contains("cell")){
                 console.log("yes");
+                console.log(ui.item.context.setAttribute("intable","true"));
             }
-            else{console.log("no");}
+            else{console.log("no");
+                console.log(ui.item.context.setAttribute("intable","false"));
+        }
 
 
-           console.log(ui.item.context.setAttribute("intable","true"));
+           
            // var table = element.getElementsByClassName("drag-table")[0];
             //console.log(table);
             //table.style.border = 'none';
