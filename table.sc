@@ -57,8 +57,12 @@ cssStudent::
     display: inline-block;
 }
 
-.dragAnswerInTable{
-    display: block !important;
+.dragAnswer["intable=false"]{
+    display: inline-block;
+}
+
+.dragAnswer["intable=true"]{
+    display: block;
 }
 
 .fixAnswer{
@@ -225,10 +229,10 @@ function drag(){
         stop:function(event, ui) {
             if(ui.item.context.parentNode.classList.contains("cell")){
                 console.log("yes");
-                ui.item.context.classList.Add("dragAnswerInTable");
+                ui.item.context.setAttribute("intable","true");
             }
             else{console.log("no");
-                ui.item.context.classList.Remove("dragAnswerInTable");
+                ui.item.context.setAttribute("intable","false");
         }
 
 
