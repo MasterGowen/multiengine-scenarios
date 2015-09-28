@@ -151,7 +151,8 @@ css::
     cursor: pointer;
     background: #D8E6F3;
 }
-cell:before {
+
+.cell:after {
     content: "Разместите ответ здесь";
     font-size: 11px;
     font-style: italic;
