@@ -221,7 +221,7 @@ function drag(){
         revert: '100',
         tolerance: "pointer",
         start: function() {
-            var table = element.getElementsByClassName("drag-table");
+            var table = element.getElementsByClassName("drag-table")[0];
             console.log(table);
             table.style.border = '3px solid red';
         },
