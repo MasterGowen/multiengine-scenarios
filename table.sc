@@ -220,6 +220,13 @@ function drag(){
         connectWith: '.answerPlaceStudent .cell, .answerPlaceStudent',
         revert: '100',
         tolerance: "pointer",
+        drag: function() {
+              var styleEl = document.createElement('style'),
+                    styleSheet;
+                document.head.appendChild(styleEl);
+                styleSheet = styleEl.sheet;
+                styleSheet.insertRule(".cell { color: white }", 0);
+        },
         //stop: generateStudentAnswer
     }).disableSelection();
 }
