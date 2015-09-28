@@ -146,10 +146,15 @@ css::
 
 .cell {
     border: 1px solid white;
-    min-width: 100px;
+    width: 150px;
+    height: 60px;
     cursor: pointer;
     background: #D8E6F3;
 }
+cell:before {
+    content: "Разместите ответ здесь";
+    font-size: 11px;
+    font-style: italic;
 
 .first{
 	background: rgb(170, 222, 226);
