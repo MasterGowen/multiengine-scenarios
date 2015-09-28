@@ -223,12 +223,12 @@ function drag(){
         start: function() {
             var table = element.getElementsByClassName("drag-table")[0];
             console.log(table);
-            table.style.border = '3px solid red';
+            table.style.box-shadow = 'inset 3px 3px 3px 3px rgba(50, 50, 50, 0.48);';
         },
         stop:function() {
             var table = element.getElementsByClassName("drag-table")[0];
             console.log(table);
-            table.style.border = '0px solid red';
+            table.style.border = 'none';
         },
         //stop: generateStudentAnswer
     }).disableSelection();
