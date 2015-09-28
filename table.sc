@@ -239,7 +239,7 @@ function drag(){
         revert: '100',
         tolerance: "pointer",
         start: function() {
-            $('.cell').css('box-shadow', 'inset 0px 1px 5px 2px rgba(50, 50, 50, 0.38)')
+            $(element.getElementsByTagName('table')[0]).$('.cell').css('box-shadow', 'inset 0px 1px 5px 2px rgba(50, 50, 50, 0.38)')
         },
         stop:function(event, ui) {
             if(ui.item.context.parentNode.classList.contains("cell")){
