@@ -49,9 +49,9 @@ cssStudent::
 
 .cell:before {
     font-size: 12px;
-    content: "Разместите ответ";
+    content: "Разместите ответ здесь";
     display: block;
-    margin: 0px 0px 0 6px;
+    margin: -4px 0px 0 4px;
     color: cadetblue;
 }
 
