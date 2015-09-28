@@ -230,9 +230,18 @@ css::
 
 javascriptStudent::
 
-console.log("Student state",studentState);
+//console.log("Student state", studentState);
 shuffle(element.getElementsByClassName("dragAnswer"));
 
+
+studentAnswer = studentState;
+studentAnswer = studentAnswer["state"];
+
+for (key in studentAnswer) {
+                for (i=0; i < studentAnswer[key].length;i++){
+                    element.querySelector("#" + key).appendChild(element.querySelector("#" + studentAnswer[key][i]));
+                }
+            }
 function drag(){
     $('.drag-table, .answerPlaceStudent .cell, .answerPlaceStudent').sortable({
         items: ".dragAnswer",
@@ -575,6 +584,7 @@ elementDOM.querySelector('#conraw').onclick = function(){
             documentTable = makeStartTable();
             console.log("New table created");
         }
+
         if(elementDOM.querySelector('#raw').value != ''){
             documentTable =  getValueFild('raw').body;
             SetDragAttr(documentTable);
