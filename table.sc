@@ -226,7 +226,8 @@ function drag(){
            // table.style.box-shadow = 'inset 3px 3px 3px 3px rgba(50, 50, 50, 0.48);';
             $('.cell').css('box-shadow', 'inset 0px 1px 5px 2px rgba(50, 50, 50, 0.38)')
         },
-        stop:function() {
+        stop:function(event, ui) {
+            console.log(ui.id);
            // var table = element.getElementsByClassName("drag-table")[0];
             //console.log(table);
             //table.style.border = 'none';
