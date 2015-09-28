@@ -33,7 +33,7 @@ cssStudent::
     min-height: 30px;
 }
 
-.xmodule_display.xmodule_CapaModule div.problem table th {
+.xmodule_display.xmodule_CapaModule div.problem table tr, .xmodule_display.xmodule_CapaModule div.problem table td, .xmodule_display.xmodule_CapaModule div.problem table th {
     vertical-align: sub !important;
 }
 
