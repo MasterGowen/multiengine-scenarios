@@ -41,6 +41,7 @@ cssStudent::
 
 .cell {
     border: 1px solid white;
+    min-width: 110px;
     width: 150px;
     height: 60px;
     cursor: pointer;
@@ -48,7 +49,7 @@ cssStudent::
 }
 
 .cell:before {
-    font-size: 12px;
+    font-size: 10px;
     content: "Разместите ответ здесь";
     display: block;
     margin: -4px 0px 0 4px;
