@@ -33,6 +33,10 @@ cssStudent::
     min-height: 30px;
 }
 
+.xmodule_display.xmodule_CapaModule div.problem table th {
+    vertical-align: sub !important;
+}
+
 .cell {
     border: 1px solid white;
     min-width: 100px;
