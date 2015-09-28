@@ -229,7 +229,7 @@ function drag(){
         stop:function(event, ui) {
            // var dragElement = element.querySelector(ui.draggable.attr("id"));
             var dE = ui;
-            console.log(ui);
+            console.log(ui.item);
 
            // console.log(dragElement);
            // var table = element.getElementsByClassName("drag-table")[0];
