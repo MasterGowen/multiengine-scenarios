@@ -227,7 +227,7 @@ function drag(){
             $('.cell').css('box-shadow', 'inset 0px 1px 5px 2px rgba(50, 50, 50, 0.38)')
         },
         stop:function(event, ui) {
-            console.log(ui.context.classList);
+            console.log(ui.context);
            // var table = element.getElementsByClassName("drag-table")[0];
             //console.log(table);
             //table.style.border = 'none';
