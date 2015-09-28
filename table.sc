@@ -211,6 +211,7 @@ css::
 
 javascriptStudent::
 
+console.log("lol");
 shuffle(element.getElementsByClassName("dragAnswer"));
 
 function drag(){
