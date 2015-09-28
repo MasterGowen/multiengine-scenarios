@@ -57,11 +57,11 @@ cssStudent::
   //  display: inline-block;
 }
 
-.dragAnswer["intable=false"]{
+.dragAnswer[intable="false"]{
     display: inline-block;
 }
 
-.dragAnswer["intable=true"]{
+.dragAnswer[intable="true"]{
     display: block;
 }
 
