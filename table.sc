@@ -45,7 +45,7 @@ cssStudent::
     font-size: 12px;
     content: "Разместите ответ";
     display: block;
-    margin: -8px 0 0 0;
+    margin: 0px 0px 0 6px;
     color: cadetblue;
 }
 
