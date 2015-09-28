@@ -211,7 +211,7 @@ css::
 
 javascriptStudent::
 
-console.log("lol");
+//console.log("lol");
 shuffle(element.getElementsByClassName("dragAnswer"));
 
 function drag(){
@@ -220,12 +220,9 @@ function drag(){
         connectWith: '.answerPlaceStudent .cell, .answerPlaceStudent',
         revert: '100',
         tolerance: "pointer",
-        drag: function() {
-              var styleEl = document.createElement('style'),
-                    styleSheet;
-                document.head.appendChild(styleEl);
-                styleSheet = styleEl.sheet;
-                styleSheet.insertRule(".cell { color: white }", 0);
+        start: function() {
+            var table = element.getElementsByClassName("drag-table");
+            console.log(table);
         },
         //stop: generateStudentAnswer
     }).disableSelection();
