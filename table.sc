@@ -41,8 +41,8 @@ cssStudent::
 
 .cell {
     border: 1px solid white;
-    min-width: 100px;
-    height: 50px;
+    width: 150px;
+    height: 60px;
     cursor: pointer;
     background: #D8E6F3;
 }
