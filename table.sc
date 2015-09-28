@@ -225,11 +225,11 @@ function drag(){
             console.log(table);
             table.style.border = '3px solid red';
         },
-        /*stop:function() {
-            var table = element.getElementsByClassName("drag-table");
+        stop:function() {
+            var table = element.getElementsByClassName("drag-table")[0];
             console.log(table);
             table.style.border = '0px solid red';
-        },*/
+        },
         //stop: generateStudentAnswer
     }).disableSelection();
 }
