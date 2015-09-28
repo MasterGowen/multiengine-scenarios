@@ -227,14 +227,13 @@ function drag(){
             $('.cell').css('box-shadow', 'inset 0px 1px 5px 2px rgba(50, 50, 50, 0.38)')
         },
         stop:function(event, ui) {
-           // var dragElement = element.querySelector(ui.draggable.attr("id"));
-            var dE = ui;
             if(ui.item.context.parentNode.classList.contains("cell")){
                 console.log("yes");
             }
             else{console.log("no");}
 
-           // console.log(dragElement);
+
+           console.log(ui);
            // var table = element.getElementsByClassName("drag-table")[0];
             //console.log(table);
             //table.style.border = 'none';
