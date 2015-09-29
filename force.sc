@@ -206,15 +206,12 @@ document.getElementById('protractor').onclick = function(){
 
 
 for (var i=0; i<document.getElementsByClassName('click').length; i++){
+    document.getElementsByClassName('click')[i].id = generationID;
 	document.getElementsByClassName('click')[i].onclick = function(){
 
 
 	    console.log('scMenu above point#'+this.id);
-	    if (this.id) {
-	    	MenuAbovePointId = this.id}
-	    else  MenuAbovePointId = this.id = generationID();
-	    	    console.log(MenuAbovePointId)
-
+	    MenuAbovePointId = this.id
 
 	    menuPosition.x = Number(this.getAttribute("cx"));
 	    menuPosition.y = Number(this.getAttribute("cy"));
