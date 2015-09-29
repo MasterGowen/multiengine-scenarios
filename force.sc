@@ -206,12 +206,16 @@ document.getElementById('protractor').onclick = function(){
 
 
 for (var i=0; i<document.getElementsByClassName('click').length; i++){
-    document.getElementsByClassName('click')[i].id = generationID;
+    document.getElementsByClassName('click')[i].id = generationID();
 	document.getElementsByClassName('click')[i].onclick = function(){
 
 
 	    console.log('scMenu above point#'+this.id);
-	    MenuAbovePointId = this.id
+	    if (this.id) {
+	    	MenuAbovePointId = this.id}
+	    else  MenuAbovePointId = this.id = generationID();
+	    	    console.log(MenuAbovePointId)
+
 
 	    menuPosition.x = Number(this.getAttribute("cx"));
 	    menuPosition.y = Number(this.getAttribute("cy"));
@@ -269,9 +273,9 @@ var dict = {};
 
             arr.push(document.getElementsByClassName('click')[i].parentNode.getElementsByClassName("locforce")[j].id);
             }
-        
-        }
         dict[document.getElementsByClassName('click')[i].id.valueOf()] = arr;
+        }
+        
     }
     console.log(dict);
     return dict;
