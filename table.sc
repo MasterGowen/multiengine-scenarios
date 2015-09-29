@@ -7,7 +7,7 @@ description::
 Табличный тест
 
 html::
-
+    <a id=viewSettings>Показать основные настройки</a>
     <ul id="scMenu">
         <li id="scButtonRaw" scMenuActive="true">Исходный код</li>
         <li id="conraw">Преобразовать HTML</li>
@@ -171,8 +171,8 @@ css::
 
 
 .first{
-	background: rgb(170, 222, 226);
-	border: 1px solid white;
+    background: rgb(170, 222, 226);
+    border: 1px solid white;
     background: #AFCDE7;
     min-width: 100px;
 }
@@ -186,7 +186,7 @@ css::
 }
 
 .dragAnswer{
-	border: 1px dashed rgb(163, 55, 55);
+    border: 1px dashed rgb(163, 55, 55);
     cursor: move;
     margin: 5px;
     padding: 2px 10px;
@@ -230,15 +230,8 @@ css::
 
 javascriptStudent::
 
+//console.log("lol");
 shuffle(element.getElementsByClassName("dragAnswer"));
-studentAnswer = JSON.parse(studentState);
-studentAnswer = studentAnswer["state"];
-for (key in studentAnswer) {
-                for (i=0; i < studentAnswer[key].length;i++){
-                    element.querySelector("#" + key).appendChild(element.querySelector("#" + studentAnswer[key][i]));
-                    element.querySelector("#" + studentAnswer[key][i]).setAttribute("intable","true");
-                }
-            }
 
 function drag(){
     $('.drag-table, .answerPlaceStudent .cell, .answerPlaceStudent').sortable({
@@ -258,6 +251,7 @@ function drag(){
         }
             $('.cell').css('box-shadow', 'none')
         },
+        //stop: generateStudentAnswer
     }).disableSelection();
 }
 drag();
@@ -318,6 +312,9 @@ javascriptStudio::
 */
 
 // Показывает все скрытые поля отноящиеся к XBlock'у в целом.
+elementDOM.querySelector('#viewSettings').onclick = function(){
+
+}
 
 function scenarioSave(){
     if( elementDOM.querySelector('#view').innerHTML.length > 1){
@@ -578,7 +575,6 @@ elementDOM.querySelector('#conraw').onclick = function(){
             documentTable = makeStartTable();
             console.log("New table created");
         }
-
         if(elementDOM.querySelector('#raw').value != ''){
             documentTable =  getValueFild('raw').body;
             SetDragAttr(documentTable);
