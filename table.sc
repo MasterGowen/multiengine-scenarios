@@ -687,6 +687,7 @@ function generateCorrectAnswer(value){
   correctAnswer = generationAnswerJSON(correctAnswer);
   elementDOM.querySelector('#correct_answer').setAttribute('value', correctAnswer);
   var studentView = elementDOM.querySelector("#view");
+  console.log("studentView.innerHTML:         ", studentView.innerHTML)
   elementDOM.querySelector("#student_view_template").value = studentView.innerHTML;
 }
 
