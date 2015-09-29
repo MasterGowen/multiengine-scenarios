@@ -187,7 +187,7 @@ document.getElementById('protractor').onclick = function(){
 	else{
 		force.setAttribute("transform", "translate("+forcePosition.x+","+forcePosition.y+") scale("+ leftOrRigth +", 1)");
 	}
-    force.id= MenuAbovePointId+"_"+Math.floor(forcePosition.angle*0.2)/0.2+2;
+    force.id= MenuAbovePointId+"_"+Math.floor(forcePosition.angle*0.1)/0.1+5;
 	console.log(force.id)
 	document.getElementById(MenuAbovePointId).parentNode.insertBefore(force, document.getElementById(MenuAbovePointId));
 	scStatusMenu();
