@@ -231,6 +231,8 @@ css::
 javascriptStudent::
 
 shuffle(element.getElementsByClassName("dragAnswer"));
+
+try {
 studentAnswer = JSON.parse(studentState);
 studentAnswer = studentAnswer["state"];
 for (key in studentAnswer) {
@@ -239,7 +241,10 @@ for (key in studentAnswer) {
                     element.querySelector("#" + studentAnswer[key][i]).setAttribute("intable","true");
                 }
             }
-
+}
+catch(e){
+    console.log(e);
+}
 
 function drag(){
     $('.drag-table, .answerPlaceStudent .cell, .answerPlaceStudent').sortable({
