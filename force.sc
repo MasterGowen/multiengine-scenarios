@@ -173,7 +173,7 @@ document.getElementById('protractor').addEventListener("mousemove", function(e) 
   
 
   document.getElementById('moment').setAttribute("transform", "scale("+ leftOrRigth +", 1)");
-  document.getElementById('force').setAttribute("transform", "rotate("+ (-1 * forcePosition.angle + 5) +")");
+  document.getElementById('force').setAttribute("transform", "rotate("+ (-1 * forcePosition.angle) +")");
 });
 document.getElementById('protractor').onclick = function(){
 
@@ -181,7 +181,7 @@ document.getElementById('protractor').onclick = function(){
 	force.classList.add("locforce");
 	//force.firstElementChild.setAttribute('fill','#000');
 	if (forcePosition.type == 'force'){
-		force.setAttribute("transform","translate("+forcePosition.x+","+forcePosition.y+") rotate("+((-1 * forcePosition.angle+5 + 360)%360)+")");
+		force.setAttribute("transform","translate("+forcePosition.x+","+forcePosition.y+") rotate("+((-1 * forcePosition.angle + 360)%360)+")");
 
 	}
 	else{
