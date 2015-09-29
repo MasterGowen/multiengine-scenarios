@@ -206,8 +206,7 @@ document.getElementById('protractor').onclick = function(){
 
 
 for (var i=0; i<document.getElementsByClassName('click').length; i++){
-    document.getElementsByClassName('click')[i].id = generationID();
-	document.getElementsByClassName('click')[i].onclick = function(){
+    document.getElementsByClassName('click')[i].onclick = function(){
 
 
 	    console.log('scMenu above point#'+this.id);
@@ -361,6 +360,9 @@ scRadiusMenu.appendChild(scButtonOpenClose);
 elementDOM.querySelector('#conraw').onclick = function(){
 stringSVG = elementDOM.querySelector('#raw').value;
 elementDOM.querySelector('#view').innerHTML = stringSVG;
+for (var i=0; i<document.getElementsByClassName('click').length; i++){
+    document.getElementsByClassName('click')[i].id = generationID();
+}
 elementDOM.querySelector('#view').querySelector('svg').appendChild(scRadiusMenu);
 stringSVG = elementDOM.querySelector('#view').innerHTML;
 editor.setValue(stringSVG);
