@@ -168,7 +168,7 @@ document.getElementById('protractor').addEventListener("mousemove", function(e) 
   	angleDegrees = (atan2 > 0 ? atan2 * 360 / (2*Math.PI) : 360 + atan2 * 360 / (2*Math.PI));
 
   	//arcctg = Math.a
-  	forcePosition.angle = Math.floor(angleDegrees);
+  	forcePosition.angle = Math.floor(Math.floor(forcePosition.angle*0.333333)/0.333333);
   	console.log(forcePosition.angle, Math.floor(Math.floor(forcePosition.angle*0.333333)/0.333333));
   
 
