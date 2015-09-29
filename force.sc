@@ -276,7 +276,7 @@ var dict = {};
         }
         
     }
-    console.log(dict);
+    console.log(JSON.stringify(dict));
     return dict;
 }
 
