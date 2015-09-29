@@ -170,6 +170,7 @@ document.getElementById('protractor').addEventListener("mousemove", function(e) 
   	//arcctg = Math.a
   	forcePosition.angle = Math.floor(angleDegrees)+5;
   	console.log(forcePosition.angle)
+    console.log(forcePosition.angle*0.1)/0.1
   
 
   document.getElementById('moment').setAttribute("transform", "scale("+ leftOrRigth +", 1)");
