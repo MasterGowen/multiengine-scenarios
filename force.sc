@@ -262,7 +262,7 @@ document.getElementById('scDelAllinPoint').onclick = function(){
 }
 
 mengine.genAnswerObj = function (){
-var dict = {1:{"or":[[1]]};
+var dict = {1:{"or":[[1]]}};
     console.log(1);
     for (var i=0; i<document.getElementsByClassName('click').length; i++){
         var arr = [];
