@@ -168,7 +168,7 @@ document.getElementById('protractor').addEventListener("mousemove", function(e) 
   	angleDegrees = (atan2 > 0 ? atan2 * 360 / (2*Math.PI) : 360 + atan2 * 360 / (2*Math.PI));
 
   	//arcctg = Math.a
-  	forcePosition.angle = Math.floor(angleDegrees*0.2)/0.2+5;
+  	forcePosition.angle = Math.floor(angleDegrees)+5;
   	console.log(forcePosition.angle)
   
 
@@ -187,7 +187,7 @@ document.getElementById('protractor').onclick = function(){
 	else{
 		force.setAttribute("transform", "translate("+forcePosition.x+","+forcePosition.y+") scale("+ leftOrRigth +", 1)");
 	}
-    force.id= MenuAbovePointId+"_"+forcePosition.angle;
+    force.id= MenuAbovePointId+"_"+Math.floor(forcePosition.angle*0.2)/0.2;
 	console.log(force.id)
 	document.getElementById(MenuAbovePointId).parentNode.insertBefore(force, document.getElementById(MenuAbovePointId));
 	scStatusMenu();
