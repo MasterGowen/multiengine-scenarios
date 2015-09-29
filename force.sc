@@ -168,13 +168,13 @@ document.getElementById('protractor').addEventListener("mousemove", function(e) 
   	angleDegrees = (atan2 > 0 ? atan2 * 360 / (2*Math.PI) : 360 + atan2 * 360 / (2*Math.PI));
 
   	//arcctg = Math.a
-  	forcePosition.angle = Math.floor(angleDegrees);
-  	console.log(forcePosition.angle);
+  	forcePosition.angle = Math.floor(angleDegrees)+5;
+  	console.log(forcePosition.angle)
     console.log(Math.floor(forcePosition.angle*0.1)/0.1);
   
 
   document.getElementById('moment').setAttribute("transform", "scale("+ leftOrRigth +", 1)");
-  document.getElementById('force').setAttribute("transform", "rotate("+ (-1 * forcePosition.angle) +")");
+  document.getElementById('force').setAttribute("transform", "rotate("+ (-1 * forcePosition.angle + 5) +")");
 });
 document.getElementById('protractor').onclick = function(){
 
