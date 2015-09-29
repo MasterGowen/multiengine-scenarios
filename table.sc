@@ -318,9 +318,6 @@ javascriptStudio::
 */
 
 // Показывает все скрытые поля отноящиеся к XBlock'у в целом.
-elementDOM.querySelector('#viewSettings').onclick = function(){
-
-}
 
 function scenarioSave(){
     if( elementDOM.querySelector('#view').innerHTML.length > 1){
