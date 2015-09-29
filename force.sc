@@ -174,7 +174,7 @@ document.getElementById('protractor').addEventListener("mousemove", function(e) 
   
 
   document.getElementById('moment').setAttribute("transform", "scale("+ leftOrRigth +", 1)");
-  document.getElementById('force').setAttribute("transform", "rotate("+ (-1 * forcePosition.angle + 5) +")");
+  document.getElementById('force').setAttribute("transform", "rotate("+ (-1 * forcePosition.angle) +")");
 });
 document.getElementById('protractor').onclick = function(){
 
