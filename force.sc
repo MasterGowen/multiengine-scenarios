@@ -206,7 +206,6 @@ document.getElementById('protractor').onclick = function(){
 
 
 for (var i=0; i<document.getElementsByClassName('click').length; i++){
-    document.getElementsByClassName('click')[i].id = generationID();
 	document.getElementsByClassName('click')[i].onclick = function(){
 
 
