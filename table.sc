@@ -688,7 +688,7 @@ function generateCorrectAnswer(value){
   elementDOM.querySelector('#correct_answer').setAttribute('value', correctAnswer);
   var studentView = elementDOM.querySelector("#view");
   console.log("studentView.innerHTML:         ", studentView.innerHTML);
-  if(typeof(editor) != undefined){
+  if(typeof(editor) != "undefined"){
         editor.setValue(studentView.innerHTML);
     }
   else{
