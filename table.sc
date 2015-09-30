@@ -232,16 +232,7 @@ javascriptStudent::
 
 shuffle(element.getElementsByClassName("dragAnswer"));
 
-try {
-studentAnswer = JSON.parse(studentState);
-studentAnswer = studentAnswer["state"];
-for (key in studentAnswer) {
-                for (i=0; i < studentAnswer[key].length;i++){
-                    element.querySelector("#" + key).appendChild(element.querySelector("#" + studentAnswer[key][i]));
-                    element.querySelector("#" + studentAnswer[key][i]).setAttribute("intable","true");
-                }
-            }
-}
+
 catch(e){
     console.log(e);
 }
