@@ -233,9 +233,7 @@ javascriptStudent::
 shuffle(element.getElementsByClassName("dragAnswer"));
 
 
-catch(e){
-    console.log(e);
-}
+
 
 function drag(){
     $('.drag-table, .answerPlaceStudent .cell, .answerPlaceStudent').sortable({

@@ -160,7 +160,7 @@ document.getElementById('protractor').addEventListener("mousemove", function(e) 
 	var loc = cursorPoint(e);
 	x=loc.x;
 	y=loc.y;
-щк
+
   	forcePosition.x = menuPosition.x;
   	forcePosition.y = menuPosition.y;
   	atan2=Math.atan2((-y+menuPosition.y),(x-menuPosition.x))//*180/Math.PI;
