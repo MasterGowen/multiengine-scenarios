@@ -182,12 +182,13 @@ document.getElementById('protractor').onclick = function(){
 	//force.firstElementChild.setAttribute('fill','#000');
 	if (forcePosition.type == 'force'){
 		force.setAttribute("transform","translate("+forcePosition.x+","+forcePosition.y+") rotate("+((-1 * forcePosition.angle + 360)%360)+")");
-
+        force.id= MenuAbovePointId+"_"+forcePosition.angle;
 	}
 	else{
 		force.setAttribute("transform", "translate("+forcePosition.x+","+forcePosition.y+") scale("+ leftOrRigth +", 1)");
+        force.id= MenuAbovePointId+"_m"+leftOrRigth;
 	}
-    force.id= MenuAbovePointId+"_"+forcePosition.angle;
+    
 	console.log(force.id)
 	document.getElementById(MenuAbovePointId).parentNode.insertBefore(force, document.getElementById(MenuAbovePointId));
 	scStatusMenu();
