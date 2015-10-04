@@ -109,6 +109,17 @@ var forcePosition = {x:0, y:0, angle:0, type: ""}
 var MenuAbovePointId;
 var stateMenu={visible:false, scRadiusMenuSector:true, scProtractor:false };
 
+function success_func(result) {
+    //console.log("Количество баллов: " + result.correct/result.weight*100 + " ОТВЕТОВ: " + result.attempts);
+    $('.attempts', element).text(result.attempts);
+    $(element).find('.weight').html('Набрано баллов: <me-span class="points"></span>');
+    $('.points', element).text(result.correct + ' из ' + result.weight);
+
+    if (result.max_attempts && result.max_attempts <= result.attempts) {
+        $('.send_button', element).html('<p><strong>Попытки исчерпаны</strong></p>')
+    };
+    if(result.correct>100) console.log("вы не указали все силы действкющие на объект")
+};
 
 
 
