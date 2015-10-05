@@ -6,15 +6,15 @@ description::
 
 html::
     <ul id="scMenu">
-		<li id="scButtonRaw" scMenuActive="true">Исходный код</li>
+        <li id="scButtonRaw" scMenuActive="true">Исходный код</li>
         <li id="conraw">Преобразовать SVG</li>
-		<li id="scButtonView" scMenuActive="false">Просмотр</li>
-	</ul>
+        <li id="scButtonView" scMenuActive="false">Просмотр</li>
+    </ul>
     <div id="scWindowRaw">
-    	<textarea id="raw"></textarea>
+        <textarea id="raw"></textarea>
     </div>
     <div id="scWindowView" hidden='true'>
-    	<div id="view"></div>
+        <div id="view"></div>
     </div>
 
 
@@ -94,7 +94,7 @@ css::
 }
 
 #raw{
-	background-color: #F9F9F9
+    background-color: #F9F9F9
 }
 
 
@@ -104,12 +104,16 @@ css::
 
 
 javascriptStudent::
+
 var menuPosition = {x:0, y:0};
 var forcePosition = {x:0, y:0, angle:0, type: ""}
 var MenuAbovePointId;
 var stateMenu={visible:false, scRadiusMenuSector:true, scProtractor:false };
 
+
+
 function success_func(result) {
+
     //console.log("Количество баллов: " + result.correct/result.weight*100 + " ОТВЕТОВ: " + result.attempts);
     $('.attempts', element).text(result.attempts);
     $(element).find('.weight').html('Набрано баллов: <me-span class="points"></span>');
@@ -118,35 +122,42 @@ function success_func(result) {
     if (result.max_attempts && result.max_attempts <= result.attempts) {
         $('.send_button', element).html('<p><strong>Попытки исчерпаны</strong></p>')
     };
-    if(result.correct>100) console.log("вы не указали все силы действкющие на объект")
+    if($('.me-comment', element).length == 0){
+        $('.problem-progress', element).append('<div class="me-comment" style="color:red"></div>');
+    }
+    if(result.correct<100){
+        $('.me-comment', element).html('<p>Вы не указали все силы действующие на объект</p>')
+    }
+   if(result.correct == 0 && $('.locforce', element).length > 0)
+        $('.me-comment', element).html('<p>Ошибка в выполнении задания</p>')
 };
 
 
 
 function scStatusMenu(){
-	if (stateMenu.visible){
-		document.getElementsByClassName('scRadiusMenu')[0].style.display='block';
-	}
-	else{
-		document.getElementsByClassName('scRadiusMenu')[0].style.display='none';
-	}
-	if (stateMenu.scRadiusMenuSector){
-		document.getElementsByClassName('scRadiusMenuSector')[0].style.display='block';
-    	document.getElementsByClassName('scRadiusMenuSector')[1].style.display='block';
-    	document.getElementsByClassName('scRadiusMenuSector')[2].style.display='block';
+    if (stateMenu.visible){
+        document.getElementsByClassName('scRadiusMenu')[0].style.display='block';
+    }
+    else{
+        document.getElementsByClassName('scRadiusMenu')[0].style.display='none';
+    }
+    if (stateMenu.scRadiusMenuSector){
+        document.getElementsByClassName('scRadiusMenuSector')[0].style.display='block';
+        document.getElementsByClassName('scRadiusMenuSector')[1].style.display='block';
+        document.getElementsByClassName('scRadiusMenuSector')[2].style.display='block';
 
-	}
-	else{
-		document.getElementsByClassName('scRadiusMenuSector')[0].style.display='none';
-    	document.getElementsByClassName('scRadiusMenuSector')[1].style.display='none';
-    	document.getElementsByClassName('scRadiusMenuSector')[2].style.display='none';
-	}
-	if(stateMenu.scProtractor){
-		document.getElementById('protractor').style.display='block'
-	}
-	else{
-		document.getElementById('protractor').style.display='none'
-	}
+    }
+    else{
+        document.getElementsByClassName('scRadiusMenuSector')[0].style.display='none';
+        document.getElementsByClassName('scRadiusMenuSector')[1].style.display='none';
+        document.getElementsByClassName('scRadiusMenuSector')[2].style.display='none';
+    }
+    if(stateMenu.scProtractor){
+        document.getElementById('protractor').style.display='block'
+    }
+    else{
+        document.getElementById('protractor').style.display='none'
+    }
 
 document.getElementById('force').style.display='none';
 document.getElementById('moment').style.display='none';
@@ -159,28 +170,28 @@ scStatusMenu();
 
 var pt   = document.getElementById("svg").createSVGPoint()
 
-		function cursorPoint(evt){
-		  pt.x = evt.clientX; pt.y = evt.clientY;
-		  return pt.matrixTransform(svg.getScreenCTM().inverse());
-		}
+        function cursorPoint(evt){
+          pt.x = evt.clientX; pt.y = evt.clientY;
+          return pt.matrixTransform(svg.getScreenCTM().inverse());
+        }
 
 
 
 document.getElementById('protractor').addEventListener("mousemove", function(e) {
-	
-	var loc = cursorPoint(e);
-	x=loc.x;
-	y=loc.y;
+    
+    var loc = cursorPoint(e);
+    x=loc.x;
+    y=loc.y;
 
-  	forcePosition.x = menuPosition.x;
-  	forcePosition.y = menuPosition.y;
-  	atan2=Math.atan2((-y+menuPosition.y),(x-menuPosition.x))//*180/Math.PI;
-  	leftOrRigth= (forcePosition.x-x > 0 ? -1 : 1)
-  	angleDegrees = (atan2 > 0 ? atan2 * 360 / (2*Math.PI) : 360 + atan2 * 360 / (2*Math.PI));
+    forcePosition.x = menuPosition.x;
+    forcePosition.y = menuPosition.y;
+    atan2=Math.atan2((-y+menuPosition.y),(x-menuPosition.x))//*180/Math.PI;
+    leftOrRigth= (forcePosition.x-x > 0 ? -1 : 1)
+    angleDegrees = (atan2 > 0 ? atan2 * 360 / (2*Math.PI) : 360 + atan2 * 360 / (2*Math.PI));
 
-  	//arcctg = Math.a
-  	forcePosition.angle =Math.floor(angleDegrees); //Math.floor(angleDegrees*0.3)/0.3;
-  	console.log(forcePosition.angle, Math.floor(Math.floor(forcePosition.angle*0.333333)/0.333333));
+    //arcctg = Math.a
+    forcePosition.angle =Math.floor(angleDegrees); //Math.floor(angleDegrees*0.3)/0.3;
+    console.log(forcePosition.angle, Math.floor(Math.floor(forcePosition.angle*0.333333)/0.333333));
   
 
   document.getElementById('moment').setAttribute("transform", "scale("+ leftOrRigth +", 1)");
@@ -188,30 +199,30 @@ document.getElementById('protractor').addEventListener("mousemove", function(e) 
 });
 document.getElementById('protractor').onclick = function(){
 
-	var force = document.getElementById(forcePosition.type).cloneNode(true);
-	force.classList.add("locforce");
-	//force.firstElementChild.setAttribute('fill','#000');
-	if (forcePosition.type == 'force'){
-		force.setAttribute("transform","translate("+forcePosition.x+","+forcePosition.y+") rotate("+((-1 * forcePosition.angle + 360)%360)+")");
+    var force = document.getElementById(forcePosition.type).cloneNode(true);
+    force.classList.add("locforce");
+    //force.firstElementChild.setAttribute('fill','#000');
+    if (forcePosition.type == 'force'){
+        force.setAttribute("transform","translate("+forcePosition.x+","+forcePosition.y+") rotate("+((-1 * forcePosition.angle + 360)%360)+")");
 
-	}
-	else{
-		force.setAttribute("transform", "translate("+forcePosition.x+","+forcePosition.y+") scale("+ leftOrRigth +", 1)");
-	}
+    }
+    else{
+        force.setAttribute("transform", "translate("+forcePosition.x+","+forcePosition.y+") scale("+ leftOrRigth +", 1)");
+    }
     force.id= MenuAbovePointId+"_"+forcePosition.angle;
-	console.log(force.id)
-	document.getElementById(MenuAbovePointId).parentNode.insertBefore(force, document.getElementById(MenuAbovePointId));
-	scStatusMenu();
+    console.log(force.id)
+    document.getElementById(MenuAbovePointId).parentNode.insertBefore(force, document.getElementById(MenuAbovePointId));
+    scStatusMenu();
 
 }
 
 
-	document.getElementById('scButtonOpenClose').onclick = function(){
-	if(this.parentNode.style.display!=='none'){
-		this.parentNode.style.display='none';
-		scStatusMenu();
-			}
-	else this.parentNode.style.display='block';
+    document.getElementById('scButtonOpenClose').onclick = function(){
+    if(this.parentNode.style.display!=='none'){
+        this.parentNode.style.display='none';
+        scStatusMenu();
+            }
+    else this.parentNode.style.display='block';
 }
 
 
@@ -220,25 +231,25 @@ for (var i=0; i<document.getElementsByClassName('click').length; i++){
     document.getElementsByClassName('click')[i].onclick = function(){
 
 
-	    console.log('scMenu above point#'+this.id);
-	    if (this.id) {
-	    	MenuAbovePointId = this.id}
-	    else  MenuAbovePointId = this.id = generationID();
-	    	    console.log(MenuAbovePointId)
+        console.log('scMenu above point#'+this.id);
+        if (this.id) {
+            MenuAbovePointId = this.id}
+        else  MenuAbovePointId = this.id = generationID();
+                console.log(MenuAbovePointId)
 
 
-	    menuPosition.x = Number(this.getAttribute("cx"));
-	    menuPosition.y = Number(this.getAttribute("cy"));
-	    document.getElementsByClassName('scRadiusMenu')[0].setAttribute("transform", "translate("+this.getAttribute("cx")+","+this.getAttribute("cy")+")")
-	    document.getElementsByClassName('scRadiusMenu')[0].style.display='block';
+        menuPosition.x = Number(this.getAttribute("cx"));
+        menuPosition.y = Number(this.getAttribute("cy"));
+        document.getElementsByClassName('scRadiusMenu')[0].setAttribute("transform", "translate("+this.getAttribute("cx")+","+this.getAttribute("cy")+")")
+        document.getElementsByClassName('scRadiusMenu')[0].style.display='block';
 
-	}
+    }
 }
 document.getElementById('scForce').onclick = function(){
-	forcePosition.type = "force";
-		console.log(forcePosition.type)
+    forcePosition.type = "force";
+        console.log(forcePosition.type)
     if(document.getElementById('protractor').style.display!=='none'){
-    	document.getElementById('protractor').style.display='none';
+        document.getElementById('protractor').style.display='none';
     }
 
     else {document.getElementById('protractor').style.display='block';
@@ -252,10 +263,10 @@ document.getElementById('scForce').onclick = function(){
 }
 
 document.getElementById('scMoment').onclick = function(){
-	forcePosition.type = "moment";
-	console.log(forcePosition.type)
+    forcePosition.type = "moment";
+    console.log(forcePosition.type)
     if(document.getElementById('protractor').style.display!=='none'){
-    	document.getElementById('protractor').style.display='none';
+        document.getElementById('protractor').style.display='none';
     }
 
     else {document.getElementById('protractor').style.display='block';
@@ -268,8 +279,8 @@ document.getElementById('scMoment').onclick = function(){
 
 }
 document.getElementById('scDelAllinPoint').onclick = function(){
-	while (document.getElementById(MenuAbovePointId).parentNode.getElementsByClassName('locforce')[0])
-	document.getElementById(MenuAbovePointId).parentNode.removeChild(document.getElementById(MenuAbovePointId).parentNode.getElementsByClassName('locforce')[0]);
+    while (document.getElementById(MenuAbovePointId).parentNode.getElementsByClassName('locforce')[0])
+    document.getElementById(MenuAbovePointId).parentNode.removeChild(document.getElementById(MenuAbovePointId).parentNode.getElementsByClassName('locforce')[0]);
 }
 
 mengine.genAnswerObj = function (){
@@ -309,13 +320,13 @@ elementDOM.querySelector('#scButtonRaw').onclick = function(){
 };
 
 elementSVG = {
-	NS: 'http://www.w3.org/2000/svg',
-	createElement: function(name, id, className){
-		var element = document.createElementNS(this.NS, name);
-		if(id)
-			element.id = id;
-		if(className)
-			element.classList.add(className)
+    NS: 'http://www.w3.org/2000/svg',
+    createElement: function(name, id, className){
+        var element = document.createElementNS(this.NS, name);
+        if(id)
+            element.id = id;
+        if(className)
+            element.classList.add(className)
 
         return element;
     }
