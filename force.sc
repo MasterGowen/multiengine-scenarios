@@ -111,7 +111,7 @@ var stateMenu={visible:false, scRadiusMenuSector:true, scProtractor:false };
 
 
     function success_func(result) {
-        //console.log("Количество баллов: " + result.correct/result.weight*100 + " ОТВЕТОВ: " + result.attempts);
+        ////console.log("Количество баллов: " + result.correct/result.weight*100 + " ОТВЕТОВ: " + result.attempts);
         $('.attempts', element).text(result.attempts);
         $(element).find('.weight').html('Набрано баллов: <me-span class="points"></span>');
         $('.points', element).text(result.correct + ' из ' + result.weight);
@@ -179,7 +179,7 @@ document.getElementById('protractor').addEventListener("mousemove", function(e) 
 
   	//arcctg = Math.a
   	forcePosition.angle =Math.floor(angleDegrees); //Math.floor(angleDegrees*0.3)/0.3;
-  	console.log(forcePosition.angle, Math.floor(Math.floor(forcePosition.angle*0.333333)/0.333333));
+  	//console.log(forcePosition.angle, Math.floor(Math.floor(forcePosition.angle*0.333333)/0.333333));
   
 
   document.getElementById('moment').setAttribute("transform", "scale("+ leftOrRigth +", 1)");
@@ -199,7 +199,7 @@ document.getElementById('protractor').onclick = function(){
         force.id= MenuAbovePointId+"_m"+leftOrRigth;
 	}
     
-	console.log(force.id)
+	//console.log(force.id)
 	document.getElementById(MenuAbovePointId).parentNode.insertBefore(force, document.getElementById(MenuAbovePointId));
 	scStatusMenu();
 
@@ -220,11 +220,11 @@ for (var i=0; i<document.getElementsByClassName('click').length; i++){
     document.getElementsByClassName('click')[i].onclick = function(){
 
 
-	    console.log('scMenu above point#'+this.id);
+	    //console.log('scMenu above point#'+this.id);
 	    if (this.id) {
 	    	MenuAbovePointId = this.id}
 	    else  MenuAbovePointId = this.id = generationID();
-	    	    console.log(MenuAbovePointId)
+	    	    //console.log(MenuAbovePointId)
 
 
 	    menuPosition.x = Number(this.getAttribute("cx"));
@@ -236,7 +236,7 @@ for (var i=0; i<document.getElementsByClassName('click').length; i++){
 }
 document.getElementById('scForce').onclick = function(){
 	forcePosition.type = "force";
-		console.log(forcePosition.type)
+		//console.log(forcePosition.type)
     if(document.getElementById('protractor').style.display!=='none'){
     	document.getElementById('protractor').style.display='none';
     }
@@ -253,7 +253,7 @@ document.getElementById('scForce').onclick = function(){
 
 document.getElementById('scMoment').onclick = function(){
 	forcePosition.type = "moment";
-	console.log(forcePosition.type)
+	//console.log(forcePosition.type)
     if(document.getElementById('protractor').style.display!=='none'){
     	document.getElementById('protractor').style.display='none';
     }
@@ -274,10 +274,10 @@ document.getElementById('scDelAllinPoint').onclick = function(){
 
 mengine.genAnswerObj = function (){
 var dict = {};
-    console.log(1);
+    //console.log(1);
     for (var i=0; i<document.getElementsByClassName('click').length; i++){
         var arr = [];
-        if (document.getElementsByClassName('click')[i].parentNode.getElementsByClassName("locforce").length){console.log(2); 
+        if (document.getElementsByClassName('click')[i].parentNode.getElementsByClassName("locforce").length){//console.log(2); 
              
             for (var j=0; j<document.getElementsByClassName('click')[i].parentNode.getElementsByClassName("locforce").length; j++){
 
@@ -287,7 +287,7 @@ var dict = {};
         }
         dict[document.getElementsByClassName('click')[i].id.valueOf()] = arr;
     }
-    console.log(JSON.stringify(dict));
+    //console.log(JSON.stringify(dict));
     return dict;
 }
 
