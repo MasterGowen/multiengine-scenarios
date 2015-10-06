@@ -126,10 +126,10 @@ function success_func(result) {
         $('.problem-progress', element).append('<div class="me-comment" style="color:red"></div>');
     }
     if(result.correct<100){
-        $('.me-comment', element).html('<p>Вы не указали все силы действующие на объект</p>')
+        $('.me-comment', element).html('<p>Одна или несколько сил не были выставлены</p>')
     }
    if(result.correct == 0 && $('.locforce', element).length > 0)
-        $('.me-comment', element).html('<p>Ошибка в выполнении задания</p>')
+        $('.me-comment', element).html('<p>Ошибка. Одна или несколько сил на эскизе сил, не относятся к FBD</p>')
 };
 
 
