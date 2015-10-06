@@ -128,6 +128,9 @@ var stateMenu={visible:false, scRadiusMenuSector:true, scProtractor:false };
    		if(result.correct == 0 && $('.locforce', element).length > 0){
         	$('.me-comment', element).html('<i class="fa fa-times-circle"></i> Ошибка. Одна или несколько сил на эскизе не относятся к FBD')
    		};
+   		if(result.correct==100){
+        	$('.me-comment', element).remove();
+    	};
     };
 
     
