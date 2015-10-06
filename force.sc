@@ -96,14 +96,6 @@ css::
 #raw{
 	background-color: #F9F9F9
 }
-.me-comment{
-	color: rgb(212, 100, 70);
-    background: #e6e6e6;
-    padding: 6px;
-    box-shadow: 0 2px 1px grey;
-    margin: 2px 0 10px;
-    font-size: 120%;
-}
 
 
 
@@ -128,7 +120,7 @@ var stateMenu={visible:false, scRadiusMenuSector:true, scProtractor:false };
             $('.Save', element).remove();
         };
         if($('.me-comment', element).length == 0){
-        	$('.problem-progress', element).after('<div class="me-comment"></div>');
+        	$('.problem-progress', element).after('<div class="me-comment" style="color: rgb(212, 100, 70); background: #e6e6e6; padding: 6px; box-shadow: 0 2px 1px grey; margin: 2px 0 10px; font-size: 120%;"></div>');
     	};
     	if(result.correct<100){
         	$('.me-comment', element).html('<i class="fa fa-exclamation-circle"></i> Одна или несколько сил не были выставлены')
