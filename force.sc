@@ -96,7 +96,14 @@ css::
 #raw{
 	background-color: #F9F9F9
 }
-
+.me-comment{
+	color: rgb(212, 100, 70);
+    background: #e6e6e6;
+    padding: 6px;
+    box-shadow: 0 2px 1px grey;
+    margin: 2px 0 10px;
+    font-size: 120%;
+}
 
 
 
@@ -121,13 +128,13 @@ var stateMenu={visible:false, scRadiusMenuSector:true, scProtractor:false };
             $('.Save', element).remove();
         };
         if($('.me-comment', element).length == 0){
-        	$('.problem-progress', element).append('<div class="me-comment" style="color:red"></div>');
+        	$('.problem-progress', element).after('<div class="me-comment"></div>');
     	};
     	if(result.correct<100){
-        	$('.me-comment', element).html('<p>Одна или несколько сил не были выставлены</p>')
+        	$('.me-comment', element).html('<i class="fa fa-exclamation-circle"></i> Одна или несколько сил не были выставлены')
     	};
    		if(result.correct == 0 && $('.locforce', element).length > 0){
-        	$('.me-comment', element).html('<p>Ошибка. Одна или несколько сил на эскизе сил, не относятся к FBD</p>')
+        	$('.me-comment', element).html('<i class="fa fa-times-circle"></i> Ошибка. Одна или несколько сил на эскизе сил, не относятся к FBD')
    		};
     };
 
