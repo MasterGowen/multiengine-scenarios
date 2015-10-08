@@ -41,8 +41,8 @@ cssStudent::
 
 .cell {
     border: 1px solid white;
-   // min-width: 110px;
-    width: 150px;
+    min-width: 150px;
+    //width: 150px;
     height: 60px;
     cursor: pointer;
     background: #D8E6F3;
@@ -162,7 +162,7 @@ css::
 
 .cell {
     border: 1px solid white;
-    width: 150px;
+   // min-width: 150px;
     height: 60px;
     cursor: pointer;
     background: #D8E6F3;
