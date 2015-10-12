@@ -69,6 +69,7 @@ cssStudent::
     cursor: move;
     margin: 5px;
     padding: 2px 10px;
+    min-width: 70px;
     max-width: 300px;
     display: inline-block;
 }
