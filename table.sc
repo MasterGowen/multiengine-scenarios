@@ -73,6 +73,7 @@ cssStudent::
     padding: 2px 10px;
     min-width: 70px;
     max-width: 300px;
+    min-height: 25px;
     display: inline-block;
 }
 
