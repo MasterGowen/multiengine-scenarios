@@ -38,7 +38,9 @@ cssStudent::
 .xmodule_display.xmodule_CapaModule div.problem table th {
     vertical-align: sub !important;
 }
-
+.xmodule_display.xmodule_CapaModule div.problem div>span {
+    display: inline !important;
+}
 .cell {
     border: 1px solid white;
     min-width: 150px;
