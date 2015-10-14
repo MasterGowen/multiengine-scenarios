@@ -300,7 +300,7 @@ var dict = {};
         }
         dict[document.getElementsByClassName('click')[i].id.valueOf()] = arr;
     }
-    //console.log(JSON.stringify(dict));
+    mengine.studentStateJSON = JSON.stringify(dict);
     return dict;
 }
 
