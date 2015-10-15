@@ -125,7 +125,7 @@ function success_func(result) {
     if($('.me-comment', element).length == 0){
         $('.problem-progress', element).append('<div class="me-comment" style="color:red"></div>');
     }
-    if(result.correct<result.weight){
+    if(result.correct < result.weight){
         $('.me-comment', element).html('<p>Одна или несколько сил не были выставлены</p>')
     }
    if(result.correct == 0 && $('.locforce', element).length > 0)
