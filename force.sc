@@ -122,13 +122,13 @@ var stateMenu={visible:false, scRadiusMenuSector:true, scProtractor:false };
         if($('.me-comment', element).length == 0){
         	$('.problem-progress', element).after('<div class="me-comment" style="color: rgb(212, 100, 70); background: #e6e6e6; padding: 6px; box-shadow: 0 2px 1px grey; margin: 2px 0 10px; font-size: 120%;"></div>');
     	};
-    	if(result.correct<100){
+    	if(result.correct < result.weight){
         	$('.me-comment', element).html('<i class="fa fa-exclamation-circle"></i> Одна или несколько сил не были выставлены')
     	};
    		if(result.correct == 0 && $('.locforce', element).length > 0){
         	$('.me-comment', element).html('<i class="fa fa-times-circle"></i> Ошибка. Одна или несколько сил на эскизе не относятся к FBD')
    		};
-   		if(result.correct==100){
+   		if(result.correct == result.weight){
         	$('.me-comment', element).remove();
     	};
     };
