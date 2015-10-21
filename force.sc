@@ -389,8 +389,7 @@ for (var i=0; i<document.getElementsByClassName('click').length; i++){
 }
 elementDOM.querySelector('#view').querySelector('svg').appendChild(scRadiusMenu);
 stringSVG = elementDOM.querySelector('#view').innerHTML;
-editor.setValue(stringSVG);
-
+elementDOM.querySelector('#student_view_template').value = stringSVG;
 }
 
 
