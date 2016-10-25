@@ -29,6 +29,7 @@ html::
 cssStudent::
 
 .answerPlaceStudent td{
+	border: 1px solid #3a3a3a !important;
 }
 
 #allAnswers{
