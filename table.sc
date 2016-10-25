@@ -28,9 +28,14 @@ html::
 
 cssStudent::
 
-.answerPlaceStudent td{
+.answerPlaceStudent .cell{
 	border: 1px solid #3a3a3a !important;
 }
+
+.answerPlaceStudent .first{
+    border: 1px solid #3a3a3a !important;
+}
+
 
 #allAnswers{
     margin-top: -21px;
