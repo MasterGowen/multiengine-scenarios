@@ -28,6 +28,9 @@ html::
 
 cssStudent::
 
+.answerPlaceStudent td{
+}
+
 #allAnswers{
     margin-top: -21px;
     border: 1px solid #e3e3e3;
