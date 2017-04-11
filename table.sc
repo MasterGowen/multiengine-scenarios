@@ -19,7 +19,7 @@ html::
     </div>
 
     <div id="scWindowView" hidden='true'>
-        <div class="scEditButtonView" id="fixLine">Фиксировать строку</div>
+        <div class="scEditButtonView" id="fixLine">@Фиксировать строку</div>
         <div class="scEditButtonView" id="fixColumn">Фиксировать столбец</div>
         <div class="scEditButtonView" id="addRow">+ Добавить строку</div>
         <div class="scEditButtonView" id="addColumn">+ Добавить столбец</div>
