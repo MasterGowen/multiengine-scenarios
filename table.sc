@@ -337,7 +337,7 @@ javascriptStudio::
 /**
 * JavaScript работаюший со сторновы студии
 */
-console.log("OLLOLOLOLO");
+console.log("SSSSSSSSSSSSSSSS");
 // Показывает все скрытые поля отноящиеся к XBlock'у в целом.
 elementDOM.querySelector('#viewSettings').onclick = function(){
 
@@ -437,6 +437,7 @@ function SetDragAttr(value){
 */
 function deleteAttributes(value, undeletableAttributes){
     var i = 0;
+    if (!undeletableAttributes.length) {undeletableAttributes = ["rowspan", "colspan"]};
     while(value.attributes.length-undeletableAttributes.length>0)
     {
         if (value.attributes[i].name in undeletableAttributes){
