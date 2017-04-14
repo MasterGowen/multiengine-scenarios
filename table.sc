@@ -437,7 +437,6 @@ function SetDragAttr(value){
 */
 function deleteAttributes(value, undeletableAttributes){
     var i = 0;
-    if (!undeletableAttributes.length) {undeletableAttributes = ["rowspan", "colspan"]};
     while(value.attributes.length-undeletableAttributes.length>0)
     {
         if (value.attributes[i].name in undeletableAttributes){
