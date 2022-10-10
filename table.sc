@@ -38,7 +38,7 @@ cssStudent::
 
 
 #allAnswers{
-    margin-top: -21px;
+    margin-top: 21px;
     border: 1px solid #e3e3e3;
     min-height: 30px;
 }
