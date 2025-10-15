@@ -257,7 +257,8 @@ for (key in studentAnswer) {
             }
 }
 catch(e){
-    console.log(e);
+    console.error("Ошибка при обработке studentState:", e);
+    console.log("Содержимое studentState:", studentState);
 }
 
 function drag(){
